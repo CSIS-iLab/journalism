@@ -43,19 +43,19 @@ function modernjournalist_cpt_testimonials() {
 		'label'                 => __( 'Testimonial', 'modern-journalist' ),
 		'description'           => __( 'Testimonials', 'modern-journalist' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt' ),
-		'taxonomies'            => none,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-format-quote',
+		'menu_icon'             => 'dashicons-category',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => true,
-		'exclude_from_search'   => true,
+		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 	);
@@ -63,6 +63,7 @@ function modernjournalist_cpt_testimonials() {
 
 }
 add_action( 'init', 'modernjournalist_cpt_testimonials', 0 );
+
 
 /*----------  Custom Meta Fields  ----------*/
 /**

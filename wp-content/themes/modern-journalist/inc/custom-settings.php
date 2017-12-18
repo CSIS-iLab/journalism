@@ -77,11 +77,7 @@ function modernjournalist_admin_init_section_homepage() {
 		'wp_filter_post_kses'
 	);
 
-
-
 }
-
-
 
 
 add_action( 'admin_init', 'modernjournalist_admin_init_section_footer' );

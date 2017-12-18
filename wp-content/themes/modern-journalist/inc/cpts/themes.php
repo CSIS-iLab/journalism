@@ -182,7 +182,7 @@ function themes_build_meta_box( $post ) {
 			?>
 		</p>
 
-	
+	</div>
 <?php
 }
 /**

@@ -11,37 +11,37 @@
 function modernjournalist_cpt_testimonials() {
 
 	$labels = array(
-		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'modernjournalist' ),
-		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'modernjournalist' ),
-		'menu_name'             => __( 'Testimonials', 'modernjournalist' ),
-		'name_admin_bar'        => __( 'Testimonials', 'modernjournalist' ),
-		'archives'              => __( 'Testimonials Archives', 'modernjournalist' ),
-		'attributes'            => __( 'Testimonials Attributes', 'modernjournalist' ),
-		'parent_item_colon'     => __( 'Parent Testimonial', 'modernjournalist' ),
-		'all_items'             => __( 'All Testimonials', 'modernjournalist' ),
-		'add_new_item'          => __( 'Add New Testimonial', 'modernjournalist' ),
-		'add_new'               => __( 'Add Testimonial', 'modernjournalist' ),
-		'new_item'              => __( 'New Testimonial', 'modernjournalist' ),
-		'edit_item'             => __( 'Edit Testimonial', 'modernjournalist' ),
-		'update_item'           => __( 'Update Testimonial', 'modernjournalist' ),
-		'view_item'             => __( 'View Testimonial', 'modernjournalist' ),
-		'view_items'            => __( 'View Testimonials', 'modernjournalist' ),
-		'search_items'          => __( 'Search Testimonial', 'modernjournalist' ),
-		'not_found'             => __( 'Not found', 'modernjournalist' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'modernjournalist' ),
-		'featured_image'        => __( 'Featured Image', 'modernjournalist' ),
-		'set_featured_image'    => __( 'Set featured image', 'modernjournalist' ),
-		'remove_featured_image' => __( 'Remove featured image', 'modernjournalist' ),
-		'use_featured_image'    => __( 'Use as featured image', 'modernjournalist' ),
-		'insert_into_item'      => __( 'Insert into Testimonial', 'modernjournalist' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Testimonial', 'modernjournalist' ),
-		'items_list'            => __( 'Testimonials list', 'modernjournalist' ),
-		'items_list_navigation' => __( 'Testimonials list navigation', 'modernjournalist' ),
-		'filter_items_list'     => __( 'Filter Testimonials list', 'modernjournalist' ),
+		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'modern-journalist' ),
+		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'modern-journalist' ),
+		'menu_name'             => __( 'Testimonials', 'modern-journalist' ),
+		'name_admin_bar'        => __( 'Testimonials', 'modern-journalist' ),
+		'archives'              => __( 'Testimonials Archives', 'modern-journalist' ),
+		'attributes'            => __( 'Testimonials Attributes', 'modern-journalist' ),
+		'parent_item_colon'     => __( 'Parent Testimonial', 'modern-journalist' ),
+		'all_items'             => __( 'All Testimonials', 'modern-journalist' ),
+		'add_new_item'          => __( 'Add New Testimonial', 'modern-journalist' ),
+		'add_new'               => __( 'Add Testimonial', 'modern-journalist' ),
+		'new_item'              => __( 'New Testimonial', 'modern-journalist' ),
+		'edit_item'             => __( 'Edit Testimonial', 'modern-journalist' ),
+		'update_item'           => __( 'Update Testimonial', 'modern-journalist' ),
+		'view_item'             => __( 'View Testimonial', 'modern-journalist' ),
+		'view_items'            => __( 'View Testimonials', 'modern-journalist' ),
+		'search_items'          => __( 'Search Testimonial', 'modern-journalist' ),
+		'not_found'             => __( 'Not found', 'modern-journalist' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'modern-journalist' ),
+		'featured_image'        => __( 'Featured Image', 'modern-journalist' ),
+		'set_featured_image'    => __( 'Set featured image', 'modern-journalist' ),
+		'remove_featured_image' => __( 'Remove featured image', 'modern-journalist' ),
+		'use_featured_image'    => __( 'Use as featured image', 'modern-journalist' ),
+		'insert_into_item'      => __( 'Insert into Testimonial', 'modern-journalist' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Testimonial', 'modern-journalist' ),
+		'items_list'            => __( 'Testimonials list', 'modern-journalist' ),
+		'items_list_navigation' => __( 'Testimonials list navigation', 'modern-journalist' ),
+		'filter_items_list'     => __( 'Filter Testimonials list', 'modern-journalist' ),
 	);
 	$args = array(
-		'label'                 => __( 'Testimonial', 'modernjournalist' ),
-		'description'           => __( 'Testimonials', 'modernjournalist' ),
+		'label'                 => __( 'Testimonial', 'modern-journalist' ),
+		'description'           => __( 'Testimonials', 'modern-journalist' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt' ),
 		'taxonomies'            => none,
@@ -62,7 +62,7 @@ function modernjournalist_cpt_testimonials() {
 	register_post_type( 'testimonials', $args );
 
 }
-add_action( 'init', 'modernjournalist_cpt_testimonials', 0 );
+add_action( 'init', 'modern-journalist_cpt_testimonials', 0 );
 
 /*----------  Custom Meta Fields  ----------*/
 /**
@@ -72,7 +72,7 @@ add_action( 'init', 'modernjournalist_cpt_testimonials', 0 );
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
  */
 function testimonials_add_meta_boxes( $post ) {
-	add_meta_box( 'testimonials_meta_box', __( 'Testimonials Information', 'modernjournalist' ), 'testimonials_build_meta_box', 'testimonials', 'normal', 'high' );
+	add_meta_box( 'testimonials_meta_box', __( 'Testimonials Information', 'modern-journalist' ), 'testimonials_build_meta_box', 'testimonials', 'normal', 'high' );
 	add_meta_box( 'featuredt_meta_box', __( 'Featured', 'modern-journalist' ), 'featuredt_build_meta_box', 'testimonials', 'side', 'low' );
 }
 add_action( 'add_meta_boxes_testimonials', 'testimonials_add_meta_boxes' );
@@ -120,17 +120,17 @@ function testimonials_build_meta_box( $post ) {
 	?>
 	<div class='inside'>
 	
-		<h3><?php esc_html_e( 'Role', 'modernjournalist' ); ?></h3>
+		<h3><?php esc_html_e( 'Role', 'modern-journalist' ); ?></h3>
 		<p>
 			<input type="text" class="large-text" name="role" value="<?php echo esc_attr( $current_role ); ?>" />
 		</p>
 
-		<h3><?php esc_html_e( 'Institution', 'modernjournalist' ); ?></h3>
+		<h3><?php esc_html_e( 'Institution', 'modern-journalist' ); ?></h3>
 		<p>
 			<input type="text" class="large-text" name="institution" value="<?php echo esc_attr( $current_institution ); ?>" />
 		</p>
 
-		<h3><?php esc_html_e( 'Date', 'modernjournalist' ); ?></h3>
+		<h3><?php esc_html_e( 'Date', 'modern-journalist' ); ?></h3>
 		<p>
 			<input type="text" class="medium-text" placeholder="May 2017" name="date" value="<?php echo esc_attr( $current_date ); ?>" />
 		</p>

@@ -107,4 +107,4 @@ Thumbs.db
 
 wp-content/themes/modern-journalist/.sass-cache
 **/.DS_Store
-wp-content/themes/modern-journalist/*.css
+# wp-content/themes/modern-journalist/*.css

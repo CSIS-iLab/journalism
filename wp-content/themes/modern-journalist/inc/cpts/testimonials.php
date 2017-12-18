@@ -62,7 +62,7 @@ function modernjournalist_cpt_testimonials() {
 	register_post_type( 'testimonials', $args );
 
 }
-add_action( 'init', 'modern-journalist_cpt_testimonials', 0 );
+add_action( 'init', 'modernjournalist_cpt_testimonials', 0 );
 
 /*----------  Custom Meta Fields  ----------*/
 /**

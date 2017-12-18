@@ -163,7 +163,7 @@ require get_template_directory() . '/inc/custom-settings.php';
 /**
  * Register Custom Post Types
  */
-require get_template_directory() . '/inc/custom-post-types.php';
+//require get_template_directory() . '/inc/custom-post-types.php';
 
 /**
  * Register Custom Post Meta Boxes for posts

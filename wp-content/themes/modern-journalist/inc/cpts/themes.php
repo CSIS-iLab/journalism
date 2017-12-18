@@ -123,6 +123,8 @@ function themes_build_meta_box( $post ) {
 	$current_faculty = get_post_meta( $post->ID, '_themes_faculty', true );
 	$current_students = get_post_meta( $post->ID, '_themes_students', true );
 	$current_partners = get_post_meta( $post->ID, '_themes_partners', true );
+	$current_test = get_post_meta( $post->ID, '_themes_test', true );
+
 
 	?>
 	<div class='inside'>
@@ -180,7 +182,10 @@ function themes_build_meta_box( $post ) {
 				);
 			?>
 		</p>
-
+<h3><?php esc_html_e( 'Test', 'modern-journalist' ); ?></h3>
+		<p>
+			<input type="text" class="large-text"  name="test" value="<?php echo esc_attr( $current_test ); ?>" />
+		</p>
 	</div>
 <?php
 }
@@ -231,6 +236,10 @@ function themes_save_meta_box_data( $post_id ) {
 		update_post_meta( $post_id, '_theme_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) );
 	} else {
 		update_post_meta( $post_id, '_theme_is_featured', 0 );
+	}
+		// Test
+	if ( isset( $_REQUEST['test'] ) ) { // Input var okay.
+		update_post_meta( $post_id, '_themes_test', wp_kses_post( wp_unslash( $_POST['test'] ) ) ); // Input var okay.
 	}
 	
 //	var_dump($_REQUEST);

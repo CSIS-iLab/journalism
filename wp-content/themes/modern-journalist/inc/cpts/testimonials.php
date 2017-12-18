@@ -73,7 +73,7 @@ add_action( 'init', 'modernjournalist_cpt_testimonials', 0 );
  */
 function testimonials_add_meta_boxes( $post ) {
 	add_meta_box( 'testimonials_meta_box', __( 'Testimonials Information', 'modern-journalist' ), 'testimonials_build_meta_box', 'testimonials', 'normal', 'high' );
-	add_meta_box( 'featuredt_meta_box', __( 'Featured', 'modern-journalist' ), 'featuredt_build_meta_box', 'testimonials', 'side', 'low' );
+	
 }
 add_action( 'add_meta_boxes_testimonials', 'testimonials_add_meta_boxes' );
 

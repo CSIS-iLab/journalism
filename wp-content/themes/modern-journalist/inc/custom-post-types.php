@@ -2,7 +2,7 @@
 /**
 * Custom Post Types
 *
-*@package Modern-Journalism
+*@package Modern-Journalist
 */
 
 /*----------  Themes  ----------*/

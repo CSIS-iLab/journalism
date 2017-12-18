@@ -198,3 +198,4 @@ function add_featured_galleries_to_ctp( $post_types ) {
 }
 add_filter('fg_post_types', 'add_featured_galleries_to_ctp' );
 
+ 

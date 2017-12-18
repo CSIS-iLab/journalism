@@ -81,14 +81,7 @@ function modernjournalist_admin_init_section_homepage() {
 
 }
 
-/**
- * Contact section description.
- */
-function modernjournalist_display_section_homepage_message() {
-	echo 'The featured theme shown on the home page.';
-}
 
-add_action( 'admin_init', 'modernjournalist_admin_init_section_archives' );
 
 
 add_action( 'admin_init', 'modernjournalist_admin_init_section_footer' );

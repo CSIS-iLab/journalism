@@ -73,7 +73,8 @@ add_action( 'init', 'modernjournalist_cpt_themes', 0 );
  */
 function themes_add_meta_boxes( $post ) {
 	add_meta_box( 'themes_meta_box', __( 'Theme Information', 'modern-journalist' ), 'themes_build_meta_box', 'themes', 'normal', 'high' );
-		
+			add_meta_box( 'featured_meta_box', __( 'Featured', 'modern-journalist' ), 'featured_build_meta_box', 'themes', 'side', 'high' );
+
 }
 add_action( 'add_meta_boxes_themes', 'themes_add_meta_boxes' );
 
@@ -122,7 +123,6 @@ function themes_build_meta_box( $post ) {
 	$current_faculty = get_post_meta( $post->ID, '_themes_faculty', true );
 	$current_students = get_post_meta( $post->ID, '_themes_students', true );
 	$current_partners = get_post_meta( $post->ID, '_themes_partners', true );
-	$current_test = get_post_meta( $post->ID, '_themes_test', true );
 
 
 	?>
@@ -181,89 +181,8 @@ function themes_build_meta_box( $post ) {
 				);
 			?>
 		</p>
-?>
-	<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$('.metabox_submit').click(function(e) {
-		e.preventDefault();
-		$('#publish').click();
-	});
-	$('#add-row').on('click', function() {
-		var row = $('.empty-row.screen-reader-text').clone(true);
-		row.removeClass('empty-row screen-reader-text');
-		row.insertBefore('#repeatable-fieldset-one tbody>tr:last');
-		return false;
-	});
-	$('.remove-row').on('click', function() {
-		$(this).parents('tr').remove();
-		return false;
-	});
-	$('#repeatable-fieldset-one tbody').sortable({
-		opacity: 0.6,
-		revert: true,
-		cursor: 'move',
-		handle: '.sort'
-	});
-});
-	</script>
 
-	<table id="repeatable-fieldset-one" width="100%">
-	<thead>
-		<tr>
-			<th width="2%"></th>
-			<th width="30%">Name</th>
-			<th width="60%">URL</th>
-			<th width="2%"></th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php
-	if ( $repeatable_fields ) :
-		foreach ( $repeatable_fields as $field ) {
-?>
-	<tr>
-		<td><a class="button remove-row" href="#">-</a></td>
-		<td><input type="text" class="widefat" name="name[]" value="<?php if($field['name'] != '') echo esc_attr( $field['name'] ); ?>" /></td>
-
-		<td><input type="text" class="widefat" name="url[]" value="<?php if ($field['url'] != '') echo esc_attr( $field['url'] ); else echo 'http://'; ?>" /></td>
-		<td><a class="sort">|||</a></td>
-		
-	</tr>
-	<?php
-		}
-	else :
-		// show a blank one
-?>
-	<tr>
-		<td><a class="button remove-row" href="#">-</a></td>
-		<td><input type="text" class="widefat" name="name[]" /></td>
-
-
-		<td><input type="text" class="widefat" name="url[]" value="http://" /></td>
-<td><a class="sort">|||</a></td>
-		
-	</tr>
-	<?php endif; ?>
-
-	<!-- empty hidden one for jQuery -->
-	<tr class="empty-row screen-reader-text">
-		<td><a class="button remove-row" href="#">-</a></td>
-		<td><input type="text" class="widefat" name="name[]" /></td>
-
-
-		<td><input type="text" class="widefat" name="url[]" value="http://" /></td>
-<td><a class="sort">|||</a></td>
-		
-	</tr>
-	</tbody>
-	</table>
-
-	<p><a id="add-row" class="button" href="#">Add another</a>
-	<input type="submit" class="metabox_submit" value="Save" />
-	</p>
 	
-
-	</div>
 <?php
 }
 /**
@@ -314,10 +233,7 @@ function themes_save_meta_box_data( $post_id ) {
 	} else {
 		update_post_meta( $post_id, '_theme_is_featured', 0 );
 	}
-		// Test
-	if ( isset( $_REQUEST['test'] ) ) { // Input var okay.
-		update_post_meta( $post_id, '_themes_test', wp_kses_post( wp_unslash( $_POST['test'] ) ) ); // Input var okay.
-	}
+	
 	
 	
 //	var_dump($_REQUEST);

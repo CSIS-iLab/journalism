@@ -326,7 +326,6 @@ jQuery(document).ready(function($) {
     var vid = document.getElementById("bgvid");
     var pauseButton = document.querySelector("#home-pause");
 
-
     pauseButton.addEventListener("click", function() {
         if (vid.paused) {
             vid.play();

@@ -182,10 +182,88 @@ function themes_build_meta_box( $post ) {
 				);
 			?>
 		</p>
-<h3><?php esc_html_e( 'Test', 'modern-journalist' ); ?></h3>
-		<p>
-			<input type="text" class="large-text"  name="test" value="<?php echo esc_attr( $current_test ); ?>" />
-		</p>
+?>
+	<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$('.metabox_submit').click(function(e) {
+		e.preventDefault();
+		$('#publish').click();
+	});
+	$('#add-row').on('click', function() {
+		var row = $('.empty-row.screen-reader-text').clone(true);
+		row.removeClass('empty-row screen-reader-text');
+		row.insertBefore('#repeatable-fieldset-one tbody>tr:last');
+		return false;
+	});
+	$('.remove-row').on('click', function() {
+		$(this).parents('tr').remove();
+		return false;
+	});
+	$('#repeatable-fieldset-one tbody').sortable({
+		opacity: 0.6,
+		revert: true,
+		cursor: 'move',
+		handle: '.sort'
+	});
+});
+	</script>
+
+	<table id="repeatable-fieldset-one" width="100%">
+	<thead>
+		<tr>
+			<th width="2%"></th>
+			<th width="30%">Name</th>
+			<th width="60%">URL</th>
+			<th width="2%"></th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+	if ( $repeatable_fields ) :
+		foreach ( $repeatable_fields as $field ) {
+?>
+	<tr>
+		<td><a class="button remove-row" href="#">-</a></td>
+		<td><input type="text" class="widefat" name="name[]" value="<?php if($field['name'] != '') echo esc_attr( $field['name'] ); ?>" /></td>
+
+		<td><input type="text" class="widefat" name="url[]" value="<?php if ($field['url'] != '') echo esc_attr( $field['url'] ); else echo 'http://'; ?>" /></td>
+		<td><a class="sort">|||</a></td>
+		
+	</tr>
+	<?php
+		}
+	else :
+		// show a blank one
+?>
+	<tr>
+		<td><a class="button remove-row" href="#">-</a></td>
+		<td><input type="text" class="widefat" name="name[]" /></td>
+
+
+		<td><input type="text" class="widefat" name="url[]" value="http://" /></td>
+<td><a class="sort">|||</a></td>
+		
+	</tr>
+	<?php endif; ?>
+
+	<!-- empty hidden one for jQuery -->
+	<tr class="empty-row screen-reader-text">
+		<td><a class="button remove-row" href="#">-</a></td>
+		<td><input type="text" class="widefat" name="name[]" /></td>
+
+
+		<td><input type="text" class="widefat" name="url[]" value="http://" /></td>
+<td><a class="sort">|||</a></td>
+		
+	</tr>
+	</tbody>
+	</table>
+
+	<p><a id="add-row" class="button" href="#">Add another</a>
+	<input type="submit" class="metabox_submit" value="Save" />
+	</p>
+	
+
 	</div>
 <?php
 }

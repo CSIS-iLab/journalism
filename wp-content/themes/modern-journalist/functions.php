@@ -169,6 +169,10 @@ require get_template_directory() . '/inc/custom-post-types.php';
  * Register Custom Post Meta Boxes for posts
  */
 require get_template_directory() . '/inc/custom-post-meta.php';
+/**
+ * Register Custom Post Types
+ */
+require get_template_directory() . '/inc/custom-taxonomies.php';
 
 
 /**

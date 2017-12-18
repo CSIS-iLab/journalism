@@ -38,16 +38,6 @@ add_action( 'admin_init', 'modernjournalist_admin_init_section_homepage' );
  * Creates the "Homepage" settings section.
  */
 function modernjournalist_admin_init_section_homepage() {
-	$post_types = array( 'post', 'events', 'data' );
-	$post_selection = array();
-	foreach( $post_types as $type ) {
-		$post_selection[$type] = get_posts(
-	        array(
-	            'post_type'  => $type,
-	            'numberposts' => -1
-	        )
-	    );
-	}
 
 	add_settings_section(
 		'modernjournalist_settings_section_homepage',

@@ -1,0 +1,97 @@
+/*=============================
+=        Related Content      =
+=============================*/
+
+
+.entry-footer {
+	    display: block;
+    background-color: $color-ltgray;
+    margin-top: 0;
+       margin-bottom: 0;
+    margin-top: 3rem;
+     @include breakpoint("medium") {
+        margin-top: 0;
+
+        .vertical-left {
+        	padding: 1.5rem 1rem 0rem 1rem;
+        }
+    }
+}
+.related-posts {
+    @include breakpoint("medium") {
+margin-left: 3rem !important;
+&:after {
+    	display: block;
+    	content: " ";
+    	position: absolute;
+    	width: 2rem;
+    	height: 2rem;
+    	border-left: 2px solid $color-medgray;
+    	bottom: -2rem;
+
+    }
+}
+
+
+.related-post-img {
+    padding: 0;
+    position: relative;
+    height: 10rem;
+    overflow: hidden;
+    width: 100vw ;
+   
+    padding: 0 !important;
+    @include breakpoint("medium") {
+        display: flex;
+        order: 2;
+        width: calc(100%);
+        margin-left: 0;
+        margin-right: 0;
+        height: unset;
+    }
+    img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: auto;
+        width: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        @include breakpoint("medium") {
+        	        width: auto;
+        height: 100%;
+        }
+    }
+}
+
+.related-post-content {
+    margin-top: 1rem;
+    position: relative;
+    a {
+        clear: both;
+        font-family: $font__magneta;
+        font-weight: 200;
+        font-size: 1.5rem;
+        padding-top: 2rem;
+        color: black;
+        text-decoration: none;
+
+        @include breakpoint("medium") {
+            font-size: 2rem;
+            padding-top: 0rem;
+        }
+    }
+    @include breakpoint("medium") {
+        display: flex;
+        flex-direction: column;
+        order: 1;
+        border-left: 2px solid $color-ltbluegray;
+        margin: 0;
+        padding: 2rem !important;
+
+    }
+
+
+    }
+}

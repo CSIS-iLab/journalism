@@ -1,0 +1,74 @@
+/*!
+Theme Name: Modern Journalist
+Theme URI: http://underscores.me/
+Author: Tucker
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: modern-journalist
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Modern Journalist is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*----------  Abstracts: Configuration and Helpers  ----------*/
+@import
+  'abstracts/variables',
+  'abstracts/mixins';
+
+/*----------  Base  ----------*/
+@import
+  'base/normalize',
+  'base/base',
+  'base/typography';
+
+/*----------  Elements  ----------*/
+@import
+  'elements/elements';
+
+/*----------  Modules  ----------*/
+@import
+  'modules/accessibility',
+  'modules/alignments',
+  'modules/clearings',
+  'modules/infinite-scroll';
+
+/*----------  Components  ----------*/
+@import
+  'components/404',
+  'components/pagination',
+  'components/related-content';
+
+/*----------  Layout  ----------*/
+@import
+  'layout/header',
+  'layout/footer',
+  'layout/navigation',
+  'layout/widgets';
+
+/*----------  Pages  ----------*/
+@import
+  'pages/home',
+  'pages/posts',
+  'pages/archives',
+  'pages/404',
+  'pages/search';
+
+/*----------  Vendors  ----------*/
+@import
+  'vendors/flexbox/flexbox-main',
+  'vendors/flexbox/flexbox-helpers',
+  'vendors/fontello/fontello';
+  //
+
+
+/*----------  Related Posts  ----------*/

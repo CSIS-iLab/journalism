@@ -1,0 +1,30 @@
+/*=============================
+=            Posts            =
+=============================*/
+
+.pdf-icon {
+	display: flex;
+	font-size: 3.5rem;
+	a{
+		color: $color-dkblue;
+		&:hover {
+			color: $color-blue;
+		}
+	}
+
+}
+.pdf-info {
+	display: flex;
+	align-items: flex-end;
+	a {
+		text-decoration: none;
+		font-family: $font__magneta;
+		font-size: 1.3rem;
+		color: black;
+		line-height: 1;
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+}

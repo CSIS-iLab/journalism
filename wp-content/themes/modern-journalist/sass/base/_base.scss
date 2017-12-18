@@ -1,0 +1,119 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    background: white;
+    overflow-x: hidden;
+    /* Fallback for when there is no custom background color defined. */
+    --breakpoint: "xsmall";
+
+    @include breakpoint("small") {
+        --breakpoint: "small";
+    }
+
+    @include breakpoint("medium") {
+        --breakpoint: "medium";
+    }
+
+    @include breakpoint("large") {
+        --breakpoint: "large";
+    }
+
+
+    &.logged-in .site {
+        position: absolute;
+        top: 46px;
+
+        @include breakpoint("small") {
+            position: absolute;
+            top: 32px;
+        }
+    }
+}
+
+.wpadminbar {
+    top: 0;
+    position: absolute;
+}
+
+.site-content {
+    margin-top: $size__header-height-mobile;
+    @include breakpoint("medium") {
+        margin-top: $size__header-height + 50px;
+    }
+}
+
+.content-wrapper {
+    display: block;
+    position: relative;
+    max-width: $size__container-max-width;
+    margin: 0 auto;
+ 
+
+    @include breakpoint($size__container-max-width) {
+        padding: 0;
+    }
+
+    &.row {
+        margin: 0 auto;
+        display: block;
+    }
+ @include breakpoint("maxsmall") {
+padding: 0 1rem;
+ }
+
+}
+
+
+    .col-wide {
+        @include breakpoint("medium") {
+            padding: 0 1rem;
+
+        }
+        @include breakpoint("large") {
+            padding: 0 3rem;
+            margin: 0 2vw;
+        }
+    }
+
+    .col-med {
+          @include breakpoint("medium") {
+            padding: 0 2rem;
+
+        }
+        @include breakpoint("large") {
+            padding: 0 3rem;
+            margin: 0 auto;
+            max-width: 950px;
+        }
+    }
+
+
+
+
+
+.clearfix {
+    clear: both;
+    display: block;
+}
+
+$columns: ( 1: 100%,
+2: 50%,
+3: 33.33%,
+4: 25%,
+5: 20%,
+6: 16.66%,
+7: 14.28%,
+8: 12.5%,
+9: 11.11%);
+
+$columns__margin: 3.8%;

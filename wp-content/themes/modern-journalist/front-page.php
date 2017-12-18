@@ -14,7 +14,7 @@ get_header(); ?>
 	<div id="vid-block">
 		<video playsinline autoplay muted poster="#" id="bgvid">
 		    <source src="#" type="video/webm">
-		    <source src="<?php echo get_template_directory_uri(); ?>/img/press_sec_podium.mp4" type="video/mp4">
+		    <source src="http://csisjournalism.staging.wpengine.com/wp-content/uploads/2017/12/press_sec_podium.mp4" type="video/mp4">
 		</video>
 </div>
 

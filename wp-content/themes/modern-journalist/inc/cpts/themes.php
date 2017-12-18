@@ -73,7 +73,6 @@ add_action( 'init', 'modernjournalist_cpt_themes', 0 );
  */
 function themes_add_meta_boxes( $post ) {
 	add_meta_box( 'themes_meta_box', __( 'Theme Information', 'modern-journalist' ), 'themes_build_meta_box', 'themes', 'normal', 'high' );
-	add_meta_box( 'gallery_meta_box', __( 'Gallery', 'modern-journalist' ), 'gallery_build_meta_box', 'themes', 'normal', 'low' );
 		
 }
 add_action( 'add_meta_boxes_themes', 'themes_add_meta_boxes' );

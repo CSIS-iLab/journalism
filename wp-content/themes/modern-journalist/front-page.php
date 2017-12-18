@@ -46,7 +46,7 @@ get_header(); ?>
 			<div class="col-xs-12">
 				<?php
 				$program_desc = get_option( 'modernjournalist_program_description' );
-				echo '<p>' . $program_desc . '</p>';
+				echo '<p>' . $program_desc . '</p>'; 
 				?>
 			</div>
 					

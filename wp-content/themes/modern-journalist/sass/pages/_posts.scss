@@ -4,7 +4,7 @@
 
 .pdf-icon {
 	display: flex;
-	font-size: 3.5rem;
+	font-size: 2.7rem;
 	a{
 		color: $color-dkblue;
 		&:hover {
@@ -16,10 +16,14 @@
 .pdf-info {
 	display: flex;
 	align-items: flex-end;
+	font-family: $font__roboto;
+	p {
+		line-height: 1.3;
+	}
 	a {
 		text-decoration: none;
-		font-family: $font__magneta;
-		font-size: 1.3rem;
+		font-family: $font__roboto;
+		font-size: 1.2rem;
 		color: black;
 		line-height: 1;
 
@@ -27,4 +31,5 @@
 			color: $color-blue;
 		}
 	}
+
 }

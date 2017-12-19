@@ -34,6 +34,7 @@
 }
 
 
+
 #videobg {
     display: block;
     position: relative;
@@ -78,6 +79,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
 .button-container {
     padding: 5px;
     line-height: 1rem;
@@ -92,6 +94,7 @@
     -webkit-border-radius: 50px;
     border-radius: 50px;
 }
+
 #home-pause {
     margin: 0 auto;
     display: block;
@@ -99,7 +102,7 @@
     width: 2rem;
     height: 2rem;
     .icon-pause:before {
-        padding-right:3px;
+        padding-right: 3px;
     }
 }
 
@@ -113,20 +116,13 @@
     position: absolute;
     bottom: 0;
 
-
-
-
-
     #homepage-title {
         display: flex;
-        border: 1rem solid white !important;
         margin: 0 1rem;
 
 
         @include breakpoint("medium") {
-            margin: unset;
-            border: 4rem solid white !important;
-            border-right: 15rem solid white !important;
+            margin: 0 1rem;
         }
     }
 
@@ -134,24 +130,28 @@
         display: flex;
         background-color: white;
         font-family: $font__roboto;
-
-        padding: 1rem 4rem;
+        padding: 0 4rem;
         margin: 0 1rem;
         position: relative;
         @include breakpoint("medium") {
-
-            width: 100%;
+            margin: 0 1rem;
+            width: calc(100% - 2rem);
         }
-
+        .site-description {
+            font-size: 1.2rem;
+            color: $color-medbluegray;
+            @include breakpoint("medium") {
+                font-size: 1.5rem;
+            }
+        }
         &:after {
             content: ' ';
             display: flex;
             width: 100%;
-            max-width: 1200px;
+            max-width: calc(1200px - 2rem);
             height: 3rem;
             background-color: white;
             position: absolute;
-
             top: 100%;
             left: 0;
 
@@ -219,7 +219,7 @@
         }
 
 
-       
+
         p {
             margin-bottom: 2rem;
         }
@@ -270,6 +270,9 @@
 
 #home-reports {
     color: white;
+    @include breakpoint("medium") {
+        margin-bottom: -4rem;
+    }
 
     &.content-wrapper {
         padding: 0;
@@ -280,27 +283,35 @@
     }
     .browseReports {
         padding: 2rem;
+        h4 {
+            line-height: 1;
+        }
+        p {
+            font-family: $font__roboto;
+            color: $color-medgray;
+            margin-bottom: 0;
+        }
     }
 }
 
 #home-testimonials {
-    padding: 6rem 0 0rem;
+    padding: 15rem 0 0rem;
     background-color: $color-ltgray;
 }
 
 #home-footer {
-    padding: 4rem 0 0rem;
+    padding: 3rem 0 0rem;
     background-color: $color-dkblue;
     color: white;
     position: relative;
 
     .home-footer-photo {
-        width: 40%;
-        height: calc(100% + 4rem);
-        top: -4rem;
-        position: absolute;
+        //width: 40%;
+        height: calc(100% + 7rem);
+        top: -5rem;
+        position: relative;
         z-index: 1;
-        opacity: .8;
+
         &:after {
             position: absolute;
             background-color: $color-dkblue;
@@ -311,6 +322,8 @@
             height: 100%;
             width: 100%;
         }
+      
+        
     }
     .learnMore {
         padding: 0 2rem 2rem 2rem;
@@ -323,7 +336,7 @@
             .learn-header {
                 display: block;
                 position: relative;
-                height: 8rem;
+                height: 6rem;
             }
             .large-title {
                 border-bottom: 4px solid #4B6777;
@@ -331,7 +344,7 @@
                 padding-left: 2rem;
                 top: 0px;
                 position: absolute;
-                height: 6rem;
+                height: 4.5rem;
 
 
                 &:before {
@@ -353,4 +366,30 @@
             color: white;
         }
     }
+}
+
+.learn-more-text {
+    color: $color-medgray;
+    @include breakpoint("medium") {
+        padding-right: 2rem;
+    }
+}
+
+.contact-info {
+
+    display: block;
+    clear: left;
+    padding-bottom: 2rem;
+    i {
+        margin-right: .5rem;
+    }
+    div {
+        float: left;
+        display: block;
+        position: relative;
+    }
+}
+
+.footer-info, .footer-image {
+    padding: 0!important;
 }

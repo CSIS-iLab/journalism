@@ -11,10 +11,11 @@
 
     &.fit-height {
         img {
+            max-width: unset;
             position: absolute;
             left: 50%;
             top: 50%;
-            height: 100%;
+            height: 110%;
             width: auto;
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
@@ -24,11 +25,12 @@
 
     &.fit-width {
         img {
+            max-width: unset;
             position: absolute;
             left: 50%;
             top: 50%;
             height: auto;
-            width: 100%;
+            width: 110%;
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);

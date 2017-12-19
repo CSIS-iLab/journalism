@@ -48,7 +48,7 @@ body {
 .site-content {
     margin-top: $size__header-height-mobile;
     @include breakpoint("medium") {
-        margin-top: $size__header-height + 50px;
+        margin-top: $size__header-height;
     }
 }
 
@@ -99,7 +99,9 @@ padding: 0 1rem;
 
 
 
-
+.no-padding {
+    padding: 0 !important;
+}
 
 .clearfix {
     clear: both;
@@ -116,4 +118,4 @@ $columns: ( 1: 100%,
 8: 12.5%,
 9: 11.11%);
 
-$columns__margin: 3.8%;
+$columns__margin: 4.8%;

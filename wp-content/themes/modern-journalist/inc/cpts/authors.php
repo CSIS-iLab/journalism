@@ -58,6 +58,7 @@ function modernjournalist_cpt_authors() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
+		'menu_position' => 40,
 	);
 	register_post_type( 'authors', $args );
 

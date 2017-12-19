@@ -48,7 +48,7 @@ function modernjournalist_admin_init_section_homepage() {
 
 			add_settings_field(
 		'modernjournalist_program_description',
-		'Program Description',
+		'Practicum Description',
 		'modernjournalist_textarea_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_homepage',

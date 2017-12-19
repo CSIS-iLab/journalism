@@ -235,3 +235,42 @@ function revcon_change_post_object() {
  
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );
+
+
+/**
+ * Add separators to organize admin nav 
+ */
+add_action( 'admin_init', 'add_admin_menu_separator' );
+
+function add_admin_menu_separator( $position ) {
+
+	global $menu;
+
+	$menu[ $position ] = array(
+		0	=>	'',
+		1	=>	'read',
+		2	=>	'separator' . $position,
+		3	=>	'',
+		4	=>	'wp-menu-separator'
+	);
+
+}
+add_action( 'admin_menu', 'set_admin_menu_separator' );
+function set_admin_menu_separator() {
+	do_action( 'admin_init', 9 );
+	do_action( 'admin_init', 39 );
+} // end set_admin_menu_separator
+
+
+
+/**
+ * Remove Comments page in admin nav 
+ */
+function remove_menus(){
+  
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  
+}
+add_action( 'admin_menu', 'remove_menus' );
+?>
+

@@ -146,7 +146,56 @@ get_header(); ?>
 
 <div id="home-testimonials">
 	<div class="content-wrapper">
+		<h2 class="heading">What they're saying</h2>
+		<div class="row">
+			<div class="quote-container-left">
+				
+			</div>
 
+			<div class="testimonial-button-left">
+				<i class="icon-arrow-long-left">
+			</div>
+
+			<div class="quote-container-middle">
+				
+			</div>
+
+			<div class="testimonial-buttonright">
+				<i class="icon-arrow-long-right">
+			</div>
+
+			<div class="quote-container-right">
+				
+			</div>
+
+
+			<?php 
+		$args = array( 
+		'post_type' => 'testimonials',
+		);
+		$the_query = new WP_Query( $args );
+		?>
+		
+		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+		 $dates = get_post_meta( $post->ID, '_themes_dates', true
+ );
+$institution = get_post_meta( $post->ID, '_testimonials_institution', true
+ );
+ $role = get_post_meta( $post->ID, '_testimonials_role', true
+ );
+ ?>
+		<div class="testimonial-quote"><?php the_content() ?></div>
+		<div class="testimonial-name"><?php the_title(); ?></div>
+		<div class="testimonial-info"><?php echo $role ?>, <?php echo $institution ?></div>
+		<div class="testimonial-dates"><?php echo $dates ?></div>
+
+		<?php endwhile; endif; ?>
+		<?php wp_reset_query(); ?>
+
+
+
+
+		</div>
 	</div><!-- content-wrapper-->
 </div><!-- home-testimonials-->
 

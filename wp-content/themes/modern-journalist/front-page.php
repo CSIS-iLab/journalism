@@ -23,7 +23,11 @@ get_header(); ?>
 	<div id="vid-overlay">
 		<div id="title-header">
 		
-	 		<div class="button-container"><div id="home-pause"><i class="icon-pause"></i></div></div>
+	 		<div class="button-container">
+	 			<div id="home-pause">
+	 				<i class="icon-pause"></i>
+	 			</div>
+	 		</div>
 	 	</div>
 	 	<img id="homepage-title" src="<?php echo get_template_directory_uri(); ?>/img/homepage_title_lg.svg" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" />
 	 	

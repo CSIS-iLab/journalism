@@ -43,7 +43,7 @@ function modernjournalist_cpt_authors() {
 		'label'                 => __( 'Author', 'modern-journalist' ),
 		'description'           => __( 'Authors', 'modern-journalist' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( ),
 		'hierarchical'          => false,
 		'public'                => true,

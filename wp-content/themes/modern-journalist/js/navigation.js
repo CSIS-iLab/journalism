@@ -109,7 +109,7 @@
 
 
 // Smooth Scroll Anchor Links
-jQuery(document).ready(function($) {
+(function($) {
     var headerHeight = parseInt($(".site-header").css("top")) - 125;
     var postNav = $(".post-nav").height();
 
@@ -159,9 +159,8 @@ jQuery(document).ready(function($) {
             }));
         } // End if
     });
-});
-
-jQuery(document).ready(function($) {
+})(jQuery);
+(function($) {
     var sBrowser, sUsrAg = navigator.userAgent;
     var headerChange = parseInt($(".header-top").css('height'));
 
@@ -319,14 +318,14 @@ jQuery(document).ready(function($) {
         } else {
             $("#masthead").addClass("mobile-open");
         }
-    })
+    });
 
 
     //Homepage play/pause button
     var vid = document.getElementById("bgvid");
     var pauseButton = document.querySelector("#home-pause");
 
-    pauseButton.addEventListener("click", function() {
+    pauseButton.on("click", function() {
         if (vid.paused) {
             vid.play();
             pauseButton.innerHTML = "<i class='icon-pause'></i>";
@@ -334,7 +333,6 @@ jQuery(document).ready(function($) {
             vid.pause();
             pauseButton.innerHTML = "<i class='icon-play'></i>";
         }
-    })
+    });
 
-
-});
+})(jQuery);

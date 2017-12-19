@@ -17,7 +17,7 @@
 		<div class="header-post-header-right">
 
 		<div class="header-post-header-chapters">
-			<span class="meta-label">Chapters</span>
+			<span class="meta-label"><i class="icon-bookmark"></i>Sections</span>
 			
 			
 		</div>

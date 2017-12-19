@@ -23,7 +23,11 @@ get_header(); ?>
 	<div id="vid-overlay">
 		<div id="title-header">
 		
-	 		<div class="button-container"><div id="home-pause"><i class="icon-pause"></i></div></div>
+	 		<div class="button-container">
+	 			<div id="home-pause">
+	 				<i class="icon-pause"></i>
+	 			</div>
+	 		</div>
 	 	</div>
 	 	<img id="homepage-title" src="<?php echo get_template_directory_uri(); ?>/img/homepage_title_lg.svg" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" />
 	 	
@@ -85,10 +89,13 @@ get_header(); ?>
 	<div class="content-wrapper">
 		<div class="col-wide row">
 			<div class="col-xs-12">
-				<h2 class="heading underline">Themes</h2>
+				<h2 class="heading underline">Stories</h2>
 			</div>
 		<div class="col-xs-12 col-md-8">
-			<p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique. In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique.</p>
+			<?php
+				$stories_desc = get_option( 'modernjournalist_stories_description' );
+				echo '<p>' . $stories_desc . '</p>';
+				?>
 		</div>
 	</div>
 	<div class="clearfix"></div>
@@ -199,7 +206,7 @@ $institution = get_post_meta( $post->ID, '_testimonials_institution', true
 	</div><!-- content-wrapper-->
 </div><!-- home-testimonials-->
 
-<div id="home-footer">
+<footer id="home-footer">
 	<div class="content-wrapper">
 		<div class="row">
 		<div class=" col-md-4 footer-image">
@@ -210,23 +217,22 @@ $institution = get_post_meta( $post->ID, '_testimonials_institution', true
 		</div>
 	</div>
 		
-				<div class="col-md-8 footer-info"> 
+	<div class="col-md-8 footer-info"> 
 		<div class="learnMore">
 			<div class="learn-header">
 				<span class="large-title">Learn more</span>
 			</div>
 			<div class="learn-content row">
 				<div class="col-xs-12 col-md-8"> 
-			<p class="learn-more-text">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique. In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique.</p>
+			
+				<?php
+				$learn_more = get_option( 'modernjournalist_learn_more' );
+				echo '<p class="learn-more-text">' . $learn_more . '</p>';
+				?>
+			
 				</div>
 				<div class="col-xs-12 col-md-4">
-					<div class="contact-info">
-			<div class><span class="meta-label"><i class="icon-phone"></i></span></div>
-				<?php
-				$phone = get_option( 'modernjournalist_phone' );
-				echo '<div>' . $phone . '</div>';
-				?>
-			</div>
+					
 					<div class="contact-info">
 			<div><span class="meta-label"><i class="icon-mail"></i></span></div>
 				<?php
@@ -244,14 +250,18 @@ $institution = get_post_meta( $post->ID, '_testimonials_institution', true
 	</div>
 		</div>
 	</div><!-- content-wrapper-->
+	
 </div><!-- home-footer-->
-
+</footer>
 
 
 
 
 	</main><!-- #main -->
+	<div class="site-credit">
+			<div class="content-wrapper">
+			© 2017 by the Center for Strategic and International Studies. All rights reserved.
+		</div><!-- .site-info -->
+	</div>
 </div><!-- #primary -->
 
-<?php
-get_footer();

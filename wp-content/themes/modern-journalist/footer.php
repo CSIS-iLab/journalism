@@ -14,26 +14,46 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'modern-journalist' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'modern-journalist' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'modern-journalist' ), 'modern-journalist', '<a href="http://underscores.me/">Tucker</a>' );
-			?>
+		<div class="content-wrapper">
+			<div class="site-info">
+			<div class="row">
+				<div class="col-xs-12 col-md-8">
+					<?php
+					$footerdesc = get_option( 'modernjournalist_footer_description' );
+					echo  $footerdesc ;
+					?>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<div class="contact-info">
+						<div>
+							<span class="meta-label"><i class="icon-mail"></i></span>
+						</div>
+						<?php
+						$email = get_option( 'modernjournalist_email' );
+						echo '<div>' . $email . '</div>';
+						?>
+					</div>
+					<div class="contact-info">
+						<div>
+							<span class="meta-label"><i class="icon-location"></i></span>
+						</div>
+						<div>1616 Rhode Island Ave., NW <br> Washington, DC 20036</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="site-credit">
+			<div class="content-wrapper">
+			© 2017 by the Center for Strategic and International Studies. All rights reserved.
 		</div><!-- .site-info -->
+	</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
-<div id="chapters-list">
-	<ul>
-	</ul>
-</div>
 
 </body>
 </html>

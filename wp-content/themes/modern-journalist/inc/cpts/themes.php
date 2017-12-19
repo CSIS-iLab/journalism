@@ -43,8 +43,8 @@ function modernjournalist_cpt_themes() {
 		'label'                 => __( 'Theme', 'modern-journalist' ),
 		'description'           => __( 'Themes', 'modern-journalist' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt' ),
-		'taxonomies'            => array( 'post_tag' ),
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -156,6 +156,7 @@ function themes_build_meta_box( $post ) {
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',
 							'toolbar2' => false,
+							'textarea_rows' => get_option('default_post_edit_rows', 7)
 						),
 					)
 				);
@@ -176,6 +177,7 @@ function themes_build_meta_box( $post ) {
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',
 							'toolbar2' => false,
+							'textarea_rows' => get_option('default_post_edit_rows', 7)
 						),
 					)
 				);

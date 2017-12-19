@@ -46,6 +46,13 @@ body {
 }
 
 .site-content {
+    margin-top: $size__header-height-mobile + 30px;
+    @include breakpoint("medium") {
+        margin-top: $size__header-height + 70px;
+    }
+}
+
+.home .site-content {
     margin-top: $size__header-height-mobile;
     @include breakpoint("medium") {
         margin-top: $size__header-height;
@@ -57,8 +64,10 @@ body {
     position: relative;
     max-width: $size__container-max-width;
     margin: 0 auto;
- 
-
+     @include breakpoint("medium") {
+        padding: 0 2rem;
+     }
+    
     @include breakpoint($size__container-max-width) {
         padding: 0;
     }

@@ -7,10 +7,17 @@
 }
 
 .entry-meta {
-	@include breakpoint("medium") {
-		margin-bottom: 2rem;
-	}
+    @include breakpoint("medium") {
+        margin-bottom: 2rem;
+    }
+    ul {
+
+        list-style: none;
+        margin: 0 .5rem;
+        padding: 0;
+    }
 }
+
 .entry-meta-top {
     padding: .5rem 0;
     border-bottom: 1px solid $color-medgray;
@@ -38,28 +45,109 @@
     div {
         display: block;
         float: left;
-        ul {
-            list-style: none;
-            margin: 0 .5rem;
-            padding: 0;
-        }
     }
 }
 
 
-.archive-content .entry-content {
-    @include breakpoint("medium") {
-        padding: 0 2rem;
-        margin-top: 1rem;
-        border-left: 2px solid $color-medgray;
-    }
+.substance-partners {
+    margin: 2rem 0 3rem;
 }
 
 .entry-content-container {
     @include breakpoint("medium") {
         padding: 0 0 0 4rem;
     }
-     @include breakpoint("large") {
+    @include breakpoint("large") {
         padding: 0 4rem;
+    }
+
+    .entry-content {
+        @include breakpoint("medium") {
+            padding: 0 2rem;
+            margin-top: 1rem;
+            border-left: 2px solid $color-medgray;
+        }
+    }
+}
+
+.archive-entry .entry-title {
+    span {
+        color: $color-blue;
+    }
+}
+
+
+
+
+.post-entry {
+    padding: 0 .5rem;
+    .meta-line {
+        padding: 0;
+        margin: 0;
+    }
+
+    .entry-info {
+        position: relative;
+    }
+    .entry-info .entry-title {
+        border-bottom: 3px solid $color-blue;
+        line-height: 2rem;
+        @include breakpoint("medium") {}
+    }
+
+    .entry-meta {
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-medgray;
+        margin-bottom: .5rem;
+        margin-right: 2rem;
+        p{
+            line-height: 1.4;
+            font-size: 1rem;
+        }
+    }
+
+
+    .entry-title,
+    .entry-meta,
+    .entry-excerpt {
+        @include breakpoint("medium") {
+            padding-right: 2rem;
+        }
+    }
+
+
+
+    .entry-title {
+        display: relative;
+
+        &:after {
+            @include breakpoint("medium") {
+                display: block;
+                content: "";
+                position: absolute;
+                border-bottom: 3px solid $color-ltgray;
+                width: 5rem;
+                height: calc(2rem + 3px);
+                right: -5rem;
+                top: 0;
+                z-index: 1;
+            }
+        }
+    }
+    img {
+        @include transition(width .3s ease-in-out);
+    }
+
+    .img-container {
+        width: 100%;
+        @include breakpoint("medium") {
+            height: 15rem;
+        }
+    }
+    .img-container:hover img {
+        width: 120%;
+        height: auto;
+        @include transition(width .3s ease-in-out);
     }
 }

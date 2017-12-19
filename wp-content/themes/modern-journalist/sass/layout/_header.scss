@@ -260,6 +260,13 @@
         display: flex;
         float: right;
 
+        .meta-label {
+            color: white;
+            @include breakpoint("medium") {
+                color: $color-medbluegray;
+            }
+        }
+
 
         @include breakpoint("medium") {
             line-height: 40px;

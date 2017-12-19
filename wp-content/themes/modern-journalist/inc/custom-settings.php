@@ -25,12 +25,14 @@ function modernjournalist_add_options_page() {
  */
 function modernjournalist_display_options_page() {
 	echo '<h1>Modern Journalist Theme Settings</h1>';
-	echo '<form method="post" action="options.php">';
+	echo '<form method="post" action="options.php" style="width: 80%;">';
 	do_settings_sections( 'modernjournalist-options-page' );
 	settings_fields( 'modernjournalist_settings' );
 	submit_button();
 	echo '</form>';
 }
+
+
 
 
 add_action( 'admin_init', 'modernjournalist_admin_init_section_homepage' );
@@ -46,10 +48,11 @@ function modernjournalist_admin_init_section_homepage() {
 		'modernjournalist-options-page'
 	);
 
+
 			add_settings_field(
 		'modernjournalist_program_description',
 		'Practicum Description',
-		'modernjournalist_textarea_callback',
+		'modernjournalist_texteditor_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_homepage',
 		array( 'modernjournalist_program_description' )
@@ -58,10 +61,28 @@ function modernjournalist_admin_init_section_homepage() {
 		add_settings_field(
 		'modernjournalist_csis_description',
 		'CSIS Description',
-		'modernjournalist_textarea_callback',
+		'modernjournalist_texteditor_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_homepage',
 		array( 'modernjournalist_csis_description' )
+	);
+
+	add_settings_field(
+		'modernjournalist_stories_description',
+		'Stories Description',
+		'modernjournalist_texteditor_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_stories_description' )
+	);
+
+	add_settings_field(
+		'modernjournalist_learn_more',
+		'Learn More text',
+		'modernjournalist_texteditor_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_learn_more' )
 	);
 
 	
@@ -76,6 +97,17 @@ function modernjournalist_admin_init_section_homepage() {
 		'modernjournalist_csis_description',
 		'wp_filter_post_kses'
 	);
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_stories_description',
+		'wp_filter_post_kses'
+	);
+		register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_learn_more',
+		'wp_filter_post_kses'
+	);
+
 
 }
 
@@ -96,7 +128,7 @@ function modernjournalist_admin_init_section_footer() {
 	add_settings_field(
 		'modernjournalist_footer_description',
 		'Description',
-		'modernjournalist_textarea_callback',
+		'modernjournalist_texteditor_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_footer',
 		array( 'modernjournalist_footer_description' )
@@ -142,12 +174,53 @@ function modernjournalist_admin_init_section_contact() {
 	);
 
 	add_settings_field(
+		'modernjournalist_facebook',
+		'Facebook',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_contact',
+		array( 'modernjournalist_facebook' )
+	);
+
+	add_settings_field(
 		'modernjournalist_twitter',
 		'Twitter',
 		'modernjournalist_text_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_contact',
 		array( 'modernjournalist_twitter' )
+	);
+
+	add_settings_field(
+		'modernjournalist_linkedIn',
+		'LinkedIn',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_contact',
+		array( 'modernjournalist_linkedIn' )
+	);
+
+	add_settings_field(
+		'modernjournalist_youtube',
+		'Youtube',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_contact',
+		array( 'modernjournalist_youtube' )
+	);
+
+	add_settings_field(
+		'modernjournalist_instagram',
+		'Instagram',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_contact',
+		array( 'modernjournalist_instagram' )
+	);
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_facebook',
+		'sanitize_text_field'
 	);
 
 	register_setting(
@@ -159,6 +232,24 @@ function modernjournalist_admin_init_section_contact() {
 	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_twitter',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_linkedin',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_youtube',
+		'sanitize_text_field'
+	);
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_instagram',
 		'sanitize_text_field'
 	);
 
@@ -193,6 +284,24 @@ function modernjournalist_textarea_callback( $args ) {
 	echo '<textarea class="regular-text" id="' . esc_attr( $args[0] ) . '" name="' . esc_attr( $args[0] ) . '" rows="5">' . esc_attr( $option ) . '</textarea>';
 }
 
+
+/**
+ * Renders the textareafields.
+ *
+ * @param  Array $args Array of arguments passed by callback function.
+ */
+function modernjournalist_texteditor_callback( $args ) {
+	$option = get_option( $args[0] );
+	echo  wp_editor( esc_attr( $option ), esc_attr( $args[0] ), $settings = array( 
+					'media_buttons' => false, 
+					'teeny' => true, 
+					'textarea_rows' => get_option('default_post_edit_rows', 7)
+					)  );
+
+
+}
+
+
 /**
  * Renders the post dropdown fields.
  *
@@ -212,3 +321,6 @@ function modernjournalist_posts_callback( $args ) {
 	}
 	echo '</select>';
 }
+
+
+

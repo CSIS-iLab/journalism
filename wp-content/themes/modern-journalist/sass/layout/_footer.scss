@@ -2,6 +2,29 @@
 =            Footer            =
 ==============================*/
 
+.site-footer {
+	background-color: $color-dkblue;
+	margin-top: 5rem;
 
+}
 
+.site-info {
+		
+		color: $color-medgray;
+		font-size: .9rem;
+		padding: 3rem 0;
+}
 
+.contact-info {
+	color: white;
+}
+
+.site-credit {
+	display: block;
+	background-color: #003552;
+	color: $color-medbluegray;
+	font-family: $font__roboto;
+	font-size: .8rem;
+	text-align: right;
+	padding: .5rem;
+}

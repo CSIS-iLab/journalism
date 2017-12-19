@@ -156,6 +156,7 @@ function themes_build_meta_box( $post ) {
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',
 							'toolbar2' => false,
+							'textarea_rows' => get_option('default_post_edit_rows', 7)
 						),
 					)
 				);
@@ -176,6 +177,7 @@ function themes_build_meta_box( $post ) {
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',
 							'toolbar2' => false,
+							'textarea_rows' => get_option('default_post_edit_rows', 7)
 						),
 					)
 				);

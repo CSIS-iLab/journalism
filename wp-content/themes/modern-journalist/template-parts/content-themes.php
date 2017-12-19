@@ -8,9 +8,6 @@
  */
 
 
-
-
-
 $dates = get_post_meta( $post->ID, '_themes_dates', true
  );
 $institution = get_post_meta( $post->ID, '_themes_institution', true
@@ -21,16 +18,18 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
  );
  $partners = get_post_meta( $post->ID, '_themes_partners', true
  );
+$count ++;
 
-?>
+$num_padded = sprintf("%02d", $count);
+ ?>
 
 
 <article id="post-<?php the_ID(); ?>">
     <div class="archive-entry col-wide">
     	<div class="row">
     	<div class="col-xs-12 entry-header">
-  			<?php
-            the_title('<h3 class="entry-title">', '</h3>');
+  			<?php 
+            the_title('<h3 class="entry-title"><span>' . $num_padded . '</span> ', '</h3>');
             ?>
     	</div>
     </div>
@@ -38,6 +37,7 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
     	<div class="entry-content row">
     		<div class="col-xs-12 col-md-8">
             	<?php the_content(); ?>
+
             	<div class="theme-gallery row">
             	
 				<?php 
@@ -45,6 +45,7 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
 
 	 			foreach ($galleryArray as $id) { 
 			 	$attachment_title = get_the_title($id)
+
 			 	//$attachment_description = get_the_excerpt($id)
 			 	?>
 			 	<div class="photo-entry">
@@ -60,6 +61,11 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
 					<?php
 					}?>
 				</div>
+				<div>
+				         <div class="substance-partners">
+				         	<?php echo $partners ?>
+				         </div>
+					</div>
 			</div>
 
 			<div class="col-xs-12 col-md-4 entry-meta">
@@ -107,11 +113,7 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
 			         	</div>
 			         </div>
 			         <div class="clearfix"></div>
-			         <div>
-				         <div>
-				         	<span class="meta-label">Thank you to our substance partners: </span><?php echo $partners ?>
-				         </div>
-					</div>
+			         
 	        	</div>
     		</div><!-- .entry-meta -->
     	</div><!-- .entry-content -->
@@ -131,11 +133,11 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
                     echo '<div class="related-post col-xs-12">';
        
 			        
-			       echo '<div class="related-post-img col-md-3">'. get_the_post_thumbnail( $r->ID  ).'</div>';
+			       echo '<div class="related-post-img col-md-3"><a href="' . esc_url( get_permalink($r->ID) ) . '">'. get_the_post_thumbnail( $r->ID  ).'</a></div>';
 			        
 			    
 			     echo '<div class="related-post-content col-xs-12 col-md-9">';
-                    echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink($r->ID) ) . '"> '.get_the_title( $r->ID ) . '</a></h3>';
+                    echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink($r->ID) ) . '"> '.get_the_title( $r->ID ) . '<i class="icon-arrow-long-right"></i></a></h3>';
                     the_excerpt();
                      echo '</div></div>';
                 };

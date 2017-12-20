@@ -295,8 +295,19 @@
 }
 
 #home-testimonials {
-    padding: 15rem 0 0rem;
+    padding: 2rem 0 2rem;
     background-color: $color-ltgray;
+    @include breakpoint("medium") {
+        padding-top: 6rem;
+        min-height: 45rem;
+    }
+
+     @include breakpoint("large") {
+        padding: 7rem 0;
+        min-height: 30rem;
+    }
+
+
 }
 
 #home-footer {

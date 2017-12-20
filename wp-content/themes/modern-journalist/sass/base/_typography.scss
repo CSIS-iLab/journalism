@@ -62,11 +62,11 @@ h6 {
 }
 
 h2.heading {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-top: 0;
     border-bottom: 4px solid $color-ltgray;
     @include breakpoint("medium") {
-        font-size: 4.5rem;
+        font-size: 3rem;
     }
     &.underline {
         line-height: 70%;
@@ -76,11 +76,11 @@ h2.heading {
 }
 
 h3.subheading, h3.entry-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 0;
     line-height: 1.1;
     @include breakpoint("medium") {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 

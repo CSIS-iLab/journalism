@@ -152,31 +152,24 @@ get_header(); ?>
 </div><!-- home-reports-->
 
 <div id="home-testimonials">
-	<div class="content-wrapper">
+	<div class="content-wrapper testimonials-header">
 		<h2 class="heading">What they're saying</h2>
 		<div class="row">
-			<div class="quote-container-left">
-				
+			<div class="testimonial-button-container">
+			<div class="testimonial-button button-prev">
+				<i class="icon-arrow-long-left"></i>
 			</div>
-
-			<div class="testimonial-button-left">
-				<i class="icon-arrow-long-left">
+			<div class="testimonial-button button-next">
+				<i class="icon-arrow-long-right"></i>
 			</div>
-
-			<div class="quote-container-middle">
-				
-			</div>
-
-			<div class="testimonial-buttonright">
-				<i class="icon-arrow-long-right">
-			</div>
-
-			<div class="quote-container-right">
-				
-			</div>
-
-
+</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="carousel-wrap">
+			<ul id="testimonial-list" class="clearfix">
 			<?php 
+			$count = 0;
 		$args = array( 
 		'post_type' => 'testimonials',
 		);
@@ -184,26 +177,30 @@ get_header(); ?>
 		?>
 		
 		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
-		 $dates = get_post_meta( $post->ID, '_themes_dates', true
- );
-$institution = get_post_meta( $post->ID, '_testimonials_institution', true
- );
- $role = get_post_meta( $post->ID, '_testimonials_role', true
- );
- ?>
+			?>
+	<li data-count="<?php echo $count ++; ?>"> 
+		<div class="testimonial">
+		<?php
+
+		 $date = get_post_meta( $post->ID, '_testimonials_date', true
+		 );
+		$institution = get_post_meta( $post->ID, '_testimonials_institution', true
+		 );
+		 $role = get_post_meta( $post->ID, '_testimonials_role', true
+		 );
+		 ?>
 		<div class="testimonial-quote"><?php the_content() ?></div>
+
 		<div class="testimonial-name"><?php the_title(); ?></div>
 		<div class="testimonial-info"><?php echo $role ?>, <?php echo $institution ?></div>
-		<div class="testimonial-dates"><?php echo $dates ?></div>
-
+		<div class="testimonial-date"><?php echo $date ?></div>
+	</div>
+	</li>
 		<?php endwhile; endif; ?>
 		<?php wp_reset_query(); ?>
-
-
-
-
+			</ul>
 		</div>
-	</div><!-- content-wrapper-->
+	</div>
 </div><!-- home-testimonials-->
 
 <footer id="home-footer">
@@ -264,4 +261,8 @@ $institution = get_post_meta( $post->ID, '_testimonials_institution', true
 		</div><!-- .site-info -->
 	</div>
 </div><!-- #primary -->
+<?php wp_footer(); ?>
 
+
+</body>
+</html>

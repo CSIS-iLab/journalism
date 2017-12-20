@@ -3,23 +3,164 @@
 =============================*/
 
 .gallery {
-	margin-bottom: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 .gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-
-	// Loops to enumerate the classes for gallery columns.
-	@for $i from 2 through 9 {
-		.gallery-columns-#{$i} & {
-			max-width: map-get( $columns, $i );
-		}
-	}
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 100%; // Loops to enumerate the classes for gallery columns.
+    @for $i from 2 through 9 {
+        .gallery-columns-#{$i} & {
+            max-width: map-get( $columns, $i);
+        }
+    }
 }
 
 .gallery-caption {
-	display: block;
+    display: block;
+}
+
+
+.button-prev {
+
+    display: flex;
+    position: relative;
+    float: left;
+    @include breakpoint("medium") {
+left: 0;
+    }
+}
+
+.button-next {
+    display: flex;
+    position: relative;
+    float: right;
+    @include breakpoint("medium") {
+        right: 0;
+    }
+}
+
+.button-prev,
+.button-next {
+    font-size: 3rem;
+    @include breakpoint("medium") {
+        position: absolute;
+        z-index:1;
+    }
+}
+
+#home-testimonials h2 {
+    line-height: 1;
+    margin-top: 1rem;
+    @include breakpoint("medium") {
+margin: 2rem 0;
+    }
+}
+
+.testimonial-button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 950px;
+    justify-content: center;
+    @include breakpoint("medium") {
+        position: relative;
+        margin: 0 auto;
+        width: 70%;
+
+    }
+     @include breakpoint("large") {
+ width: 80%;
+     }
+}
+
+.testimonials-header {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+#home-testimonials .carousel-wrap {
+    display: block;
+    width: 100vw;
+    margin: 0 auto; //overflow: hidden;
+    padding-bottom: 3rem;
+
+
+    ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: 100vw;
+        list-style: none;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: row;
+        font-family: $font__magneta;
+        font-width: 300;
+    }
+    li {
+        display: block;
+        width: 90%;
+        visibility: visible;
+        opacity: 1;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+        @include breakpoint("medium") {
+            width: 50%;
+            max-width: 900px;
+        }
+        .testimonial {}
+    }
+
+    li:nth-child(1),
+    li:nth-child(3) {
+        display: none;
+        @include breakpoint("medium") {
+            display: block;
+            position: absolute;
+        }
+    }
+    li:nth-child(1) {
+        right: 90%;
+    }
+    li:nth-child(3) {
+        left: 90%;
+    }
+    li.fade-item {
+        visibility: visible;
+        opacity: .5;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+    }
+    li.hide-item {
+        position: absolute;
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+    }
+
+    .testimonial-quote {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .testimonial-name {
+        font-size: 1.3rem;
+        color: $color-blue;
+    }
+    .testimonial-info,
+    .testimonial-date {
+        font-family: $font__roboto;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    .testimonial-date {
+        color: $color-text-gray;
+    }
 }

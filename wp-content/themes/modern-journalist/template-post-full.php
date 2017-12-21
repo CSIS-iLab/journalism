@@ -1,11 +1,10 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Modern_Journalist
+/*
+ * Template Name: Full Width Photo
+ * Template Post Type: post
  */
+  
+ get_header();  
 if (has_post_thumbnail()) :
 	$featured_img_url = get_the_post_thumbnail_url();
 endif;

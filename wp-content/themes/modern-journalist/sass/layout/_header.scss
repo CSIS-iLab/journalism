@@ -54,6 +54,9 @@
             min-width: unset;
         }
     }
+
+
+
 }
 
 .header-top,
@@ -109,6 +112,9 @@
     .site-branding {
         margin-left: -100%;
         @include transition(margin-left .3s ease-in-out);
+         @include breakpoint("medium") {
+            margin-left: 0;
+         }
     }
 }
 
@@ -157,8 +163,8 @@
 
 .header-bottom {
 
-
     display: flex;
+    align-items: center;
 
     @include breakpoint("medium") {
         position: relative;
@@ -171,7 +177,7 @@
         @include breakpoint("large") {
             display: flex;
             height: 40px;
-            margin-top: .5rem;
+            
             margin-right: $margin__sides;
         }
     }

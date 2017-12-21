@@ -76,14 +76,6 @@ function modernjournalist_admin_init_section_homepage() {
 		array( 'modernjournalist_stories_description' )
 	);
 
-	add_settings_field(
-		'modernjournalist_learn_more',
-		'Learn More text',
-		'modernjournalist_texteditor_callback',
-		'modernjournalist-options-page',
-		'modernjournalist_settings_section_homepage',
-		array( 'modernjournalist_learn_more' )
-	);
 
 	
 	register_setting(
@@ -102,11 +94,7 @@ function modernjournalist_admin_init_section_homepage() {
 		'modernjournalist_stories_description',
 		'wp_filter_post_kses'
 	);
-		register_setting(
-		'modernjournalist_settings',
-		'modernjournalist_learn_more',
-		'wp_filter_post_kses'
-	);
+
 
 
 }
@@ -192,12 +180,12 @@ function modernjournalist_admin_init_section_contact() {
 	);
 
 	add_settings_field(
-		'modernjournalist_linkedIn',
+		'modernjournalist_linkedin',
 		'LinkedIn',
 		'modernjournalist_text_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_contact',
-		array( 'modernjournalist_linkedIn' )
+		array( 'modernjournalist_linkedin' )
 	);
 
 	add_settings_field(

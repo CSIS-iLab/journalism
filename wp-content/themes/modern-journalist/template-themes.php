@@ -11,7 +11,7 @@ get_header(); ?>
 
 	<header class="page-header">
 			<div class="title-container">
-			<?php the_title('<h1 class="page-title">', '</h1>'); ?>
+			<?php the_title('<h1 class="page-title underline">', '</h1>'); ?>
 			<div class="archive-description row">
 				<div class="col-xs-12 col-md-10">
                  <?php the_content() ?>

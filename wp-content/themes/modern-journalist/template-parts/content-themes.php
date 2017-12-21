@@ -137,7 +137,7 @@ $num_padded = sprintf("%02d", $count);
 			        
 			    
 			     echo '<div class="related-post-content col-xs-12 col-md-9">';
-                    echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink($r->ID) ) . '"> '.get_the_title( $r->ID ) . '<i class="icon-arrow-long-right"></i></a></h3>';
+                    echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink($r->ID) ) . '"> ' . get_the_title( $r->ID ) . '<i class="icon-arrow-long-right"></i></a></h3>';
                     the_excerpt();
                      echo '</div></div>';
                 };

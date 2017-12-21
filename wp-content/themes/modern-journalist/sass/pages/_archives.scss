@@ -6,7 +6,19 @@
     margin-bottom: 3rem;
 }
 
+
 .entry-meta {
+    margin-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-medgray;
+        margin-bottom: .5rem;
+        margin-right: 2rem;
+        p{
+            line-height: 1.4;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+    
     @include breakpoint("medium") {
         margin-bottom: 2rem;
     }
@@ -16,6 +28,13 @@
         margin: 0 .5rem;
         padding: 0;
     }
+}
+
+
+
+.home-related .entry-meta{
+    border-bottom: 0px;
+    margin: 0;
 }
 
 .entry-meta-top {
@@ -95,17 +114,8 @@
         @include breakpoint("medium") {}
     }
 
-    .entry-meta {
-        margin-top: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid $color-medgray;
-        margin-bottom: .5rem;
-        margin-right: 2rem;
-        p{
-            line-height: 1.4;
-            font-size: 1rem;
-        }
-    }
+
+        
 
 
     .entry-title,

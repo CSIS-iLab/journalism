@@ -8,6 +8,120 @@
 
 }
 
+
+
+
+#home-footer {
+    padding: 3rem 0 0rem;
+    background-color: $color-dkblue;
+    color: white;
+    position: relative;
+
+    .home-footer-photo {
+        //width: 40%;
+        height: calc(100% + 7rem);
+        top: -5rem;
+        position: relative;
+        z-index: 1;
+
+        &:after {
+            position: absolute;
+            background-color: $color-dkblue;
+            opacity: .7;
+            top: 0;
+            display: block;
+            content: ' ';
+            height: 100%;
+            width: 100%;
+        }
+      
+        
+    }
+    .learnMore {
+        padding: 0 2rem 2rem 2rem;
+        z-index: 2;
+        position: relative;
+
+        @include breakpoint("medium") {
+            padding: 0 0 2rem;
+
+            .learn-header {
+                display: block;
+                position: relative;
+                //height: 4rem;
+                
+            }
+            .footer-csis{
+                
+                
+                    border-bottom: 4px solid #4B6777;
+                
+                display: inline-block;
+                 img{
+                    padding-left: 2rem;
+                    height: 4rem;
+                 }
+            
+                &:before {
+                    content: " ";
+                    bottom: 0;
+                    position: absolute;
+                    display: block;
+                    height: 1rem;
+                    right: 100%;
+                    width: 10rem;
+                    border-bottom: 4px solid #77858A;
+                }
+            }
+            .learn-content {
+                padding-left: 2rem;
+                margin-top: 2rem;
+            }
+        }
+        .meta-label {
+            color: white;
+        }
+    }
+}
+
+.learn-more-text {
+    color: $color-medgray;
+    @include breakpoint("medium") {
+        padding-right: 2rem;
+    }
+}
+
+.contact-info {
+
+    display: block;
+    clear: left;
+    padding-bottom: 2rem;
+    font-family: $font__roboto;
+    line-height: 1.5;
+    i {
+        margin-right: .5rem;
+        font-size:1.5rem;
+
+    }
+    div {
+        float: left;
+        display: block;
+        position: relative;
+        @include breakpoint("medium") {
+        	max-width: calc(100% - 3.5rem);
+        }
+    }
+    .meta-info {
+    	padding-top: .5rem;
+    	padding-bottom: .5rem;
+    }
+
+}
+
+.footer-info, .footer-image {
+    padding: 0!important;
+}
+
 .site-info {
 		
 		color: $color-medgray;
@@ -27,4 +141,26 @@
 	font-size: .8rem;
 	text-align: right;
 	padding: .5rem;
+}
+
+
+.socialContainer {
+	.follow-text {
+		font-family: $font__roboto;
+		padding-top: .5rem;
+		font-size: .9rem;
+	}
+		list-style: none;
+		color: white;
+		margin: 0;
+		padding-left: 2rem;
+		li {
+			float: left;
+			line-height: 1.5;
+		}
+		a {
+			color: white;
+			font-size: 1.5rem;
+		}
+	
 }

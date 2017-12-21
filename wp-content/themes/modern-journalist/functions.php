@@ -119,9 +119,9 @@ add_action( 'widgets_init', 'modern_journalist_widgets_init' );
 function modern_journalist_scripts() {
 	wp_enqueue_style( 'modern-journalist-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'modern-journalist-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'modern-journalist-navigation', get_template_directory_uri('jQuery') . '/js/navigation.js', array(), '20151215', true );
 
-		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array(), '20151215', true );
+		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jQuery'), '20151215', true );
 
 
 	wp_enqueue_script( 'modern-journalist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );

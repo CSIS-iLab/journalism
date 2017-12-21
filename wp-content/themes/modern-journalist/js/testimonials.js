@@ -40,7 +40,7 @@
                 $(this).removeClass('hide-item')
             }
 
-            if ((position == 2) || (position == 0)) {
+            if ((position == 2) || (position != 0)) {
                 $(this).addClass('fade-item');
             } else if ((position != 2) || (position != 0)) {
                 $(this).removeClass('fade-item')

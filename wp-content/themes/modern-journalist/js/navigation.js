@@ -5,7 +5,6 @@
  * navigation support for dropdown menus.
  */
 (function() {
-      console.log("hey");
     var container, button, menu, links, i, len;
 
     container = document.getElementById('site-navigation');
@@ -159,7 +158,9 @@
                 }
             }));
         } // End if
-   
+    });
+})(jQuery);
+(function($) {
     var sBrowser, sUsrAg = navigator.userAgent;
     var headerChange = parseInt($(".header-top").css('height'));
 
@@ -169,7 +170,6 @@
 
     var previousScroll = 0;
     $(window).scroll(function() {
-
         var currentScroll = $(this).scrollTop();
 
         if (currentScroll > headerChange) {
@@ -323,9 +323,9 @@
 
     //Homepage play/pause button
     var vid = document.getElementById("bgvid");
-    var pauseButton = document.querySelector("#home-pause");
+    var pauseButton = document.getElementById("home-pause");
 
-    pauseButton.on("click", function() {
+    pauseButton.click(function() {
         if (vid.paused) {
             vid.play();
             pauseButton.innerHTML = "<i class='icon-pause'></i>";
@@ -336,5 +336,3 @@
     });
 
 })(jQuery);
-
-

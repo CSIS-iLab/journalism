@@ -89,20 +89,19 @@ get_header(); ?>
 	<div class="content-wrapper">
 		<div class="col-wide row">
 			<div class="col-xs-12">
-				<h2 class="heading underline">Stories</h2>
+				<h2 class="heading underline">Featured Story</h2>
 			</div>
 		<div class="col-xs-12 col-md-8">
 			<?php
 				$stories_desc = get_option( 'modernjournalist_stories_description' );
-				echo '<p>' . $stories_desc . '</p>';
+				
 				?>
 		</div>
 	</div>
 	<div class="clearfix"></div>
 	<div class="content-wrapper row">
 		<div class="col-med">
-		<div class="col-xs-12">
-		</div>
+
 		<?php 
 		$args = array( 
 		'post_type' => 'themes',
@@ -111,21 +110,16 @@ get_header(); ?>
 		?>
 		
 		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		<h4 class="subheading"><?php the_title(); ?></h4>
-		<div class="row">
-		<div class="col-xs-12 col-md-8"> 
-		<div class="theme-description"><?php the_content() ?></div>
-	</div>
-	<div id="home-related" class="col-xs-12 col-md-4"> 
-		<div class="meta-label featured">FEATURED REPORT</div>
+
+
 		<?php modernjournalism_related_content(); ?>
-	</div>
+		
+
 
 	
 		<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
 		<?php wp_reset_query(); ?>
-						
-	</div>
+	
 </div>
 	</div>
 	</div><!-- content-wrapper-->
@@ -137,7 +131,7 @@ get_header(); ?>
 	<div class="blueblock row">
 		<div class="col-xs-8 col-md-10">
 			<div class="browseReports">
-			<h4 class="subheading">Browse Reports<i class="icon-arrow-long-right"></i></h4>
+			<h3 class="subheading">Browse Reports<i class="icon-arrow-long-right"></i></h3>
 			<p>In hac habitasse platea dictumst volutpat aliquam.</p>
 		</div>
 	</div>
@@ -149,70 +143,76 @@ get_header(); ?>
 	</div>
 </div>
 </div>
+<div class="vertical-left">
+			IN-DEPTH <span>&</span> INTERACTIVE LONGFORM 
+		</div>
 </div><!-- home-reports-->
 
 <div id="home-testimonials">
-	<div class="content-wrapper">
+	<div class="content-wrapper testimonials-header">
+		<h2 class="heading">What they're saying</h2>
+		<div class="row">
+			<div class="testimonial-button-container">
+			<div class="testimonial-button button-prev">
+				<i class="icon-arrow-long-left"></i>
+			</div>
+			<div class="testimonial-button button-next">
+				<i class="icon-arrow-long-right"></i>
+			</div>
+</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="carousel-wrap">
+			<ul id="testimonial-list" class="clearfix">
+			<?php 
+			$count = 0;
+		$args = array( 
+		'post_type' => 'testimonials',
+		);
+		$the_query = new WP_Query( $args );
+		?>
+		
+		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+			?>
+	<li data-count="<?php echo $count ++; ?>"> 
+		<div class="testimonial">
+		<?php
 
-	</div><!-- content-wrapper-->
+		 $date = get_post_meta( $post->ID, '_testimonials_date', true
+		 );
+		$institution = get_post_meta( $post->ID, '_testimonials_institution', true
+		 );
+		 $role = get_post_meta( $post->ID, '_testimonials_role', true
+		 );
+		 ?>
+		<div class="testimonial-quote"><?php the_content() ?></div>
+
+		<div class="testimonial-name"><?php the_title(); ?></div>
+		<div class="testimonial-info"><?php echo $role ?>, <?php echo $institution ?></div>
+		<div class="testimonial-date"><?php echo $date ?></div>
+	</div>
+	</li>
+		<?php endwhile; endif; ?>
+		<?php wp_reset_query(); ?>
+			</ul>
+		</div>
+	</div>
 </div><!-- home-testimonials-->
 
-<footer id="home-footer">
-	<div class="content-wrapper">
-		<div class="row">
-		<div class=" col-md-4 footer-image">
-			<div class="home-footer-photo">
-			<div class="img-container fit-height">
-				<img id="" src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" />
-			</div>
-		</div>
-	</div>
-		
-	<div class="col-md-8 footer-info"> 
-		<div class="learnMore">
-			<div class="learn-header">
-				<span class="large-title">Learn more</span>
-			</div>
-			<div class="learn-content row">
-				<div class="col-xs-12 col-md-8"> 
-			
-				<?php
-				$learn_more = get_option( 'modernjournalist_learn_more' );
-				echo '<p class="learn-more-text">' . $learn_more . '</p>';
-				?>
-			
-				</div>
-				<div class="col-xs-12 col-md-4">
-					
-					<div class="contact-info">
-			<div><span class="meta-label"><i class="icon-mail"></i></span></div>
-				<?php
-				$email = get_option( 'modernjournalist_email' );
-				echo '<div>' . $email . '</div>';
-				?>
-				</div>
-						<div class="contact-info">
-			<div><span class="meta-label"><i class="icon-location"></i></span></div>
-				<div>1616 Rhode Island Ave., NW <br> Washington, DC 20036</div>
-</div>
-				
-			</div>
-		</div>
-	</div>
-		</div>
-	</div><!-- content-wrapper-->
-	
-</div><!-- home-footer-->
-</footer>
+
 
 
 
 
 	</main><!-- #main -->
-	<div class="site-credit">
-			<div class="content-wrapper">
-			© 2017 by the Center for Strategic and International Studies. All rights reserved.
-		</div><!-- .site-info -->
-	</div>
-</div><!-- #primary -->
 
+
+
+</div><!-- #primary -->
+<?php get_footer(); ?>
+
+
+
+</body>
+</html>

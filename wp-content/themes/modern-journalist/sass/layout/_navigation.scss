@@ -12,7 +12,9 @@
     position: absolute;
     top: 0;
     left: 100%;
+    line-height: 1;
     height: $size__header-height-mobile;
+    align-items: center;
     @include transition(left .3s ease-in-out);
 
     @include breakpoint("medium") {
@@ -24,14 +26,24 @@
         top: unset;
         left: unset;
     }
+    @include breakpoint("large") {}
 
     .menu-menu-1-container {
         width: 100%;
+        @include breakpoint("medium") {
+            width: 0;
+            overflow: hidden; //position: relative;
+            @include transition(width .3s ease-in-out);
+        }
+        @include breakpoint("large") {
+            width: 100%;
+            overflow: unset;
+        }
     }
 }
 
 #mobile-menu {
-    display: block;
+    display: flex;
     content: ' ';
     font-family: 'mj';
     position: absolute;
@@ -40,37 +52,54 @@
     width: 3rem;
     height: 100%;
     left: -3rem;
-
-
+    align-items: center;
     @include breakpoint("medium") {
+        left: 0;
+        height: 40px;
+        position: relative;
+        border-left: 1px solid $color-ltbluegray;
+        padding-left: 1rem;
+    }
+
+    @include breakpoint("large") {
         display: none;
     }
 
     .icon-close {
-    	display: none;
+        display: none;
     }
 }
 
-.icon-menu, .icon-close {
-font-size: 1.5rem;}
+.icon-menu,
+.icon-close {
+    font-size: 1.5rem;
+}
 
 
 .mobile-open {
     #site-navigation {
         left: 3rem;
         @include transition(left .3s ease-in-out);
+        @include breakpoint("medium") {
+            left: unset;
+        }
+        .menu-menu-1-container {
+            @include breakpoint("medium") {
+                width: 100%; //overflow: visible;
+                @include transition(width .3s ease-in-out);
+            }
+        }
     }
+
+
     #mobile-menu {
-    	align-text: center;
-    
+        align-text: center;
     }
     #mobile-menu .icon-menu {
-    	display: none;
-
-
+        display: none;
     }
     #mobile-menu .icon-close {
-    	display: block;
+        display: block;
     }
 }
 
@@ -83,14 +112,19 @@ font-size: 1.5rem;}
     display: flex;
 
     @include breakpoint("medium") {
-        height: 100%;
-        border-left: 1px solid $color-ltbluegray;
-            padding: 0 1rem 0 1rem;
-
+        height: 100%; //position: absolute;
+        padding: 0 1rem 0 1rem;
+        height: 40px;
         flex-direction: row;
         display: flex;
         align-items: center;
     }
+    @include breakpoint("large") {
+        border-left: 1px solid $color-ltbluegray;
+        position: relative;
+        width: unset;
+    }
+
 
     li {
         display: flex;
@@ -100,7 +134,7 @@ font-size: 1.5rem;}
         @include breakpoint("medium") {
             float: unset;
             display: flex;
-         
+
             line-height: 1;
             flex-shrink: 0;
         }

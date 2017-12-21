@@ -5,6 +5,7 @@
  * navigation support for dropdown menus.
  */
 (function() {
+      console.log("hey");
     var container, button, menu, links, i, len;
 
     container = document.getElementById('site-navigation');
@@ -170,6 +171,7 @@
 
     var previousScroll = 0;
     $(window).scroll(function() {
+
         var currentScroll = $(this).scrollTop();
 
         if (currentScroll > headerChange) {
@@ -336,3 +338,5 @@
     });
 
 })(jQuery);
+
+

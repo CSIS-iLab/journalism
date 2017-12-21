@@ -106,8 +106,8 @@ endif;
 	function modernjournalism_related_content(){
 		global $related;
 		$rel = $related->show( get_the_ID(), true );
-
-		$time_string = '<span class="meta-label">Published</span><time class="entry-date published" datetime="%1$s">%2$s</time>';
+	
+		$time_string = '<span class="meta-label">Published: </span><time class="entry-date published" datetime="%1$s">%2$s</time>';
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
@@ -115,22 +115,35 @@ endif;
 		);
 		
 
+				
 		// Display the title and excerpt of each related post
 		if ( is_array( $rel ) && count( $rel ) > 0 ) {
 			global $post;
-			echo '<div class="related-posts col-xs-12 row">';
+			echo '<div class="related-posts home-related col-xs-12 row">';
 			foreach( $rel as $post ) : setup_postdata($post);
 				if ($post->post_status != 'trash') {
-					echo '<div class="related-post col-xs-12 col-md">';
-					echo '<div class="related-post-img"><a href="'.get_permalink().'">';
+
+					echo '<div class="related-post col-xs-12 col-md-4">';
+					echo '<div class="related-post-img"><a href="'.get_permalink($post).'">';
 					the_post_thumbnail('medium-large');
-					echo '</a></div><div class="related-post-content">';
-					echo '<a href="'.get_permalink().'" class="related-post-title">';
+					echo '</a></div>';
+	
+			
+					echo '</div>';
+					echo '<div class="related-post col-xs-12 col-md-8">';
+						echo '<a href="'.get_permalink($post).'" class=""><h4 class="subheading">';
 					the_title();
-					echo '</a>';
-					//aerospace_authors_list();
-					echo '<div class="posted-on">' . $time_string . '</div>'; // WPCS: XSS OK.
-					echo '</div></div>';
+					echo '</h4></a>';
+					echo '<div class="entry-meta ">';
+					echo '<p class="meta-line"><span class="meta-label">By: </span>';
+					$authors = related_authors( $post );
+					echo $authors;
+					echo '</p>';
+					echo '<p class="posted-on meta-line">' . $time_string . '</p>'; // WPCS: XSS OK.
+					echo '</div><div class="entry-excerpt">';
+					the_excerpt();
+						
+					echo '</div></div></div></div></div>';
 				}
 			endforeach;
 			wp_reset_postdata();
@@ -138,5 +151,39 @@ endif;
 		}
 	}
 endif;
+
+
+
+
+
+function related_authors($post){
+			 global $related_du;
+				    $relt = $related_du->show( get_the_ID(), true );
+				    $output;
+				    // Display the title and excerpt of each related post
+				    if( is_array( $relt ) && count( $relt ) > 0 ) {
+				    	$a = 0;
+				        foreach ( $relt as $r ) {
+				            if ( is_object( $r ) ) {
+				                if ($r->post_status != 'trash') {
+				                	$a++;
+				                    setup_postdata( $r );
+				                    $output .= get_the_title( $r->ID );
+
+				               		if ($a < count($relt)){
+				               		$output .=  ', ';
+				               		}
+				               		
+				               		
+				                };
+				            }
+
+				        }
+
+				    return $output;
+				        wp_reset_postdata();
+				    }
+
+}
 
 	

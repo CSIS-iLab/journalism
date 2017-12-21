@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'mj';
-    src: url('/wp-content/themes/modern-journalist/fonts/mj.eot?73385208');
-  src: url('/wp-content/themes/modern-journalist/fonts/mj.eot?73385208#iefix') format('embedded-opentype'),
-       url('/wp-content/themes/modern-journalist/fonts/mj.woff2?73385208') format('woff2'),
-       url('/wp-content/themes/modern-journalist/fonts/mj.woff?73385208') format('woff'),
-       url('/wp-content/themes/modern-journalist/fonts/mj.ttf?73385208') format('truetype'),
-       url('/wp-content/themes/modern-journalist/fonts/mj.svg?73385208#mj') format('svg');
+       src: url('/wp-content/themes/modern-journalist/fonts/mj.eot?10037984');
+  src: url('/wp-content/themes/modern-journalist/fonts/mj.eot?10037984#iefix') format('embedded-opentype'),
+       url('/wp-content/themes/modern-journalist/fonts/mj.woff2?10037984') format('woff2'),
+       url('/wp-content/themes/modern-journalist/fonts/mj.woff?10037984') format('woff'),
+       url('/wp-content/themes/modern-journalist/fonts/mj.ttf?10037984') format('truetype'),
+       url('/wp-content/themes/modern-journalist/fonts/mj.svg?10037984#mj') format('svg');
 
   font-weight: normal;
   font-style: normal;
@@ -57,19 +57,24 @@
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
 .icon-phone:before { content: '\e800'; } /* '' */
 .icon-mail:before { content: '\e801'; } /* '' */
+.icon-quote:before { content: '\e802'; } /* '' */
 .icon-link:before { content: '\e805'; } /* '' */
 .icon-doc:before { content: '\e817'; } /* '' */
 .icon-bookmark:before { content: '\e819'; } /* '' */
 .icon-linkedin:before { content: '\f0e1'; } /* '' */
+.icon-doc2:before { content: '\f15b'; } /* '' */
 .icon-pause:before { content: '\f210'; } /* '' */
 .icon-play:before { content: '\f215'; } /* '' */
 .icon-facebook:before { content: '\f231'; } /* '' */
 .icon-twitter:before { content: '\f243'; } /* '' */
+.icon-youtube:before { content: '\f24d'; } /* '' */
 .icon-plus:before { content: '\f2c7'; } /* '' */
 .icon-close:before { content: '\f2d7'; } /* '' */
 .icon-minus:before { content: '\f2f4'; } /* '' */
+.icon-instagram:before { content: '\f351'; } /* '' */
 .icon-menu:before { content: '\f394'; } /* '' */
 .icon-external-open:before { content: '\f39c'; } /* '' */
 .icon-print:before { content: '\f3a5'; } /* '' */

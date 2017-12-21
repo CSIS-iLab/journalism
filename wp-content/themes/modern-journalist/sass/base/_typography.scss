@@ -61,12 +61,19 @@ h6 {
     margin-bottom: 0px;
 }
 
+h1 {
+    &.underline {
+        line-height: 70%;
+        border-bottom: 4px solid $color-ltgray;
+        margin-bottom: 1rem;
+    }
+}
 h2.heading {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-top: 0;
     border-bottom: 4px solid $color-ltgray;
     @include breakpoint("medium") {
-        font-size: 4.5rem;
+        font-size: 3rem;
     }
     &.underline {
         line-height: 70%;
@@ -76,11 +83,11 @@ h2.heading {
 }
 
 h3.subheading, h3.entry-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 0;
     line-height: 1.1;
     @include breakpoint("medium") {
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
 }
 
@@ -90,7 +97,7 @@ h4.subheading {
     font-size: 1.5rem;
     margin-top: 0;
     @include breakpoint("medium") {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 

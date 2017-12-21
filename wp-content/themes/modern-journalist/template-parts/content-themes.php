@@ -38,7 +38,7 @@ $num_padded = sprintf("%02d", $count);
     		<div class="col-xs-12 col-md-8">
             	<?php the_content(); ?>
 
-            	<div class="theme-gallery row">
+            	<div class="theme-gallery">
             	
 				<?php 
 				$galleryArray = get_post_gallery_ids($post->ID); 
@@ -73,7 +73,7 @@ $num_padded = sprintf("%02d", $count);
 	        
 			        <div class="entry-meta-top">
 			        	<div>
-			        		<span class="meta-label">Dates: </span>
+			        		<span class="meta-label">Date: </span>
 			        	</div>
 			        	<div>
 			        		<?php echo $dates ?>	
@@ -83,28 +83,25 @@ $num_padded = sprintf("%02d", $count);
 			        <div class="clearfix"></div>
 			        
 			        <div class="entry-meta-top">
-			         	<div>
-			         		<span class="meta-label">Institution: </span>
-			         	</div>
-			         	<div>
+			         	
+			         		<div class="meta-inline"><span class="meta-label meta-inline">Institution: </span>
 			         		<?php echo $institution ?>
 			         	</div>
 			         </div>
 
 			         <div class="clearfix"></div>
 
-			         <div class="entry-meta-top">
-			         	<div>
-			         		<span class="meta-label">Faculty Advisor: </span>
-			         	</div>
-			         	<div>
+			         <div class="entry-meta-bottom">
+			         	<div class="meta-inline"><span class="meta-label meta-inline">Faculty Advisor: </span>
+			         	
 			         		<?php echo $faculty ?>
 			         	</div>
+			         	
 			         </div>
 
 			         <div class="clearfix"></div>
 
-			         <div class="entry-meta-bottom">
+			         <div class="">
 			         	<div>
 			         		<span class="meta-label">Students: </span>
 			         	</div>
@@ -130,15 +127,15 @@ $num_padded = sprintf("%02d", $count);
             if ( is_object( $r ) ) {
                 if ($r->post_status != 'trash') {
                     setup_postdata( $r );
-                    echo '<div class="related-post col-xs-12">';
+                    echo '<div class="related-post ">';
        
 			        
-			       echo '<div class="related-post-img col-md-3"><a href="' . esc_url( get_permalink($r->ID) ) . '">'. get_the_post_thumbnail( $r->ID  ).'</a></div>';
+			       echo '<div class="related-post-img col-md-4"><a href="' . esc_url( get_permalink($r->ID) ) . '">'. get_the_post_thumbnail( $r->ID  ).'</a></div>';
 			        
 			    
-			     echo '<div class="related-post-content col-xs-12 col-md-9">';
+			     echo '<div class="related-post-content col-xs-12 col-md-8">';
                     echo '<h3 class="entry-title"><a href="' . esc_url( get_permalink($r->ID) ) . '"> ' . get_the_title( $r->ID ) . '<i class="icon-arrow-long-right"></i></a></h3>';
-                    the_excerpt();
+                    get_the_excerpt( $r->ID );
                      echo '</div></div>';
                 };
             }

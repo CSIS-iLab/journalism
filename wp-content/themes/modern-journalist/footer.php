@@ -13,7 +13,7 @@
 
 	</div><!-- #content -->
 
-<footer id="home-footer">
+<footer id="home-footer" class="site-footer">
 	<div class="content-wrapper">
 		<div class="row">
 		<div class=" col-md-4 footer-image">

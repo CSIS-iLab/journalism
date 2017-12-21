@@ -49,8 +49,10 @@ $num_padded = sprintf("%02d", $count);
 			 	//$attachment_description = get_the_excerpt($id)
 			 	?>
 			 	<div class="photo-entry">
-			 		<div class="gallery-photo">
+			 		<div class="gallery">
+			 			<a href="<?php echo wp_get_attachment_url( $id ); ?>" rel='lightbox'>
 	    				<img src="<?php echo wp_get_attachment_url( $id ); ?>">
+	    			</a>
 	    			</div>
 	    			<div class="photo-details">
 						<?php echo $attachment_title; 

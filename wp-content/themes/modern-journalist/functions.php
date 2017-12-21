@@ -119,11 +119,12 @@ add_action( 'widgets_init', 'modern_journalist_widgets_init' );
 function modern_journalist_scripts() {
 	wp_enqueue_style( 'modern-journalist-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'modern-journalist-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), null, true );
+	wp_enqueue_script( 'modern-journalist-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 
-		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jQuery'), null, true );
+		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jquery'), '20151215', true );
 
-
+	wp_enqueue_script( 'modern-journalist-fluidscriptcdn', 'http:///cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js', array('jquery'), '20151215', true );
+		
 	wp_enqueue_script( 'modern-journalist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -52,6 +52,7 @@
 				?>
 
 			</p>
+
 			<p class="meta-line"><span class="meta-label">Published: </span>
 				<?php modern_journalist_posted_on(); ?>
 			</p>

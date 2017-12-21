@@ -313,7 +313,7 @@
 
 
     // Open mobile menu
-    $("#mobile-menu").on("click", function() {
+    $("#mobile-menu").click( function() {
         if ($("#masthead").hasClass("mobile-open")) {
             $("#masthead").removeClass("mobile-open");
         } else {

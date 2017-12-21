@@ -159,9 +159,7 @@
                 }
             }));
         } // End if
-    });
-})(jQuery);
-(function($) {
+   
     var sBrowser, sUsrAg = navigator.userAgent;
     var headerChange = parseInt($(".header-top").css('height'));
 
@@ -289,12 +287,12 @@
             $(".post-links").removeClass("active");
 
         } else {
-        	if ($(".post-share").hasClass("active")) {
+            if ($(".post-share").hasClass("active")) {
                 $(".post-share").removeClass("active");
             }
             $(".post-links").addClass("active");
 
-            
+
         }
     })
 
@@ -304,7 +302,7 @@
             $(".post-share").removeClass("active");
 
         } else {
-        	 if ($(".post-links").hasClass("active")) {
+            if ($(".post-links").hasClass("active")) {
                 $(".post-links").removeClass("active");
             }
             $(".post-share").addClass("active");

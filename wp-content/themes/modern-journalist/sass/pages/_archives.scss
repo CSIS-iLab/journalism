@@ -7,10 +7,15 @@
 }
 
 
+.entry-meta.stories {
+    border-bottom: 1px solid $color-medgray;
+        margin-top: .5rem;
+
+}
+
 .entry-meta {
     margin-top: 1rem;
         padding-bottom: 1rem;
-        //border-bottom: 1px solid $color-medgray;
         margin-bottom: .5rem;
         margin-right: 2rem;
         line-height: 2rem;

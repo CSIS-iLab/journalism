@@ -18,7 +18,7 @@
 				the_title( '<h3 class="entry-title"><a href="' . esc_url( $permalink ) . '" rel="bookmark">', '</a></h3>' );
 			
 		?>
-			<div class="entry-meta">
+			<div class="entry-meta stories">
 
 			<?php
 			$photo =  get_the_post_thumbnail();  
@@ -59,7 +59,12 @@
 			<?php
 			endif; ?>
 </div>
-			<div class="entry-excerpt"><p><?php the_excerpt(); ?></p></div>
+			<div class="entry-excerpt"><p><?php 
+
+			 $post = get_post($r->ID);
+  					$excerpt = get_the_excerpt();
+                    echo $excerpt;
+			 ?></p></div>
 
 		</header><!-- .entry-info -->
 	</div>

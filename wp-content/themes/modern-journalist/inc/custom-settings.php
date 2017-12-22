@@ -40,6 +40,18 @@ add_action( 'admin_init', 'modernjournalist_admin_init_section_homepage' );
  * Creates the "Homepage" settings section.
  */
 function modernjournalist_admin_init_section_homepage() {
+	$post_types = array( 'post' );
+	$post_selection = array();
+	foreach( $post_types as $type ) {
+		$post_selection[$type] = get_posts(
+	        array(
+	            'post_type'  => $type,
+	            'numberposts' => -1
+	        )
+	    );
+	}
+
+
 
 	add_settings_section(
 		'modernjournalist_settings_section_homepage',
@@ -76,7 +88,14 @@ function modernjournalist_admin_init_section_homepage() {
 		array( 'modernjournalist_stories_description' )
 	);
 
-
+	add_settings_field(
+		'modernjournalist_featured_story',
+		'Featured Story',
+		'modernjournalist_posts_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_featured_story', $post_selection['post'] )
+	);
 	
 	register_setting(
 		'modernjournalist_settings',
@@ -95,7 +114,11 @@ function modernjournalist_admin_init_section_homepage() {
 		'wp_filter_post_kses'
 	);
 
-
+register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_featured_story',
+		'sanitize_text_field'
+	);
 
 }
 

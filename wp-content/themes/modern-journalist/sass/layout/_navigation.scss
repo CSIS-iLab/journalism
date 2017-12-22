@@ -18,27 +18,23 @@
     @include transition(left .3s ease-in-out);
 
     @include breakpoint("medium") {
-        position: relative;
+        position: absolute;
         display: inline-flex;
         margin-right: 50px;
         height: 100%;
         width: unset;
         top: unset;
+        left: 100%;
+    z-index: 5;
+    }
+    @include breakpoint("large") {
+        position: relative;
         left: unset;
     }
-    @include breakpoint("large") {}
 
     .menu-menu-1-container {
         width: 100%;
-        @include breakpoint("medium") {
-            width: 0;
-            overflow: hidden; //position: relative;
-            @include transition(width .3s ease-in-out);
-        }
-        @include breakpoint("large") {
-            width: 100%;
-            overflow: unset;
-        }
+        
     }
 }
 
@@ -54,14 +50,7 @@
     left: -3rem;
     align-items: center;
     @include breakpoint("medium") {
-        left: 0;
-        height: 40px;
-        position: relative;
-        border-left: 1px solid $color-ltbluegray;
-        padding-left: 1rem;
-    }
-
-    @include breakpoint("large") {
+  
         display: none;
     }
 

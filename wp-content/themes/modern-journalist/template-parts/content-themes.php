@@ -18,8 +18,10 @@ $institution = get_post_meta( $post->ID, '_themes_institution', true
  );
  $partners = get_post_meta( $post->ID, '_themes_partners', true
  );
-$count ++;
 
+    //$index = $wp_query->current_post + 1;
+
+   
 $num_padded = sprintf("%02d", $count);
  ?>
 
@@ -35,7 +37,7 @@ $num_padded = sprintf("%02d", $count);
     </div>
     	<div class="entry-content-container">
     	<div class="entry-content row">
-    		<div class="col-xs-12 col-md-8">
+    		<div class="col-xs-12 col-md-8 theme-content">
             	<?php the_content(); ?>
 
             	<div class="theme-gallery">
@@ -50,8 +52,10 @@ $num_padded = sprintf("%02d", $count);
 			 	?>
 			 	<div class="photo-entry">
 			 		<div class="gallery">
-			 			<a href="<?php echo wp_get_attachment_url( $id ); ?>" rel='lightbox'>
-	    				<img src="<?php echo wp_get_attachment_url( $id ); ?>">
+			 			<a href="<?php echo  wp_get_attachment_url( $id ) ?>" rel='lightbox'>
+	    				<img src="<?php echo wp_get_attachment_thumb_url( $id ) ?>">
+	    			
+	
 	    			</a>
 	    			</div>
 	    			<div class="photo-details">

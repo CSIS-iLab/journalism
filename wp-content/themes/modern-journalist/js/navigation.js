@@ -324,17 +324,18 @@
 
     //Homepage play/pause button
     var vid = document.getElementById("bgvid");
-    var pauseButton = document.getElementById("home-pause");
+    $pauseButton = $("#home-pause");
 
-    pauseButton.click(function() {
+    $pauseButton.click(function() {
         if (vid.paused) {
             vid.play();
-            pauseButton.innerHTML = "<i class='icon-pause'></i>";
+            $pauseButton.html("<i class='icon-pause'></i>");
         } else {
             vid.pause();
-            pauseButton.innerHTML = "<i class='icon-play'></i>";
+            $pauseButton.html("<i class='icon-play'></i>");
         }
     });
+    $('#bgvid').on('ended',function(){ $pauseButton.html("<i class='icon-play'></i>") });
 
 
  

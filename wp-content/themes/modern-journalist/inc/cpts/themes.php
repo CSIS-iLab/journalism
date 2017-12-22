@@ -73,7 +73,7 @@ add_action( 'init', 'modernjournalist_cpt_themes', 0 );
  */
 function themes_add_meta_boxes( $post ) {
 	add_meta_box( 'themes_meta_box', __( 'Theme Information', 'modern-journalist' ), 'themes_build_meta_box', 'themes', 'normal', 'high' );
-			add_meta_box( 'featured_meta_box', __( 'Featured', 'modern-journalist' ), 'featured_build_meta_box', 'themes', 'side', 'high' );
+	add_meta_box( 'featured_meta_box', __( 'Featured', 'modern-journalist' ), 'featured_build_meta_box', 'themes', 'side', 'high' );
 
 }
 add_action( 'add_meta_boxes_themes', 'themes_add_meta_boxes' );
@@ -152,6 +152,7 @@ function themes_build_meta_box( $post ) {
 						'media_buttons' => false,
 						'textarea_name' => 'students',
 						'teeny' => false,
+						'textarea_rows' => get_option('default_post_edit_rows', 7),
 						'tinymce' => array(
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',
@@ -173,6 +174,7 @@ function themes_build_meta_box( $post ) {
 						'media_buttons' => false,
 						'textarea_name' => 'partners',
 						'teeny' => false,
+						'textarea_rows' => get_option('default_post_edit_rows', 7),
 						'tinymce' => array(
 							'menubar' => false,
 							'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,undo,redo,link,unlink',

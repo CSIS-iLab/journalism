@@ -3,9 +3,8 @@
 ==============================*/
 
 .site-footer {
-	background-color: $color-dkblue;
-	margin-top: 5rem;
-
+    background-color: $color-dkblue;
+    
 }
 
 
@@ -34,8 +33,6 @@
             height: 100%;
             width: 100%;
         }
-      
-        
     }
     .learnMore {
         padding: 0 2rem 2rem 2rem;
@@ -47,21 +44,19 @@
 
             .learn-header {
                 display: block;
-                position: relative;
-                //height: 4rem;
-                
+                position: relative; //height: 4rem;
             }
-            .footer-csis{
-                
-                
-                    border-bottom: 4px solid #4B6777;
-                
+            .footer-csis {
+
+
+                border-bottom: 4px solid #4B6777;
+
                 display: inline-block;
-                 img{
+                img {
                     padding-left: 2rem;
                     height: 4rem;
-                 }
-            
+                }
+
                 &:before {
                     content: " ";
                     bottom: 0;
@@ -100,68 +95,94 @@
     line-height: 1.5;
     i {
         margin-right: .5rem;
-        font-size:1.5rem;
-
+        font-size: 1.5rem;
     }
     div {
         float: left;
         display: block;
         position: relative;
         @include breakpoint("medium") {
-        	max-width: calc(100% - 3.5rem);
+            max-width: calc(100% - 3.5rem);
         }
     }
     .meta-info {
-    	padding-top: .5rem;
-    	padding-bottom: .5rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
     }
-
 }
 
-.footer-info, .footer-image {
+.footer-info,
+.footer-image {
     padding: 0!important;
 }
 
 .site-info {
-		
-		color: $color-medgray;
-		font-size: .9rem;
-		padding: 3rem 0;
+
+    color: $color-medgray;
+    font-size: .9rem;
+    padding: 3rem 0;
 }
 
 .contact-info {
-	color: white;
+    color: white;
 }
 
 .site-credit {
-	display: block;
-	background-color: #003552;
-	color: $color-medbluegray;
-	font-family: $font__roboto;
-	font-size: .8rem;
-	text-align: right;
-	padding: .5rem;
+    display: block;
+    background-color: #003552;
+    color: $color-medbluegray;
+    font-family: $font__roboto;
+    font-size: .8rem;
+    text-align: right;
+    padding: .5rem;
 }
 
 
 .socialContainer {
-	.follow-text {
-		font-family: $font__roboto;
-		padding-top: .5rem;
-		font-size: .9rem;
+    display: flex;
+    align-content: center;
+    .follow-text {
+        font-family: $font__roboto;
+        padding-top: .5rem;
+        font-size: .9rem;
+    }
+    list-style: none;
+    color: white;
+    margin: 0;
+    padding-left: 2rem;
+    align-items: center;
+
+    li {
+        display: flex;
+        float: left;
+        line-height: 1.5;
+
+        a {
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            padding: .5rem;
+            border-radius: 100%;
+            margin: .5rem;
+            &:hover {
+            	background-color: white;
+            	color: $color-blue;
+            }
+        }
+    }
+}
+
+.footer-csis {
+	img {
+		@include breakpoint("xsmall") {
+			max-width: 100%;
+		}
+		@include breakpoint("small") {
+			max-width: 80%;
+		}
+		max-width: 70%;
+		@include breakpoint("medium") {
+			max-width: 100%;
+		}
 	}
-		list-style: none;
-		color: white;
-		margin: 0;
-		padding-left: 2rem;
-		li {
-			float: left;
-			line-height: 1.5;
-			padding: 0 .5rem;
-		}
-		a {
-			color: white;
-			font-size: 1.5rem;
-		}
-	
 }

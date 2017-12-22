@@ -281,3 +281,18 @@ h3.entry-title a, .entry-title a {
 text-decoration: none;
 color: black;
 	}
+h3.subheading.darkbg a {
+text-decoration: none;
+color: white;
+    }
+
+
+
+a .icon-arrow-long-right:before {
+            margin-left: 0;
+            @include transition(margin-left .3s ease-in-out);
+        }
+        a:hover .icon-arrow-long-right:before {
+            margin-left: 5px;
+            @include transition(margin-left .3s ease-in-out);
+        }

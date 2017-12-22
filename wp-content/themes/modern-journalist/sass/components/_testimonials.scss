@@ -108,7 +108,7 @@
             width: 50%;
             max-width: 900px;
         }
-        .testimonial {}
+    
     }
 
     li:nth-child(2) {
@@ -201,5 +201,11 @@
     }
     .testimonial-date {
         color: $color-text-gray;
+    }
+
+
+    .smallTestimonials {
+        display: relative;
+
     }
 }

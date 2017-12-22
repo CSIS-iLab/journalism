@@ -29,8 +29,14 @@ get_header(); ?>
 	 			</div>
 	 		</div>
 	 	</div>
-	 	<img id="homepage-title" src="<?php echo get_template_directory_uri(); ?>/img/homepage_title_lg.svg" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" />
 	 	
+	 	
+	 	<picture id="homepage-title">
+  <source media="(min-width: 650px)" srcset="<?php echo get_template_directory_uri() ?>/img/homepage_title_lg.svg">
+  <img src="<?php echo get_template_directory_uri() ?>/img/homepage_title_sm.svg" alt="Flowers" style="width:auto;">
+</picture>
+
+
 	 	<div class="home-tagline">
 	 	<?php
 					$description = get_bloginfo( 'description', 'display' );
@@ -88,36 +94,65 @@ get_header(); ?>
 <div id="home-topics">
 	<div class="content-wrapper">
 		<div class="col-wide row">
-			<div class="col-xs-12">
+			
 				<h2 class="heading underline">Featured Story</h2>
-			</div>
-		<div class="col-xs-12 col-md-8">
+				<div class="col-xs-12 col-md-10">
 			<?php
-				$stories_desc = get_option( 'modernjournalist_stories_description' );
-				
+				$story_desc = get_option( 'modernjournalist_stories_description' );
+				echo '<p>' . $story_desc . '</p>';
 				?>
+			</div>
 		</div>
-	</div>
-	<div class="clearfix"></div>
-	<div class="content-wrapper row">
 		<div class="col-med">
-
-		<?php 
-		$args = array( 
-		'post_type' => 'themes',
-		);
-		$the_query = new WP_Query( $args );
-		?>
-		
-		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-
-		<?php modernjournalism_related_content(); ?>
-		
-
-
+					<?php
+			$feature_post = get_option( 'modernjournalist_featured_story' );
+						if( $feature_post ) {
+							
+							global $post;
+							setup_postdata($post);
+							$post = $feature_post;
+							$postID =  $post->ID;
 	
-		<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
+		$time_string = '<span class="meta-label">Published: </span><time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+		
+			echo '<div class="related-posts home-related row">';
+			
+					echo '<div class="related-post col-xs-12 col-md-4 no-padding">';
+					echo '<div class="related-post-img"><a href="'.get_permalink($post).'">';
+					the_post_thumbnail('medium-large');
+					echo '</a></div>';
+	
+			
+					echo '</div>';
+					echo '<div class="related-post related-info col-xs-12 col-md-8">';
+						echo '<a href="'.get_permalink($post).'" class=""><h4 class="subheading">';
+					the_title();
+					echo '</h4></a>';
+					echo '<div class="entry-meta ">';
+					echo '<p class="meta-line"><span class="meta-label">By: </span>';
+					$authors = related_authors( $post );
+					echo $authors;
+					echo '</p>';
+					echo '<p class="posted-on meta-line">' . $time_string . '</p>'; // WPCS: XSS OK.
+					echo '</div><div class="entry-excerpt">';
+					the_excerpt();
+						
+				echo '</div></div></div></div></div>';
+				
+			
+			
+			echo '</div>';
+		
+
+						}
+ //modernjournalism_related_content(); 
+	
+	  ?>
 		<?php wp_reset_query(); ?>
 	
 </div>
@@ -131,7 +166,7 @@ get_header(); ?>
 	<div class="blueblock row">
 		<div class="col-xs-8 col-md-10">
 			<div class="browseReports">
-			<h3 class="subheading">Browse Reports<i class="icon-arrow-long-right"></i></h3>
+			<h3 class="subheading darkbg"><a href="/feature-stories">Browse Reports<i class="icon-arrow-long-right"></i></a></h3>
 			<p>In hac habitasse platea dictumst volutpat aliquam.</p>
 		</div>
 	</div>
@@ -143,6 +178,12 @@ get_header(); ?>
 	</div>
 </div>
 </div>
+
+
+
+
+
+
 <div class="vertical-left">
 			IN-DEPTH <span>&</span> INTERACTIVE LONGFORM 
 		</div>
@@ -165,20 +206,35 @@ get_header(); ?>
 	<div class="row">
 		<div class="carousel-wrap">
 			<ul id="testimonial-list" class="clearfix">
+
+
+
 			<?php 
+
 			$count = 0;
 		$args = array( 
 		'post_type' => 'testimonials',
+		'meta_query' => array(
+		array(
+			'key' => '_testimonial_is_featured',
+			'value' => '1',
+			'compare' => '=='
+		)
+	)
+
+		
 		);
 		$the_query = new WP_Query( $args );
-		?>
 		
-		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+		$postcount = $the_query->post_count; 
+
+		
+		 if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
 			?>
+
 	<li data-count="<?php echo $count ++; ?>"> 
 		<div class="testimonial">
 		<?php
-
 		 $date = get_post_meta( $post->ID, '_testimonials_date', true
 		 );
 		$institution = get_post_meta( $post->ID, '_testimonials_institution', true
@@ -192,7 +248,9 @@ get_header(); ?>
 		<div class="testimonial-info"><?php echo $role ?>, <?php echo $institution ?></div>
 		<div class="testimonial-date"><?php echo $date ?></div>
 	</div>
-	</li>
+	</li> 
+
+	
 		<?php endwhile; endif; ?>
 		<?php wp_reset_query(); ?>
 			</ul>

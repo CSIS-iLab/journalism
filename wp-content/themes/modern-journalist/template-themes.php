@@ -22,18 +22,21 @@ get_header(); ?>
 		
 			
         <?php
-		
-		$custom_query = new WP_Query(array('post_type'=>'themes', 'post_status'=>'publish'));  
-  		$count = 0; ?>
+			
+		$custom_query = new WP_Query(array('post_type'=>'themes', 'post_status'=>'publish', 'order'=>'ASC'));  
+  	 ?>
           			<?php
   			if ( $custom_query->have_posts() ) : 
-
+$count = 0;
 			 ?>
 
 				<?php
 				/* Start the Loop */
 				while ( $custom_query->have_posts() ) : $custom_query->the_post(); 
-						get_template_part( 'template-parts/content', get_post_type() );
+		$count++;
+    $index = $wp_query->current_post + 1;
+ 
+						include( locate_template( 'template-parts/content-themes.php', false, false ) ); 
 
 				endwhile;
 

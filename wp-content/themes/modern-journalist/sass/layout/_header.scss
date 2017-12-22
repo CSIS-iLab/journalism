@@ -112,9 +112,7 @@
     .site-branding {
         margin-left: -100%;
         @include transition(margin-left .3s ease-in-out);
-         @include breakpoint("medium") {
-            margin-left: 0;
-         }
+         
     }
 }
 
@@ -138,6 +136,10 @@
         height: 100%;
         float: left;
         align-items: center;
+        margin-right: 3rem;
+    }
+    @include breakpoint("large") {
+margin-right: unset;
     }
     .site-title {
         color: black;

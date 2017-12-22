@@ -1,0 +1,79 @@
+.addtoany_list {
+	line-height: inherit !important;
+
+	a {
+		margin-right: 0.75rem;
+	}
+
+	.a2a_svg {
+		background-color: transparent !important;
+
+		&:before {
+			font-family: 'mj';
+			color: white;
+			line-height: 1;
+			display: inline-block;
+			vertical-align: middle;
+			@include breakpoint("medium") {
+		   	color: $color-blue;
+		   	
+		   }
+		}
+
+		/* Facebook */
+		&.a2a_s_facebook:before {
+			content: "\F231";
+		}
+
+		/* Twitter */
+		&.a2a_s_twitter:before {
+			content: "\F243";
+		}
+
+		/* LinkedIn */
+		&.a2a_s_linkedin:before {
+			content: "\F0E1";
+		}
+
+		
+
+		/* Print */
+		&.a2a_s_print:before, 
+		&.a2a_s_printfriendly:before {
+			content: "\F3A5";
+		}
+
+		/* Email */
+		&.a2a_s_email:before {
+			content: "\E801";
+		}
+
+		/* Copy Link */
+		&.a2a_s_link:before {
+			content: "\e805";
+		}
+
+		svg {display: none;}
+	}
+
+	& a>span {
+		width: inherit !important;
+		height: inherit !important;
+	
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 3rem;
+		   @include breakpoint("medium") {
+		   	color: $color-blue;
+		   	font-size: 2rem;
+		   }
+	}
+
+	/* Divider between Email & Social */
+	.a2a_button_email {
+		
+		&:before {
+
+		}
+	}
+}

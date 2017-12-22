@@ -425,10 +425,11 @@ margin-right: unset;
         height: 100%;
         flex: 1;
         padding: 1rem;
+        display:flex;
 
         @include breakpoint("medium") {
             background-color: white;
-            width: 200px;
+            //width: 200px;
             &:before {
                 display: block;
                 content: " ";
@@ -447,4 +448,12 @@ margin-right: unset;
 
 .a2a_kit a {
     float: left;
+    padding-right:.5rem;
+    @include breakpoint("medium") {
+padding-right: .5rem;
+    }
+    &:last-of-type {
+        padding-right: 0;
+         margin-right: 0;
+    }
 }

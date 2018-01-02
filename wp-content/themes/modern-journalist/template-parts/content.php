@@ -24,10 +24,7 @@ endif;
 				</div>
 		</header><!-- .entry-header -->
 		
-		<?php the_content( sprintf(
-		/* translators: %s: Name of current post. */
-			
-			) );
+		<?php the_content(  );
 
 
 			if ( is_single() ) {

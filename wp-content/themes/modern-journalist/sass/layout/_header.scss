@@ -28,6 +28,11 @@
     }
 }
 
+.large-logo {
+    @include breakpoint("medium") {
+        width: 220px;
+    }
+}
 
 .small-logo {
     display: none;
@@ -47,6 +52,10 @@
         display: none;
         @include breakpoint("medium") {
             display: block;
+            img {
+                height: 40px;
+                margin-right: 3rem;
+            }
         }
     }
     .site-branding {
@@ -54,9 +63,6 @@
             min-width: unset;
         }
     }
-
-
-
 }
 
 .header-top,
@@ -112,7 +118,6 @@
     .site-branding {
         margin-left: -100%;
         @include transition(margin-left .3s ease-in-out);
-         
     }
 }
 
@@ -139,7 +144,7 @@
         margin-right: 3rem;
     }
     @include breakpoint("large") {
-margin-right: unset;
+        margin-right: unset;
     }
     .site-title {
         color: black;
@@ -179,7 +184,7 @@ margin-right: unset;
         @include breakpoint("large") {
             display: flex;
             height: 40px;
-            
+
             margin-right: $margin__sides;
         }
     }
@@ -267,7 +272,9 @@ margin-right: unset;
     .header-post-header-right {
         display: flex;
         float: right;
-
+@include breakpoint("maxsmall") {
+line-height: 1.4;
+}
         .meta-label {
             color: white;
             @include breakpoint("medium") {
@@ -294,6 +301,13 @@ margin-right: unset;
             border-right: 1px solid $color-ltbluegray;
             padding-right: 11px;
             margin-right: 8px;
+
+
+ .meta-label:hover {
+
+    
+                color: $color-dkbluegreen;
+            }
         }
     }
 }
@@ -311,7 +325,6 @@ margin-right: unset;
         top: 100%;
         left: unset;
     }
-
 }
 
 
@@ -376,7 +389,7 @@ margin-right: unset;
                 border-bottom: 20px solid white;
                 position: absolute;
                 bottom: 100%;
-                    right: 100px;
+                right: 210px;
             }
         }
         ul {
@@ -386,22 +399,20 @@ margin-right: unset;
             li {
                 display: block;
                 a:before {
-                content: "";
-                display: inline-block;
-                width: 0px;
-                height: .5rem;
-                margin-right: 5px;
-                border-top: 3px solid $color-medbluegray;
+                    content: "";
+                    display: inline-block;
+                    width: 0px;
+                    height: .5rem;
+                    margin-right: 5px;
+                    border-top: 3px solid $color-medbluegray;
                     @include transition(width .2s ease-in-out);
-
-            }
+                }
                 &:hover {
                     a:before {
 
                         width: 15px;
 
-                            @include transition(width .2s ease-in-out);
-
+                        @include transition(width .2s ease-in-out);
                     }
                 }
             }
@@ -413,9 +424,10 @@ margin-right: unset;
             @include breakpoint("medium") {
                 color: black;
             }
-        
         }
     }
+
+
 
     .post-share.active {
         display: block; //position: absolute;
@@ -425,11 +437,10 @@ margin-right: unset;
         height: 100%;
         flex: 1;
         padding: 1rem;
-        display:flex;
+        display: flex;
 
         @include breakpoint("medium") {
-            background-color: white;
-            //width: 200px;
+            background-color: white; //width: 200px;
             &:before {
                 display: block;
                 content: " ";
@@ -440,20 +451,40 @@ margin-right: unset;
                 border-bottom: 20px solid white;
                 position: absolute;
                 bottom: 100%;
-                right:25px;
+                right: 25px;
             }
         }
     }
 }
 
+
+.header-post-header-share {
+     @include breakpoint("medium") {
+        vertical-align: middle;
+     }
+
+    .inline-social-list {
+        display: none;
+    }
+    @include breakpoint("medium") {
+
+
+        .meta-label {
+            display: none !important;
+        }
+
+        .inline-social-list {display: block;}
+    }
+}
 .a2a_kit a {
     float: left;
-    padding-right:.5rem;
+    padding-right: .5rem;
     @include breakpoint("medium") {
-padding-right: .5rem;
+        //padding-right: .5rem;
     }
+
     &:last-of-type {
         padding-right: 0;
-         margin-right: 0;
+        margin-right: 0;
     }
 }

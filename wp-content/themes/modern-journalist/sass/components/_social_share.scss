@@ -1,8 +1,12 @@
 .addtoany_list {
 	line-height: inherit !important;
-
+margin-left: .25rem;
 	a {
 		margin-right: 0.75rem;
+		@include breakpoint("medium") {
+margin-right: 0.25rem;
+
+		}
 	}
 
 	.a2a_svg {
@@ -10,13 +14,13 @@
 
 		&:before {
 			font-family: 'mj';
-			color: white;
+			
 			line-height: 1;
 			display: inline-block;
 			vertical-align: middle;
 			@include breakpoint("medium") {
-		   	color: $color-blue;
-		   	
+		   	line-height: $size__header-height-mobile !important;
+		   
 		   }
 		}
 
@@ -59,13 +63,23 @@
 	& a>span {
 		width: inherit !important;
 		height: inherit !important;
-	
-		display: inline-block;
+			   		
+
+		display: inline-flex;
 		vertical-align: middle;
 		font-size: 3rem;
+		color: $color-medgray;
+
+		&:hover {
+			color: white;
+		}
 		   @include breakpoint("medium") {
-		   	color: $color-blue;
-		   	font-size: 2rem;
+		   	color: $color-medbluegray;
+		   	font-size: 1.3rem;
+
+		   		&:hover {
+		   		color: $color-dkbluegreen;
+		   	}
 		   }
 	}
 

@@ -282,8 +282,11 @@
 
     });
 
+
+
     // Show post chapters on click
-    $(".header-post-header-chapters").on("click", function() {
+    $(".header-post-header-chapters").on("click", function(e) {
+
         if ($(".post-links").hasClass("active")) {
             $(".post-links").removeClass("active");
 
@@ -292,34 +295,56 @@
                 $(".post-share").removeClass("active");
             }
             $(".post-links").addClass("active");
-
-
         }
     })
 
     // Show post chapters on click
-    $(".header-post-header-share").on("click", function() {
+    $(".header-post-header-share").on("click", function(e) {
+
         if ($(".post-share").hasClass("active")) {
             $(".post-share").removeClass("active");
 
         } else {
             if ($(".post-links").hasClass("active")) {
                 $(".post-links").removeClass("active");
+
             }
+
+
             $(".post-share").addClass("active");
 
+
         }
-    })
+
+
+    });
+
+    $(document).on('click', function(e) {
+
+
+        if ((!$(e.target).closest('.post-nav-container').length) && (!$(e.target).closest('.header-post-header-share').length)) {
+            $(".post-share").removeClass("active");
+        }
+
+        if ((!$(e.target).closest('.post-nav-container').length) && (!$(e.target).closest('.header-post-header-chapters').length)) {
+            $(".post-links").removeClass("active");
+        }
+    });
+
+
+
 
 
     // Open mobile menu
-    $("#mobile-menu").click( function() {
+    $("#mobile-menu").click(function() {
         if ($("#masthead").hasClass("mobile-open")) {
             $("#masthead").removeClass("mobile-open");
         } else {
             $("#masthead").addClass("mobile-open");
         }
     });
+
+
 
 
     //Homepage play/pause button
@@ -335,11 +360,11 @@
             $pauseButton.html("<i class='icon-play'></i>");
         }
     });
-    $('#bgvid').on('ended',function(){ $pauseButton.html("<i class='icon-play'></i>") });
+    $('#bgvid').on('ended', function() { $pauseButton.html("<i class='icon-play'></i>") });
 
 
- 
- 
+
+
 
 
 })(jQuery);

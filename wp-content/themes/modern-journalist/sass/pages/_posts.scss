@@ -33,3 +33,36 @@
 	}
 
 }
+
+
+//Authors
+//
+#the-authors {
+	margin-top: 5rem;
+}
+.author-list {
+	display: block;
+	margin-top: 3rem;
+}
+h2.heading.underline {
+	display: block;
+    width: 100%;
+}
+
+.author-img {
+	   width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+@include breakpoint("medium") {
+
+
+}
+    img{
+     display: inline;
+    margin: 0 auto;
+    width: auto;
+    }
+}

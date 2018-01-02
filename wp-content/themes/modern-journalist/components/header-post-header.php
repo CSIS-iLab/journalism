@@ -23,13 +23,20 @@
 		</div>
 		<div class="header-post-header-share">
 			<span class="meta-label">Share</span>
+			<div class="post-share-social inline-social-list">
+				<?php
+		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+					ADDTOANY_SHARE_SAVE_KIT();
+				}
+		?>
+		</div>
 		</div>
 	</div>
 	</div>
 	<div class="post-nav-container">
 	<div class="post-nav">
 	<div class="post-links">
-		<span class="post-nav-toTop"><a href="#page">Top <i class="icon icon-up"></i></a></span>
+		<span class="post-nav-toTop"><a href="#page">TOP<i class="icon icon-arrow-long-up"></i></a></span>
 		<ul class="post-nav-toc"></ul>
 	</div>
 	<div class="post-share">

@@ -35,7 +35,7 @@
         }
     }
     .learnMore {
-        padding: 0 2rem 2rem 2rem;
+        padding: 0 .5rem 2rem .5rem;
         z-index: 2;
         position: relative;
 
@@ -144,29 +144,42 @@
     .follow-text {
         font-family: $font__roboto;
         padding-top: .5rem;
-        font-size: .9rem;
+   font-size: 1rem;
+ @include breakpoint("medium") {
+     font-size: .9rem;
+     vertical-align: bottom;
+ }
     }
     list-style: none;
     color: white;
     margin: 0;
-    padding-left: 2rem;
+    padding-left: 0px;
     align-items: center;
-
+@include breakpoint("medium") {
+padding-left: 2rem;
+}
     li {
         display: flex;
         float: left;
         line-height: 1.5;
+                    color: $color-ltbluegray;
+    
 
         a {
             display: flex;
-            color: white;
-            font-size: 1.5rem;
+            color: $color-ltbluegray;
+            font-size: 2rem;
             padding: .5rem;
             border-radius: 100%;
-            margin: .5rem;
+            margin: .25rem;
+
+            @include breakpoint("medium") {
+  font-size: 1.5rem;
+   padding: .25rem;
+            }
             &:hover {
-            	background-color: white;
-            	color: $color-blue;
+            	
+            	color:white;
             }
         }
     }

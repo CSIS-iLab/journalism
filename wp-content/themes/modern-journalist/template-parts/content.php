@@ -27,6 +27,12 @@ endif;
 		<?php the_content( sprintf(
 		/* translators: %s: Name of current post. */
 			
-			) );?>
+			) );
+
+
+			if ( is_single() ) {
+	                get_template_part( 'components/post-footer' );
+	            } 
+	            ?>
 	</div><!-- row -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -108,7 +108,7 @@ $instagram = get_option( 'modernjournalist_instagram' );
 
 		<div class="site-credit">
 			<div class="content-wrapper">
-			© 2017 by the Center for Strategic and International Studies. All rights reserved.
+			©<?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved.
 		</div><!-- .site-info -->
 	</div>
 	</footer><!-- #colophon -->

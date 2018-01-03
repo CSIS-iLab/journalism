@@ -22,3 +22,18 @@ function pdf_shortcode( $atts ) {
  return $output;
 }
 add_shortcode( 'pdf', 'pdf_shortcode' );
+
+
+
+// Extended subscription function with subscription type variable
+function subscribe_multilink_shortcode( $atts ) {
+    extract( shortcode_atts( array(
+        'subtype' => 'RSS',
+        'subtypeurl' => 'http://feeds.feedburner.com/ElegantThemes', 
+    ), $atts, 'multilink' ) );
+  
+    $output = 'Be sure to subscribe to future Elegant Themes updates.' . esc_attr($values['subtype']);
+      return $output;
+   
+}
+add_shortcode( 'subscribe', 'subscribe_multilink_shortcode' );

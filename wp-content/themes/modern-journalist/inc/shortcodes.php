@@ -25,15 +25,125 @@ add_shortcode( 'pdf', 'pdf_shortcode' );
 
 
 
-// Extended subscription function with subscription type variable
-function subscribe_multilink_shortcode( $atts ) {
-    extract( shortcode_atts( array(
-        'subtype' => 'RSS',
-        'subtypeurl' => 'http://feeds.feedburner.com/ElegantThemes', 
-    ), $atts, 'multilink' ) );
-  
-    $output = 'Be sure to subscribe to future Elegant Themes updates.' . esc_attr($values['subtype']);
-      return $output;
-   
+// Add Shortcode
+function blockquote_shortcode( $atts , $content = null ) {
+
+	// Attributes
+	$values = shortcode_atts(
+		array(
+			'author' => '',
+			'source' => 'Optional',
+		),
+		$atts
+	);
+$output = '<div class="blockquote">
+<div class="blockquote-content">' . $content . '</div>
+<div class="blockquote-author">' . esc_attr($values['author']) . '</div>';
+
+if ($values['source'] != ""){
+ $output .= '<div class="blockquote-source">' . esc_attr($values['source']) . '</div>';
+};
+$output .= '</div>' ;
+return $output;
+
 }
-add_shortcode( 'subscribe', 'subscribe_multilink_shortcode' );
+add_shortcode( 'blockquote', 'blockquote_shortcode' );
+
+
+
+// Add Shortcode
+function character_shortcode( $atts , $content = null ) {
+
+	// Attributes
+	$values = shortcode_atts(
+		array(
+			'name' => '',
+			'description' => 'Optional',
+			'image' => '',
+		),
+		$atts
+	);
+
+
+	$img = wp_get_attachment_image_src($values['image'], "thumbnail");
+
+        $imgSrc = $img[0];
+        $imgID = get_attachment_id( $imgSrc );
+        $attachment = get_post($imgID);
+        $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
+        $title = $attachment->post_title;
+  
+$output = '<div class="character-detail">';
+$output .= '<img src=" '. esc_html($imgSrc) . '" alt="' .  $alt . '" title="'.  $title . '">';
+$output .= '<div class="character-info"><span class="character-name">' . $values['name'] . '</span><span class="character-desc">' . $values['description'] . '</span></div>';
+$output .= '</div>' ;
+return $output;
+
+}
+add_shortcode( 'character', 'character_shortcode' );
+
+
+
+
+// Add Shortcode
+function header_shortcode( $atts  ) {
+
+	// Attributes
+	$values = shortcode_atts(
+		array(
+			'intro' => '',
+			'authors' => ''
+		),
+		$atts
+	);
+
+ global $post;
+ $postID = $post->ID;
+ $title = get_the_title();
+
+$output .= '<div class="post-header row"><div class="boxed-header-left col-xs-12 col-md-6"><div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
+
+$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
+$output .= '<div class="post-date"></div>';
+$output .= '<div class="post-authors">' . $values['authors']  . '</div></div></div><div class="boxed-header-right col-xs-12 col-md-6">';
+
+if (has_post_thumbnail(  $postID ) ): 
+ $image = wp_get_attachment_url( get_post_thumbnail_id($postID), 'thumbnail' );
+  $output .= '<div class="featured-img img-container fit-height">
+				<img src="' . $image . '" alt="" />
+			</div>';
+endif; 
+$output .= '</div></div>';
+return $output;
+
+}
+add_shortcode( 'header', 'header_shortcode' );
+
+
+
+
+// Add Shortcode
+function imgGroup_shortcode( $atts ) {
+
+	// Attributes
+	$gallery = shortcode_atts(
+		array(
+			'description' => 'Optional',
+			'source' => '',
+			'layout' => 'column',
+			'images' => ''
+		),
+		$atts
+	);
+
+ $image_ids = explode(',',$gallery['images']);
+
+    foreach( $image_ids as $image_id ){
+    $images = wp_get_attachment_image_src( $image_id );
+    $output .='<div class="images"><img src="' . $images[0] . '" alt="' . $gallery['description'] .' "></div>';
+    $images++;
+    }
+ 
+return $output;
+}   
+add_shortcode( 'img-group', 'imgGroup_shortcode' );

@@ -64,10 +64,10 @@ body {
     position: relative;
     max-width: $size__container-max-width;
     margin: 0 auto;
-     @include breakpoint("medium") {
+    @include breakpoint("medium") {
         padding: 0 2rem;
-     }
-    
+    }
+
     @include breakpoint($size__container-max-width) {
         padding: 0;
     }
@@ -76,35 +76,32 @@ body {
         margin: 0 auto;
         display: block;
     }
- @include breakpoint("maxsmall") {
-padding: 0 1rem;
- }
-
+    @include breakpoint("maxsmall") {
+        padding: 0 1rem;
+    }
 }
 
 
-    .col-wide {
-        @include breakpoint("medium") {
-            padding: 0 1rem;
-
-        }
-        @include breakpoint("large") {
-            padding: 0 3rem;
-            margin: 0 2vw;
-        }
+.col-wide {
+    @include breakpoint("medium") {
+        padding: 0 1rem;
     }
-
-    .col-med {
-          @include breakpoint("medium") {
-            padding: 0 2rem;
-
-        }
-        @include breakpoint("large") {
-            padding: 0 3rem;
-            margin: 0 auto;
-            max-width: 950px;
-        }
+    @include breakpoint("large") {
+        padding: 0 3rem;
+        margin: 0 2vw;
     }
+}
+
+.col-med {
+    @include breakpoint("medium") {
+        padding: 0 2rem;
+    }
+    @include breakpoint("large") {
+        padding: 0 3rem;
+        margin: 0 auto;
+        max-width: 950px;
+    }
+}
 
 .site-main {
     padding-bottom: 5rem;

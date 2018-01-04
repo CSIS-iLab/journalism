@@ -49,6 +49,26 @@ return $output;
 }
 add_shortcode( 'blockquote', 'blockquote_shortcode' );
 
+// Add Shortcode
+function section_shortcode( $atts ) {
+
+	// Attributes
+	$values = shortcode_atts(
+		array(
+			'name' => '',
+			'image' => ''
+		),
+		$atts
+	);
+$output .= '<div class="sectionhead full-width">' . esc_attr($values['name']) . '</div>';
+
+ return $output;
+}
+add_shortcode( 'sectionhead', 'section_shortcode' );
+
+
+
+
 
 
 // Add Shortcode
@@ -92,7 +112,10 @@ function header_shortcode( $atts  ) {
 	$values = shortcode_atts(
 		array(
 			'intro' => '',
-			'authors' => ''
+			'authors' => '',
+			'style' => '', 
+			'highlight' => '',
+			'font' => ''
 		),
 		$atts
 	);
@@ -101,7 +124,17 @@ function header_shortcode( $atts  ) {
  $postID = $post->ID;
  $title = get_the_title();
 
-$output .= '<div class="post-header row"><div class="boxed-header-left col-xs-12 col-md-6"><div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
+ $highlight = $values['highlight'];
+
+ $font = $values['font'];
+ if($font == 'light') {
+	$fontclass = "dark-header";
+ } else {
+ 	$fontclass = "light-header";
+ };
+
+if($values['style'] == 'block') {
+$output .= '<div id="block-header" class="post-header row ' . $fontclass . ' full-width" style="background-color: ' .  $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
 
 $output .= '<div class="post-intro">' . $values['intro'] . '</div>';
 $output .= '<div class="post-date"></div>';
@@ -114,8 +147,35 @@ if (has_post_thumbnail(  $postID ) ):
 			</div>';
 endif; 
 $output .= '</div></div>';
-return $output;
 
+}
+if($values['style'] == 'full') {
+
+$output .= '<div id="full-header" class="post-header row full-width">';
+
+ if (has_post_thumbnail(  $postID ) ): 
+ $image = wp_get_attachment_url( get_post_thumbnail_id($postID), 'thumbnail' );
+  $output .= '<div class="featured-img img-container fit-height">
+				<img src="' . $image . '" alt="" />
+			</div>';
+endif; 
+
+
+$output .= '<div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
+
+$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
+$output .= '<div class="post-date"></div>';
+$output .= '<div class="post-authors">' . $values['authors']  . '</div>';
+
+ 
+$output .= '</div>';
+
+
+}
+
+
+
+return $output;
 }
 add_shortcode( 'header', 'header_shortcode' );
 

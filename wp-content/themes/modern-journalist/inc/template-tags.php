@@ -96,13 +96,6 @@ if ( ! function_exists( 'modern_journalist_entry_footer' ) ) :
 endif;
 
 
-
-	
-
-
-
-
-
 function related_authors($post){
 			 global $related_du;
 				    $relt = $related_du->show( get_the_ID(), true );

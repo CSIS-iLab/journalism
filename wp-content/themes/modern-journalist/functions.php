@@ -375,6 +375,31 @@ vc_map( array(
 
 
 vc_map( array(
+   "name" => __("Section Heading"),
+   "base" => "sectionhead",
+   "category" => __('Content'),
+   "params" => array(
+      array(
+         "type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Section Name"),
+         "param_name" => "name",
+         "value" => __(""),
+         "description" => __("")
+      ),
+      array(
+      	"type" => "attach_image",
+         "class" => "",
+         "heading" => __("Image"),
+         "param_name" => "image",
+         "value" => __(""),
+         "description" => __("")
+      )
+   )
+) );
+
+vc_map( array(
    "name" => __("Image Group"),
    "base" => "img-group",
    "category" => __('Content'),
@@ -443,7 +468,8 @@ vc_map( array(
          "param_name" => "authors",
          "value" => __(""),
          "description" => __("")
-      ), array(
+      ), 
+      array(
       	"type" => "dropdown",
          "holder" => "div",
          "class" => "",
@@ -452,6 +478,28 @@ vc_map( array(
          'value' => array(
             __( 'Blocks' ) => 'block',
             __( 'Full Width' ) => 'full'
+        ),
+        'save_always' => true,
+         "description" => __("")
+      ), 
+          array(
+      	"type" => "colorpicker",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Highlight Color"),
+         "param_name" => "highlight",
+         "value" => __(""),
+         "description" => __("")
+      ),
+      array(
+      	"type" => "dropdown",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Font Color"),
+         "param_name" => "font",
+         'value' => array(
+            __( 'Light' ) => 'light',
+            __( 'Dark' ) => 'dark'
         ),
         'save_always' => true,
          "description" => __("")

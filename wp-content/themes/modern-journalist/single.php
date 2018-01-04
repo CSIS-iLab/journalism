@@ -25,8 +25,16 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-			</div> <!-- content-wrapper-narrow entry-content -->
+			
+
+
+			<div class="story-link-div"><div class="story-info">
+			This story was writen by students participating in <em>Reporting on International Affairs</em>, a CSIS Practicum in Journalism.</div>
+			<div class="story-link"><a href="/feature-stories"><i class="icon-arrow-long-left"></i>Read another story</a></div>
+		</div>
 		</article>
+
+		
 		</main><!-- #main -->
 
 	</div><!-- #primary -->

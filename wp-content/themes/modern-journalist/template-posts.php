@@ -12,7 +12,16 @@ get_header(); ?>
 			<?php the_title('<h1 class="page-title underline">', '</h1>'); ?>
 			<div class="archive-description row">
 				<div class="col-xs-12 col-md-10">
-                 <?php the_content() ?>
+                 <?php 
+
+while ( have_posts() ) : the_post();
+
+				 the_content();
+
+
+
+			endwhile; // End of the loop.
+                ?>
              </div>
             </div><!-- .archive-description  -->
 			 </div><!-- .title-container -->

@@ -35,7 +35,7 @@
 				<div class="col-xs-12 col-md-8"> 
 			
 				<?php
-				$learn_more = get_option( 'modernjournalist_learn_more' );
+				$learn_more = get_option( 'modernjournalist_footer_description' );
 				echo '<p class="learn-more-text">' . $learn_more . '</p>';
 				?>
 			

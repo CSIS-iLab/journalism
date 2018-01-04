@@ -46,9 +46,15 @@ body {
 }
 
 .site-content {
-    margin-top: $size__header-height-mobile + 30px;
+    margin-top: $size__header-height-mobile;
     @include breakpoint("medium") {
-        margin-top: $size__header-height + 70px;
+        margin-top: $size__header-height;
+    }
+    .page-header {
+        margin-top: 4rem;
+        @include breakpoint("medium") {
+        margin-top: 6rem;
+    }
     }
 }
 

@@ -188,6 +188,7 @@
 
     .img-container {
         width: 100%;
+        height: 15rem;
         @include breakpoint("medium") {
             height: 15rem;
         }

@@ -19,6 +19,10 @@
 
 
 	<?php wp_head(); ?>
+	 <script>
+    // Picture element HTML5 shiv
+    document.createElement( "picture" );
+  </script>
 </head>
 
 <body <?php body_class(); ?>>

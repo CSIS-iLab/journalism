@@ -166,13 +166,15 @@ get_header(); ?>
 	<div class="blueblock row">
 		<div class="col-xs-8 col-md-10">
 			<div class="browseReports">
-			<h3 class="subheading darkbg"><a href="/feature-stories">Browse Reports<i class="icon-arrow-long-right"></i></a></h3>
-			<p>In hac habitasse platea dictumst volutpat aliquam.</p>
+			<h3 class="subheading darkbg"><a href="/feature-stories">Browse Stories<i class="icon-arrow-long-right"></i></a></h3>
+			<p>Explore the completed multimedia stories.</p>
 		</div>
 	</div>
 	<div class="col-xs-4 col-md-2 no-padding"> 
 		<div class="img-container fit-width">
 		
+
+
 			<img src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>" />
 	</div>
 	</div>

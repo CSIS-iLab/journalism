@@ -26,23 +26,39 @@ add_shortcode( 'pdf', 'pdf_shortcode' );
 
 
 // Add Shortcode
-function blockquote_shortcode( $atts , $content = null ) {
+function blockquote_shortcode( $atts ) {
 
 	// Attributes
 	$values = shortcode_atts(
 		array(
-			'author' => '',
-			'source' => 'Optional',
+			'quotecontent' => '',
+		
+			'style' => '',
+			'size' => '',
+			'highlight' => ''
 		),
 		$atts
 	);
-$output = '<div class="blockquote">
-<div class="blockquote-content">' . $content . '</div>
-<div class="blockquote-author">' . esc_attr($values['author']) . '</div>';
 
-if ($values['source'] != ""){
- $output .= '<div class="blockquote-source">' . esc_attr($values['source']) . '</div>';
-};
+
+
+ $style = $values['style'];
+ if($style == 'bold') {
+	$styleClass = "quote-bold";
+ } else {
+ 	$styleClass = "quote-lines";
+ };
+
+ $size = $values['size'];
+  if($size == 'fullwidth') {
+	$sizeClass = "quote-fullwidth";
+ } else {
+ 	$sizeClass = "quote-halfwidth";
+ };
+
+$output = '<div class="blockquote ' . $sizeClass . ' ' . $styleClass .'" style="border-color: '. esc_attr($values['highlight']). '">
+<div class="blockquote-content">' . esc_attr($values['quotecontent']) . '</div>';
+
 $output .= '</div>' ;
 return $output;
 
@@ -56,11 +72,27 @@ function section_shortcode( $atts ) {
 	$values = shortcode_atts(
 		array(
 			'name' => '',
-			'image' => ''
+			'highlight' => '',
+			'style' => '',
+			'image' => '',
+
 		),
 		$atts
 	);
-$output .= '<div class="sectionhead full-width">' . esc_attr($values['name']) . '</div>';
+
+
+
+if($values['style'] == 'lgimage') {
+$output .= '<div class="sectionhead section-lgimage">';
+$output .= '<h2> '. $values['name'] . '</h2>';
+
+}
+else {
+$output .= '<div class="sectionhead ">';
+$output .= '<h2> '. esc_attr($values['name']) . '</h2>';
+
+}
+$output .= '</div>';
 
  return $output;
 }
@@ -80,6 +112,7 @@ function character_shortcode( $atts , $content = null ) {
 			'name' => '',
 			'description' => 'Optional',
 			'image' => '',
+			'source' => ''
 		),
 		$atts
 	);
@@ -92,10 +125,11 @@ function character_shortcode( $atts , $content = null ) {
         $attachment = get_post($imgID);
         $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
         $title = $attachment->post_title;
+
   
 $output = '<div class="character-detail">';
-$output .= '<img src=" '. esc_html($imgSrc) . '" alt="' .  $alt . '" title="'.  $title . '">';
-$output .= '<div class="character-info"><span class="character-name">' . $values['name'] . '</span><span class="character-desc">' . $values['description'] . '</span></div>';
+$output .= '<img src=" '. esc_html($values['image']) . '" alt="' .  $alt . '" title="'.  $title . '">';
+$output .= '<div class="character-info"><div class="character-name">' . $values['name'] . '</div><div class="character-desc">' . $values['description'] . '</div></div><div class="character-source"> ' . $values['source'] . '</div>';
 $output .= '</div>' ;
 return $output;
 
@@ -128,16 +162,16 @@ function header_shortcode( $atts  ) {
 
  $font = $values['font'];
  if($font == 'light') {
-	$fontclass = "dark-header";
+	$fontclass = "light-header";
  } else {
- 	$fontclass = "light-header";
+ 	$fontclass = "dark-header";
  };
 
 if($values['style'] == 'block') {
-$output .= '<div id="block-header" class="post-header row ' . $fontclass . ' full-width" style="background-color: ' .  $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
+$output .= '<div id="block-header" class="post-header row ' . $fontclass . ' full-width" style="background-color: ' .  $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 
 $output .= '<div class="post-intro">' . $values['intro'] . '</div>';
-$output .= '<div class="post-date"></div>';
+$output .= '<div class="post-date">' . get_the_date() .'</div>';
 $output .= '<div class="post-authors">' . $values['authors']  . '</div></div></div><div class="boxed-header-right col-xs-12 col-md-6">';
 
 if (has_post_thumbnail(  $postID ) ): 
@@ -150,24 +184,22 @@ $output .= '</div></div>';
 
 }
 if($values['style'] == 'full') {
+if (has_post_thumbnail(  $postID ) ): 
+ $image = wp_get_attachment_url( get_post_thumbnail_id($postID), 'full' );
+  
 
-$output .= '<div id="full-header" class="post-header row full-width">';
-
- if (has_post_thumbnail(  $postID ) ): 
- $image = wp_get_attachment_url( get_post_thumbnail_id($postID), 'thumbnail' );
-  $output .= '<div class="featured-img img-container fit-height">
-				<img src="' . $image . '" alt="" />
-			</div>';
 endif; 
 
 
-$output .= '<div id="post-meta"><h1 class="post-title">' . $title . '</h1>';
-
-$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
-$output .= '<div class="post-date"></div>';
-$output .= '<div class="post-authors">' . $values['authors']  . '</div>';
+$output .= '<div id="full-header"><div class="post-header row full-width" style="background-image: url(\' ' . $image . ' \')"></div>';
 
  
+
+$output .= '<div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
+$output .= '<div class="post-date-authors">PUBLISHED <span class="post-date">' . get_the_date() . '</span> / BY ';
+$output .= '<span class="post-authors">' . $values['authors']  . '</span></div>';
+$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
+
 $output .= '</div>';
 
 
@@ -179,6 +211,27 @@ return $output;
 }
 add_shortcode( 'header', 'header_shortcode' );
 
+
+
+
+// Add Shortcode
+function dialog_shortcode( $atts ) {
+
+	// Attributes
+	$values = shortcode_atts(
+		array(
+			'content' => " "
+			
+		),
+		$atts
+	);
+
+
+    $output ='<div class="dialog-container">'. $values['content']. '</div>';
+
+return $output;
+}   
+add_shortcode( 'dialog', 'dialog_shortcode' );
 
 
 

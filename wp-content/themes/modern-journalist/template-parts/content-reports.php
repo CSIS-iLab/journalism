@@ -72,6 +72,13 @@
 	<div class="col-xs-12 col-md-4 no-padding">
 	<?php
 		echo '<a href="' .  esc_url( $permalink ) . '" rel="bookmark"><div class="img-container fit-width">' .   $photo .'</div></a>';
+			
+		//echo '<a href="' .  esc_url( $permalink ) . '" rel="bookmark"><div class="img-container fit-width"><picture>';
+//picturefill($alt, $postid);
+
+		 //echo '</picture></div></a>';
+
+
 	?>
 	</div>
 

@@ -35,6 +35,10 @@ if ( ! function_exists( 'modern_journalist_posted_on' ) ) :
 	}
 endif;
 
+
+
+	
+
 if ( ! function_exists( 'modern_journalist_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
@@ -126,5 +130,23 @@ function related_authors($post){
 
 }
 
+
+function picturefill($alt, $postID){
+
+$small = wp_get_attachment_image_src(get_post_thumbnail_id($postID), 'thumbnail');
+$medium = wp_get_attachment_image_src(get_post_thumbnail_id($postID), 'medium_large');
+
+$large = wp_get_attachment_image_src(get_post_thumbnail_id($postID), 'large');
+
+$full = wp_get_attachment_image_src(get_post_thumbnail_id($postID), 'full');
+
+$output = '<source srcset="' . $small[0] . '" media="(min-width: 0px)">';
+$output .=  '<source srcset="' . $medium[0]  . '" media="(min-width: 100px)">';
+$output .=  '<source srcset="' . $large[0]  . '" media="(min-width: 1024px)">';
+$output .=  '<img srcset="' . $full[0]  . '" alt="' . $alt . '">';
+//$output = "Hello";
+echo $output;
+
+};
 
 	

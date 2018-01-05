@@ -124,7 +124,9 @@ function modern_journalist_scripts() {
 		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jquery'), '20151215', true );
 
 	wp_enqueue_script( 'modern-journalist-fluidscriptcdn', 'http:///cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js', array('jquery'), '20151215', true );
-		
+
+	wp_enqueue_script( 'modern-journalist-picturefill', get_template_directory_uri() . '/js/picturefill.min.js#asyncload', array('jquery'), '20151215', true );
+
 	wp_enqueue_script( 'modern-journalist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -185,6 +187,19 @@ require get_template_directory() . '/inc/custom-taxonomies.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+// Async load
+function ikreativ_async_scripts($url)
+{
+    if ( strpos( $url, '#asyncload') === false )
+        return $url;
+    else if ( is_admin() )
+        return str_replace( '#asyncload', '', $url );
+    else
+	return str_replace( '#asyncload', '', $url )."' async='async"; 
+    }
+add_filter( 'clean_url', 'ikreativ_async_scripts', 11, 1 );
+
 
 /**
  * Remove AddToAny Default CSS
@@ -317,23 +332,46 @@ vc_map( array(
    "base" => "blockquote",
    "category" => __('Content'),
    "params" => array(
-      array(
+   	array(
          "type" => "textfield",
          "holder" => "div",
-         "class" => "blockquote-author",
-         "heading" => __("Author"),
-         "param_name" => "author",
-         "value" => __("Author name"),
+         "class" => "",
+         "heading" => __("Content"),
+         "param_name" => "quotecontent",
+         "value" => __(""),
          "description" => __("")
       ),
-       array(
-         "type" => "textfield",
-         "holder" => "",
+       
+             array(
+      	"type" => "dropdown",
+         "holder" => "div",
          "class" => "",
-         "heading" => __("Source"),
-         "param_name" => "source",
-         "value" => __("Optional"),
-         "description" => __("Description for Source")
+         "heading" => __("Blockquote Style"),
+         "param_name" => "style",
+         'value' => array(
+            __( 'Lines' ) => 'lines',
+            __( 'Bold' ) => 'bold'
+        ),
+        'save_always' => true,
+         "description" => __("")
+      ), 
+                   array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Full Width"),
+         "param_name" => "fullwidth",
+         'value' => " ",
+         "description" => __("")
+      ),
+                       array(
+      	"type" => "colorpicker",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Highlight Color"),
+         "param_name" => "highlight",
+         "value" => __(""),
+         "description" => __("")
       )
    )
 ) );
@@ -388,6 +426,28 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ),
+            array(
+      	"type" => "dropdown",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Header Style"),
+         "param_name" => "style",
+         'value' => array(
+            __( 'Large Image' ) => 'lgimage',
+            __( 'Horizontal Line' ) => 'line'
+        ),
+        'save_always' => true,
+         "description" => __("")
+      ), 
+          array(
+      	"type" => "colorpicker",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Highlight Color"),
+         "param_name" => "highlight",
+         "value" => __(""),
+         "description" => __("")
+      ),
       array(
       	"type" => "attach_image",
          "class" => "",
@@ -396,6 +456,7 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       )
+
    )
 ) );
 
@@ -502,6 +563,24 @@ vc_map( array(
             __( 'Dark' ) => 'dark'
         ),
         'save_always' => true,
+         "description" => __("")
+      )
+   )
+) );
+
+
+vc_map( array(
+   "name" => __("Dialog"),
+   "base" => "dialog",
+   "category" => __('Content'),
+   "params" => array(
+      array(
+         "type" => "textarea_html",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Content"),
+         "param_name" => "content",
+         "value" => __(""),
          "description" => __("")
       )
    )

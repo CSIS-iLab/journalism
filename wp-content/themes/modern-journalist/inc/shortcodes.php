@@ -53,7 +53,7 @@ function blockquote_shortcode( $atts ) {
   if($size == 'fullwidth') {
 	$sizeClass = "quote-fullwidth";
  } else {
- 	$sizeClass = "quote-halfwidth";
+ 	$sizeClass = "quote-fullwidth";
  };
 
 $output = '<div class="blockquote ' . $sizeClass . ' ' . $styleClass .'" style="border-color: '. esc_attr($values['highlight']). '">

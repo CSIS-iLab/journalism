@@ -45,6 +45,7 @@ textarea {
 
 
 
+
 /*================================
 =            Headings            =
 ================================*/
@@ -69,19 +70,24 @@ h1 {
     }
 }
 
-h2.heading {
-    font-size: 2.5rem;
-    margin-top: 0;
-    border-bottom: 4px solid $color-ltgray;
-    @include breakpoint("medium") {
-        font-size: 3rem;
-    }
-    &.underline {
-        line-height: 70%;
+h2 {
+    line-height: 1.4;
+    margin-bottom: .75rem;
+    .heading {
+        font-size: 2.5rem;
+        margin-top: 0;
         border-bottom: 4px solid $color-ltgray;
-        margin-bottom: 1rem;
+        @include breakpoint("medium") {
+            font-size: 3rem;
+        }
+        &.underline {
+            line-height: 70%;
+            border-bottom: 4px solid $color-ltgray;
+            margin-bottom: 1rem;
+        }
     }
 }
+
 
 h3.subheading,
 h3.entry-title {
@@ -122,6 +128,7 @@ h4.subheading {
 
 
 
+
 /*=============================
 =            Lists          =
 =============================*/
@@ -152,6 +159,7 @@ dt {
 dd {
     margin: 0 1.5em 1.5em;
 }
+
 
 
 
@@ -252,6 +260,7 @@ big {
         font-size: .9rem;
     }
 }
+
 
 
 

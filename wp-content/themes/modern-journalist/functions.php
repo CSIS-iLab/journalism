@@ -327,10 +327,12 @@ function get_attachment_id( $url ) {
 
 
 
+
 vc_map( array(
    "name" => __("Blockquote"),
    "base" => "blockquote",
    "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/blockquote.svg", 
    "params" => array(
    	array(
          "type" => "textfield",
@@ -342,7 +344,22 @@ vc_map( array(
          "description" => __("")
       ),
        
-             array(
+           
+                 array(
+      	"type" => "dropdown",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Blockquote Position"),
+         "param_name" => "position",
+         'value' => array(
+            __( 'Full Width' ) => 'fullwidth',
+            __( 'Align left' ) => 'left',
+            __( 'Align right' ) => 'right'
+        ),
+        'save_always' => true,
+         "description" => __("")
+      ),
+                   array(
       	"type" => "dropdown",
          "holder" => "div",
          "class" => "",
@@ -350,29 +367,49 @@ vc_map( array(
          "param_name" => "style",
          'value' => array(
             __( 'Lines' ) => 'lines',
-            __( 'Bold' ) => 'bold'
+            __( 'Quotes' ) => 'quotes',
+            __( 'Highlight' ) => 'highlighted'
         ),
         'save_always' => true,
          "description" => __("")
-      ), 
-                   array(
-      	"type" => "checkbox",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Full Width"),
-         "param_name" => "fullwidth",
-         'value' => " ",
-         "description" => __("")
       ),
-                       array(
+         array(
       	"type" => "colorpicker",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Highlight Color"),
-         "param_name" => "highlight",
+         "heading" => __("Accent Color"),
+         "param_name" => "accent",
          "value" => __(""),
-         "description" => __("")
-      )
+         "description" => __(""), 
+         'dependency'=>array(
+	                'element'=>'style',
+	                'value'=>array('lines', 'quotes'),
+               
+            )
+      ),
+        array(
+      	"type" => "dropdown",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Highlight Color"),
+         "param_name" => "highlightcolor",
+         'value' => array(
+         	__( 'Yellow' ) => 'yellow-highlight',
+            __( 'Black' ) => 'black-highlight',
+            __( 'Light Gray' ) => 'light-highlight',
+            __( 'Blue' ) => 'blue-highlight'
+            
+        ),
+       "save_always" => true,
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'style',
+	                'value'=>array('highlighted'),
+               
+            )
+     )
+      
+
    )
 ) );
 
@@ -381,6 +418,7 @@ vc_map( array(
    "name" => __("Character Detail"),
    "base" => "character",
    "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/character.svg", 
    "params" => array(
       array(
          "type" => "textfield",
@@ -412,65 +450,19 @@ vc_map( array(
 ) );
 
 
-vc_map( array(
-   "name" => __("Section Heading"),
-   "base" => "sectionhead",
-   "category" => __('Content'),
-   "params" => array(
-      array(
-         "type" => "textfield",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Section Name"),
-         "param_name" => "name",
-         "value" => __(""),
-         "description" => __("")
-      ),
-            array(
-      	"type" => "dropdown",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Header Style"),
-         "param_name" => "style",
-         'value' => array(
-            __( 'Large Image' ) => 'lgimage',
-            __( 'Horizontal Line' ) => 'line'
-        ),
-        'save_always' => true,
-         "description" => __("")
-      ), 
-          array(
-      	"type" => "colorpicker",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Highlight Color"),
-         "param_name" => "highlight",
-         "value" => __(""),
-         "description" => __("")
-      ),
-      array(
-      	"type" => "attach_image",
-         "class" => "",
-         "heading" => __("Image"),
-         "param_name" => "image",
-         "value" => __(""),
-         "description" => __("")
-      )
-
-   )
-) );
 
 vc_map( array(
    "name" => __("Image Group"),
    "base" => "img-group",
    "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
    "params" => array(
       array(
          "type" => "textarea_html",
          "holder" => "div",
          "class" => "",
          "heading" => __("Group Description"),
-         "param_name" => "description",
+         "param_name" => "content",
          "value" => __("Left, the avalanche started with a large crack nearly 200 feet across and 3 feet deep that sent millions of pounds of snow down the mountain. Below, the path the avalanche took as it crashed through trees and headed into a gully. Stevens Pass Ski Patrol"),
          "description" => __("")
       ),
@@ -487,15 +479,16 @@ vc_map( array(
       	"type" => "dropdown",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Group layout"),
-         "param_name" => "layout",
+         "heading" => __("Group Position"),
+         "param_name" => "position",
          'value' => array(
-            __( 'Row' ) => 'row',
-            __( 'Column' ) => 'column'
+            __( 'Full Width' ) => 'fullwidth',
+            __( 'Align left' ) => 'left',
+            __( 'Align right' ) => 'right'
         ),
         'save_always' => true,
          "description" => __("")
-      ), 
+      ),
       array(
       	"type" => "attach_images",
          "class" => "",
@@ -508,9 +501,43 @@ vc_map( array(
 ) );
 
 vc_map( array(
+   "name" => __("Single Image"),
+   "base" => "singleimg",
+   "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
+   "params" => array(
+      array(
+      	"type" => "dropdown",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Position"),
+         "param_name" => "position",
+         'value' => array(
+            __( 'Full Width' ) => 'fullwidth',
+            __( 'Align left' ) => 'left',
+            __( 'Align right' ) => 'right'
+        ),
+        'save_always' => true,
+         "description" => __("")
+      ),
+      array(
+      	"type" => "attach_image",
+         "class" => "",
+         "heading" => __("Image"),
+         "param_name" => "image",
+         "value" => "",
+         "description" => __("")
+      )
+   )
+) );
+
+
+
+vc_map( array(
    "name" => __("Post Header"),
    "base" => "header",
    "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/post-header.svg",
    "params" => array(
       array(
          "type" => "textfield",
@@ -551,19 +578,6 @@ vc_map( array(
          "param_name" => "highlight",
          "value" => __(""),
          "description" => __("")
-      ),
-      array(
-      	"type" => "dropdown",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Font Color"),
-         "param_name" => "font",
-         'value' => array(
-            __( 'Light' ) => 'light',
-            __( 'Dark' ) => 'dark'
-        ),
-        'save_always' => true,
-         "description" => __("")
       )
    )
 ) );
@@ -573,10 +587,10 @@ vc_map( array(
    "name" => __("Dialog"),
    "base" => "dialog",
    "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/dialog.svg",
    "params" => array(
       array(
          "type" => "textarea_html",
-         "holder" => "div",
          "class" => "",
          "heading" => __("Content"),
          "param_name" => "content",
@@ -585,3 +599,125 @@ vc_map( array(
       )
    )
 ) );
+
+
+vc_map( array(
+   "name" => __("Text Over Image"),
+   "base" => "textimg",
+   "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/text-image.svg",
+   "params" => array(
+      array(
+         "type" => "textarea_html",
+         "class" => "",
+         "heading" => __("Content"),
+         "param_name" => "content",
+         "value" => __(""),
+         "description" => __("")
+      ),
+     
+      array(
+      	"type" => "attach_image",
+         "class" => "",
+         "heading" => __("Image"),
+         "param_name" => "image",
+         "value" => __(""),
+         "description" => __("")
+      ),
+             array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Dark Background"),
+         "param_name" => "darkbg",
+         'value' => " ",
+         "description" => __("")
+      ),
+   )
+) );
+
+
+vc_map( array(
+   "name" => __("Audio"),
+   "base" => "audiowidget",
+   "category" => __('Content'),
+   "icon" => get_template_directory_uri() . "/img/vc_extend/audio.svg",
+   "params" => array(
+      array(
+         "type" => "textfield",
+         "class" => "",
+         "heading" => __("Title"),
+         "param_name" => "title",
+         "value" => __(""),
+         "description" => __("")
+      ),
+      array(
+         "type" => "textfield",
+         "class" => "",
+         "heading" => __("Url"),
+         "param_name" => "url",
+         "value" => __(""),
+         "description" => __("")
+      )
+   )
+) );
+
+
+$attributes = array(
+    'type' => 'textfield',
+    'heading' => "Section Title",
+    'param_name' => 'title',
+
+    'value' => '',
+    'description' => ""
+);
+vc_add_param( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
+
+$settings = array (
+  'show_settings_on_create' => 'true'
+);
+vc_map_update( 'vc_section', $settings ); // Note: 'vc_message' was used as a base for "Message box" element
+
+
+vc_remove_param( "vc_message", "el_class" );
+vc_remove_param( "vc_section", "full_width" );
+vc_remove_param( "vc_section", "full_height" );
+vc_remove_param( "vc_section", "columns_placement" );
+vc_remove_param( "vc_section", "content_placement" );
+vc_remove_param( "vc_section", "parallax" );
+vc_remove_param( "vc_section", "parallax_image" );
+vc_remove_param( "vc_section", "css" );
+vc_remove_param( "vc_section", "el_id" );
+vc_remove_param( "vc_section", "video_bg" );
+vc_remove_param( "vc_section", "video_bg_url" );
+vc_remove_param( "vc_section", "video_bg_parallax" );
+vc_remove_param( "vc_section", "parallax_speed_bg" );
+vc_remove_param( "vc_section", "parallax_speed_video" );
+vc_remove_param( "vc_section", "css_animation" );
+vc_remove_param( "vc_section", "el_class" );
+\
+
+vc_remove_param( "vc_row", "full_width" );
+vc_remove_param( "vc_row", "full_height" );
+vc_remove_param( "vc_row", "columns_placement" );
+vc_remove_param( "vc_row", "content_placement" );
+vc_remove_param( "vc_row", "parallax" );
+vc_remove_param( "vc_row", "parallax_image" );
+vc_remove_param( "vc_row", "css" );
+vc_remove_param( "vc_row", "el_id" );
+vc_remove_param( "vc_row", "video_bg" );
+vc_remove_param( "vc_row", "video_bg_url" );
+vc_remove_param( "vc_row", "video_bg_parallax" );
+vc_remove_param( "vc_row", "parallax_speed_bg" );
+vc_remove_param( "vc_row", "parallax_speed_video" );
+vc_remove_param( "vc_row", "css_animation" );
+vc_remove_param( "vc_row", "el_class" );
+
+vc_remove_param( "vc_column_text", "el_class" );
+vc_remove_param( "vc_column_text", "css" );
+vc_remove_param( "vc_column_text", "css_animation" );
+vc_remove_param( "vc_column_text", "el_id" );
+
+
+
+

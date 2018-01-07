@@ -12,6 +12,11 @@ $color-dkbluegreen: #4B6777;
 
 $color-text-gray: #8C898C;
 
+$highlight-yellow: #FFEB3B;
+$highlight-black: #17202A;
+$highlight-blue: $color-blue;
+$highlight-gray: $color-ltgray;
+
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
@@ -37,7 +42,7 @@ $color__border-abbr: #666;
 /*==================================
 =            Typography            =
 ==================================*/
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 @import url("https://use.typekit.net/ats0hoc.css");
 
 $font__magneta: 'magneta', Georgia, Times, "Times New Roman", serif;
@@ -62,7 +67,7 @@ $size__header-height: 70px;
 $size__header-height-mobile: 40px;
 
 $margin__sides: 20px;
-$margin__sides-mobile: 10px;
+$margin__sides-mobile: 1.5rem;
 /*==============================
 =            Assets            =
 ==============================*/

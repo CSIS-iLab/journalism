@@ -279,13 +279,12 @@
     padding: 1rem 0 1rem 1.5rem;
 
     @include breakpoint("large") {
-        width: 20%;
-        position: absolute;
-        right: 0%;
+        width: 20rem;
+    	margin-right: -22rem;
     }
     img {
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         position: relative;
         overflow: hidden;
         border-radius: 50%;
@@ -330,8 +329,7 @@
     }
 }
 
-.quote-left,
-.quote-right {
+.quote-half {
     width: 90%;
     margin: 0 auto 2rem;
     @include breakpoint("medium") {
@@ -347,7 +345,7 @@
     }
 }
 
-.quote-right {
+.quote-half {
     @include breakpoint("medium") {
         float: right;
         margin: 1rem 0 1rem 2rem;
@@ -367,18 +365,6 @@
     }
 }
 
-.quote-left {
-    @include breakpoint("medium") {
-        float: left;
-        margin: 1rem 2rem 1.5rem 0rem;
-    }
-    @include breakpoint("large") {
-        margin: 1rem 2.3rem 1.5rem 0rem;
-    }
-    @include breakpoint("xlarge") {
-        margin: 1rem 2.8rem 1.5rem 0rem;
-    }
-}
 
 .blockquote-content {
     font-family: $font__magneta;
@@ -525,8 +511,7 @@
     margin: 3rem 0;
 }
 
-.group-left,
-.group-right {
+.group-half {
     .col-xs-12 {
         padding-left: 0;
         padding-right: 0;
@@ -542,25 +527,13 @@
     }
 }
 
-.group-right {
+.group-half {
     @include breakpoint("medium") {
         float: right;
 
         padding: 0 0 2em 3em;
     }
 }
-
-.group-left {
-    @include breakpoint("medium") {
-        float: left;
-        padding: 0 3em 2em 0;
-    }
-}
-
-
-
-
-
 
 
 
@@ -586,53 +559,9 @@
 }
 
 
-//Sections
-.wpb_text_column,
-.dialog-container,
-.sectionhead,
-h2.post-section {
-    margin: 0 auto;
-    @include breakpoint("medium") {
-        max-width: 38rem;
-    }
-    @include breakpoint("large") {
-        max-width: 38rem;
-    }
-}
 
 
-///Section Heading
-h2.post-section {
 
-    font-size: 2rem;
-    margin-top: 4rem;
-    display: block;
-    @include breakpoint("medium") {
-        font-size: 2rem;
-    }
-}
-
-
-section.vc_section {
-    max-width: 1200px;
-    display: block;
-
-    margin: 2rem auto;
-    @include breakpoint("medium") {
-        margin: 3rem auto;
-        padding: 0 3rem;
-    }
-}
-
-section.vc_section #full-header,
-section.vc_section #block-header {
-    margin: 0 calc(50% - 50vw) 3rem;
-    width: 100vw;
-    .col-xs-12,
-    .col-md-6 {
-        padding: 0;
-    }
-}
 
 
 
@@ -715,8 +644,7 @@ h2.heading.underline {
     }
 }
 
-.img-left,
-.img-right {
+.img-half {
     width: 90%;
     margin: 0 auto 2rem;
     @include breakpoint("medium") {
@@ -732,7 +660,7 @@ h2.heading.underline {
     }
 }
 
-.img-right {
+.img-half {
     @include breakpoint("medium") {
         float: right;
         margin: 1rem 0 1rem 2rem;
@@ -747,18 +675,6 @@ h2.heading.underline {
     }
 }
 
-.img-left {
-    @include breakpoint("medium") {
-        float: left;
-        margin: 1rem 2rem 1.5rem 0rem;
-    }
-    @include breakpoint("large") {
-        margin: 1rem 2.3rem 1.5rem 0rem;
-    }
-    @include breakpoint("xlarge") {
-        margin: 1rem 2.8rem 1.5rem 0rem;
-    }
-}
 
 
 
@@ -775,10 +691,19 @@ font-family: $font__roboto;
         margin: 1rem auto 2rem;
     }
     @include breakpoint("large") {
-    	width: 25%;
-    	float: left;
+    	 width: 20rem;
+    	margin-right: -22rem;
         margin: 1rem 2.3rem 1.5rem 0rem;
     }
+
+       max-width: 50%;
+    float: right;
+    display: block;
+    position: relative;
+    line-height: 1.4;
+    padding: 1rem 0 1rem 1.5rem;
+
+   
 }
 
 .audio-title{
@@ -818,7 +743,7 @@ font-size: 1rem;
 	float: left;
 
 	 @include breakpoint("large") {
-	padding-right: 2rem;
+
 
     }
 }
@@ -848,4 +773,53 @@ font-size: 1rem;
     border-radius: 50%;
     margin-top: 1px;
     background: rgba(0, 0, 0, 1);
+}
+
+
+//Sections
+.wpb_text_column,
+.dialog-container,
+.sectionhead,
+h2.post-section {
+
+    @include breakpoint("medium") {
+        max-width: 38rem;
+    }
+    @include breakpoint("large") {
+        max-width: 38rem;
+    }
+}
+
+
+///Section Heading
+h2.post-section {
+
+    font-size: 2rem;
+    margin-top: 4rem;
+    display: block;
+    @include breakpoint("medium") {
+        font-size: 2rem;
+    }
+}
+
+
+section.vc_section {
+    max-width: 75rem;
+    display: block;
+
+    margin: 2rem auto;
+    @include breakpoint("medium") {
+        margin: 3rem auto;
+        padding: 0 3rem;
+    }
+}
+
+section.vc_section #full-header,
+section.vc_section #block-header {
+    margin: 0 calc(50% - 50vw) 3rem;
+    width: 100vw;
+    .col-xs-12,
+    .col-md-6 {
+        padding: 0;
+    }
 }

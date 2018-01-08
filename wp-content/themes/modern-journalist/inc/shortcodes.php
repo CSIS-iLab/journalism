@@ -54,7 +54,7 @@ $position = $values['position'];
   if($position == 'fullwidth') {
 	$sizeClass = "quote-fullwidth";
  } elseif ($position == 'left'){
- 	$sizeClass = "quote-left";
+ 	$sizeClass = "quote-half";
  }else {
  	$sizeClass = "quote-right";
  }

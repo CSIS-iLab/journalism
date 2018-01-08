@@ -504,7 +504,7 @@ vc_map( array(
    "name" => __("Single Image"),
    "base" => "singleimg",
    "category" => __('Content'),
-   "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
+   "icon" => get_template_directory_uri() . "/img/vc_extend/singleimage.svg",
    "params" => array(
       array(
       	"type" => "dropdown",
@@ -596,6 +596,15 @@ vc_map( array(
          "param_name" => "content",
          "value" => __(""),
          "description" => __("")
+      ),
+      array(
+         "type" => "textarea",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source"),
+         "param_name" => "source",
+         "value" => __(""),
+         "description" => __("")
       )
    )
 ) );
@@ -648,6 +657,14 @@ vc_map( array(
          "class" => "",
          "heading" => __("Title"),
          "param_name" => "title",
+         "value" => __(""),
+         "description" => __("")
+      ),
+      array(
+         "type" => "textfield",
+         "class" => "",
+         "heading" => __("Description"),
+         "param_name" => "description",
          "value" => __(""),
          "description" => __("")
       ),
@@ -717,7 +734,3 @@ vc_remove_param( "vc_column_text", "el_class" );
 vc_remove_param( "vc_column_text", "css" );
 vc_remove_param( "vc_column_text", "css_animation" );
 vc_remove_param( "vc_column_text", "el_id" );
-
-
-
-

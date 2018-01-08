@@ -253,7 +253,21 @@
     }
 }
 
+//Audio
+.audiowidget {
+    max-width: 50%;
+    float: right;
+    display: block;
+    position: relative;
+    line-height: 1.4;
+    padding: 1rem 0 1rem 1.5rem;
 
+    @include breakpoint("large") {
+        width: 20%;
+        position: absolute;
+        right: 0%;
+    }
+}
 
 //Character
 .character-detail {
@@ -284,10 +298,12 @@
         margin-bottom: .5rem;
     }
     .character-name {
-        font-family: $font__magneta;
-        font-weight: 200;
-        font-size: 1.3rem;
-        line-height: 1.1;
+      font-size: 1rem;
+        font-family: $font__roboto;
+        width: 100%;
+        line-height: 1.4;
+        text-transform: uppercase;
+        font-weight: bold;
     }
     .character-desc {
         font-size: .9rem;
@@ -477,16 +493,18 @@
     }
 }
 
-.img-desc {
+.img-desc,
+.source-caption {
     margin-bottom: 2rem;
-
     font-size: .9rem;
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
+}
+
+.img-desc {
     border-left: 3px solid $color-medgray;
     padding-left: .6rem;
 }
-
 
 
 .image-group .img-desc {
@@ -541,12 +559,7 @@
 
 
 
-//Audio
-.audiowidget {
-    float: left;
-    max-width: 400px !important;
-    display: block;
-}
+
 
 
 
@@ -565,9 +578,10 @@
     }
 
     span {
-        font-family: $font__roboto;
-        display: inline;
-        background-color: red;
+        font-family: $font__roboto; //background-color: $highlight-blue;
+        //padding: 0 3px; 
+        //color: white;
+        //background-color: red;
     }
 }
 
@@ -602,9 +616,11 @@ h2.post-section {
 section.vc_section {
     max-width: 1200px;
     display: block;
+
     margin: 2rem auto;
     @include breakpoint("medium") {
-        margin: 3rem 3rem;
+        margin: 3rem auto;
+        padding: 0 3rem;
     }
 }
 
@@ -742,4 +758,94 @@ h2.heading.underline {
     @include breakpoint("xlarge") {
         margin: 1rem 2.8rem 1.5rem 0rem;
     }
+}
+
+
+
+
+
+.audio-container {
+width: 100%;
+display: block;
+font-family: $font__roboto;
+  margin: 1rem auto 2rem;
+ @include breakpoint("medium") {
+ 	width: 80%;
+        
+        margin: 1rem auto 2rem;
+    }
+    @include breakpoint("large") {
+    	width: 25%;
+    	float: left;
+        margin: 1rem 2.3rem 1.5rem 0rem;
+    }
+}
+
+.audio-title{
+font-size: 1rem;
+        font-family: $font__roboto;
+        width: 100%;
+        line-height: 1.4;
+ span{
+ 	        font-weight: bold;
+
+ }        
+}
+
+.audio-desc {
+ font-size: .9rem;
+        font-family: $font__roboto;
+        width: 100%;
+        margin-bottom: .5rem;
+}
+
+#pButton {
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid black;
+    border-radius:50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    outline: none;
+    margin-right: 1rem;
+}
+
+#audioplayer {
+	width: calc(100% - 4rem);
+	display: block;
+	float: left;
+
+	 @include breakpoint("large") {
+	padding-right: 2rem;
+
+    }
+}
+
+#timeline {
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, .3);
+
+}
+
+#time {
+	font-size: .9rem;
+	 margin-bottom: 2rem;
+	  @include breakpoint("large") {
+	 margin-bottom: 0;
+
+    }
+}
+
+#playhead {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 1px;
+    background: rgba(0, 0, 0, 1);
 }

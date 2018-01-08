@@ -253,22 +253,27 @@ function dialog_shortcode( $atts, $content = null ) {
 	$values = shortcode_atts(
 		array(
 			'content' => '',
+			'source' => ''
 		),
 		$atts
 	);
 
+$newline;
 
-$paragraphs = preg_split( '|(?<=</p>)\s+(?=<p)|', $content, -1, PREG_SPLIT_NO_EMPTY);
+$text = str_replace('</p>', '', $content);
+$paragraphs = explode('<p>', $text);
+
 $output .='<div class="dialog-container">';
-foreach ($paragraphs as &$line) {
+foreach ($paragraphs as $paragraph) {
   
-    if (strpos($line, ':') !== false) {
-    $newline = preg_replace('/(.*)(?=:)/', "<span>$1</span>", $line);
-    $output .= '<div>' . $newline . '</div>';
-	}
+    //if (strpos($paragraph, ':') !== false) {
+    	preg_match('/(.*?)(?=:)/', $paragraph, $match);
+    	//$output .= '<p>' . $paragraph . '</p>';
+    $output .= '<p>' . preg_replace('/(.*?)(?=:)/', '<span>$1</span>', $paragraph) . '</p>';
+	//}
 
 }
-
+ $output .= '<div class="source-caption">' . $value['source'] . '</div>';
 $output .='</div>';
    
 
@@ -299,15 +304,19 @@ function imgGroup_shortcode( $atts, $content = null ) {
  switch ($count) {
     case 1:
         $colcount = 8;
+        $colcountBreak = 8;
         break;
     case 2:
         $colcount = 5;
+        $colcountBreak = 6;
         break;
     case 3:
         $colcount = 3;
+        $colcountBreak = 4;
         break;
     case 4:
         $colcount = 2;
+        $colcountBreak = 3;
         break;
 }
 if ($gallery['position'] == 'fullwidth'){
@@ -321,7 +330,7 @@ $output .='<div class="image-group  row group-right">';
     $images = wp_get_attachment_image_src( $image_id , 'large');
 
   if ($gallery['position'] == 'fullwidth'){
-    $output .='<div class="images col-xs-12 col-md-' . $colcount . '">';
+    $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . '">';
 } else {
 	$output .='<div class="images col-xs-12">';
 }
@@ -333,7 +342,7 @@ $output .='<div class="image-group  row group-right">';
     }
  $coldesc = 12 - $colcount * $count;
    if ($gallery['position'] == 'fullwidth'){
-$output .='<div class="images col-xs-12 col-md-' . $coldesc . '">' . $content . '</div>';
+$output .='<div class="images col-xs-12 col-md-12 col-lg-' . $coldesc . '">' . $content . '</div>';
 } else {
 $output .='<div class="img-desc col-xs-12">' . $content . '</div>';
 	}
@@ -422,9 +431,10 @@ $position = $values['position'];
         $attachment = wp_get_attachment_url($imgID);
         $alt = get_post_meta($imgID, '_wp_attachment_image_alt', true);
         $title = $attachment->post_title;
- 
+  
 
-$output .= '<div class"' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachment . ' \')" alt= "' .  $alt . '"></a>';
+
+$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachment . ' \')" alt= "' .  $alt . '"></a>';
 
 $output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) . '</div></div>';
 
@@ -443,16 +453,28 @@ function audiowidget_shortcode( $atts  ) {
 	$values = shortcode_atts(
 		array(
 			'title' => '',
+			'description' => '',
 			'url' => 'Optional'
 		),
 		$atts
 	);
 	
-$output = '<div class="audiowidget">';
-$
-$output .= '<!--[if lt IE 9]><script>document.createElement("audio");</script><![endif]-->';
-$output .= '<audio class="wp-audio-shortcode" id="audio-1-1" preload="none" style="width: 100%;" controls="controls"><source type="audio/wav" src="'. esc_html($values['url']) . '" /><a href="'. esc_html($values['url']) . '">'. esc_html($values['url']) . '</a></audio>';
-$output .= '</div>';
+
+
+$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>AUDIO: </span>'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div><audio id="music" preload="true">
+<div class="audio-info"><div class="audio-title">'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div></div>
+  <source src="'. esc_html($values['url']) . '">
+	</audio>
+	<button id="pButton" class="play"><i class="icon-play"></i></button>
+<div id="audioplayer">
+	
+  <div id="timeline">    
+  		  <div id="playhead"></div>
+  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>
+</div>';
+
+
+
 return $output;
 
 }

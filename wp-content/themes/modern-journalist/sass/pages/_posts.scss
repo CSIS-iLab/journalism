@@ -629,6 +629,7 @@ hr.quoteline {
     display: block;
     background-color: $color-ltgray;
     padding: 2rem;
+    margin-bottom: 2rem;
     @include breakpoint("medium") {
         max-width: 70%;
     }
@@ -662,7 +663,12 @@ hr.quoteline {
     padding: 0 $margin__sides-mobile;
      @include breakpoint("medium") {
      	padding: 0 3rem;
+     }
+     .col-md-10 {
+     	 @include breakpoint("medium") {
+     	padding-left: 2rem;
 
+     }
      }
      h4.subheading {
      	text-align: center;
@@ -686,18 +692,49 @@ h2.heading.underline {
     display: block;
     line-height: 70%;
             border-bottom: 4px solid $color-ltgray;
-            margin-bottom: 1rem;
+            
+}
+.author-name {
+	    line-height: 1.4;
+}
+.author-role {
+font-size: 1rem;
+        font-family: $font__roboto;
+        width: 100%;
+        line-height: 1.4;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+    @include breakpoint("medium") {
+     	    text-align: left;
+
+     }
+}
+.author-institution {
+
+        font-size: .9rem;
+        font-family: $font__roboto;
+       width: 100%;
+       margin-bottom: 1rem;
+           text-align: center;
+@include breakpoint("medium") {
+     	    text-align: left;
+
+     }
 }
 
 .author-img {
-    width: 150px;
-    height: 150px;
+	 width: 100%;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
     @include breakpoint("medium") {}
-
+max-width: 150px;
+    max-height: 150px;
     img {
         display: inline;
         margin: 0 auto;

@@ -24,19 +24,19 @@
 				                    $name = get_the_title( $r->ID);
 				                    $bio = get_the_content( $r->ID);
 				                    $pic = get_the_post_thumbnail( $r->ID, 'thumbnail' );
-				                    $institution = get_post_meta( $r->ID, '_themes_institution', true
+				                    $institution = get_post_meta( $r->ID, '_authors_institution', true
  									);
- 									$role = get_post_meta( $r->ID, '_themes_role', true
+ 									$role = get_post_meta( $r->ID, '_authors_role', true
  									);
 				                    echo '<div class="author-list row">';
 				                    	
-				                     echo '<div class=" col-xs-12 col-md-2"><div class="author-img"><a href="' . esc_url( get_permalink($r->ID) ) . '">'. $pic .'</a></div></div>';
+				                     echo '<div class=" col-xs-12 col-md-2"><div class="author-img">'. $pic .'</div></div>';
 				                 
 				                     echo '<div class="col-xs-12 col-md-10">';
 				                    echo '<div class="author-name">';
 				                    echo '<h4 class="subheading" >' . $name . '</h4>';
-				                    echo '<div class="author-institution">' . $role . '</div>';
-				                    echo '<div class="author-role">' . $institution . '</div>';
+				                    echo '<div class="author-role">' . $role . '</div>';
+				                    echo '<div class="author-institution">' . $institution . '</div>';
 				                    echo '</div>';
 				                    echo $bio;
 				                    echo '</div>';

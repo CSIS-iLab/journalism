@@ -477,11 +477,9 @@ hr.quoteline {
         font-size: 1.4rem;
         line-height: 1.5;
         @include breakpoint("medium") {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
-        @include breakpoint("large") {
-            font-size: 1.8rem;
-        }
+        
     }
 }
 
@@ -578,7 +576,7 @@ hr.quoteline {
 .img-desc {
     border-left: 3px solid $color-medgray;
     padding-left: .6rem;
-    
+
 }
 
 

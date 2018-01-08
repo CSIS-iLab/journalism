@@ -844,3 +844,12 @@ section.vc_section #block-header {
         padding: 0;
     }
 }
+
+
+//Raw HTML Full width;
+.wpb_raw_html{
+	.fullwidth{
+width: 100vw;
+    margin: 0 calc(50% - 50vw);
+}
+}

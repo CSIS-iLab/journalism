@@ -686,6 +686,20 @@ $attributes = array(
 );
 vc_add_param( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
 
+
+$attributes = array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Full Width"),
+         "param_name" => "fullwidth",
+         'value' => " ",
+         "description" => __("")
+);
+vc_add_param( 'vc_raw_html', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
+
+
+
 $settings = array (
   'show_settings_on_create' => 'true'
 );

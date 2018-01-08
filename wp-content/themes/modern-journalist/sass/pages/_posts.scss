@@ -277,14 +277,14 @@
     position: relative;
     line-height: 1.4;
     padding: 1rem 0 1rem 1.5rem;
- @include breakpoint("medium") {
- 	width: 20rem;
-        
+    @include breakpoint("medium") {
+        width: 20rem;
+
         margin: 1rem auto 2rem;
     }
     @include breakpoint("large") {
-    	 width: 20rem;
-    	margin-right: -22rem;
+        width: 20rem;
+        margin-right: -22rem;
         margin: 1rem 2.3rem 1.5rem 0rem;
     }
     .img-container {
@@ -293,7 +293,6 @@
         position: relative;
         overflow: hidden;
         border-radius: 50%;
-        margin: 0 auto;
     }
 
     .character-info {
@@ -302,7 +301,7 @@
         margin-bottom: .5rem;
     }
     .character-name {
-      font-size: 1rem;
+        font-size: 1rem;
         font-family: $font__roboto;
         width: 100%;
         line-height: 1.4;
@@ -325,51 +324,46 @@
 
 
 .audio-container {
-width: 20rem;
+    width: 20rem;
     float: right;
     display: block;
     position: relative;
     line-height: 1.4;
     padding: 1rem 0 1rem 1.5rem;
- @include breakpoint("medium") {
- 	width: 20rem;
-        
+    @include breakpoint("medium") {
+        width: 20rem;
+
         margin: 1rem auto 2rem;
     }
     @include breakpoint("large") {
-    	 width: 20rem;
-    	margin-right: -22rem;
+        width: 20rem;
+        margin-right: -22rem;
         margin: 1rem 2.3rem 1.5rem 0rem;
     }
-
-       
-
-   
 }
 
-.audio-title{
-font-size: 1rem;
-        font-family: $font__roboto;
-        width: 100%;
-        line-height: 1.4;
- span{
- 	        font-weight: bold;
-
- }        
+.audio-title {
+    font-size: 1rem;
+    font-family: $font__roboto;
+    width: 100%;
+    line-height: 1.4;
+    span {
+        font-weight: bold;
+    }
 }
 
 .audio-desc {
- font-size: .9rem;
-        font-family: $font__roboto;
-        width: 100%;
-        margin-bottom: .5rem;
+    font-size: .9rem;
+    font-family: $font__roboto;
+    width: 100%;
+    margin-bottom: .5rem;
 }
 
 #pButton {
     height: 2.5rem;
     width: 2.5rem;
     border: 1px solid black;
-    border-radius:50%;
+    border-radius: 50%;
     background-size: 50% 50%;
     background-repeat: no-repeat;
     background-position: center;
@@ -379,14 +373,11 @@ font-size: 1rem;
 }
 
 #audioplayer {
-	width: calc(100% - 4rem);
-	display: block;
-	float: left;
+    width: calc(100% - 4rem);
+    display: block;
+    float: left;
 
-	 @include breakpoint("large") {
-
-
-    }
+    @include breakpoint("large") {}
 }
 
 #timeline {
@@ -396,15 +387,13 @@ font-size: 1rem;
     float: left;
     border-radius: 15px;
     background: rgba(0, 0, 0, .3);
-
 }
 
 #time {
-	font-size: .9rem;
-	 margin-bottom: 2rem;
-	  @include breakpoint("large") {
-	 margin-bottom: 0;
-
+    font-size: .9rem;
+    margin-bottom: 2rem;
+    @include breakpoint("large") {
+        margin-bottom: 0;
     }
 }
 
@@ -439,10 +428,10 @@ font-size: 1rem;
         margin: 0 auto 2rem;
     }
     @include breakpoint("large") {
-        width: 35%;
+        width: 20rem;
     }
     @include breakpoint("xlarge") {
-        width: 30%;
+        width: 23rem;
     }
 }
 
@@ -467,28 +456,25 @@ font-size: 1rem;
 }
 
 
-.blockquote-content {
-    font-family: $font__magneta;
-    font-weight: 200;
-    font-size: 2rem;
-    line-height: 1.5;
+
+
+hr.quoteline {
+    width: 40%;
+    background-color: transparent;
+    margin: 0 auto;
 }
 
 .quote-lines {
     display: block;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
     padding: 1rem;
-
     text-align: center;
     .blockquote-content {
-        width: 80%;
+        width: 100%;
+        display: block;
         margin: 0 auto;
-    }
-    .blockquote-content {
         font-family: $font__magneta;
         font-weight: 200;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         line-height: 1.5;
         @include breakpoint("medium") {
             font-size: 1.8rem;
@@ -673,6 +659,19 @@ font-size: 1rem;
     margin-top: 5rem;
     max-width: 1000px;
     margin: 3rem auto;
+    padding: 0 $margin__sides-mobile;
+     @include breakpoint("medium") {
+     	padding: 0 3rem;
+
+     }
+     h4.subheading {
+     	text-align: center;
+     	padding: 1rem 0 0;
+     	@include breakpoint("medium") {
+     		text-align: left;
+     		padding:  0;
+     }
+     }
 }
 
 .author-list {
@@ -683,6 +682,11 @@ font-size: 1rem;
 h2.heading.underline {
     display: block;
     width: 100%;
+    font-size: 3rem;
+    display: block;
+    line-height: 70%;
+            border-bottom: 4px solid $color-ltgray;
+            margin-bottom: 1rem;
 }
 
 .author-img {
@@ -737,10 +741,10 @@ h2.heading.underline {
 //Single Image 
 .img-fullwidth {
     width: 90%;
-    margin: 0 auto 2rem;
+    margin: 0 0 2rem;
 
     @include breakpoint("medium") {
-        margin: 0 auto 2rem;
+        margin: 0 0 2rem;
         text-align: center;
     }
 }
@@ -799,6 +803,7 @@ h2.post-section {
 #block-header .vc_column-inner {
     padding: 0px;
 }
+
 //Caption
 .vc_figure-caption {
     font-family: "Roboto";

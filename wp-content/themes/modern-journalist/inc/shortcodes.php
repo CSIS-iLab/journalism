@@ -45,7 +45,7 @@ function blockquote_shortcode( $atts ) {
 	$styleClass = "quote-quotes";
  } elseif ($style == 'highlighted') {
  	$styleClass = "quote-highlight";
- }else {
+ }elseif ($style == 'lines'){
  	$styleClass = "quote-lines";
  };
 
@@ -65,7 +65,9 @@ $position = $values['position'];
 $output .= '<div class="blockquote ' . $sizeClass . ' ' . $styleClass .'" style="border-color: '. esc_attr($values['accent']). '">';
 
 
- 
+ if($style == 'lines') {
+$output .=  '<hr class="quoteline" style="border-top: 2px solid '. esc_attr($values['accent']). '; padding-bottom: 1rem; ">';
+}
 $output .=   '<div class="blockquote-content ' .  esc_attr($values['highlightcolor']) . '  "';
 $output .='>';
 if($style == 'quotes') {
@@ -73,7 +75,9 @@ $output .=  '<i class="icon-quote start" style="color: '. esc_attr($values['acce
 }
 
 $output .=  esc_attr($values['quotecontent']);
-
+if($style == 'lines') {
+$output .=  '<hr class="quoteline" style="border-bottom: 2px solid '. esc_attr($values['accent']). '; padding-top: 1rem;">';
+}
 if($style == 'quotes') {
 $output .=  '<i class="icon-quote" style="color: '. esc_attr($values['accent']). '"></i>';
 }

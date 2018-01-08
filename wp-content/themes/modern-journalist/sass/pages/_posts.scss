@@ -647,13 +647,6 @@ hr.quoteline {
 }
 
 
-
-
-
-
-
-
-
 //Authors
 //
 #the-authors {
@@ -763,7 +756,7 @@ max-width: 150px;
         color: $color-blue;
         font-size: 1.5rem;
         margin: 1rem auto 0;
-        
+
         &:hover {
             color: $color-dkblue;
         }
@@ -854,7 +847,6 @@ h2.post-section {
 h2.post-section {
 
     font-size: 2rem;
-    margin-top: 4rem;
     display: block;
     @include breakpoint("medium") {
         font-size: 2rem;

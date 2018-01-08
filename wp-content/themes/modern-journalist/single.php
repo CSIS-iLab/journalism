@@ -19,15 +19,10 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			
-
-			
 
 		endwhile; // End of the loop.
 		?>
 			
-
-
 			<div class="story-link-div"><div class="story-info">
 			This story was writen by students participating in <em>Reporting on International Affairs</em>, a CSIS Practicum in Journalism.</div>
 			<div class="story-link"><a href="/feature-stories"><i class="icon-arrow-long-left"></i>Read another story</a></div>

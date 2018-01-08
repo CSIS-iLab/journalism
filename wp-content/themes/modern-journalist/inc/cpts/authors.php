@@ -65,3 +65,83 @@ function modernjournalist_cpt_authors() {
 }
 add_action( 'init', 'modernjournalist_cpt_authors', 0 );
 
+
+
+/*----------  Custom Meta Fields  ----------*/
+/**
+ * Add meta box
+ *
+ * @param post $post The post object.
+ * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
+ */
+function authors_add_meta_boxes( $post ) {
+add_meta_box( 'authors_meta_box', __( 'Author Details', 'modern-journalist' ), 'authors_build_meta_box', 'authors', 'normal', 'high' );
+	
+}
+add_action( 'add_meta_boxes_authors', 'authors_add_meta_boxes' );
+
+
+
+
+/**
+ * Build custom field meta box
+ *
+ * @param post $post The post object.
+ */
+function authors_build_meta_box( $post ) {
+	// Make sure the form request comes from WordPress.
+	wp_nonce_field( basename( __FILE__ ), 'authors_meta_box_nonce' );
+
+	// Retrieve current value of fields.
+	$current_role = get_post_meta( $post->ID, '_authors_date', true );
+	$current_institution = get_post_meta( $post->ID, '_authors_institution', true );
+
+	?>
+	<div class='inside'>
+	
+		<h3><?php esc_html_e( 'Role', 'modern-journalist' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="role" value="<?php echo esc_attr( $current_role ); ?>" />
+		</p>
+
+		<h3><?php esc_html_e( 'Institution', 'modern-journalist' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="institution" value="<?php echo esc_attr( $current_institution ); ?>" />
+		</p>
+	</div>
+<?php
+}
+/**
+ * Store custom field meta box data
+ *
+ * @param int $post_id The post ID.
+ * @link https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
+ */
+function authors_save_meta_box_data( $post_id ) {
+	// Verify meta box nonce.
+	if ( ! isset( $_POST['authors_meta_box_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['authors_meta_box_nonce'] ) ), basename( __FILE__ ) ) ) { // Input var okay.
+		return;
+	}
+	// Return if autosave.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	// Check the user's permissions.
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	
+
+	// Role.
+	if ( isset( $_REQUEST['role'] ) ) {  // Input var okay.
+		update_post_meta( $post_id, '_authors_role', sanitize_text_field( $_POST['role'] ) );  // Input var okay.
+	}
+	// Institution.
+	if ( isset( $_REQUEST['institution'] ) ) {
+		update_post_meta( $post_id, '_authors_institution', sanitize_text_field( $_POST['institution'] ) );
+	}
+	
+	
+}
+add_action( 'save_post_authors', 'authors_save_meta_box_data' );
+

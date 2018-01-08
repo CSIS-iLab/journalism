@@ -229,26 +229,26 @@ add_filter('fg_post_types', 'add_featured_galleries_to_ctp' );
  function revcon_change_post_label() {
     global $menu;
     global $submenu;
-    $menu[5][0] = 'Issues';
-    $submenu['edit.php'][5][0] = 'Issues';
-    $submenu['edit.php'][10][0] = 'Add Issue';
+    $menu[5][0] = 'Stories';
+    $submenu['edit.php'][5][0] = 'Stories';
+    $submenu['edit.php'][10][0] = 'Add Story';
 }
 function revcon_change_post_object() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Issues';
-    $labels->singular_name = 'Issue';
-    $labels->add_new = 'Add Issue';
-    $labels->add_new_item = 'Add Issue';
-    $labels->edit_item = 'Edit Issue';
-    $labels->new_item = 'Issue';
-    $labels->view_item = 'View Issue';
-    $labels->search_items = 'Search Issues';
-    $labels->not_found = 'No Issue found';
-    $labels->not_found_in_trash = 'No Issue found in Trash';
-    $labels->all_items = 'All Issues';
-    $labels->menu_name = 'Issues';
-    $labels->name_admin_bar = 'Issues';
+    $labels->name = 'Stories';
+    $labels->singular_name = 'Story';
+    $labels->add_new = 'Add Story';
+    $labels->add_new_item = 'Add Story';
+    $labels->edit_item = 'Edit Story';
+    $labels->new_item = 'Story';
+    $labels->view_item = 'View Story';
+    $labels->search_items = 'Search Stories';
+    $labels->not_found = 'No Story found';
+    $labels->not_found_in_trash = 'No Story found in Trash';
+    $labels->all_items = 'All Stories';
+    $labels->menu_name = 'Stories';
+    $labels->name_admin_bar = 'Stories';
 }
  
 add_action( 'admin_menu', 'revcon_change_post_label' );

@@ -827,10 +827,9 @@ h2.post-section {
 section.vc_section {
     max-width: 70rem;
     display: block;
-
-    margin: 2rem auto;
+    margin: 1 auto 4rem;
     @include breakpoint("medium") {
-        margin: 3rem auto;
+        margin: 1 auto 6rem;
         padding: 0 3rem;
     }
 }

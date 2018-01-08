@@ -18,16 +18,9 @@
 		<?php
 			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'modern-journalist' ),
-				'after'  => '</div>',
-			) );
+
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->

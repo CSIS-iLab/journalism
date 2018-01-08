@@ -271,18 +271,23 @@
 
 //Character
 .character-detail {
-    max-width: 50%;
+    width: 20rem;
     float: right;
     display: block;
     position: relative;
     line-height: 1.4;
     padding: 1rem 0 1rem 1.5rem;
-
-    @include breakpoint("large") {
-        width: 20rem;
-    	margin-right: -22rem;
+ @include breakpoint("medium") {
+ 	width: 20rem;
+        
+        margin: 1rem auto 2rem;
     }
-    img {
+    @include breakpoint("large") {
+    	 width: 20rem;
+    	margin-right: -22rem;
+        margin: 1rem 2.3rem 1.5rem 0rem;
+    }
+    .img-container {
         width: 75px;
         height: 75px;
         position: relative;
@@ -316,6 +321,102 @@
         font-family: $font__roboto;
     }
 }
+
+
+
+.audio-container {
+width: 20rem;
+    float: right;
+    display: block;
+    position: relative;
+    line-height: 1.4;
+    padding: 1rem 0 1rem 1.5rem;
+ @include breakpoint("medium") {
+ 	width: 20rem;
+        
+        margin: 1rem auto 2rem;
+    }
+    @include breakpoint("large") {
+    	 width: 20rem;
+    	margin-right: -22rem;
+        margin: 1rem 2.3rem 1.5rem 0rem;
+    }
+
+       
+
+   
+}
+
+.audio-title{
+font-size: 1rem;
+        font-family: $font__roboto;
+        width: 100%;
+        line-height: 1.4;
+ span{
+ 	        font-weight: bold;
+
+ }        
+}
+
+.audio-desc {
+ font-size: .9rem;
+        font-family: $font__roboto;
+        width: 100%;
+        margin-bottom: .5rem;
+}
+
+#pButton {
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid black;
+    border-radius:50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    outline: none;
+    margin-right: 1rem;
+}
+
+#audioplayer {
+	width: calc(100% - 4rem);
+	display: block;
+	float: left;
+
+	 @include breakpoint("large") {
+
+
+    }
+}
+
+#timeline {
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, .3);
+
+}
+
+#time {
+	font-size: .9rem;
+	 margin-bottom: 2rem;
+	  @include breakpoint("large") {
+	 margin-bottom: 0;
+
+    }
+}
+
+#playhead {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 1px;
+    background: rgba(0, 0, 0, 1);
+}
+
+
 
 
 //blockquote
@@ -680,101 +781,6 @@ h2.heading.underline {
 
 
 
-.audio-container {
-width: 100%;
-display: block;
-font-family: $font__roboto;
-  margin: 1rem auto 2rem;
- @include breakpoint("medium") {
- 	width: 80%;
-        
-        margin: 1rem auto 2rem;
-    }
-    @include breakpoint("large") {
-    	 width: 20rem;
-    	margin-right: -22rem;
-        margin: 1rem 2.3rem 1.5rem 0rem;
-    }
-
-       max-width: 50%;
-    float: right;
-    display: block;
-    position: relative;
-    line-height: 1.4;
-    padding: 1rem 0 1rem 1.5rem;
-
-   
-}
-
-.audio-title{
-font-size: 1rem;
-        font-family: $font__roboto;
-        width: 100%;
-        line-height: 1.4;
- span{
- 	        font-weight: bold;
-
- }        
-}
-
-.audio-desc {
- font-size: .9rem;
-        font-family: $font__roboto;
-        width: 100%;
-        margin-bottom: .5rem;
-}
-
-#pButton {
-    height: 2.5rem;
-    width: 2.5rem;
-    border: 1px solid black;
-    border-radius:50%;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    float: left;
-    outline: none;
-    margin-right: 1rem;
-}
-
-#audioplayer {
-	width: calc(100% - 4rem);
-	display: block;
-	float: left;
-
-	 @include breakpoint("large") {
-
-
-    }
-}
-
-#timeline {
-    width: 100%;
-    height: 10px;
-    margin-top: 10px;
-    float: left;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, .3);
-
-}
-
-#time {
-	font-size: .9rem;
-	 margin-bottom: 2rem;
-	  @include breakpoint("large") {
-	 margin-bottom: 0;
-
-    }
-}
-
-#playhead {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-top: 1px;
-    background: rgba(0, 0, 0, 1);
-}
-
 
 //Sections
 .wpb_text_column,
@@ -814,7 +820,7 @@ h2.post-section {
 
 
 section.vc_section {
-    max-width: 75rem;
+    max-width: 70rem;
     display: block;
 
     margin: 2rem auto;

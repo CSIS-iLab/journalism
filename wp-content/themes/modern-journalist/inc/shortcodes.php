@@ -140,16 +140,21 @@ function character_shortcode( $atts , $content = null ) {
 	);
 
 
-	$img = wp_get_attachment_image_src($values['image'], "thumbnail");
+
+$img = wp_get_attachment_image_src($values['image'], "thumbnail");
 
         $imgSrc = $img[0];
         $imgID = get_attachment_id( $imgSrc );
-        $attachment = get_post($imgID);
-        $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
+        $attachment = wp_get_attachment_url($imgID);
+        $alt = get_post_meta($imgID, '_wp_attachment_image_alt', true);
         $title = $attachment->post_title;
   
+
+
+
+
 $output = '<div class="character-detail">';
-$output .= '<img src=" '. esc_html($values['image']) . '" alt="' .  $alt . '" title="'.  $title . '">';
+$output .= '<div class="img-container fit-width"><img src=" '. $attachment . '" alt="' .  $alt . '" title="'.  $title . '"></div>';
 $output .= '<div class="character-info"><div class="character-name">' . $values['name'] . '</div><div class="character-desc">' . $values['description'] . '</div></div><div class="character-source"> ' . $values['source'] . '</div>';
 $output .= '</div>' ;
 return $output;

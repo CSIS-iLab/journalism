@@ -197,31 +197,6 @@
         }
     });
 
-
-    //Chapter List
-
-
-    /* $(".post a").each(function() {
-        $title = $(this).html();
-        $link = $(this).attr('href');
-        $str = $title.replace(/\s/g, '');
-        $(this).attr('id', $str);
-        $('#chapters-list ul').append('<li><a href="#' + $str + '" alt="' + $title + '">' + $title + '</a></li>');
-    })
-
-    $(".header-post-header-chapters").on('click', function() {
-        // $('#chapters-list').toggleClass('open');
-        $('#page').addClass('toggle');
-        event.stopPropagation();
-
-    })
-
-    $("#page").on('click', function(event) {
-        if ($('#page').hasClass('toggle')) {
-            $('#page').removeClass('toggle');
-        }
-    })*/
-
     // Create Table of Contents
     var counter = 0;
     $("h2.post-section").each(function() {
@@ -345,190 +320,39 @@
     });
 
 
-
-
-    //Homepage play/pause button
-    var vid = document.getElementById("bgvid");
-    $pauseButton = $("#home-pause");
-
-    $pauseButton.click(function() {
-        if (vid.paused) {
-            vid.play();
-            $pauseButton.html("<i class='icon-pause'></i>");
-        } else {
-            vid.pause();
-            $pauseButton.html("<i class='icon-play'></i>");
-        }
-    });
-    $('#bgvid').on('ended', function() { $pauseButton.html("<i class='icon-play'></i>") });
-
-
-    //AUDIO PLAYER
-    //// http://tranzi.ev2test.com/wp-content/uploads/2017/10/75.mp3
-var music = document.getElementById('music'); // id for audio element
-var duration = music.duration; // Duration of audio clip, calculated here for embedding purposes
-$duration = music.duration;
-
-var pButton = document.getElementById('pButton'); // play button
-$pButton = $('#pButton'); // play button
-
-var playhead = document.getElementById('playhead'); // playhead
-var timeline = document.getElementById('timeline'); // timeline
-
-// timeline width adjusted for playhead
-var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
-
-// play button event listenter
-pButton.addEventListener("click", play);
-
-// timeupdate event listener
-music.addEventListener("timeupdate", timeUpdate, false);
-
-
-$updated = calctime($duration);
-    $('.duration').text($updated);
-
-// makes timeline clickable
-timeline.addEventListener("click", function(event) {
-    moveplayhead(event);
-    music.currentTime = duration * clickPercent(event);
-}, false);
-
-// returns click as decimal (.77) of the total timelineWidth
-function clickPercent(event) {
-    return (event.clientX - getPosition(timeline)) / timelineWidth;
-}
-
-// makes playhead draggable
-playhead.addEventListener('mousedown', mouseDown, false);
-window.addEventListener('mouseup', mouseUp, false);
-
-// Boolean value so that audio position is updated only when the playhead is released
-var onplayhead = false;
-
-
-
-
-// mouseDown EventListener
-function mouseDown() {
-    onplayhead = true;
-    window.addEventListener('mousemove', moveplayhead, true);
-    music.removeEventListener('timeupdate', timeUpdate, false);
-}
-
-// mouseUp EventListener
-// getting input from all mouse clicks
-function mouseUp(event) {
-    if (onplayhead == true) {
-        moveplayhead(event);
-        window.removeEventListener('mousemove', moveplayhead, true);
-        // change current time
-        music.currentTime = duration * clickPercent(event);
-        music.addEventListener('timeupdate', timeUpdate, false);
-    }
-    onplayhead = false;
-}
-// mousemove EventListener
-// Moves playhead as user drags
-function moveplayhead(event) {
-    var newMargLeft = event.clientX - getPosition(timeline);
-
-    if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
-        playhead.style.marginLeft = newMargLeft + "px";
-    }
-    if (newMargLeft < 0) {
-        playhead.style.marginLeft = "0px";
-    }
-    if (newMargLeft > timelineWidth) {
-        playhead.style.marginLeft = timelineWidth + "px";
-    }
-}
-
-// timeUpdate
-// Synchronizes playhead position with current point in audio
-function timeUpdate() {
-    var playPercent = timelineWidth * (music.currentTime / duration);
-    playhead.style.marginLeft = playPercent + "px";
-    if (music.currentTime == duration) {
-        pButton.className = "";
-        pButton.className = "play";
-    }
-    $currenttime = calctime(music.currentTime);
-    $('.currenttime').text($currenttime + ' / ');
-}
-
-//Play and Pause
-function play() {
-    // start music
-    if (music.paused) {
-        music.play();
-        // remove play, add pause
-        pButton.className = "";
-        pButton.className = "pause";
-        $('#pButton i').addClass('icon-pause');
-        $('#pButton i').removeClass('icon-play');
-    } else { // pause music
-        music.pause();
-        // remove pause, add play
-        pButton.className = "";
-        pButton.className = "play";
-           $('#pButton i').removeClass('icon-pause');
-        $('#pButton i').addClass('icon-play');
-    }   
-}
-
-
-function calctime(seconds){
-var numhours = Math.floor((seconds % 86400) / 3600);
-var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
-var formattedminutes = ("0" + numminutes).slice(-2);
-var numseconds = Math.floor(((seconds % 86400) % 3600) % 60);
-var formattedseconds = ("0" + numseconds).slice(-2);
-return  numhours + ":" + formattedminutes + ":" + formattedseconds;
-}
-// Gets audio file duration
-music.addEventListener("canplaythrough", function() {
-    duration = music.duration;
-}, false);// getPosition
-// Returns elements left position relative to top-left of viewport
-function getPosition(el) {
-    return el.getBoundingClientRect().left;
-}
-
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
+    $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+            // On-page links
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                location.hostname == this.hostname
+            ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function() {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        };
+                    });
+                }
+            }
         });
-      }
-    }
-  });
 
 })(jQuery);

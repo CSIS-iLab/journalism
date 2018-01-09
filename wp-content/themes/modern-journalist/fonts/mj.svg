@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
 <defs>
 <font id="mj" horiz-adv-x="1000" >
 <font-face font-family="mj" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -18,13 +18,13 @@
 
 <glyph glyph-name="bookmark" unicode="&#xe819;" d="M0-56l0 906 609 0 0-1000-304 305-305-305 0 94z" horiz-adv-x="609" />
 
+<glyph glyph-name="play" unicode="&#xeaee;" d="M678 350l-295-171v342z m-179 500c-275 0-499-224-499-500s224-500 499-500 499 224 499 500-223 500-499 500z m0-974c-262 0-474 212-474 474s212 475 474 475 474-212 474-474-212-475-474-475z" horiz-adv-x="998" />
+
+<glyph glyph-name="pause" unicode="&#xeaef;" d="M499 850c-275 0-499-224-499-500s224-500 499-500 499 224 499 500-223 500-499 500z m0-974c-262 0-474 212-474 474s212 475 474 475 474-212 474-474-212-475-474-475z m-49 307h-99v341h99z m197 0h-98v341h98z" horiz-adv-x="998" />
+
 <glyph glyph-name="linkedin" unicode="&#xf0e1;" d="M195 501v-553h-184v553h184z m12 171q0-41-29-68t-75-27h-1q-46 0-74 27t-28 68q0 41 29 68t75 27 74-27 29-68z m650-407v-317h-183v296q0 59-23 92t-71 33q-35 0-58-19t-36-48q-6-17-6-45v-309h-184q1 223 1 361t0 165l-1 27h184v-80h-1q11 18 23 31t31 29 49 24 64 9q95 0 153-63t58-186z" horiz-adv-x="857.1" />
 
 <glyph glyph-name="doc2" unicode="&#xf15b;" d="M571 564v264q13-8 21-16l227-228q8-7 16-20h-264z m-71-18q0-22 16-37t38-16h303v-589q0-23-15-38t-38-16h-750q-23 0-38 16t-16 38v892q0 23 16 38t38 16h446v-304z" horiz-adv-x="857.1" />
-
-<glyph glyph-name="pause" unicode="&#xf210;" d="M188-2c0-13-10-23-24-23h-141c-13 0-23 10-23 23v704c0 13 10 23 23 23h141c14 0 24-10 24-23v-704z m289 727c13 0 23-10 23-23v-704c0-13-10-23-23-23h-141c-14 0-23 10-23 23v704c0 13 9 23 23 23h141z" horiz-adv-x="500" />
-
-<glyph glyph-name="play" unicode="&#xf215;" d="M604 395c13-12 21-27 21-45s-8-33-21-45l-543-324c-8-4-14-6-22-6-21 0-39 18-39 39v0 672 0c0 21 18 39 39 39 8 0 16-2 22-6z" horiz-adv-x="625" />
 
 <glyph glyph-name="facebook" unicode="&#xf231;" d="M250 475h125l-16-125h-109v-375h-162v375h-88v125h88v84c0 106 45 166 178 166h109v-125h-66c-53 0-59-18-59-51v-74z" horiz-adv-x="375" />
 
@@ -37,6 +37,8 @@
 <glyph glyph-name="close" unicode="&#xf2d7;" d="M582 582l-232-232 232-232-59-59-232 232-232-232-59 59 232 232-232 232 59 59 232-232 232 232z" horiz-adv-x="582" />
 
 <glyph glyph-name="minus" unicode="&#xf2f4;" d="M0 309v82h625v-82h-625z" horiz-adv-x="625" />
+
+<glyph glyph-name="ion-android-share" unicode="&#xf2f8;" d="M750 366l-312-287v171c-209 0-334-66-438-212 41 209 147 418 438 459v166z" horiz-adv-x="750" />
 
 <glyph glyph-name="instagram" unicode="&#xf351;" d="M219 350c0 104 53 156 156 156s156-52 156-156-52-156-156-156-156 53-156 156z m2 154c-28-27-45-56-55-91h-166v218c0 26 8 49 27 67s43 27 69 27h562c26 0 47-10 65-27s27-41 27-67v-218h-164c-10 35-27 64-55 91-43 43-95 65-156 65s-111-22-154-65z m467 57v76c0 8-4 14-8 18s-10 8-18 8h-74c-8 0-14-4-18-8s-7-10-7-18v-76c0-8 3-14 7-18s10-5 18-5h74c8 0 14 2 18 5s8 10 8 18z m-157-365c43 43 63 94 63 154h156v-281c0-26-10-47-27-67s-39-27-65-27h-562c-26 0-47 8-67 27s-29 41-29 67v281h158c0-60 20-111 63-154s94-65 154-65 113 22 156 65z" horiz-adv-x="750" />
 
@@ -67,8 +69,6 @@
 <glyph glyph-name="location" unicode="&#xf456;" d="M281 788c157 0 282-125 282-282 0-218-282-594-282-594s-281 376-281 594c0 157 125 282 281 282z m0-373c51 0 92 41 92 91s-41 92-92 92-91-41-91-92 41-91 91-91z" horiz-adv-x="562.5" />
 
 <glyph glyph-name="minus-thin" unicode="&#xf462;" d="M500 332h-500v34h500v-34z" horiz-adv-x="500" />
-
-<glyph glyph-name="ion-ios-play" unicode="&#xf488;" d="M0 663v0l500-313-500-312v625z" horiz-adv-x="500" />
 
 <glyph glyph-name="plus-thin" unicode="&#xf489;" d="M500 332h-234v-232h-34v232h-232v34h232v234h34v-234h234v-34z" horiz-adv-x="500" />
 </font>

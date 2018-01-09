@@ -182,7 +182,10 @@ function header_shortcode( $atts  ) {
 			'authors' => '',
 			'style' => '', 
 			'highlight' => '',
-			'font' => ''
+			'font' => '', 
+						'includesource' => '', 
+			'sourcedesc' => '', 
+			'sourceurl' => ''
 		),
 		$atts
 	);
@@ -250,7 +253,16 @@ $output .= '</div>';
 
 
 }
+$output .= '<div class="img-desc">' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
+if($values['includesource'] == 'true') {
+		if($values['sourceurl'] != '') {
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		} else {
+		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 
+		}
+}
+$output .='</div>';
 return $output;
 }
 add_shortcode( 'header', 'header_shortcode' );
@@ -309,7 +321,7 @@ function imgGroup_shortcode( $atts, $content = null ) {
 	// Attributes
 	$gallery = shortcode_atts(
 		array(
-			'content' => '',
+			
 			'source' => '',
 			'position' => '',
 			'images' => ''
@@ -324,47 +336,68 @@ function imgGroup_shortcode( $atts, $content = null ) {
  switch ($count) {
     case 1:
         $colcount = 8;
+        $colClass = 'group1';
         $colcountBreak = 8;
         break;
     case 2:
         $colcount = 5;
+                $colClass = 'group2';
+
         $colcountBreak = 6;
         break;
     case 3:
         $colcount = 3;
+                $colClass = 'group3';
+
         $colcountBreak = 4;
         break;
     case 4:
         $colcount = 2;
+                $colClass = 'group4';
+
         $colcountBreak = 3;
         break;
 }
 if ($gallery['position'] == 'fullwidth'){
- $output .='<div class="image-group row group-full">';
+ $output .='<div class="image-group row group-full ' . $colClass . '">';
 } else{
-$output .='<div class="image-group  group-right">';
+$output .='<div class="image-group  group-right ' . $colClass . '">';
 };
     foreach( $image_ids as $image_id ){
     $images = wp_get_attachment_image_src( $image_id , 'large');
 
+
+
   if ($gallery['position'] == 'fullwidth'){
-    $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . '">';
+    $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . ' ">';
 } else {
 	$output .='<div class="images">';
 }
 
 
+
+
     $output .= '<div class="gallery"><a href="' . $images[0] . '" rel="lightbox"><img src="' . $images[0] . '" alt="' . $gallery['content'] .' "></a></div>';
     $output .= '</div>';
     $images++;
-    }
+}
  $coldesc = 12 - $colcount * $count;
+
+
+
    if ($gallery['position'] == 'fullwidth'){
-$output .='<div class="images col-xs-12 col-md-12 col-lg-' . $coldesc . '">' . $content . '</div>';
+$output .='<div class="images col-xs-12 col-md-12 col-lg-' . $coldesc . '">';
 } else {
-$output .='<div class="img-desc col-xs-12">' . $content . '</div>';
+$output .='<div class="images col-xs-12">';
 	}
-$output .='</div>';
+   	
+   	foreach( $image_ids as $image_id ){
+
+$output .= '<div class="img-desc"><span class="img-locator"></span>' . wp_get_attachment_caption($image_id) . '</div>';
+
+   	}
+
+$output .='</div</div>';
 
 return $output;
 
@@ -407,9 +440,21 @@ $output .= '<div class="textimg-spacing"><div class="textimg-text '. $background
 
 if ( ! empty( wp_get_attachment_caption($imgID) ) ) {
 $output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) . '</div>';
+} else {
+	$output .= '<div>';
 }
 
-$output .= '</div></div>';
+if($values['includesource'] == 'true') {
+		if($values['sourceurl'] != '') {
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		} else {
+		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
+
+		}
+}
+
+
+$output .= '</div></div></div>';
 $output .= '</div>';
 return $output;
 }   
@@ -502,12 +547,13 @@ $output .= '<audio id="music" preload="true">
 $output .= '</div></div>
   <source src="'. esc_html($values['url']) . '">
 	</audio>
+	<div class="player-container">
 	<button id="pButton" class="play"><i class="icon-play"></i></button>
 <div id="audioplayer">
 	
   <div id="timeline">    
   		  <div id="playhead"></div>
-  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>';
+  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div></div>';
   if($values['includesource'] == 'true') {
 	if($values['sourceurl'] != '') {
 	$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';

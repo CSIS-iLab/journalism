@@ -121,7 +121,9 @@ function modern_journalist_scripts() {
 
 	wp_enqueue_script( 'modern-journalist-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 
-		wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jquery'), '20151215', true );
+	wp_enqueue_script( 'modern-journalist-testimonials', get_template_directory_uri() . '/js/testimonials.js', array('jquery'), '20151215', true );
+
+	wp_enqueue_script( 'modern-journalist-audiovideo', get_template_directory_uri() . '/js/audio-video-player.js', array('jquery'), '20151215', true );
 
 	wp_enqueue_script( 'modern-journalist-fluidscriptcdn', 'http:///cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js', array('jquery'), '20151215', true );
 
@@ -486,15 +488,7 @@ vc_map( array(
    "category" => __('Content'),
    "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
    "params" => array(
-      array(
-         "type" => "textarea_html",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Group Description"),
-         "param_name" => "content",
-         "value" => __("Left, the avalanche started with a large crack nearly 200 feet across and 3 feet deep that sent millions of pounds of snow down the mountain. Below, the path the avalanche took as it crashed through trees and headed into a gully. Stevens Pass Ski Patrol"),
-         "description" => __("")
-      ),
+
       array(
       	"type" => "textfield",
          "holder" => "div",
@@ -521,6 +515,7 @@ vc_map( array(
          "value" => "",
          "description" => __("")
       )
+
    )
 ) );
 
@@ -635,7 +630,45 @@ vc_map( array(
          "param_name" => "highlight",
          "value" => __(""),
          "description" => __("")
-      )
+      ),
+                 array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 
@@ -728,6 +761,44 @@ vc_map( array(
          'value' => " ",
          "description" => __("")
       ),
+                    array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 

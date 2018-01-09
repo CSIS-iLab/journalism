@@ -235,7 +235,7 @@ if (has_post_thumbnail(  $postID ) ):
 			</div>';
 endif; 
 $output .= '</div>';
-$output .= '<div class="img-desc"><div>' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
+$output .= '<div class="img-desc">' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
 if($values['includesource'] == 'true') {
 		if($values['sourceurl'] != '') {
 		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
@@ -243,7 +243,7 @@ if($values['includesource'] == 'true') {
 		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 		}
 }
-$output .= '</div></div></div>';
+$output .= '</div></div>';
 }
 if($values['style'] == 'full') {
 if (has_post_thumbnail(  $postID ) ): 

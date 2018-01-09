@@ -556,7 +556,7 @@ $output .= '
 	
   <div id="timeline">    
   		  <div id="playhead"></div>
-  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div></div>';
+  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>';
   if($values['includesource'] == 'true') {
 	if($values['sourceurl'] != '') {
 	$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
@@ -564,7 +564,7 @@ $output .= '
 	$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
 	}
 }
-$output .= '</div>';
+$output .= '</div></div>';
 return $output;
 
 }

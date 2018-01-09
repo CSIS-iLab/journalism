@@ -453,7 +453,7 @@ if($values['includesource'] == 'true') {
 }
 
 
-$output .= '</div></div></div>';
+$output .= '</div></div>';
 $output .= '</div>';
 return $output;
 }   

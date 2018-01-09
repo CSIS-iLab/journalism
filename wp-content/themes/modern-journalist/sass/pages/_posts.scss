@@ -140,7 +140,6 @@
         .post-intro {
             border-color: rgba(0, 0, 0, .4);
         }
-
     }
 }
 
@@ -643,10 +642,10 @@ hr.quoteline {
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
     margin-bottom: 2rem;
-    .img-desc{
-    @include breakpoint("medium") {
-        margin-bottom: 0;
-    }
+    .img-desc {
+        @include breakpoint("medium") {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -681,48 +680,85 @@ hr.quoteline {
     font-weight: bolder;
 }
 
-.group2 {
-    .img-desc:nth-of-type(1) span.img-locator:after {
-        content: "Top: ";
-        display: inline;
-        @include breakpoint("medium") {
-            content: "Left: ";
+
+.group-right {
+    .group2 {
+        .img-desc:nth-of-type(1) span.img-locator:after {
+            content: "Top: ";
+            display: inline;
+            
+        }
+        .img-desc:nth-of-type(2) span.img-locator:after {
+            content: "Bottom: ";
+            display: inline;
+            
         }
     }
-    .img-desc:nth-of-type(2) span.img-locator:after {
-        content: "Bottom: ";
-        display: inline;
-        @include breakpoint("medium") {
-            content: "Right: ";
+
+    .group3 {
+
+        .img-desc:nth-of-type(1) span.img-locator:after {
+            content: "Top: ";
+            display: inline;
+            
+        }
+        .img-desc:nth-of-type(2) span.img-locator:after {
+            content: "Middle: ";
+            display: inline;
+           
+        }
+        .img-desc:nth-of-type(3) span.img-locator:after {
+            content: "Bottom: ";
+            display: inline;
+            
         }
     }
 }
 
-.group3 {
 
-    .img-desc:nth-of-type(1) span.img-locator:after {
-        content: "Top: ";
-        display: inline;
-        @include breakpoint("medium") {
-            content: "Left: ";
+.group-full {
+    .group2 {
+        .img-desc:nth-of-type(1) span.img-locator:after {
+            content: "Top: ";
+            display: inline;
+            @include breakpoint("medium") {
+                content: "Left: ";
+            }
+        }
+        .img-desc:nth-of-type(2) span.img-locator:after {
+            content: "Bottom: ";
+            display: inline;
+            @include breakpoint("medium") {
+                content: "Right: ";
+            }
         }
     }
-    .img-desc:nth-of-type(2) span.img-locator:after {
-        content: "Middle: ";
-        display: inline;
-        @include breakpoint("medium") {
-            content: "Center: ";
+
+    .group3 {
+
+        .img-desc:nth-of-type(1) span.img-locator:after {
+            content: "Top: ";
+            display: inline;
+            @include breakpoint("medium") {
+                content: "Left: ";
+            }
         }
-    }
-    .img-desc:nth-of-type(3) span.img-locator:after {
-        content: "Bottom: ";
-        display: inline;
-        @include breakpoint("medium") {
-            content: "Right: ";
+        .img-desc:nth-of-type(2) span.img-locator:after {
+            content: "Middle: ";
+            display: inline;
+            @include breakpoint("medium") {
+                content: "Center: ";
+            }
+        }
+        .img-desc:nth-of-type(3) span.img-locator:after {
+            content: "Bottom: ";
+            display: inline;
+            @include breakpoint("medium") {
+                content: "Right: ";
+            }
         }
     }
 }
-
 
 //Dialog
 .dialog-container {

@@ -3,7 +3,7 @@
 ==============================*/
 
 #masthead {
-    z-index: 20;
+    z-index: 1000;
     display: block;
     width: 100%;
     width: 100vw;
@@ -305,7 +305,7 @@ line-height: 1.4;
 
  .meta-label:hover {
 
-    
+
                 color: $color-dkbluegreen;
             }
         }

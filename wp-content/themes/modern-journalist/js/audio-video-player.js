@@ -159,6 +159,8 @@ function getPosition(el) {
     return el.getBoundingClientRect().left;
 }
 
-
+$( document ).ready(function() {
+$('.fluidbox-wrap').css('z-index:', '1')
+}
 
 })(jQuery);

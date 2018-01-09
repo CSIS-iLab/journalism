@@ -368,7 +368,7 @@ function imgGroup_shortcode( $atts, $content = null ) {
         $colcountBreak = 3;
         break;
 }
-if ($gallery['position'] == 'fullwidth'){
+if ($gallery['position'] != 'fullwidth'){
  $output .='<div class="image-group row group-full ' . $colClass . '">';
 } else{
 $output .='<div class="image-group  group-right ' . $colClass . '">';

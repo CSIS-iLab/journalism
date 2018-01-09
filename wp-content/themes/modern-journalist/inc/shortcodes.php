@@ -356,10 +356,10 @@ function imgGroup_shortcode( $atts, $content = null ) {
         $colcountBreak = 6;
         break;
     case 3:
-        $colcount = 3;
+        $colcount = 4;
                 $colClass = 'group3';
 
-        $colcountBreak = 4;
+        $colcountBreak = 12;
         break;
     case 4:
         $colcount = 2;

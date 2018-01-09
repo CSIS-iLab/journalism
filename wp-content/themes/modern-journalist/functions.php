@@ -470,7 +470,7 @@ vc_map( array(
          "heading" => __("URL"),
          "param_name" => "sourceurl",
          "value" => __(""),
-         "description" => __(""),
+         "description" => __("Optional"),
          'dependency'=>array(
 	                'element'=>'includesource',
 	                'value'=>array('true'),
@@ -563,7 +563,7 @@ vc_map( array(
          "heading" => __("URL"),
          "param_name" => "sourceurl",
          "value" => __(""),
-         "description" => __(""),
+         "description" => __("Optional"),
          'dependency'=>array(
 	                'element'=>'includesource',
 	                'value'=>array('true'),
@@ -708,7 +708,7 @@ vc_map( array(
          "heading" => __("URL"),
          "param_name" => "sourceurl",
          "value" => __(""),
-         "description" => __(""),
+         "description" => __("Optional"),
          'dependency'=>array(
 	                'element'=>'includesource',
 	                'value'=>array('true'),
@@ -782,7 +782,7 @@ vc_map( array(
          "heading" => __("URL"),
          "param_name" => "sourceurl",
          "value" => __(""),
-         "description" => __(""),
+         "description" => __("Optional"),
          'dependency'=>array(
 	                'element'=>'includesource',
 	                'value'=>array('true'),
@@ -813,7 +813,7 @@ vc_map( array(
          "heading" => __("Description"),
          "param_name" => "title",
          "value" => __(""),
-         "description" => __("")
+         "description" => __("Optional")
       ),
             array(
          "type" => "textfield",
@@ -854,7 +854,7 @@ vc_map( array(
          "heading" => __("URL"),
          "param_name" => "sourceurl",
          "value" => __(""),
-         "description" => __(""),
+         "description" => __("Optional"),
          'dependency'=>array(
 	                'element'=>'includesource',
 	                'value'=>array('true'),

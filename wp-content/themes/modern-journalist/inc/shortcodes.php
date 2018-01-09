@@ -256,7 +256,7 @@ $output .= '</div>';
 $output .= '<div class="img-desc">' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
 if($values['includesource'] == 'true') {
 		if($values['sourceurl'] != '') {
-		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 		} else {
 		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 
@@ -301,7 +301,7 @@ foreach ($paragraphs as $paragraph) {
 }
 if($values['includesource'] == 'true') {
 if($values['sourceurl'] != '') {
-$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 } else {
 	$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
 
@@ -445,7 +445,7 @@ $output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) . '</div
 
 if($values['includesource'] == 'true') {
 		if($values['sourceurl'] != '') {
-		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 		} else {
 		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 
@@ -502,7 +502,7 @@ $output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" re
 $output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) ;
 if($values['includesource'] == 'true') {
 		if($values['sourceurl'] != '') {
-		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 		} else {
 		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 
@@ -555,7 +555,7 @@ $output .= '</div></div>
   </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div></div>';
   if($values['includesource'] == 'true') {
 	if($values['sourceurl'] != '') {
-	$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+	$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 	} else {
 	$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
 	}

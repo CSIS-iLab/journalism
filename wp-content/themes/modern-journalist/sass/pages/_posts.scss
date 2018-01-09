@@ -998,6 +998,9 @@ section.vc_section #block-header {
     }
 }
 
+section.vc_section:first-of-type {
+	 margin: 0 auto 2rem;
+}
 
 //Raw HTML Full width;
 .wpb_raw_html {

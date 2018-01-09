@@ -51,7 +51,7 @@ function blockquote_shortcode( $atts ) {
 
 
 $position = $values['position'];
-  if($position == 'fullwidth') {
+  if($position != 'fullwidth') {
 	$sizeClass = "quote-fullwidth";
  } else {
  	$sizeClass = "quote-right";

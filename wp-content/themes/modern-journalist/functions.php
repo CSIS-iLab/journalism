@@ -815,6 +815,14 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ),
+            array(
+         "type" => "textfield",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "url",
+         "value" => __(""),
+         "description" => __("")
+      ),
        array(
       	"type" => "checkbox",
          "holder" => "div",

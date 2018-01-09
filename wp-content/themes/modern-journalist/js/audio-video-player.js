@@ -136,6 +136,7 @@ function play() {
            $('#pButton i').removeClass('icon-pause');
         $('#pButton i').addClass('icon-play');
     }   
+
 }
 
 

@@ -526,6 +526,7 @@ function audiowidget_shortcode( $atts  ) {
 		array(
 			'title' => '',
 			'description' => '',
+			'url' => '',
 			'includesource' => '', 
 			'sourcedesc' => '', 
 			'sourceurl' => ''
@@ -535,17 +536,14 @@ function audiowidget_shortcode( $atts  ) {
 	
 
 
-$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>AUDIO: </span>'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div>';
+$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>LISTEN: </span>'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div>';
 
 
+$output .= '<audio id="music" preload="true" type="audio/mpeg">';
 
-
-$output .= '<audio id="music" preload="true">
-<div class="audio-info"><div class="audio-title">'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] ;
-
-$output .= '</div></div>
+$output .= '
   <source src="'. esc_html($values['url']) . '">
-	</audio>
+	</audio></div>
 	<div class="player-container">
 	<button id="pButton" class="play"><i class="icon-play"></i></button>
 <div id="audioplayer">

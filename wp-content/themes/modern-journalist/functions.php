@@ -486,6 +486,7 @@ vc_map( array(
    "name" => __("Image Group"),
    "base" => "img-group",
    "category" => __('Content'),
+   "description" => __("Choose 2 - 3 images."),
    "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
    "params" => array(
                          array(

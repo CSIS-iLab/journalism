@@ -376,7 +376,7 @@ $output .='<div class="image-group  group-right ' . $colClass . '">';
     foreach( $image_ids as $image_id ){
     $images = wp_get_attachment_image_src( $image_id , 'large');
 
-  if ($gallery['position'] == 'fullwidth'){
+  if ($gallery['position'] != 'fullwidth'){
     $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . ' ">';
 } else {
 	$output .='<div class="images">';
@@ -390,7 +390,7 @@ $output .='<div class="image-group  group-right ' . $colClass . '">';
 
 
 
-   if ($gallery['position'] == 'fullwidth'){
+   if ($gallery['position'] != 'fullwidth'){
 $output .='<div class="images col-xs-12 col-md-12 col-lg-' . $coldesc . '">';
 } else {
 $output .='<div class="images col-xs-12">';

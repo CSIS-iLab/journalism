@@ -642,6 +642,12 @@ hr.quoteline {
     font-size: .9rem;
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
+    margin-bottom: 2rem;
+    .img-desc{
+    @include breakpoint("medium") {
+        margin-bottom: 0;
+    }
+    }
 }
 
 .group-full {
@@ -652,7 +658,7 @@ hr.quoteline {
     width: 100%;
     margin: 0 auto 2rem;
     @include breakpoint("medium") {
-        width: 40%;
+        width: 50%;
         display: block;
         margin: 0 auto 2rem;
         float: right;

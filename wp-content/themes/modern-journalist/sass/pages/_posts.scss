@@ -313,15 +313,21 @@
         font-family: $font__roboto;
         width: 100%;
     }
-    .character-source {
+    
+}
+
+
+
+.content-source {
         font-size: .7rem;
         color: #8C898C;
         text-transform: uppercase;
         font-family: $font__roboto;
+
     }
+.source-inline {
+	display: inline;
 }
-
-
 
 .audio-container {
     width: 20rem;
@@ -598,27 +604,23 @@ hr.quoteline {
     margin: 3rem 0;
 }
 
-.group-half {
-    .col-xs-12 {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
+ .group-right {
+    width: 100%;
+    margin: 0 auto 2rem;
     @include breakpoint("medium") {
         width: 40%;
         display: block;
+        margin: 0 auto 2rem;
+        float: right;
+        margin: 1rem 0 1rem 2rem;
     }
     @include breakpoint("large") {
-        width: 30%;
-        display: block;
+        width: 50%;
+         margin: 1rem 0 1.5rem 2.3rem;
     }
-}
-
-.group-half {
-    @include breakpoint("medium") {
-        float: right;
-
-        padding: 0 0 2em 3em;
+    @include breakpoint("xlarge") {
+        width: 60%;
+         margin: 1rem 0 1.5rem 2.8rem;
     }
 }
 
@@ -780,38 +782,25 @@ max-width: 150px;
     }
 }
 
-.img-half {
+.img-right {
     width: 90%;
     margin: 0 auto 2rem;
     @include breakpoint("medium") {
         width: 40%;
         display: block;
         margin: 0 auto 2rem;
-    }
-    @include breakpoint("large") {
-        width: 35%;
-    }
-    @include breakpoint("xlarge") {
-        width: 30%;
-    }
-}
-
-.img-half {
-    @include breakpoint("medium") {
         float: right;
         margin: 1rem 0 1rem 2rem;
     }
     @include breakpoint("large") {
-
-        margin: 1rem 0 1.5rem 2.3rem;
+        width: 60%;
+         margin: 1rem 0 1.5rem 2.3rem;
     }
     @include breakpoint("xlarge") {
-
-        margin: 1rem 0 1.5rem 2.8rem;
+        width: 60%;
+         margin: 1rem 0 1.5rem 2.8rem;
     }
 }
-
-
 
 
 

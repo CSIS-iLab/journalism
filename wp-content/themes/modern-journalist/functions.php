@@ -342,19 +342,13 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ),
-       
-           
-                 array(
-      	"type" => "dropdown",
+                   array(
+      	"type" => "checkbox",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Blockquote Position"),
-         "param_name" => "position",
-         'value' => array(
-            __( 'Full Width' ) => 'fullwidth',
-            __( 'Align left' ) => 'left'
-        ),
-        'save_always' => true,
+         "heading" => __("Full Width"),
+         "param_name" => "fullwidth",
+         'value' => " ",
          "description" => __("")
       ),
                    array(
@@ -382,7 +376,6 @@ vc_map( array(
          'dependency'=>array(
 	                'element'=>'style',
 	                'value'=>array('lines', 'quotes'),
-               
             )
       ),
         array(
@@ -443,7 +436,45 @@ vc_map( array(
          "param_name" => "image",
          "value" => __(""),
          "description" => __("")
-      )
+      ),
+                         array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 
@@ -473,17 +504,13 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ), 
-      array(
-      	"type" => "dropdown",
+                         array(
+      	"type" => "checkbox",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Group Position"),
-         "param_name" => "position",
-         'value' => array(
-            __( 'Full Width' ) => 'fullwidth',
-            __( 'Align left' ) => 'left',
-        ),
-        'save_always' => true,
+         "heading" => __("Full Width"),
+         "param_name" => "fullwidth",
+         'value' => " ",
          "description" => __("")
       ),
       array(
@@ -503,17 +530,13 @@ vc_map( array(
    "category" => __('Content'),
    "icon" => get_template_directory_uri() . "/img/vc_extend/singleimage.svg",
    "params" => array(
-      array(
-      	"type" => "dropdown",
+                         array(
+      	"type" => "checkbox",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Position"),
-         "param_name" => "position",
-         'value' => array(
-            __( 'Full Width' ) => 'fullwidth',
-            __( 'Align left' ) => 'left'
-        ),
-        'save_always' => true,
+         "heading" => __("Full Width"),
+         "param_name" => "fullwidth",
+         'value' => " ",
          "description" => __("")
       ),
       array(
@@ -523,7 +546,45 @@ vc_map( array(
          "param_name" => "image",
          "value" => "",
          "description" => __("")
-      )
+      ),
+       array(
+      	"type" => "checkbox",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 
@@ -593,15 +654,44 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ),
-      array(
-         "type" => "textarea",
+       array(
+      	"type" => "checkbox",
          "holder" => "div",
          "class" => "",
-         "heading" => __("Source"),
-         "param_name" => "source",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
          "value" => __(""),
-         "description" => __("")
-      )
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 
@@ -664,14 +754,44 @@ vc_map( array(
          "value" => __(""),
          "description" => __("")
       ),
-      array(
-         "type" => "textfield",
+       array(
+      	"type" => "checkbox",
+         "holder" => "div",
          "class" => "",
-         "heading" => __("Url"),
-         "param_name" => "url",
+         "heading" => __("Include source info"),
+         "param_name" => "includesource",
+         'value' => " ",
+         "description" => __(""),
+
+      ),
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("Source Description"),
+         "param_name" => "sourcedesc",
          "value" => __(""),
-         "description" => __("")
-      )
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ), 
+                         array(
+      	"type" => "textfield",
+         "holder" => "div",
+         "class" => "",
+         "heading" => __("URL"),
+         "param_name" => "sourceurl",
+         "value" => __(""),
+         "description" => __(""),
+         'dependency'=>array(
+	                'element'=>'includesource',
+	                'value'=>array('true'),
+               
+            )
+      ) 
    )
 ) );
 

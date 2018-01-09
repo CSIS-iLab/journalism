@@ -53,9 +53,7 @@ function blockquote_shortcode( $atts ) {
 $position = $values['position'];
   if($position == 'fullwidth') {
 	$sizeClass = "quote-fullwidth";
- } elseif ($position == 'left'){
- 	$sizeClass = "quote-half";
- }else {
+ } else {
  	$sizeClass = "quote-right";
  }
  ;
@@ -138,12 +136,12 @@ function character_shortcode( $atts , $content = null ) {
 			'name' => '',
 			'description' => 'Optional',
 			'image' => '',
-			'source' => ''
+			'includesource' => '', 
+			'sourcedesc' => '', 
+			'sourceurl' => ''
 		),
 		$atts
 	);
-
-
 
 $img = wp_get_attachment_image_src($values['image'], "thumbnail");
 
@@ -154,12 +152,17 @@ $img = wp_get_attachment_image_src($values['image'], "thumbnail");
         $title = $attachment->post_title;
   
 
-
-
-
 $output = '<div class="character-detail">';
 $output .= '<div class="img-container fit-width"><img src=" '. $attachment . '" alt="' .  $alt . '" title="'.  $title . '"></div>';
-$output .= '<div class="character-info"><div class="character-name">' . $values['name'] . '</div><div class="character-desc">' . $values['description'] . '</div></div><div class="character-source"> ' . $values['source'] . '</div>';
+$output .= '<div class="character-info"><div class="character-name">' . $values['name'] . '</div><div class="character-desc">' . $values['description'] . '</div></div>';
+if($values['includesource'] == 'true') {
+if($values['sourceurl'] != '') {
+$output .= '<div class=" content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+} else {
+	$output .= '<div class="character-source">' . $values['sourcedesc'] . '</div>';
+
+}
+}
 $output .= '</div>' ;
 return $output;
 
@@ -262,7 +265,9 @@ function dialog_shortcode( $atts, $content = null ) {
 	$values = shortcode_atts(
 		array(
 			'content' => '',
-			'source' => ''
+			'includesource' => '', 
+			'sourcedesc' => '', 
+			'sourceurl' => ''
 		),
 		$atts
 	);
@@ -282,8 +287,14 @@ foreach ($paragraphs as $paragraph) {
 	//}
 
 }
- $output .= '<div class="source-caption">' . $value['source'] . '</div>';
-$output .='</div>';
+if($values['includesource'] == 'true') {
+if($values['sourceurl'] != '') {
+$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+} else {
+	$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
+
+}
+}$output .='</div>';
    
 
 return $output;
@@ -330,10 +341,8 @@ function imgGroup_shortcode( $atts, $content = null ) {
 }
 if ($gallery['position'] == 'fullwidth'){
  $output .='<div class="image-group row group-full">';
-} elseif ($gallery['position'] == 'left'){
-$output .='<div class="image-group  row group-left">';
-} elseif ($gallery['position'] == 'right'){
-$output .='<div class="image-group  row group-right">';
+} else{
+$output .='<div class="image-group  group-right">';
 };
     foreach( $image_ids as $image_id ){
     $images = wp_get_attachment_image_src( $image_id , 'large');
@@ -341,7 +350,7 @@ $output .='<div class="image-group  row group-right">';
   if ($gallery['position'] == 'fullwidth'){
     $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . '">';
 } else {
-	$output .='<div class="images col-xs-12">';
+	$output .='<div class="images">';
 }
 
 
@@ -416,6 +425,9 @@ function singleimg_shortcode( $atts ) {
 		array(
 			'position' => '',
 			'image' => '',
+						'includesource' => '', 
+			'sourcedesc' => '', 
+			'sourceurl' => ''
 		
 		),
 		$atts
@@ -425,9 +437,7 @@ function singleimg_shortcode( $atts ) {
 $position = $values['position'];
   if($position == 'fullwidth') {
 	$positionClass = "img-fullwidth";
- } elseif ($position == 'left'){
- 	$positionClass = "img-left";
- }else {
+ } else {
  	$positionClass = "img-right";
  }
  ;
@@ -445,7 +455,16 @@ $position = $values['position'];
 
 $output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachment . ' \')" alt= "' .  $alt . '"></a>';
 
-$output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) . '</div></div>';
+$output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) ;
+if($values['includesource'] == 'true') {
+		if($values['sourceurl'] != '') {
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+		} else {
+		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
+
+		}
+}
+$output .='</div></div>';
 
 return $output;
 }   
@@ -463,15 +482,24 @@ function audiowidget_shortcode( $atts  ) {
 		array(
 			'title' => '',
 			'description' => '',
-			'url' => 'Optional'
+			'includesource' => '', 
+			'sourcedesc' => '', 
+			'sourceurl' => ''
 		),
 		$atts
 	);
 	
 
 
-$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>AUDIO: </span>'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div><audio id="music" preload="true">
-<div class="audio-info"><div class="audio-title">'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div></div>
+$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>AUDIO: </span>'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] . '</div>';
+
+
+
+
+$output .= '<audio id="music" preload="true">
+<div class="audio-info"><div class="audio-title">'. $values['title'] . '</div><div class="audio-desc">'. $values['description'] ;
+
+$output .= '</div></div>
   <source src="'. esc_html($values['url']) . '">
 	</audio>
 	<button id="pButton" class="play"><i class="icon-play"></i></button>
@@ -479,11 +507,15 @@ $output .= '<div class="audio-container"><div class="audio-info"><div class="aud
 	
   <div id="timeline">    
   		  <div id="playhead"></div>
-  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>
-</div>';
-
-
-
+  </div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>';
+  if($values['includesource'] == 'true') {
+	if($values['sourceurl'] != '') {
+	$output .= '<div class="content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '</a></div>';
+	} else {
+	$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
+	}
+}
+$output .= '</div>';
 return $output;
 
 }

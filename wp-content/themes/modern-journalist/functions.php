@@ -488,16 +488,6 @@ vc_map( array(
    "category" => __('Content'),
    "icon" => get_template_directory_uri() . "/img/vc_extend/image-group.svg",
    "params" => array(
-
-      array(
-      	"type" => "textfield",
-         "holder" => "div",
-         "class" => "",
-         "heading" => __("Source"),
-         "param_name" => "source",
-         "value" => __(""),
-         "description" => __("")
-      ), 
                          array(
       	"type" => "checkbox",
          "holder" => "div",

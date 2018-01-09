@@ -321,8 +321,7 @@ function imgGroup_shortcode( $atts, $content = null ) {
 	// Attributes
 	$gallery = shortcode_atts(
 		array(
-			
-			'source' => '',
+		
 			'position' => '',
 			'images' => ''
 		),
@@ -397,7 +396,7 @@ $output .= '<div class="img-desc"><span class="img-locator"></span>' . wp_get_at
 
    	}
 
-$output .='</div</div>';
+$output .='</div></div>';
 
 return $output;
 

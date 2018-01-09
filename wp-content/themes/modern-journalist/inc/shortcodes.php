@@ -497,7 +497,7 @@ $position = $values['position'];
   
 
 
-$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachment . ' \')" alt= "' .  $alt . '"></a>';
+$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachment . ' )" alt= "' .  $alt . '"></a>';
 
 $output .= '<div class="img-desc">' . wp_get_attachment_caption($imgID) ;
 if($values['includesource'] == 'true') {

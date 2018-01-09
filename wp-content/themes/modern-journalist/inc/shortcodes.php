@@ -222,8 +222,11 @@ if($values['style'] == 'block') {
 $output .= '<div id="block-header" class="post-header row ' . $backgroundcalc  . ' full-width" style="background-color: ' .  $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 
 $output .= '<div class="post-intro">' . $values['intro'] . '</div>';
+$output .= '<div class="post-authors">' . $values['authors']  . '</div>';
 $output .= '<div class="post-date">' . get_the_date() .'</div>';
-$output .= '<div class="post-authors">' . $values['authors']  . '</div></div></div><div class="boxed-header-right col-xs-12 col-md-6">';
+
+
+$output .= '</div></div><div class="boxed-header-right col-xs-12 col-md-6">';
 
 if (has_post_thumbnail(  $postID ) ): 
  $image = wp_get_attachment_url( get_post_thumbnail_id($postID), 'thumbnail' );
@@ -231,8 +234,16 @@ if (has_post_thumbnail(  $postID ) ):
 				<img src="' . $image . '" alt="" />
 			</div>';
 endif; 
-$output .= '</div></div>';
-
+$output .= '</div>';
+$output .= '<div class="img-desc"><div>' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
+if($values['includesource'] == 'true') {
+		if($values['sourceurl'] != '') {
+		$output .= '<div class="source-inline content-source"><a class="source-link" href="' .  $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
+		} else {
+		$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
+		}
+}
+$output .= '</div></div></div>';
 }
 if($values['style'] == 'full') {
 if (has_post_thumbnail(  $postID ) ): 
@@ -248,11 +259,6 @@ $output .= '<div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 $output .= '<div class="post-date-authors">PUBLISHED <span class="post-date">' . get_the_date() . '</span> / BY ';
 $output .= '<span class="post-authors">' . $values['authors']  . '</span></div>';
 $output .= '<div class="post-intro">' . $values['intro'] . '</div>';
-
-$output .= '</div>';
-
-
-}
 $output .= '<div class="img-desc">' . wp_get_attachment_caption(get_post_thumbnail_id($postID)) ;
 if($values['includesource'] == 'true') {
 		if($values['sourceurl'] != '') {
@@ -262,6 +268,11 @@ if($values['includesource'] == 'true') {
 
 		}
 }
+$output .= '</div>';
+
+
+}
+
 $output .='</div>';
 return $output;
 }
@@ -365,16 +376,11 @@ $output .='<div class="image-group  group-right ' . $colClass . '">';
     foreach( $image_ids as $image_id ){
     $images = wp_get_attachment_image_src( $image_id , 'large');
 
-
-
   if ($gallery['position'] == 'fullwidth'){
     $output .='<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . ' ">';
 } else {
 	$output .='<div class="images">';
 }
-
-
-
 
     $output .= '<div class="gallery"><a href="' . $images[0] . '" rel="lightbox"><img src="' . $images[0] . '" alt="' . $gallery['content'] .' "></a></div>';
     $output .= '</div>';

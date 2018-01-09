@@ -933,3 +933,13 @@ vc_remove_param( "vc_column_text", "el_class" );
 vc_remove_param( "vc_column_text", "css" );
 vc_remove_param( "vc_column_text", "css_animation" );
 vc_remove_param( "vc_column_text", "el_id" );
+
+
+vc_remove_param( "vc_empty_space", "el_class" );
+vc_remove_param( "vc_empty_space", "el_id" );
+
+vc_remove_param( "vc_video", "el_class" );
+vc_remove_param( "vc_column_text", "css" );
+vc_remove_param( "vc_video", "css_animation" );
+vc_remove_param( "vc_video", "el_id" );
+

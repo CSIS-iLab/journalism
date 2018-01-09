@@ -26,8 +26,7 @@
 				                    $pic = get_the_post_thumbnail( $r->ID, 'thumbnail' );
 				                    $institution = get_post_meta( $r->ID, '_authors_institution', true
  									);
- 									$role = get_post_meta( $r->ID, '_authors_role', true
- 									);
+ 									
 				                    echo '<div class="author-list row">';
 				                    	
 				                     echo '<div class=" col-xs-12 col-md-2"><div class="author-img">'. $pic .'</div></div>';
@@ -35,7 +34,7 @@
 				                     echo '<div class="col-xs-12 col-md-10">';
 				                    echo '<div class="author-name">';
 				                    echo '<h4 class="subheading" >' . $name . '</h4>';
-				                    echo '<div class="author-role">' . $role . '</div>';
+				                   
 				                    echo '<div class="author-institution">' . $institution . '</div>';
 				                    echo '</div>';
 				                    echo $bio;

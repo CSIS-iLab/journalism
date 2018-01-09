@@ -216,10 +216,10 @@
         margin-top: 1rem;
         max-width: 70rem;
         display: block;
-        margin: 1rem auto 4rem;
         border-left: 0px solid transparent;
         width: 70%;
         max-width: 1200px;
+        padding-left: 0px;
     }
 }
 
@@ -355,6 +355,7 @@
 
 .source-inline {
     display: inline;
+    padding-left: .5rem;
 }
 
 .audio-container {

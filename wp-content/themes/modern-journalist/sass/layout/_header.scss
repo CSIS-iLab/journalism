@@ -204,7 +204,6 @@
     -moz-box-shadow: 1px 1px 9px 0px rgba(140, 137, 140, 0.5);
     box-shadow: 1px 1px 9px 0px rgba(140, 137, 140, 0.5);
     display: flex;
-
     top: $size__header-height-mobile;
     align-items: center;
     @include breakpoint("medium") {
@@ -272,9 +271,9 @@
     .header-post-header-right {
         display: flex;
         float: right;
-@include breakpoint("maxsmall") {
-line-height: 1.4;
-}
+        @include breakpoint("maxsmall") {
+            line-height: 1.4;
+        }
         .meta-label {
             color: white;
             @include breakpoint("medium") {
@@ -303,7 +302,7 @@ line-height: 1.4;
             margin-right: 8px;
 
 
- .meta-label:hover {
+            .meta-label:hover {
 
 
                 color: $color-dkbluegreen;
@@ -459,9 +458,9 @@ line-height: 1.4;
 
 
 .header-post-header-share {
-     @include breakpoint("medium") {
+    @include breakpoint("medium") {
         vertical-align: middle;
-     }
+    }
 
     .inline-social-list {
         display: none;
@@ -473,9 +472,12 @@ line-height: 1.4;
             display: none !important;
         }
 
-        .inline-social-list {display: block;}
+        .inline-social-list {
+            display: block;
+        }
     }
 }
+
 .a2a_kit a {
     float: left;
     padding-right: .5rem;

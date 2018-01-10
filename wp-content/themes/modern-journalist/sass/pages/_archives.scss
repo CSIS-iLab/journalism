@@ -6,40 +6,32 @@
     margin-bottom: 3rem;
 }
 
-
 .entry-meta.stories {
     border-bottom: 1px solid $color-medgray;
-        margin-top: .5rem;
-
+    margin-top: .5rem;
 }
 
 .entry-meta {
     margin-top: 1rem;
-        padding-bottom: 1rem;
-        margin-bottom: .5rem;
-        margin-right: 2rem;
-        line-height: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: .5rem;
+    margin-right: 2rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    p {
+        line-height: 1.4;
         font-size: 1rem;
-        p{
-            line-height: 1.4;
-            font-size: 1rem;
-            margin-bottom: 0;
-
-        }
-    
+        margin-bottom: 0;
+    }
     @include breakpoint("medium") {
         margin-bottom: 1rem;
         margin-right: 0rem;
-          margin-top: 0rem;
+        margin-top: 0rem;
     }
     ul {
-
         list-style: none;
         margin: 0;
         padding: 0;
-
-  
-         
     }
 }
 
@@ -49,16 +41,15 @@
 }
 
 .theme-content {
-     @include breakpoint("medium") {
+    @include breakpoint("medium") {
         padding-right: 2rem !important;
-     }
-      @include breakpoint("large") {
+    }
+    @include breakpoint("large") {
         padding-right: 3rem !important;
-     }
+    }
 }
 
-
-.home-related .entry-meta{
+.home-related .entry-meta {
     border-bottom: 0px;
     margin: 0;
 }
@@ -78,8 +69,7 @@
         }
     }
     &:first-of-type {
-      
-        border-top:2px solid $color-dkblue;
+        border-top: 2px solid $color-dkblue;
         @include breakpoint("medium") {
             border-top: 0px;
             padding-top: 0;
@@ -101,7 +91,6 @@
     }
 }
 
-
 .substance-partners {
     margin: 2rem 0 3rem;
 }
@@ -113,7 +102,6 @@
     @include breakpoint("large") {
         padding: 0 4rem;
     }
-
     .entry-content {
         @include breakpoint("medium") {
             padding: 0 2rem;
@@ -133,7 +121,6 @@
     padding-bottom: 6rem;
 }
 
-
 .post-entry {
     padding: 0 .5rem;
     margin-bottom: 6rem;
@@ -141,7 +128,6 @@
         padding: 0;
         margin: 0;
     }
-
     .entry-info {
         position: relative;
     }
@@ -150,24 +136,13 @@
         line-height: 2rem;
         @include breakpoint("medium") {}
     }
-
-
-        
-
-
-    .entry-title,
-    .entry-meta,
-    .entry-excerpt {
+    .entry-title, .entry-meta, .entry-excerpt {
         @include breakpoint("medium") {
             padding-right: 2rem;
         }
     }
-
-
-
     .entry-title {
         display: relative;
-
         &:after {
             @include breakpoint("medium") {
                 display: block;
@@ -185,7 +160,6 @@
     img {
         @include transition(width .3s ease-in-out);
     }
-
     .img-container {
         width: 100%;
         height: 15rem;

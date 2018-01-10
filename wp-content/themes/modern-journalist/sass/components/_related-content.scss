@@ -39,7 +39,12 @@
         }
     }
 
-
+    h4.subheading {
+        margin-top: 1rem;
+         @include breakpoint("medium") {
+            margin-top: 0;
+         }
+    }
 
 
     .related-post-img {
@@ -47,7 +52,8 @@
         position: relative;
         height: 10rem;
         overflow: hidden;
-        width: 100vw;
+        width: 104vw;
+        margin-left: -1rem;
 
         padding: 0 !important;
         @include breakpoint("medium") {

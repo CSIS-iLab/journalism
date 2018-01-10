@@ -64,9 +64,12 @@ h6 {
 
 h1 {
     &.underline {
-        line-height: 70%;
+        line-height: 1;
         border-bottom: 4px solid $color-ltgray;
         margin-bottom: 1rem;
+         @include breakpoint("medium") {
+        line-height: 70%;
+    }
     }
 }
 

@@ -4,25 +4,19 @@
 
 .site-footer {
     background-color: $color-dkblue;
-    
 }
-
-
-
 
 #home-footer {
     padding: 3rem 0 0rem;
     background-color: $color-dkblue;
     color: white;
     position: relative;
-
     .home-footer-photo {
         //width: 40%;
         height: calc(100% + 7rem);
         top: -5rem;
         position: relative;
         z-index: 1;
-
         &:after {
             position: absolute;
             background-color: $color-dkblue;
@@ -38,25 +32,19 @@
         padding: 0 .5rem 2rem .5rem;
         z-index: 2;
         position: relative;
-
         @include breakpoint("medium") {
             padding: 0 0 2rem;
-
             .learn-header {
                 display: block;
                 position: relative; //height: 4rem;
             }
             .footer-csis {
-
-
                 border-bottom: 4px solid #4B6777;
-
                 display: inline-block;
                 img {
                     padding-left: 2rem;
                     height: 4rem;
                 }
-
                 &:before {
                     content: " ";
                     bottom: 0;
@@ -87,7 +75,6 @@
 }
 
 .contact-info {
-
     display: block;
     clear: left;
     padding-bottom: 2rem;
@@ -112,13 +99,11 @@
     }
 }
 
-.footer-info,
-.footer-image {
+.footer-info, .footer-image {
     padding: 0!important;
 }
 
 .site-info {
-
     color: $color-medgray;
     font-size: .9rem;
     padding: 3rem 0;
@@ -138,34 +123,31 @@
     padding: .5rem;
 }
 
-
 .socialContainer {
     display: flex;
     align-content: center;
     .follow-text {
         font-family: $font__roboto;
         padding-top: .5rem;
-   font-size: 1rem;
- @include breakpoint("medium") {
-     font-size: .9rem;
-     vertical-align: bottom;
- }
+        font-size: 1rem;
+        @include breakpoint("medium") {
+            font-size: .9rem;
+            vertical-align: bottom;
+        }
     }
     list-style: none;
     color: white;
     margin: 0;
     padding-left: 0px;
     align-items: center;
-@include breakpoint("medium") {
-padding-left: 2rem;
-}
+    @include breakpoint("medium") {
+        padding-left: 2rem;
+    }
     li {
         display: flex;
         float: left;
         line-height: 1.5;
-                    color: $color-ltbluegray;
-    
-
+        color: $color-ltbluegray;
         a {
             display: flex;
             color: $color-ltbluegray;
@@ -173,14 +155,12 @@ padding-left: 2rem;
             padding: .5rem;
             border-radius: 100%;
             margin: .25rem;
-
             @include breakpoint("medium") {
-  font-size: 1.5rem;
-   padding: .25rem;
+                font-size: 1.5rem;
+                padding: .25rem;
             }
             &:hover {
-            	
-            	color:white;
+                color: white;
             }
         }
     }
@@ -191,16 +171,16 @@ padding-left: 2rem;
 }
 
 .footer-csis {
-	img {
-		@include breakpoint("xsmall") {
-			max-width: 100%;
-		}
-		@include breakpoint("small") {
-			max-width: 80%;
-		}
-		max-width: 70%;
-		@include breakpoint("medium") {
-			max-width: 100%;
-		}
-	}
+    img {
+        @include breakpoint("xsmall") {
+            max-width: 100%;
+        }
+        @include breakpoint("small") {
+            max-width: 80%;
+        }
+        max-width: 70%;
+        @include breakpoint("medium") {
+            max-width: 100%;
+        }
+    }
 }

@@ -2,9 +2,7 @@ html {
     box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
     /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
     box-sizing: inherit;
 }
@@ -15,34 +13,38 @@ body {
     overflow-x: hidden;
     /* Fallback for when there is no custom background color defined. */
     --breakpoint: "xsmall";
-
     @include breakpoint("small") {
         --breakpoint: "small";
     }
-
     @include breakpoint("medium") {
         --breakpoint: "medium";
     }
-
     @include breakpoint("large") {
         --breakpoint: "large";
     }
-
-
     &.logged-in .site {
-        position: absolute;
-        top: 46px;
-
+        position: relative; //top: 46px;
         @include breakpoint("small") {
-            position: absolute;
-            top: 32px;
+            position: relative; //top: 32px;
+        }
+        #masthead {
+            @media screen and (max-width: 599px) {
+                margin-top: 0px;
+            }
+            @media screen and (min-width: 600px) {
+                margin-top: 46px;
+            }
+            @media screen and (min-width: 781px) {
+                margin-top: 32px;
+            }
         }
     }
 }
 
-.wpadminbar {
-    top: 0;
-    position: absolute;
+@screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed !important;
+    }
 }
 
 .site-content {
@@ -53,15 +55,27 @@ body {
     .page-header {
         margin-top: 4rem;
         @include breakpoint("medium") {
-        margin-top: 6rem;
-    }
+            margin-top: 6rem;
+        }
     }
 }
 
-.home .site-content {
-    margin-top: $size__header-height-mobile;
-    @include breakpoint("medium") {
-        margin-top: $size__header-height;
+body.admin-bar {
+    .site-content {
+        margin-top: 0;
+        @include breakpoint("medium") {
+            margin-top: 0;
+        }
+    }
+    #page.site {
+        display: block;
+        margin-top: 0px;
+        @media screen and (min-width: 600px) {
+            margin-top: 46px;
+        }
+        @media screen and (min-width: 781px) {
+            margin-top: 32px;
+        }
     }
 }
 
@@ -73,11 +87,9 @@ body {
     @include breakpoint("medium") {
         padding: 0 2rem;
     }
-
     @include breakpoint($size__container-max-width) {
         padding: 0;
     }
-
     &.row {
         margin: 0 auto;
         display: block;
@@ -86,7 +98,6 @@ body {
         padding: 0 1rem;
     }
 }
-
 
 .col-wide {
     @include breakpoint("medium") {
@@ -122,14 +133,5 @@ body {
     display: block;
 }
 
-$columns: ( 1: 100%,
-2: 50%,
-3: 33.33%,
-4: 25%,
-5: 20%,
-6: 16.66%,
-7: 14.28%,
-8: 12.5%,
-9: 11.11%);
-
+$columns: ( 1: 100%, 2: 50%, 3: 33.33%, 4: 25%, 5: 20%, 6: 16.66%, 7: 14.28%, 8: 12.5%, 9: 11.11%);
 $columns__margin: 4.8%;

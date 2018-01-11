@@ -18,7 +18,7 @@
 			<div class=" col-md-4 footer-image">
 				<div class="home-footer-photo">
 					<div class="img-container fit-height">
-					<img id="" src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" />
+						<img id="" src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" />
 					</div>
 				</div>
 			</div>
@@ -97,9 +97,9 @@
 	    			</div><!-- header-bottom -->
 				</div>
 			</div>
-		</div>
+		</div><!-- row-->
 	</div><!-- content-wrapper-->
-</div>
+
 	<div class="site-credit">
 		<div class="content-wrapper">
 			©<?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved.

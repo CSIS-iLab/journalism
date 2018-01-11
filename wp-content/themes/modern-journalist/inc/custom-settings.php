@@ -4,12 +4,12 @@
  *
  * @package Modern-Journalist
  */
-
 add_action( 'admin_menu', 'modernjournalist_add_options_page' );
 /**
  * Create an options page for the theme.
  */
-function modernjournalist_add_options_page() {
+function modernjournalist_add_options_page()
+{
 
 	add_options_page(
 		'Modern Journalist Settings',
@@ -23,7 +23,8 @@ function modernjournalist_add_options_page() {
 /**
  * Displays the option page and creates the form.
  */
-function modernjournalist_display_options_page() {
+function modernjournalist_display_options_page()
+{
 	echo '<h1>Modern Journalist Theme Settings</h1>';
 	echo '<form method="post" action="options.php" style="width: 80%;">';
 	do_settings_sections( 'modernjournalist-options-page' );
@@ -32,26 +33,22 @@ function modernjournalist_display_options_page() {
 	echo '</form>';
 }
 
-
-
-
 add_action( 'admin_init', 'modernjournalist_admin_init_section_homepage' );
 /**
  * Creates the "Homepage" settings section.
  */
-function modernjournalist_admin_init_section_homepage() {
-	$post_types = array( 'post' );
+function modernjournalist_admin_init_section_homepage()
+{
+	$post_types     = array( 'post' );
 	$post_selection = array();
-	foreach( $post_types as $type ) {
+	foreach ( $post_types as $type ) {
 		$post_selection[$type] = get_posts(
-	        array(
-	            'post_type'  => $type,
-	            'numberposts' => -1
-	        )
-	    );
+			array(
+				'post_type'   => $type,
+				'numberposts' => -1,
+			)
+		);
 	}
-
-
 
 	add_settings_section(
 		'modernjournalist_settings_section_homepage',
@@ -60,8 +57,7 @@ function modernjournalist_admin_init_section_homepage() {
 		'modernjournalist-options-page'
 	);
 
-
-			add_settings_field(
+	add_settings_field(
 		'modernjournalist_program_description',
 		'Practicum Description',
 		'modernjournalist_texteditor_callback',
@@ -70,7 +66,7 @@ function modernjournalist_admin_init_section_homepage() {
 		array( 'modernjournalist_program_description' )
 	);
 
-		add_settings_field(
+	add_settings_field(
 		'modernjournalist_csis_description',
 		'CSIS Description',
 		'modernjournalist_texteditor_callback',
@@ -96,7 +92,7 @@ function modernjournalist_admin_init_section_homepage() {
 		'modernjournalist_settings_section_homepage',
 		array( 'modernjournalist_featured_story', $post_selection['post'] )
 	);
-	
+
 	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_program_description',
@@ -114,7 +110,7 @@ function modernjournalist_admin_init_section_homepage() {
 		'wp_filter_post_kses'
 	);
 
-register_setting(
+	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_featured_story',
 		'sanitize_text_field'
@@ -122,12 +118,12 @@ register_setting(
 
 }
 
-
 add_action( 'admin_init', 'modernjournalist_admin_init_section_footer' );
 /**
  * Creates the "Footer" settings section.
  */
-function modernjournalist_admin_init_section_footer() {
+function modernjournalist_admin_init_section_footer()
+{
 
 	add_settings_section(
 		'modernjournalist_settings_section_footer',
@@ -145,20 +141,19 @@ function modernjournalist_admin_init_section_footer() {
 		array( 'modernjournalist_footer_description' )
 	);
 
-
 	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_footer_description',
 		'wp_filter_post_kses'
 	);
 
-
 }
 
 /**
  * Footer section description.
  */
-function modernjournalist_display_section_footer_message() {
+function modernjournalist_display_section_footer_message()
+{
 	echo 'Information visible in the site\'s footer.';
 }
 
@@ -166,7 +161,8 @@ add_action( 'admin_init', 'modernjournalist_admin_init_section_contact' );
 /**
  * Creates the "Contact" settings section.
  */
-function modernjournalist_admin_init_section_contact() {
+function modernjournalist_admin_init_section_contact()
+{
 
 	add_settings_section(
 		'modernjournalist_settings_section_contact',
@@ -269,18 +265,18 @@ function modernjournalist_admin_init_section_contact() {
 /**
  * Contact section description.
  */
-function modernjournalist_display_section_contact_message() {
+function modernjournalist_display_section_contact_message()
+{
 	echo 'The contact information for the site, email and social media accounts.';
 }
-
-
 
 /**
  * Renders the text input fields.
  *
  * @param  Array $args Array of arguments passed by callback function.
  */
-function modernjournalist_text_callback( $args ) {
+function modernjournalist_text_callback( $args )
+{
 	$option = get_option( $args[0] );
 	echo '<input type="text" class="regular-text" id="' . esc_attr( $args[0] ) . '" name="' . esc_attr( $args[0] ) . '" value="' . esc_attr( $option ) . '" />';
 }
@@ -290,38 +286,38 @@ function modernjournalist_text_callback( $args ) {
  *
  * @param  Array $args Array of arguments passed by callback function.
  */
-function modernjournalist_textarea_callback( $args ) {
+function modernjournalist_textarea_callback( $args )
+{
 	$option = get_option( $args[0] );
 	echo '<textarea class="regular-text" id="' . esc_attr( $args[0] ) . '" name="' . esc_attr( $args[0] ) . '" rows="5">' . esc_attr( $option ) . '</textarea>';
 }
-
 
 /**
  * Renders the textareafields.
  *
  * @param  Array $args Array of arguments passed by callback function.
  */
-function modernjournalist_texteditor_callback( $args ) {
+function modernjournalist_texteditor_callback( $args )
+{
 	$option = get_option( $args[0] );
-	echo  wp_editor( esc_attr( $option ), esc_attr( $args[0] ), $settings = array( 
-					'media_buttons' => false, 
-					'teeny' => true, 
-					'textarea_rows' => get_option('default_post_edit_rows', 7)
-					)  );
-
+	echo wp_editor( esc_attr( $option ), esc_attr( $args[0] ), $settings = array(
+		'media_buttons' => false,
+		'teeny'         => true,
+		'textarea_rows' => get_option( 'default_post_edit_rows', 7 ),
+	) );
 
 }
-
 
 /**
  * Renders the post dropdown fields.
  *
  * @param  Array $args Array of arguments passed by callback function.
  */
-function modernjournalist_posts_callback( $args ) {
+function modernjournalist_posts_callback( $args )
+{
 	$option = get_option( $args[0] );
 	echo '<select name="' . esc_attr( $args[0] ) . '" id="' . esc_attr( $args[0] ) . '" name="' . esc_attr( $args[0] ) . '">';
-	foreach( $args[1] as $post ) {
+	foreach ( $args[1] as $post ) {
 		if ( $post->ID == esc_attr( $option ) ) {
 			$selected = "selected";
 		} else {
@@ -332,6 +328,3 @@ function modernjournalist_posts_callback( $args ) {
 	}
 	echo '</select>';
 }
-
-
-

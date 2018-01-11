@@ -41,7 +41,6 @@
     }
 }
 
-
 .single-post {
     .large-logo {
         @include breakpoint("medium") {
@@ -65,15 +64,12 @@
     }
 }
 
-.header-top,
-.header-bottom,
-#masthead {
+.header-top, .header-bottom, #masthead {
     height: $size__header-height-mobile;
     @include breakpoint("medium") {
         height: $size__header-height;
     }
 }
-
 
 .header-top {
     background-color: #fff;
@@ -102,7 +98,6 @@
     }
 }
 
-
 #masthead.top-hidden {
     @include breakpoint("maxsmall") {
         top: -$size__header-height-mobile;
@@ -129,10 +124,7 @@
     align-items: center;
     width: 100vw;
     margin-left: 0px;
-
     @include transition(margin-left .3s ease-in-out);
-
-
     @include breakpoint("medium") {
         min-width: 16rem;
         display: inline-flex;
@@ -153,26 +145,19 @@
         font-weight: 400;
         font-size: 1rem;
         display: block;
-
-
         @include breakpoint("medium") {
             font-size: 1.5rem;
             line-height: 1.2;
         }
-
-        &:hover,
-        &:visited {
+        &:hover, &:visited {
             color: black;
         }
     }
 }
 
-
 .header-bottom {
-
     display: flex;
     align-items: center;
-
     @include breakpoint("medium") {
         position: relative;
         background-color: $color-ltgray;
@@ -184,12 +169,10 @@
         @include breakpoint("large") {
             display: flex;
             height: 40px;
-
             margin-right: $margin__sides;
         }
     }
 }
-
 
 .header-post-header {
     width: 100%;
@@ -220,8 +203,6 @@
         height: unset;
         top: 0;
     }
-
-
     .header-post-header-title {
         display: flex;
         position: relative;
@@ -256,7 +237,6 @@
             background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
             background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
             background: linear-gradient(to right, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
-
             @include breakpoint("medium") {
                 background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-ltgray 65%);
                 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242, 194, 97, 0)), color-stop(65%, $color-ltgray));
@@ -267,7 +247,6 @@
             }
         }
     }
-
     .header-post-header-right {
         display: flex;
         float: right;
@@ -280,38 +259,26 @@
                 color: $color-medbluegray;
             }
         }
-
-
         @include breakpoint("medium") {
             line-height: 40px;
             display: block;
         }
-
-
-        .header-post-header-share,
-        .header-post-header-chapters {
+        .header-post-header-share, .header-post-header-chapters {
             display: inline-block;
             .meta-label {
                 letter-spacing: 1px;
             } //float: right;
         }
-
         .header-post-header-chapters {
             border-right: 1px solid $color-ltbluegray;
             padding-right: 11px;
             margin-right: 8px;
-
-
             .meta-label:hover {
-
-
                 color: $color-dkbluegreen;
             }
         }
     }
 }
-
-
 
 .post-nav-container {
     position: absolute;
@@ -326,32 +293,25 @@
     }
 }
 
-
-
 .post-nav {
     position: relative;
     display: block;
-
     top: 100%;
     width: 100%;
     bottom: 100%;
-
-    .post-links,
-    .post-share {
+    .post-links, .post-share {
         height: 0px;
         font-size: 1.2rem;
         display: block;
         visibility: hidden;
         opacity: 0;
         width: 100%;
-
         flex-direction: column;
         -webkit-box-shadow: 1px 1px 9px 0px rgba(140, 137, 140, 0.5);
         -moz-box-shadow: 1px 1px 9px 0px rgba(140, 137, 140, 0.5);
         box-shadow: 1px 1px 9px 0px rgba(140, 137, 140, 0.5);
         flex: 0;
         @include transition(flex .3s ease-in-out, visibility .3s ease-in-out, opacity .3s ease-in-out);
-
         @include breakpoint("medium") {
             width: unset;
             font-size: 1rem;
@@ -359,13 +319,10 @@
             margin-right: .5rem;
         }
     }
-
-
     .post-nav-toTop {
         display: block;
         text-align: right;
     }
-
     .post-links.active {
         display: block; //position: absolute;
         visibility: visible;
@@ -374,7 +331,6 @@
         height: 100%;
         flex: 1;
         padding: 1rem;
-
         @include breakpoint("medium") {
             background-color: white;
             width: 400px;
@@ -408,9 +364,7 @@
                 }
                 &:hover {
                     a:before {
-
                         width: 15px;
-
                         @include transition(width .2s ease-in-out);
                     }
                 }
@@ -425,9 +379,6 @@
             }
         }
     }
-
-
-
     .post-share.active {
         display: block; //position: absolute;
         visibility: visible;
@@ -437,7 +388,6 @@
         flex: 1;
         padding: 1rem;
         display: flex;
-
         @include breakpoint("medium") {
             background-color: white; //width: 200px;
             &:before {
@@ -456,22 +406,17 @@
     }
 }
 
-
 .header-post-header-share {
     @include breakpoint("medium") {
         vertical-align: middle;
     }
-
     .inline-social-list {
         display: none;
     }
     @include breakpoint("medium") {
-
-
         .meta-label {
             display: none !important;
         }
-
         .inline-social-list {
             display: block;
         }
@@ -484,7 +429,6 @@
     @include breakpoint("medium") {
         //padding-right: .5rem;
     }
-
     &:last-of-type {
         padding-right: 0;
         margin-right: 0;

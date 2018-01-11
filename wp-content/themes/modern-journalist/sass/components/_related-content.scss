@@ -48,11 +48,8 @@
     }
     .related-post {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
-        @include breakpoint("medium") {
-            flex-direction: row;
-        }
     }
     .related-post-img {
         padding: 0;

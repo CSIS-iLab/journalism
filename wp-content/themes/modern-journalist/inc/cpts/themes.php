@@ -207,13 +207,7 @@
 		if ( isset( $_REQUEST['partners'] ) ) { // Input var okay.
 			update_post_meta( $post_id, '_themes_partners', wp_kses_post( wp_unslash( $_POST['partners'] ) ) ); // Input var okay.
 		}
-		//Featured
-		if ( isset( $_REQUEST['is_featured'] ) ) {
-			update_post_meta( $post_id, '_theme_is_featured', intval( wp_unslash( $_POST['is_featured'] ) ) );
-		} else {
-			update_post_meta( $post_id, '_theme_is_featured', 0 );
-		}
-
+		
 		//    var_dump($_REQUEST);
 		//    die();
 

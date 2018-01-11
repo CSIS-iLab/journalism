@@ -51,7 +51,6 @@
 								<a href="<?php echo wp_get_attachment_url($id) ?>" rel='lightbox'>
 								<img src="<?php echo wp_get_attachment_thumb_url($id) ?>">
 
-
 								</a>
 							</div>
 							<div class="photo-details">
@@ -127,7 +126,10 @@
 							  setup_postdata($r);
 							  echo '<div class="related-post ">';
 
-							  echo '<div class="related-post-img col-md-4"><a href="' . esc_url(get_permalink($r->ID)) . '">' . get_the_post_thumbnail($r->ID) . '</a></div>';
+							  echo '<div class="related-post-img col-md-4">
+
+							  		<a href="' . esc_url(get_permalink($r->ID)) . '"><div class="img-container fit-width">' . get_the_post_thumbnail($r->ID) . '	  </div></a>
+						</div>';
 
 							  echo '<div class="related-post-content col-xs-12 col-md-8">';
 							  echo '<h3 class="entry-title"><a href="' . esc_url(get_permalink($r->ID)) . '"> ' . get_the_title($r->ID) . '<i class="icon-arrow-long-right"></i></a></h3>';

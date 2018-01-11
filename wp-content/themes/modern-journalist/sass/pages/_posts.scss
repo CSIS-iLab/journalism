@@ -882,7 +882,8 @@ h2.post-section {
 	font-size: 2rem;
 	display: block;
 	@include breakpoint("medium") {
-		font-size: 2rem;
+		font-size: 3rem;
+		line-height: 1.3;
 	}
 }
 

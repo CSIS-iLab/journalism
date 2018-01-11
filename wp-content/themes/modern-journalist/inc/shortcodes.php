@@ -317,9 +317,9 @@ function singleimg_shortcode( $atts )
 
 	$position = $values['position'];
 	if ( $position == 'fullwidth' ) {
-		$positionClass = "img-right";
-	} else {
 		$positionClass = "img-fullwidth";
+	} else {
+		$positionClass = "img-right";
 	}
 	;
 

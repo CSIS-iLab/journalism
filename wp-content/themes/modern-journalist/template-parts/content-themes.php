@@ -142,7 +142,8 @@
 	  			}
 
   				?>
-			<div class="vertical-left">FINAL PROJECT</div>
+		
 		</div>
+			<div class="vertical-left">FINAL PROJECT</div>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID();?> -->

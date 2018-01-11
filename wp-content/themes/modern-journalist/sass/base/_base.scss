@@ -41,12 +41,6 @@ body {
     }
 }
 
-@screen and (max-width: 600px) {
-    #wpadminbar {
-        position: fixed !important;
-    }
-}
-
 .site-content {
     margin-top: $size__header-height-mobile;
     @include breakpoint("medium") {

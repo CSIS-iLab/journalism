@@ -483,21 +483,11 @@ hr.quoteline {
 	margin: 0 auto;
 }
 
-.quote-half {
-	hr.quoteline {
-		@include breakpoint("medium") {
-			width: 40%;
-			background-color: transparent;
-			margin: 0;
-		}
-	}
-}
-
 .quote-lines {
 	display: block;
 	padding: 1rem;
 	margin-bottom: 1rem;
-	text-align: left;
+	text-align: center;
 	.blockquote-content {
 		width: 100%;
 		display: block;
@@ -510,6 +500,19 @@ hr.quoteline {
 		@include breakpoint("medium") {
 			font-size: 1.6rem;
 		}
+	}
+}
+
+.quote-half {
+	hr.quoteline {
+		@include breakpoint("medium") {
+			width: 40%;
+			background-color: transparent;
+			margin: 0;
+		}
+	}
+	.quote-lines {
+		text-align: center;
 	}
 }
 

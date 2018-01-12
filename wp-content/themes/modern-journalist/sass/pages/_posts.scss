@@ -78,7 +78,7 @@
 			margin: 2rem;
 			@include breakpoint("medium") {
 				width: 80%;
-				margin: 7rem auto;
+				margin: 5rem auto;
 			}
 			.post-title {
 				font-size: 2.5rem;
@@ -797,7 +797,7 @@ h2.heading.underline {
 	margin: 0 auto;
 	@include breakpoint("medium") {}
 	max-width: 150px;
-	max-height: 150px;
+	max-height: 140px;
 	img {
 		display: inline;
 		margin: 0 auto;

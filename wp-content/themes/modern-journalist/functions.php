@@ -623,15 +623,7 @@ vc_map(array(
             "value"       => __(""),
             "description" => __(""),
         ),
-        array(
-            "type"        => "textfield",
-            "holder"      => "div",
-            "class"       => "",
-            "heading"     => __("Authors"),
-            "param_name"  => "authors",
-            "value"       => __(""),
-            "description" => __(""),
-        ),
+     
         array(
             "type"        => "dropdown",
             "holder"      => "div",

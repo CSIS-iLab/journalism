@@ -186,12 +186,17 @@ function header_shortcode( $atts )
 	}
 	;
 
+
+	$authors = related_authors($post);
+	
+
+
 	if ( $values['style'] == 'block' ) {
 
 		$output .= '<div id="block-header" class="post-header row ' . $backgroundcalc . ' full-width" style="background-color: ' . $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 
 		$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
-		$output .= '<div class="post-authors">' . $values['authors'] . '</div>';
+		$output .= '<div class="post-authors">' . $authors . '</div>';
 		$output .= '<div class="post-date">' . get_the_date() . '</div>';
 
 		$output .= '</div></div><div class="boxed-header-right col-xs-12 col-md-6">';
@@ -223,7 +228,7 @@ function header_shortcode( $atts )
 
 		$output .= '<div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 		$output .= '<div class="post-date-authors">PUBLISHED <span class="post-date">' . get_the_date() . '</span> / BY ';
-		$output .= '<span class="post-authors">' . $values['authors'] . '</span></div>';
+		$output .= '<span class="post-authors">' . $authors . '</span></div>';
 		$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
 		$output .= '<div class="img-desc">' . wp_get_attachment_caption( get_post_thumbnail_id( $postID ) );
 		if ( $values['includesource'] == 'true' ) {

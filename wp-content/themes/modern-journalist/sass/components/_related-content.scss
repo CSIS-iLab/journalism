@@ -149,6 +149,13 @@
                 height: 100%;
             }
         }
+        .related-post {
+            flex-direction: column;
+        }
+        .related-post-img {
+            overflow: hidden !important;
+            margin-left: 0px;
+        }
     }
 }
 

@@ -27,7 +27,7 @@
 			<div class="learnMore">
 				<div class="learn-header">
 					<div class="footer-csis">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/csis_logo_white.svg" alt="CSIS" title="<?php bloginfo('name');?>">
+						<a href="https://www.csis.org/" alt="Center for Strategic and International Studies" title="Center for Strategic and International Studies"><img src="<?php echo get_template_directory_uri(); ?>/img/csis_logo_white.svg" alt="CSIS" title="<?php bloginfo('name');?>"></a>
 					</div>
 				</div>
 				<div class="learn-content row">

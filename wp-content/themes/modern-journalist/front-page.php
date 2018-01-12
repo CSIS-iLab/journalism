@@ -211,7 +211,7 @@ get_header();?>
 
                 if ($the_query->have_posts()): while ($the_query->have_posts()): $the_query->the_post();
                     ?>
-{{
+
 					<li data-count="<?php echo $count++; ?>">
 						<div class="testimonial">
 							<?php
@@ -225,12 +225,12 @@ get_header();?>
 							<div class="testimonial-quote"><?php the_content()?></div>
 
 							<div class="testimonial-name"><?php the_title();?></div>
-							<div class="testimonial-info"><?php echo $role ?>,<?php echo $institution ?></div>
+							<div class="testimonial-info"><?php echo $role?>, <?php echo $institution ?></div>
 							<div class="testimonial-date"><?php echo $date ?></div>
 						</div>
 					</li>
 						<?php endwhile;endif;?>
-					<?php wp_reset_query();?>}}
+					<?php wp_reset_query();?>
 			</ul>
 		</div><!-- carousel-wrap -->
 	</div><!-- row -->

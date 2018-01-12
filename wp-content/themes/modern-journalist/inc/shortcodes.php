@@ -203,7 +203,7 @@ function header_shortcode( $atts )
 
 		if ( has_post_thumbnail( $postID ) ):
 			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'thumbnail' );
-			$output .= '<div class="featured-img" style="background-image: url(\' ' . $image . ' \'); background-position: '. $values['imghorizpos'] . ' ' . $values['imgverpos'] . ' '">
+			$output .= '<div class="featured-img" style="background-image: url(\' ' . $image . ' \'); background-position: '. $values['imghorizpos'] . ' ' . $values['imgverpos'] . ' ">
 							</div>';
 		endif;
 		$output .= '</div>';

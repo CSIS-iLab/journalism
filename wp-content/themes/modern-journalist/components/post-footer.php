@@ -6,7 +6,7 @@
  */
 ?>
 <div id="the-authors">
-<h2 class="heading underline">Authors</h2>
+<h2 class="heading underline">Contributors</h2>
 <p class="meta-line">
 				<?php
 				    global $related_du;

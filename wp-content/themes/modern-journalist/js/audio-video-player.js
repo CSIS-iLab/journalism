@@ -128,14 +128,14 @@ function play() {
         pButton.className = "pause";
         $pauseColor = $('#pButton').data('color');
         console.log($pauseColor)
-        $('#pButton i').addClass('icon-pause').css('color', $pauseColor);
+        $('#pButton i').addClass('icon-pause-filled').css('color', $pauseColor);
         $('#pButton i').removeClass('icon-play');
     } else { // pause music
         music.pause();
         // remove pause, add play
         pButton.className = "";
         pButton.className = "play";
-           $('#pButton i').removeClass('icon-pause');
+           $('#pButton i').removeClass('icon-pause-filled');
         $('#pButton i').addClass('icon-play');
     }   
 

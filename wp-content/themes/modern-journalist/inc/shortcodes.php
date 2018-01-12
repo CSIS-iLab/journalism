@@ -56,7 +56,7 @@ function blockquote_shortcode( $atts )
 	;
 
 	$position = $values['position'];
-	if ( $position != 'fullwidth' ) {
+	if ( $position == 'fullwidth' ) {
 		$sizeClass = "quote-fullwidth";
 	} else {
 		$sizeClass = "quote-half";
@@ -152,7 +152,6 @@ function header_shortcode( $atts )
 	$values = shortcode_atts(
 		array(
 			'intro'         => '',
-			'authors'       => '',
 			'style'         => '',
 			'highlight'     => '',
 			'font'          => '',
@@ -188,16 +187,15 @@ function header_shortcode( $atts )
 
 
 	$authors = related_authors($post);
-	
-
 
 	if ( $values['style'] == 'block' ) {
 
 		$output .= '<div id="block-header" class="post-header row ' . $backgroundcalc . ' full-width" style="background-color: ' . $highlight . '"><div class="boxed-header-left col-xs-12 col-md-6"><div class="post-meta"><h1 class="post-title">' . $title . '</h1>';
 
 		$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
-		$output .= '<div class="post-authors">' . $authors . '</div>';
-		$output .= '<div class="post-date">' . get_the_date() . '</div>';
+				$output .= '<div class="post-date">' . get_the_date() . '</div>';
+
+		$output .= '<div class="post-authors">by ' . $authors . '</div>';
 
 		$output .= '</div></div><div class="boxed-header-right col-xs-12 col-md-6">';
 

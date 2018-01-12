@@ -94,6 +94,9 @@
 				line-height: 1.5;
 				font-family: $font__roboto;
 			}
+			.post-date {
+				text-transform: uppercase;
+			}
 			.post-intro {
 				border-top-width: 2px;
 				border-top-style: solid;
@@ -275,9 +278,7 @@
 .wpb_wrapper .textimg-text:p:last-of-type {
 	font-size: 0.75em;
 	font-style: italic;
-}
-
-//Audio
+} //Audio
 .audiowidget {
 	max-width: 50%;
 	float: right;

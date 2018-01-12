@@ -79,7 +79,7 @@ get_header();?>
 				<div class="full-col col-md-4">
 					<div class="csis-photo">
 						<div class="img-container fit-width">
-							<img id="" src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" />
+							<img id="" src="<?php echo get_template_directory_uri(); ?>/img/GSF event at CSIS.jpg" alt="GSF event at CSIS" title="GSF event at CSIS" />
 						</div>
 					</div>
 				</div>

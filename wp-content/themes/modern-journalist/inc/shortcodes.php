@@ -453,7 +453,7 @@ function textimg_shortcode( $atts, $content = null )
 		array(
 			'content' => '',
 			'image'   => '',
-			'darkbg'  => '',
+			'backgroundcolor'  => '',
 			'lightcredit' => '',
 			'sourcedesc'    => '',
 			'sourceurl'     => ''
@@ -461,6 +461,27 @@ function textimg_shortcode( $atts, $content = null )
 		),
 		$atts
 	);
+
+	$background = $values['backgroundcolor'];
+
+	$str = $background;
+	$hex = ltrim( $str, '#' );
+
+//break up the color in its RGB components
+	$r = hexdec( substr( $hex, 0, 2 ) );
+	$g = hexdec( substr( $hex, 2, 2 ) );
+	$b = hexdec( substr( $hex, 4, 2 ) );
+
+//do simple weighted avarage
+
+	if ( $r + $g + $b > 382 ) {
+		$backgroundclass = "lightbg";
+	} else {
+		$backgroundclass = "darkbg";
+	}
+	;
+
+
 
 	$img = wp_get_attachment_image_src( $values['image'], "thumbnail" );
 
@@ -470,19 +491,14 @@ function textimg_shortcode( $atts, $content = null )
 	$alt        = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
 	$title      = $attachment->post_title;
 
-	if ( $values['darkbg'] == 'true' ) {
-		$backgroundclass = "darkbg";
 
-	} else {
-		$backgroundclass = "lightbg";
-	}
 
 	if ( $values['lightcredit'] == 'true' ) {
 		$creditclass = "lightcredit";
 	} 
 
 	$output .= '<div class="textimg-container" style="background-image: url(\' ' . $attachment . ' \')">';
-	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '"> ' . $content;
+	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '" style="background-color:rgba(' .$r . ', ' .$g . ', ' .$b . ', .9)"> ' . $content;
 
 	if ( !empty( wp_get_attachment_caption( $imgID ) ) ) {
 		$output .= '<div class="img-desc ' . $creditclass . '">' . wp_get_attachment_caption( $imgID ) . '</div>';

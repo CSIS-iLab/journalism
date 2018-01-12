@@ -766,12 +766,12 @@ vc_map(array(
             "description" => __(""),
         ),
         array(
-            "type"        => "checkbox",
+            "type"        => "colorpicker",
             "holder"      => "div",
             "class"       => "",
-            "heading"     => __("Dark Background"),
-            "param_name"  => "darkbg",
-            'value'       => " ",
+            "heading"     => __("Background Color"),
+            "param_name"  => "backgroundcolor",
+            "value"       => __(""),
             "description" => __(""),
         ),
          array(

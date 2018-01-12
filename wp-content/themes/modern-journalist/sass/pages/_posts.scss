@@ -241,14 +241,14 @@
 	.darkbg {
 		background-color: white;
 		@include breakpoint("medium") {
-			background-color: rgba(0, 0, 0, .75);
+			//background-color: rgba(0, 0, 0, .75);
 			color: white;
 		}
 	}
 	.lightbg {
 		background-color: white;
 		@include breakpoint("medium") {
-			background-color: rgba(255, 255, 255, .85);
+			//background-color: rgba(255, 255, 255, .85);
 			color: black;
 		}
 	}

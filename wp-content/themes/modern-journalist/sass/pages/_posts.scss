@@ -483,15 +483,26 @@ hr.quoteline {
 	margin: 0 auto;
 }
 
+.quote-half {
+	hr.quoteline {
+		@include breakpoint("medium") {
+			width: 40%;
+			background-color: transparent;
+			margin: 0;
+		}
+	}
+}
+
 .quote-lines {
 	display: block;
 	padding: 1rem;
 	margin-bottom: 1rem;
-	text-align: center;
+	text-align: left;
 	.blockquote-content {
 		width: 100%;
 		display: block;
 		margin: 0 auto;
+		text-align: center;
 		font-family: $font__magneta;
 		font-weight: 200;
 		font-size: 1.4rem;

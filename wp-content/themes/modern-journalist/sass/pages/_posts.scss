@@ -71,6 +71,11 @@
 	}
 	.boxed-header-right {
 		height: 40vh;
+		@include breakpoint("medium") {
+			height: unset;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	}
 	.boxed-header-left, .boxed-header-right {
 		@include breakpoint("medium") {

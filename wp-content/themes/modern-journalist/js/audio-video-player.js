@@ -126,7 +126,9 @@ function play() {
         // remove play, add pause
         pButton.className = "";
         pButton.className = "pause";
-        $('#pButton i').addClass('icon-pause');
+        $pauseColor = $('#pButton').data('color');
+        console.log($pauseColor)
+        $('#pButton i').addClass('icon-pause').css('color', $pauseColor);
         $('#pButton i').removeClass('icon-play');
     } else { // pause music
         music.pause();

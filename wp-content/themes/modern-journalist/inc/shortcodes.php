@@ -536,6 +536,7 @@ function audiowidget_shortcode( $atts )
 			'title'         => '',
 			'description'   => '',
 			'url'           => '',
+			'highlightcolor'   => '',
 			'includesource' => '',
 			'sourcedesc'    => '',
 			'sourceurl'     => '',
@@ -548,7 +549,7 @@ function audiowidget_shortcode( $atts )
 	$output .= '<audio id="music" preload="true" type="audio/mpeg">';
 
 	$output .= '<source src="' . esc_html( $values['url'] ) . '">
-	</audio></div><div class="player-container"><button id="pButton" class="play"><i class="icon-play"></i></button><div id="audioplayer"><div id="timeline">
+	</audio></div><div class="player-container"><button id="pButton" class="play" data-color="' . $values['highlightcolor'].'"><i class="icon-play"></i></button><div id="audioplayer"><div id="timeline">
 		  <div id="playhead"></div></div><div id="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>';
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {

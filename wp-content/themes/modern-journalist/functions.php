@@ -856,6 +856,15 @@ vc_map(array(
             "description" => __(""),
         ),
         array(
+            "type"        => "colorpicker",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __("Hightlight Color"),
+            "param_name"  => "highlightcolor",
+            "value"       => __(""),
+            "description" => __(""),
+        ),
+        array(
             "type"        => "checkbox",
             "holder"      => "div",
             "class"       => "",

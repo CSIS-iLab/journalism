@@ -245,8 +245,8 @@ a {
 .textimg-text.darkbg a {
     text-decoration: none;
     color: white;
-    -webkit-box-shadow: inset 0 -2px 0 $color-medbluegray;
-    box-shadow: inset 0 -2px 0 $color-medbluegray;
+    -webkit-box-shadow: inset 0 -2px 0 $color-medgray;
+    box-shadow: inset 0 -2px 0 $color-medgray;
     -webkit-transition: color 0.1s ease-out;
     transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
     &:hover {

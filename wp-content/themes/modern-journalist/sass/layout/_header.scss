@@ -52,8 +52,8 @@
         @include breakpoint("medium") {
             display: block;
             img {
-                height: 40px;
-                margin-right: 3rem;
+                height: 50px;
+                margin-right: 2rem;
             }
         }
     }
@@ -144,7 +144,7 @@
         text-decoration: none;
         font-weight: 400;
         font-size: 1rem;
-        display: block;
+        display: flex;
         @include breakpoint("medium") {
             font-size: 1.5rem;
             line-height: 1.2;

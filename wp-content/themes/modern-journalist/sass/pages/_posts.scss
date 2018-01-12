@@ -300,6 +300,7 @@
 	line-height: 1.4;
 	padding: 1rem 0 1rem 0rem;
 	@include breakpoint("medium") {
+		clear: right;
 		padding: 1rem 0 1rem 1.5rem;
 		float: right;
 		width: 20rem;
@@ -359,6 +360,7 @@
 	@include breakpoint("medium") {
 		width: 20rem;
 		float: right;
+		clear: right;
 		padding: 1rem 0 1rem 1.5rem;
 		width: 20rem;
 		margin: 1rem auto 2rem;

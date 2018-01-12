@@ -202,7 +202,7 @@ function header_shortcode( $atts )
 		if ( has_post_thumbnail( $postID ) ):
 			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'thumbnail' );
 			$output .= '<div class="featured-img img-container fit-height">
-								<img src="' . $image . '" alt="" />
+								<img src="' . $image . '" alt="' . $title . '" />
 							</div>';
 		endif;
 		$output .= '</div>';
@@ -330,13 +330,12 @@ function singleimg_shortcode( $atts )
 	$imgSrc          = $img[0];
 	$imgID           = get_attachment_id( $imgSrc );
 	$attachment      = wp_get_attachment_url( $imgID );
-	$attachmentThumb = wp_get_attachment_image_src( $imgID, 'medium_large' );
-	$alt             = get_post_meta( $imgID, '_wp_attachment_image_alt', true );
-	$title           = $attachment->post_title;
+	$attachmentThumb = wp_get_attachment_image_src( $imgID, 'large' );
+	$alt             = get_the_title($imgID);
 
-	$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachmentThumb[0] . ' " alt= "' . $alt . '"></a>';
+	$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachmentThumb[0] . ' " alt="' . $alt . '"></a>';
 
-	$output .= '<div class="img-desc">'.$values['position'] . wp_get_attachment_caption( $imgID );
+	$output .= '<div class="img-desc">'. wp_get_attachment_caption( $imgID );
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
 			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
@@ -406,6 +405,8 @@ function imgGroup_shortcode( $atts, $content = null )
 	foreach ( $image_ids as $image_id ) {
 		$images      = wp_get_attachment_image_src( $image_id, 'large' );
 		$imagesThumb = wp_get_attachment_image_src( $image_id, 'medium_large' );
+			$alt             = get_the_title($image_id);
+
 
 		if ( $gallery['position'] != 'fullwidth' ) {
 			$output .= '<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . ' ">';
@@ -413,7 +414,7 @@ function imgGroup_shortcode( $atts, $content = null )
 			$output .= '<div class="images">';
 		}
 
-		$output .= '<div class="gallery"><a href="' . $images[0] . '" rel="lightbox"><img src="' . $imagesThumb[0] . '" alt="' . $gallery['content'] . ' "></a></div>';
+		$output .= '<div class="gallery"><a href="' . $images[0] . '" rel="lightbox"><img src="' . $imagesThumb[0] . '" alt="' . $alt . ' "></a></div>';
 		$output .= '</div>';
 		$images++;
 	}

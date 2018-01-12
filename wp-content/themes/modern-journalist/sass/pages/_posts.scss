@@ -488,7 +488,7 @@ hr.quoteline {
 .quote-lines {
 	display: block;
 	padding: 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 	text-align: center;
 	.blockquote-content {
 		width: 100%;
@@ -513,7 +513,11 @@ hr.quoteline {
 			margin: 0;
 		}
 	}
-	.quote-lines {
+}
+
+.quote-half.quote-lines {
+	text-align: left;
+	.blockquote-content {
 		text-align: left;
 	}
 }

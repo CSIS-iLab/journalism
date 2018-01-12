@@ -545,15 +545,32 @@ function audiowidget_shortcode( $atts )
 		$atts
 	);
 
-	$output .= '<div class="audio-container"><div class="audio-info"><div class="audio-title"><span>LISTEN: </span>' . $values['title'] . '</div>';
-	if ( $values['description'] != '' ) {
-	$output .= '<div class="audio-desc">' . $values['description'] . '</div>';
+	$output .= '<div class="audio-container">
+		<div class="audio-info">
+			<div class="audio-title"><span>LISTEN: </span>' . $values['title'] . 
+			'</div>';
+			if ( $values['description'] != '' ) {
+			$output .= '<div class="audio-desc">' . $values['description'] . '
+			</div>';
 };
-	$output .= '<audio class="music" preload="true" type="audio/mpeg">';
+			$output .= '<audio class="music" preload="true" type="audio/mpeg">';
 
-	$output .= '<source src="' . esc_html( $values['url'] ) . '">
-	</audio></div><div class="player-container"><button class="pButton play" data-color="' . $values['highlightcolor'].'"><i class="icon-play"></i></button><div class="audioplayer"><div class="timeline">
-		  <div class="playhead"></div></div><div class="time"><span class="currenttime"></span><span class="duration"></span></div></div></div>';
+			$output .= '<source src="' . esc_html( $values['url'] ) . '">
+			</audio>
+
+		</div>
+
+		<div class="player-container">
+			<button class="pButton play" data-color="' . $values['highlightcolor'].'"><i class="icon-play"></i>
+			</button><div class="audioplayer">
+				<div class="timeline">
+		  			<div class="playhead"></div>
+		  		</div>
+		  		<div class="time"><span class="currenttime"></span><span class="duration"></span>
+		  		</div>
+		  	</div>
+		</div>';
+
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
 			$output .= '<div class="content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
@@ -561,7 +578,7 @@ function audiowidget_shortcode( $atts )
 			$output .= '<div class="content-source">' . $values['sourcedesc'] . '</div>';
 		}
 	}
-	$output .= '</div></div>';
+	$output .= '</div>';
 	return $output;
 
 }

@@ -132,9 +132,28 @@
         position: relative;
     }
     .entry-info .entry-title {
-        border-bottom: 3px solid $color-blue;
-        line-height: 2rem;
+        //border-bottom: 3px solid $color-blue;
+        line-height: 1.2;
         @include breakpoint("medium") {}
+    }
+    .post-title-hr {
+        border-bottom: 3px solid $color-blue;
+        margin-top: -.5rem;
+        position: relative;
+        @include breakpoint("medium") {
+            overflow: visible;
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                border-bottom: 3px solid $color-ltbluegray;
+                width: 5rem;
+                height: calc(2rem);
+                right: -5rem;
+                bottom: -3px;
+                z-index: 2;
+            }
+        }
     }
     .entry-title, .entry-meta, .entry-excerpt {
         @include breakpoint("medium") {
@@ -143,16 +162,16 @@
     }
     .entry-title {
         display: relative;
+        position: relative;
         &:after {
             @include breakpoint("medium") {
                 display: block;
                 content: "";
-                position: absolute;
-                border-bottom: 3px solid $color-ltbluegray;
+                position: absolute; //border-bottom: 3px solid $color-ltbluegray;
                 width: 5rem;
-                height: calc(2rem + 3px);
+                height: calc(2rem);
                 right: -5rem;
-                top: 0;
+                bottom: 0;
                 z-index: 1;
             }
         }

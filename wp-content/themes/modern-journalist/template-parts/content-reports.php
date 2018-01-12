@@ -10,12 +10,14 @@
 
 <article id="post-<?php the_ID();?>" class="col-wide"<?php post_class();?>>
 	<div class="row post-entry">
+
 		<div class="col-xs-12 col-md-8 no-padding">
 			<header class="entry-info">
 				<?php
 				$permalink = get_permalink();
 				the_title('<h3 class="entry-title"><a href="' . esc_url($permalink) . '" rel="bookmark">', '</a></h3>');
 				?>
+				<hr class="post-title-hr">
 					<div class="entry-meta stories">
 						<?php
 						$photo = get_the_post_thumbnail();

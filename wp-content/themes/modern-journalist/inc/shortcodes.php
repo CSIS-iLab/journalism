@@ -454,6 +454,10 @@ function textimg_shortcode( $atts, $content = null )
 			'content' => '',
 			'image'   => '',
 			'darkbg'  => '',
+			'lightcredit' => '',
+			'sourcedesc'    => '',
+			'sourceurl'     => ''
+
 		),
 		$atts
 	);
@@ -473,11 +477,15 @@ function textimg_shortcode( $atts, $content = null )
 		$backgroundclass = "lightbg";
 	}
 
+	if ( $values['lightcredit'] == 'true' ) {
+		$creditclass = "lightcredit";
+	} 
+
 	$output .= '<div class="textimg-container" style="background-image: url(\' ' . $attachment . ' \')">';
 	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '"> ' . $content;
 
 	if ( !empty( wp_get_attachment_caption( $imgID ) ) ) {
-		$output .= '<div class="img-desc">' . wp_get_attachment_caption( $imgID ) . '</div>';
+		$output .= '<div class="img-desc ' . $creditclass . '">' . wp_get_attachment_caption( $imgID ) . '</div>';
 	} else {
 		$output .= '<div>';
 	}

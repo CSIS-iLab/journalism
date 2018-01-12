@@ -774,6 +774,16 @@ vc_map(array(
             'value'       => " ",
             "description" => __(""),
         ),
+         array(
+            "type"        => "checkbox",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __("Photo credit has white text"),
+            "param_name"  => "lightcredit",
+            'value'       => " ",
+            "description" => __(""),
+
+        ),
         array(
             "type"        => "checkbox",
             "holder"      => "div",

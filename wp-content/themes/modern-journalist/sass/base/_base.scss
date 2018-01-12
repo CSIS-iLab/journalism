@@ -22,7 +22,7 @@ body {
     @include breakpoint("large") {
         --breakpoint: "large";
     }
-    &.logged-in .site {
+    /* &.logged-in .site {
         position: relative; //top: 46px;
         @include breakpoint("small") {
             position: relative; //top: 32px;
@@ -38,7 +38,7 @@ body {
                 margin-top: 32px;
             }
         }
-    }
+    } */
 }
 
 .site-content {

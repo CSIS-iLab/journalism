@@ -13,6 +13,10 @@
 	}
 }
 
+.post p {
+	font-size: 1.2rem;
+}
+
 .pdf-info {
 	display: flex;
 	align-items: flex-end;
@@ -465,12 +469,12 @@
 		margin: 1rem 0 1rem 2rem;
 	}
 	@include breakpoint("large") {
-		width: 23rem;
-		margin: 1rem 0 1.5rem 2.3rem;
+		width: 25rem;
+		margin: 1rem 0 1.5rem 1rem;
 	}
 	@include breakpoint("xlarge") {
-		width: 23rem;
-		margin: 1rem 0 1.5rem 2.8rem;
+		width: 25rem;
+		margin: 1rem 0 1.5rem 1rem;
 	}
 	&.quote-highlight {
 		@include breakpoint("medium") {

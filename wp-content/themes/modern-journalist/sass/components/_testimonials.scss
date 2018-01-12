@@ -3,7 +3,6 @@
 =============================*/
 
 .button-prev {
-
     display: flex;
     position: relative;
     float: left;
@@ -21,15 +20,13 @@
     }
 }
 
-.button-prev,
-.button-next {
+.button-prev, .button-next {
     font-size: 3rem;
     @include breakpoint("medium") {
         position: absolute;
         z-index: 1;
     }
 }
-
 
 #home-testimonials {
     padding: 2rem 0 2rem;
@@ -38,13 +35,10 @@
         padding-top: 8rem;
         min-height: 40rem;
     }
-
-     @include breakpoint("large") {
-        padding: 7rem 0;
+    @include breakpoint("large") {
+        padding: 10rem 0;
         min-height: 30rem;
     }
-
-
 }
 
 #home-testimonials h2 {
@@ -82,8 +76,6 @@
     width: 100vw;
     margin: 0 auto; //overflow: hidden;
     padding-bottom: 3rem;
-
-
     ul {
         margin: 0;
         padding: 0;
@@ -108,9 +100,7 @@
             width: 50%;
             max-width: 900px;
         }
-    
     }
-
     li:nth-child(2) {
         z-index: 1;
         position: relative;
@@ -122,7 +112,6 @@
                 position: absolute;
                 display: block;
                 top: -1rem;
-     
                 -moz-transform: scale(-1);
                 -o-transform: scale(-1);
                 -webkit-transform: scale(-1);
@@ -135,7 +124,6 @@
                 z-index: -1;
             }
             &:after {
-
                 content: "\e802";
                 font-family: 'mj';
                 position: absolute;
@@ -145,7 +133,6 @@
                 font-size: 4rem;
                 line-height: 1;
                 z-index: -1;
-
             }
             &:before, &:after {
                 display: block;
@@ -154,9 +141,7 @@
             }
         }
     }
-
-    li:nth-child(1),
-    li:nth-child(3) {
+    li:nth-child(1), li:nth-child(3) {
         display: none;
         @include breakpoint("medium") {
             display: block;
@@ -183,21 +168,18 @@
         opacity: 0;
         @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
     }
-
     .testimonial-quote {
         font-size: 1.3rem;
         line-height: 1.5;
-         @include breakpoint("medium") {
+        @include breakpoint("medium") {
             font-size: 1.5rem;
         }
     }
-
     .testimonial-name {
         font-size: 1.3rem;
         color: $color-blue;
     }
-    .testimonial-info,
-    .testimonial-date {
+    .testimonial-info, .testimonial-date {
         font-family: $font__roboto;
         font-size: 1rem;
         line-height: 1.4;
@@ -205,10 +187,7 @@
     .testimonial-date {
         color: $color-text-gray;
     }
-
-
     .smallTestimonials {
         display: relative;
-
     }
 }

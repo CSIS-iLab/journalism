@@ -38,7 +38,7 @@ function blockquote_shortcode( $atts )
 		array(
 			'quotecontent'   => '',
 			'style'          => '',
-			'position'       => '',
+			'fullwidth'       => '',
 			'accent'         => '',
 			'highlightcolor' => '',
 		),
@@ -55,8 +55,8 @@ function blockquote_shortcode( $atts )
 	}
 	;
 
-	$position = $values['position'];
-	if ( $position == 'fullwidth' ) {
+	$position = $values['fullwidth'];
+	if ( $position == 'true' ) {
 		$sizeClass = "quote-fullwidth";
 	} else {
 		$sizeClass = "quote-half";
@@ -308,7 +308,7 @@ function singleimg_shortcode( $atts )
 	// Attributes
 	$values = shortcode_atts(
 		array(
-			'position'      => '',
+			'fullwidth'      => '',
 			'image'         => '',
 			'includesource' => '',
 			'sourcedesc'    => '',
@@ -318,8 +318,8 @@ function singleimg_shortcode( $atts )
 		$atts
 	);
 
-	$position = $values['position'];
-	if ( $position == 'fullwidth' ) {
+	$position = $values['fullwidth'];
+	if ( $position == 'true' ) {
 		$positionClass = "img-fullwidth";
 	} else {
 		$positionClass = "img-right";
@@ -336,7 +336,7 @@ function singleimg_shortcode( $atts )
 
 	$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachmentThumb[0] . ' " alt= "' . $alt . '"></a>';
 
-	$output .= '<div class="img-desc">' . wp_get_attachment_caption( $imgID );
+	$output .= '<div class="img-desc">'.$values['position'] . wp_get_attachment_caption( $imgID );
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
 			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
@@ -397,7 +397,7 @@ function imgGroup_shortcode( $atts, $content = null )
 			$colcountBreak = 3;
 			break;
 	}
-	if ( $gallery['position'] != 'fullwidth' ) {
+	if ( $gallery['fullwidth'] != 'true' ) {
 		$output .= '<div class="image-group row group-full ' . $colClass . '">';
 	} else {
 		$output .= '<div class="image-group  group-right ' . $colClass . '">';

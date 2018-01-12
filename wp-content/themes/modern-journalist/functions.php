@@ -959,6 +959,11 @@ $settings = array(
 );
 vc_map_update('vc_section', $settings); // Note: 'vc_message' was used as a base for "Message box" element
 
+$settings = array(
+    'show_settings_on_create' => 'true',
+);
+vc_map_update('vc_section', $settings); // Note: 'vc_message' was used as a base for "Message box" element
+
 vc_remove_param("vc_message", "el_class");
 vc_remove_param("vc_section", "full_width");
 vc_remove_param("vc_section", "full_height");

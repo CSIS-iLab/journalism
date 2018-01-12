@@ -320,7 +320,7 @@
 		margin: 0 auto 2rem;
 	}
 	@include breakpoint("large") {
-		width: 20rem;
+		width: 22rem;
 		margin-right: -22rem;
 		margin: 0 2.3rem 1.5rem 0rem;
 	}
@@ -379,7 +379,7 @@
 		margin: 0 auto 2rem;
 	}
 	@include breakpoint("large") {
-		width: 20rem;
+		width: 22rem;
 		margin-right: -22rem;
 		margin: 0 2.3rem 1.5rem 0rem;
 	}
@@ -831,7 +831,7 @@ h2.heading.underline {
 	margin: 0 auto;
 	@include breakpoint("medium") {}
 	max-width: 150px;
-	max-height: 140px;
+	max-height: 135px;
 	img {
 		display: inline;
 		margin: 0 auto;

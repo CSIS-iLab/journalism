@@ -215,8 +215,7 @@ big {
 =============================*/
 
 a {
-    color: $color__link;
-    text-decoration: none;
+    color: $color__link; //text-decoration: none;
     &:visited {
         color: $color__link-visited;
     }
@@ -231,11 +230,29 @@ a {
     }
 }
 
-.wpb_text_column a {
+.wpb_text_column a, .textimg-text a {
+    text-decoration: none;
     -webkit-box-shadow: inset 0 -2px 0 $color__link-underline;
     box-shadow: inset 0 -2px 0 $color__link-underline;
     -webkit-transition: color 0.1s ease-out;
     transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
+    &:hover {
+        text-decoration: none;
+        color: $color__link-underline;
+    }
+}
+
+.textimg-text.darkbg a {
+    text-decoration: none;
+    color: white;
+    -webkit-box-shadow: inset 0 -2px 0 $color-medbluegray;
+    box-shadow: inset 0 -2px 0 $color-medbluegray;
+    -webkit-transition: color 0.1s ease-out;
+    transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
+    &:hover {
+        text-decoration: none;
+        color: $color-ltbluegray;
+    }
 }
 
 h3.entry-title a, .entry-title a {

@@ -255,14 +255,16 @@
 		}
 	}
 	.darkbg {
-		background-color: white;
+		//background-color: white;
+		color: white;
 		@include breakpoint("medium") {
 			//background-color: rgba(0, 0, 0, .75);
 			color: white;
 		}
 	}
 	.lightbg {
-		background-color: white;
+		//background-color: white;
+		color: black;
 		@include breakpoint("medium") {
 			//background-color: rgba(255, 255, 255, .85);
 			color: black;
@@ -275,15 +277,15 @@
 		}
 	}
 	.img-desc {
-		position: absolute;
-		right: 0;
-		bottom: 1rem;
-		border-left: 0;
-		display: block;
-		padding: 1rem;
-		background-color: transparent;
 		@include breakpoint("medium") {
 			width: 40%;
+			position: absolute;
+			right: 0;
+			bottom: 1rem;
+			border-left: 0;
+			display: block;
+			padding: 1rem;
+			background-color: transparent;
 		}
 	}
 }
@@ -356,6 +358,9 @@
 	color: #8C898C;
 	text-transform: uppercase;
 	font-family: $font__roboto;
+	a {
+		text-decoration: none;
+	}
 }
 
 .source-inline {

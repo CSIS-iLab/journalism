@@ -3,7 +3,6 @@
 ==============================*/
 
 #site-navigation {
-
     padding: 8px;
     display: flex;
     float: left;
@@ -16,7 +15,6 @@
     height: $size__header-height-mobile;
     align-items: center;
     @include transition(left .3s ease-in-out);
-
     @include breakpoint("medium") {
         position: absolute;
         display: inline-flex;
@@ -25,25 +23,22 @@
         width: unset;
         top: unset;
         left: 100%;
-    z-index: 5;
+        z-index: 5;
     }
     @include breakpoint("large") {
         position: relative;
         left: unset;
     }
-
     .menu-menu-1-container {
         width: 100%;
-        
     }
 }
 
 .single-post #site-navigation {
     @include breakpoint("medium") {
-    display: none;
+        display: none;
+    }
 }
-}
-
 
 #mobile-menu {
     display: flex;
@@ -51,26 +46,21 @@
     font-family: 'mj';
     position: absolute;
     top: 0;
-
     width: 3rem;
     height: 100%;
     left: -3rem;
     align-items: center;
     @include breakpoint("medium") {
-  
         display: none;
     }
-
     .icon-close {
         display: none;
     }
 }
 
-.icon-menu,
-.icon-close {
+.icon-menu, .icon-close {
     font-size: 1.5rem;
 }
-
 
 .mobile-open {
     #site-navigation {
@@ -86,8 +76,6 @@
             }
         }
     }
-
-
     #mobile-menu {
         align-text: center;
     }
@@ -99,14 +87,11 @@
     }
 }
 
-
-
 #primary-menu {
     list-style: none;
     padding: 0 1rem 0 1rem;
     margin: 0;
     display: flex;
-
     @include breakpoint("medium") {
         height: 100%; //position: absolute;
         padding: 0 0 0 2rem;
@@ -120,24 +105,19 @@
         position: relative;
         width: unset;
     }
-
-
     li {
         display: flex;
         float: left;
         display: block;
         margin-right: 2rem;
-        line-height:1;
+        line-height: 1;
         @include breakpoint("medium") {
             float: unset;
             display: flex;
-
             line-height: 1;
             flex-shrink: 0;
         }
-
         a {
-
             text-decoration: none;
             color: gray;
             font-family: $font__roboto;
@@ -145,13 +125,11 @@
             font-size: .8rem;
             text-transform: uppercase;
             line-height: 1;
-
             @include transition(color .3s ease-in-out);
             @include breakpoint("medium") {
                 font-size: .9rem;
                 line-height: 1.5;
             }
-
             &:hover {
                 color: black;
             }
@@ -164,12 +142,14 @@
 }
 
 .icon-arrow-long-up {
-    font-size: 1.5rem;  
+    font-size: 1.5rem;
     margin-left: 0;
     margin-right: 1rem;
-
-
 }
+
 .header-post-header .header-post-header-right .header-post-header-chapters .meta-label:hover {
     color: white;
+    @include breakpoint("medium") {
+        color: $color-dkblue;
+    }
 }

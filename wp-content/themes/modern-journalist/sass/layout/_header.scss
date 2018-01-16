@@ -253,6 +253,11 @@
         @include breakpoint("maxsmall") {
             line-height: 1.4;
         }
+        @include breakpoint("medium") {
+            padding-right: 1.5rem;
+            min-width: 280px;
+            text-align: right;
+        }
         .meta-label {
             color: white;
             @include breakpoint("medium") {
@@ -273,6 +278,11 @@
             border-right: 1px solid $color-ltbluegray;
             padding-right: 11px;
             margin-right: 8px;
+            min-width: 100px;
+            text-align: right;
+            @include breakpoint("medium") {
+                min-width: unset;
+            }
             .meta-label:hover {
                 color: $color-dkbluegreen;
             }
@@ -426,6 +436,8 @@
 .a2a_kit a {
     float: left;
     padding-right: .5rem;
+    box-shadow: none;
+    text-decoration: none;
     @include breakpoint("medium") {
         //padding-right: .5rem;
     }

@@ -26,7 +26,7 @@
 
     //AUDIO PLAYER
     //// http://tranzi.ev2test.com/wp-content/uploads/2017/10/75.mp3\
-    $container = $('.audio-container');
+    /*$container = $('.audio-container');
     $container.each(function(i) {
         //console.log(i);
 
@@ -35,7 +35,6 @@
         $('.timeline', this).attr('id', 'timeline-' + i);
         $('.playhead', this).attr('id', 'playhead-' + i);
         $('.time', this).attr('id', 'time-' + i);
-        /* addEventListeners() */
         var music = document.getElementById('audioplayer-' + i); // play button
 
         var pButton = document.getElementById('playbutton-' + i); // play button
@@ -200,8 +199,166 @@
         var numseconds = Math.floor(((seconds % 86400) % 3600) % 60);
         var formattedseconds = ("0" + numseconds).slice(-2);
         return formattedminutes + ":" + formattedseconds;
+    }*/
+
+    $container = $('.audio-container');
+    $container.each(function(i) {
+        //console.log(i);
+
+        $('.music', this).attr('id', 'audioplayer-' + i);
+        $('.pButton', this).attr('id', 'playbutton-' + i);
+        $('.timeline', this).attr('id', 'timeline-' + i);
+        $('.playhead', this).attr('id', 'playhead-' + i);
+        $('.time', this).attr('id', 'time-' + i);
+        var music = document.getElementById('audioplayer-' + i); // play button
+
+        var pButton = document.getElementById('playbutton-' + i); // play button
+
+        var timeline = document.getElementById('timeline-' + i); // play button
+
+        var playhead = document.getElementById('playhead-' + i); // play button
+
+        var time = document.getElementById('time-' + i); // play button
+
+
+       var  duration;
+        // Gets audio file duration
+        music.addEventListener("canplaythrough", function() {
+            duration = music.duration;
+               // Gets audio file duration
+            $updated = calctime(duration);
+            $(time).children('.duration').text($updated);
+        }, false);
+
+
+
+        // timeline width adjusted for playhead
+        var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+        // play button event listenter
+        pButton.addEventListener("click", play);
+
+        // timeupdate event listener
+        music.addEventListener("timeupdate", timeUpdate, false);
+
+        // makes timeline clickable
+        timeline.addEventListener("click", function(event) {
+            moveplayhead(event);
+            music.currentTime = duration * clickPercent(event);
+        }, false);
+
+        // returns click as decimal (.77) of the total timelineWidth
+        function clickPercent(event) {
+            return (event.clientX - getPosition(timeline)) / timelineWidth;
+        }
+
+        // makes playhead draggable
+        playhead.addEventListener('mousedown', mouseDown, false);
+        window.addEventListener('mouseup', mouseUp, false);
+
+
+        music.addEventListener('ended', ended);
+
+        // Boolean value so that audio position is updated only when the playhead is released
+        var onplayhead = false;
+
+        // mouseDown EventListener
+        function mouseDown() {
+            onplayhead = true;
+            window.addEventListener('mousemove', moveplayhead, true);
+            music.removeEventListener('timeupdate', timeUpdate, false);
+        }
+
+        // mouseUp EventListener
+        // getting input from all mouse clicks
+        function mouseUp(event) {
+            if (onplayhead == true) {
+                moveplayhead(event);
+                window.removeEventListener('mousemove', moveplayhead, true);
+                // change current time
+                music.currentTime = duration * clickPercent(event);
+                music.addEventListener('timeupdate', timeUpdate, false);
+            }
+            onplayhead = false;
+        }
+        // mousemove EventListener
+        // Moves playhead as user drags
+        function moveplayhead(event) {
+            var newMargLeft = event.clientX - getPosition(timeline);
+
+            if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+                playhead.style.marginLeft = newMargLeft + "px";
+            }
+            if (newMargLeft < 0) {
+                playhead.style.marginLeft = "0px";
+            }
+            if (newMargLeft > timelineWidth) {
+                playhead.style.marginLeft = timelineWidth + "px";
+            }
+        }
+
+        // timeUpdate
+        // Synchronizes playhead position with current point in audio
+        function timeUpdate() {
+            var playPercent = timelineWidth * (music.currentTime / duration);
+            playhead.style.marginLeft = playPercent + "px";
+            if (music.currentTime == duration) {
+                //pButton.className = "";
+                //pButton.className = "play";
+            }
+            $currenttime = calctime(music.currentTime);
+        $(time).children('.currenttime').text($currenttime + ' / ');
+        }
+
+        //Play and Pause
+        function play() {
+            // start music
+            if (music.paused) {
+                music.play();
+
+
+                var thisColor = pButton.getAttribute('data-color');
+                //$pauseColor = $thisButton.data('color');
+                $(pButton).children().addClass('icon-pausebtn-filled').css('color', thisColor);
+                $(pButton).children().removeClass('icon-play');
+
+                //console.log(pButton);
+            } else { // pause music
+                music.pause();
+                $(pButton).children().removeClass('icon-pausebtn-filled');
+                $(pButton).children().addClass('icon-play').css('color', 'black');
+            }
+
+        }
+
+        function ended() {
+            //console.log('end');
+            //music.pause();
+            $(pButton).children().removeClass('icon-pausebtn-filled');
+            $(pButton).children().addClass('icon-play').css('color', 'black');
+            music.addEventListener('timeupdate', timeUpdate, true);
+
+        };
+
+
+        // getPosition
+        // Returns elements left position relative to top-left of viewport
+        function getPosition(el) {
+            return el.getBoundingClientRect().left;
+        }
+
+
+    });
+
+    function calctime(seconds) {
+        var numhours = Math.floor((seconds % 86400) / 3600);
+        var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
+        var formattedminutes = ("0" + numminutes).slice(-2);
+        var numseconds = Math.floor(((seconds % 86400) % 3600) % 60);
+        var formattedseconds = ("0" + numseconds).slice(-2);
+        return formattedminutes + ":" + formattedseconds;
     }
 
-   
+
 
 })(jQuery);

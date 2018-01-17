@@ -52,24 +52,29 @@
 
         var onplayhead = false;
 
-        $(music).on("canplaythrough", function(event) { durationc(music, time) });
+
+        music.addEventListener("canplaythrough", function() { durationc(music, time) }, false);
+
 
         var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
 
         pButton.addEventListener("click", function() { play(music, pButton) });
 
         music.addEventListener("timeupdate", function(event) { timeUpdate(event, music, playhead, pButton, timeline, duration, time) }, false);
 
 
-
         // makes timeline clickable
-        timeline.addEventListener("click", function(event) { clickTimeline(event, music, duration, timeline, timelineWidth, playhead, onplayhead)}, false);
-        
-     
+        timeline.addEventListener("click", function(event) { clickTimeline(event, music, duration, timeline, timelineWidth, playhead, onplayhead) }, false);
+
+
 
         // makes playhead draggable
         playhead.addEventListener('mousedown', function(event) { mouseDown(event, music, playhead, pButton, timeline, onplayhead, timelineWidth) }, false);
         window.addEventListener('mouseup', function(event) { mouseUp(event, music, playhead, pButton, timeline, onplayhead, timelineWidth, duration, time) }, false);
+
+        //pause, return to start when done
+        music.addEventListener('ended', function(event) { ended(event, music, playhead, pButton, timeline, onplayhead, timelineWidth) }, false);
 
 
     });
@@ -108,6 +113,8 @@
         moveplayhead(event, timeline, timelineWidth, playhead, onplayhead);
         //var tester = duration * clickPercent(event, timeline, timelineWidth);
         //console.log(music.currentTime)
+        var test = clickPercent(event, timeline, timelineWidth);
+        
         music.currentTime = duration * clickPercent(event, timeline, timelineWidth);
     }
 
@@ -141,11 +148,11 @@
             moveplayhead(event, timeline, timelineWidth, playhead, onplayhead);
             window.removeEventListener('mousemove', function(event) { moveplayhead(event, timeline, timelineWidth, playhead, onplayhead) }, true);
             // change current time
-            console.log(music.currentTime);
+            //console.log(music.currentTime);
             music.currentTime = duration * clickPercent(event, timeline, timelineWidth);
             music.addEventListener('timeupdate', function(event) { timeUpdate(event, music, playhead, pButton, timeline, duration, time) }, false);
         }
-        onplayhead = false;
+        var onplayhead = false;
     }
     // mousemove EventListener
     // Moves playhead as user drags
@@ -161,14 +168,30 @@
         if (newMargLeft > timelineWidth) {
             playhead.style.marginLeft = timelineWidth + "px";
         }
+
     }
 
 
     // Returns elements left position relative to top-left of viewport
     function getPosition(el) {
+        var test = el.getBoundingClientRect().left;
+        console.log(test);
         return el.getBoundingClientRect().left;
     }
 
+ // returns click as decimal (.77) of the total timelineWidth
+    function clickPercent(event, timeline, timelineWidth) {
+        return (event.clientX - getPosition(timeline)) / timelineWidth;
+    }
+
+        // music has ended
+    function ended(event, music, playhead, pButton, timeline, onplayhead, timelineWidth, duration, time) {
+        music.currentTime = 0;
+        music.pause();
+        timeUpdate(event, music, playhead, pButton, timeline, duration, time);
+        $(pButton).children().removeClass('icon-pausebtn-filled');
+        $(pButton).children().addClass('icon-play').css('color', 'black');
+    }
 
     function calctime(seconds) {
         var numhours = Math.floor((seconds % 86400) / 3600);
@@ -179,10 +202,6 @@
         return formattedminutes + ":" + formattedseconds;
     }
 
-            // returns click as decimal (.77) of the total timelineWidth
-        function clickPercent(event, timeline, timelineWidth) {
-            return (event.clientX - getPosition(timeline)) / timelineWidth;
-
-        }
+   
 
 })(jQuery);

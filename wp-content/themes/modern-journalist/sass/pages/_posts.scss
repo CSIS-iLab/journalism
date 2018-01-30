@@ -288,7 +288,7 @@
         border-left: 0;
         display: block;
         background-color: transparent;
-
+        padding-left: 0;
         @include breakpoint("medium") {
 width: 40%;
         padding: 1rem;

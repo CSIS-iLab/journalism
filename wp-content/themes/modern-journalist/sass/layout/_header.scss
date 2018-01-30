@@ -340,6 +340,7 @@
         background-color: $color-dkblue;
         height: 100%;
         flex: 1;
+
         padding: 1rem;
         @include breakpoint("medium") {
             background-color: white;
@@ -363,12 +364,16 @@
             padding: 0;
             li {
                 display: block;
+                margin-top: .5rem;
+                line-height: 1.4;
                 a:before {
                     content: "";
                     display: inline-block;
                     width: 0px;
                     height: .5rem;
+                    @include breakpoint("medium") {
                     margin-right: 5px;
+                }
                     border-top: 3px solid $color-medbluegray;
                     @include transition(width .2s ease-in-out);
                 }

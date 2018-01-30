@@ -78,6 +78,6 @@ if ( $includesource == 'true' ) {
 
     }
 }
-$output .= ' <div>';
+$output .= ' </div>';
 
 echo $output;

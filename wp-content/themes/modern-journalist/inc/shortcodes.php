@@ -412,7 +412,6 @@ function imgGroup_shortcode( $atts, $content = null )
 
 
 
-	$output .= $gallery['captionloc'];
 	if ( ($gallery['fullwidth'] == 'true')) {
 		$output .= '<div class="image-group row group-full ' . $colClass . '">';
 	} else {

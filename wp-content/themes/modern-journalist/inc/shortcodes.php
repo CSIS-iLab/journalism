@@ -364,14 +364,20 @@ function imgGroup_shortcode( $atts, $content = null )
 	$gallery = shortcode_atts(
 		array(
 
-			'position' => '',
+			'fullwidth' => '',
 			'images'   => '',
+			'captionloc'   => '',
 		),
 		$atts
 	);
 
+
+
 	$image_ids = explode( ',', $gallery['images'] );
 	$count     = count( $image_ids );
+
+
+
 	switch ( $count ) {
 		case 1:
 			$colcount      = 8;
@@ -397,11 +403,15 @@ function imgGroup_shortcode( $atts, $content = null )
 			$colcountBreak = 3;
 			break;
 	}
-	if ( $gallery['fullwidth'] != 'true' ) {
+
+	if ( $gallery['fullwidth'] == 'true' ) {
 		$output .= '<div class="image-group row group-full ' . $colClass . '">';
 	} else {
 		$output .= '<div class="image-group  group-right ' . $colClass . '">';
 	}
+
+
+
 	;
 	foreach ( $image_ids as $image_id ) {
 		$images      = wp_get_attachment_image_src( $image_id, 'large' );
@@ -409,7 +419,7 @@ function imgGroup_shortcode( $atts, $content = null )
 			$alt             = get_the_title($image_id);
 
 
-		if ( $gallery['position'] != 'fullwidth' ) {
+		if ( $gallery['fullwidth'] == 'true' ) {
 			$output .= '<div class="images col-xs-12 col-md-' . $colcountBreak . ' col-lg-' . $colcount . ' ">';
 		} else {
 			$output .= '<div class="images">';
@@ -421,7 +431,7 @@ function imgGroup_shortcode( $atts, $content = null )
 	}
 	$coldesc = 12 - $colcount * $count;
 
-	if ( $gallery['position'] != 'fullwidth' ) {
+	if ( $gallery['fullwidth'] == 'true' ) {
 		$output .= '<div class="images col-xs-12 col-md-12 col-lg-' . $coldesc . '">';
 	} else {
 		$output .= '<div class="images col-xs-12">';

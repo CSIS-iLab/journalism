@@ -532,6 +532,25 @@ vc_map( array(
             "param_name"  => "fullwidth",
             'value'       => " ",
             "description" => __( "" ),
+            'save_always' => true,
+        ),
+        array(
+            "type"        => "dropdown",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Caption Location" ),
+            "param_name"  => "captionloc",
+            'value'       => array(
+                __( 'Right of Images' )     => 'right',
+                __( 'Below Images' ) => 'below',
+            ),
+            "description" => __( "" ),
+            'save_always' => true,
+            'dependency'  => array(
+                'element' => 'fullwidth',
+                'value'   => array( 'true' ),
+
+            ),
         ),
         array(
             "type"        => "attach_images",
@@ -540,6 +559,7 @@ vc_map( array(
             "param_name"  => "images",
             "value"       => "",
             "description" => __( "" ),
+            'save_always' => true,
         ),
 
     ),

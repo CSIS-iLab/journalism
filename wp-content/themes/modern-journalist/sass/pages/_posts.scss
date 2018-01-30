@@ -88,7 +88,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: bottom;
-			margin: 4rem 3rem;
+			margin: 1rem 1.5rem 3rem;
 			@include breakpoint("medium") {
 				width: 80%;
 				margin: 5rem auto;
@@ -434,9 +434,10 @@
 	margin-bottom: .5rem;
 }
 
-.pButton {
+button.pButton {
 	height: 2.5rem;
 	width: 2.5rem;
+	display: block;
 	background-repeat: no-repeat;
 	background-position: center;
 	border-color: transparent;
@@ -444,10 +445,11 @@
 	outline: none;
 	font-size: 2.5rem;
 	margin-right: 1rem;
-	line-height: 1;
+	line-height: 2.5rem;
 	background-color: white;
 	i:before {
 		margin-left: 0;
+		padding-left: 0;
 	}
 }
 
@@ -464,6 +466,9 @@
 	margin-bottom: .5rem;
 	display: block;
 	height: 4rem;
+	button {
+		padding-left: 0;
+	}
 }
 
 .timeline {

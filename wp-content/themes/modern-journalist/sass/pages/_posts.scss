@@ -897,9 +897,9 @@ h2.heading.underline {
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
-    @include breakpoint("medium") {}
-    max-width: 150px;
-    max-height: 135px;
+    @include breakpoint("medium") {max-width: 150px;
+    max-height: 135px;}
+    
     img {
         display: inline;
         margin: 0 auto;

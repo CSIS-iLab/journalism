@@ -387,24 +387,33 @@ function imgGroup_shortcode( $atts, $content = null )
 		case 2:
 			$colcount = 5;
 			$colClass = 'group2';
-
 			$colcountBreak = 6;
+
+			if ($gallery['captionloc'] == 'below') {
+				$colcount = 6;
+			}
 			break;
 		case 3:
-			$colcount = 4;
+			$colcount = 3;
 			$colClass = 'group3';
-
 			$colcountBreak = 12;
+
+			if ($gallery['captionloc'] == 'below') {
+				$colcount = 4;
+			}
+
 			break;
 		case 4:
 			$colcount = 2;
 			$colClass = 'group4';
-
 			$colcountBreak = 3;
 			break;
 	}
 
-	if ( $gallery['fullwidth'] == 'true' ) {
+
+
+	$output .= $gallery['captionloc'];
+	if ( ($gallery['fullwidth'] == 'true')) {
 		$output .= '<div class="image-group row group-full ' . $colClass . '">';
 	} else {
 		$output .= '<div class="image-group  group-right ' . $colClass . '">';

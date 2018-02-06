@@ -308,7 +308,7 @@ function modernjournalist_texteditor_callback( $args )
 		'textarea_rows' => get_option( 'default_post_edit_rows', 7 )
 	);
 	
-wp_editor(esc_html( __(get_option($args[0] ))), esc_attr( $args[0] ), $settings);
+wp_editor(esc_textarea( __(get_option($args[0] ))), esc_attr( $args[0] ), $settings);
 
 }
 

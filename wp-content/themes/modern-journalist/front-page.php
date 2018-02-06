@@ -52,7 +52,8 @@ get_header();?>
 			<div class="col-xs-12">
 				<?php
                     $program_desc = get_option('modernjournalist_program_description');
-                    echo  $program_desc ;
+
+                    echo  stripslashes_deep($program_desc) ;
                 ?>
 			</div>
 		</div><!-- about-box -->
@@ -73,7 +74,7 @@ get_header();?>
 					<h4 class="subheading">About CSIS</h4>
 					<?php
 	                	$csis_desc = get_option('modernjournalist_csis_description');
-	                	echo '<p>' . $csis_desc . '</p>';
+	                	echo '<p>' . stripslashes_deep($csis_desc) . '</p>';
 	            	?>
 				</div>
 				<div class="full-col col-md-4">

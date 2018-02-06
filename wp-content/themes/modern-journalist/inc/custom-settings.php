@@ -300,11 +300,15 @@ function modernjournalist_textarea_callback( $args )
 function modernjournalist_texteditor_callback( $args )
 {
 	$option = get_option( $args[0] );
-	echo wp_editor( esc_attr( $option ), esc_attr( $args[0] ), $settings = array(
+	$settings = array(
 		'media_buttons' => false,
-		'teeny'         => true,
-		'textarea_rows' => get_option( 'default_post_edit_rows', 7 ),
-	) );
+		'teeny'         => false,
+		'wpautop'         => true,
+		'tinymce' => false,
+		'textarea_rows' => get_option( 'default_post_edit_rows', 7 )
+	);
+	
+wp_editor(esc_html( __(get_option($args[0] ))), esc_attr( $args[0] ), $settings);
 
 }
 

@@ -280,6 +280,18 @@
     .darkbg {
         //background-color: white;
         color: white;
+        a {
+            color: #d2d2d2;
+            text-decoration: none;
+    -webkit-box-shadow: inset 0 -2px 0 #1782A9;
+    box-shadow: inset 0 -2px 0 #1782A9;
+    -webkit-transition: color 0.1s ease-out;
+    transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
+    
+            &:hover {
+                color:#1782A9
+            }
+        }
         @include breakpoint("medium") {
             //background-color: rgba(0, 0, 0, .75);
             color: white;

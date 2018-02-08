@@ -197,6 +197,11 @@ p {
             margin-bottom: 2rem;
             span {
                 color: black;
+
+
+                &.lowerc {
+                    text-transform: lowercase !important;
+                }
             }
         }
         .post-intro {
@@ -256,8 +261,8 @@ p {
             left: 0;
             background-color: white;
             @include breakpoint("medium") {
-            display: none;
-        	}
+                display: none;
+            }
         }
     }
     .textimg-text {
@@ -283,13 +288,13 @@ p {
         a {
             color: #d2d2d2;
             text-decoration: none;
-    -webkit-box-shadow: inset 0 -2px 0 #1782A9;
-    box-shadow: inset 0 -2px 0 #1782A9;
-    -webkit-transition: color 0.1s ease-out;
-    transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
+            -webkit-box-shadow: inset 0 -2px 0 #1782A9;
+            box-shadow: inset 0 -2px 0 #1782A9;
+            -webkit-transition: color 0.1s ease-out;
+            transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
 
             &:hover {
-                color:#1782A9
+                color: #1782A9
             }
         }
         @include breakpoint("medium") {
@@ -320,10 +325,9 @@ p {
         background-color: transparent;
         padding-left: 0;
         @include breakpoint("medium") {
-         position: absolute;
+            position: absolute;
             width: 40%;
             padding: 1rem;
-           
         }
     }
 }
@@ -335,24 +339,25 @@ p {
 
 
 
+
 /* .wpb_wrapper {
-	@include breakpoint("medium") {
+    @include breakpoint("medium") {
 
 
-	}
-	&>.textimg-container:first-of-type .textimg-text {
-		padding: 3rem 3rem 0;
-		p:last-of-type {
-			margin-bottom: 0;
-			padding-bottom: 1rem;
-		}
-	}
-	&>.textimg-container .textimg-text {
-		padding-top: 1rem;
-	}
-	&>.textimg-container:last-of-type {
-		margin-bottom: 0;
-	}
+    }
+    &>.textimg-container:first-of-type .textimg-text {
+        padding: 3rem 3rem 0;
+        p:last-of-type {
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+        }
+    }
+    &>.textimg-container .textimg-text {
+        padding-top: 1rem;
+    }
+    &>.textimg-container:last-of-type {
+        margin-bottom: 0;
+    }
 
 } */
 
@@ -909,9 +914,11 @@ h2.heading.underline {
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
-    @include breakpoint("medium") {max-width: 150px;
-    max-height: 135px;}
-    
+    @include breakpoint("medium") {
+        max-width: 150px;
+        max-height: 135px;
+    }
+
     img {
         display: inline;
         margin: 0 auto;

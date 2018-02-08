@@ -111,6 +111,10 @@ function related_authors($post)
 				if ($r->post_status != 'trash') {
 					$a++;
 					setup_postdata($r);
+					if ($a == count($relt)) {
+						$output .= '<span class="lowerc">and </span>';
+					}
+
 					$output .= get_the_title($r->ID);
 
 					if ($a < count($relt)) {
@@ -122,11 +126,9 @@ function related_authors($post)
 			}
 
 		}
-
 		return $output;
 		wp_reset_postdata();
 	}
-
 }
 
 function picturefill($alt, $postID)

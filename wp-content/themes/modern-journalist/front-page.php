@@ -80,7 +80,13 @@ get_header();?>
 				<div class="full-col col-md-4">
 					<div class="csis-photo">
 						<div class="img-container fit-width">
-							<img id="" src="<?php echo get_template_directory_uri(); ?>/img/GSF event at CSIS.jpg" alt="GSF event at CSIS" title="GSF event at CSIS" />
+
+						<?php
+                    $csis_img = get_option('modernjournalist_csis_image');
+
+                   
+                ?>	
+							<img id="" src="<?php  echo  stripslashes_deep($csis_img) ; ?>" alt="GSF event at CSIS" title="GSF event at CSIS" />
 						</div>
 					</div>
 				</div>
@@ -163,8 +169,13 @@ get_header();?>
 			</div>
 			<div class="col-xs-4 col-md-2 no-padding">
 				<div class="img-container fit-height">
+
 					<?php
-		                $imgSrc = get_template_directory_uri() . '/img/international-globe.jpg"';
+                    $browse_img = get_option('modernjournalist_browse_image');
+                ?>	
+
+					<?php
+		                $imgSrc = stripslashes_deep($browse_img); 
 		                //$imgID = 'pippin_get_image_id($imgSrc)';
 		                $output = '<img src="' . $imgSrc . '" alt="International Globe">';
 		                echo $output;

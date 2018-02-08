@@ -13,12 +13,13 @@ function pdf_shortcode( $atts )
 {
 	//set default attributes and values
 	$values = shortcode_atts( array(
+		'img-url' => 'url',
 		'url'     => '#',
 		'title'   => 'abc',
 		'updated' => 'updated',
 	), $atts );
 
-	$output = '<div class="row"><div class="pdf-icon"><a href="' . esc_attr( $values['url'] ) . '"  target="" class=""><i class="icon-doc"></i></a></div><div class="pdf-info"><p><a href="' . esc_attr( $values['url'] ) . '"  target="" class="">' . esc_attr( $values['title'] ) . '</a><br><span class="meta-label">Last updated ' . esc_attr( $values['updated'] ) . '</span></div></div>';
+	$output = '<div class="row"><div class="pdf-icon"><a href="' . esc_attr( $values['url'] ) . '"  target="" class=""><div class="doc-img"><img  src="' . esc_attr( $values['img-url'] ) . '"></div></a></div><div class="pdf-info"><p><a href="' . esc_attr( $values['url'] ) . '"  target="" class="">' . esc_attr( $values['title'] ) . '</a><br><span class="meta-label">Last updated ' . esc_attr( $values['updated'] ) . '</span></div></div>';
 	return $output;
 }
 

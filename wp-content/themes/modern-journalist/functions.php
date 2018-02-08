@@ -150,6 +150,16 @@ function modern_journalist_scripts()
 
 add_action( 'wp_enqueue_scripts', 'modern_journalist_scripts' );
 
+
+/**
+ * Enqueue scripts for custom settings.
+ */
+function modern_journalist_settings_scripts()
+{
+ wp_enqueue_script( 'modern-journalist-settings', get_template_directory_uri() . '/js/options.js', array( 'jquery' ), '20151215', true );
+}
+add_action( 'admin_enqueue_scripts', 'modern_journalist_settings_scripts' );
+
 /**
  * Implement the Custom Header feature.
  */

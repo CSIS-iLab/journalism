@@ -36,6 +36,11 @@
 			<div class="entry-content row">
 				<div class="col-xs-12 col-md-8 theme-content">
 					<?php the_content();?>
+					<div>
+					 	<div class="substance-partners">
+							<?php echo $partners ?>
+					 	</div>
+					</div>
 						<div class="theme-gallery">
 
 						<?php
@@ -62,11 +67,6 @@
 					<?php
 					}?>
 					</div><!-- theme-gallery -->
-					<div>
-					 	<div class="substance-partners">
-							<?php echo $partners ?>
-					 	</div>
-					</div>
 				</div><!-- theme-content -->
 
 

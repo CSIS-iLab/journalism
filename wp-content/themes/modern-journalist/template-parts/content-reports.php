@@ -11,6 +11,7 @@
 <article id="post-<?php the_ID();?>" class="col-wide"<?php post_class();?>>
 	<div class="row post-entry">
 
+
 		<div class="col-xs-12 col-md-8 no-padding">
 			<header class="entry-info">
 				<?php
@@ -21,6 +22,9 @@
 					<div class="entry-meta stories">
 						<?php
 						$photo = get_the_post_thumbnail();
+					
+						
+						$excerpt = get_the_excerpt();
 
 							if ('post' === get_post_type()): ?>
 
@@ -59,10 +63,7 @@
 					</div>
 					<div class="entry-excerpt">
 						<p><?php
-
-						$post    = get_post($r->ID);
-						$excerpt = get_the_excerpt();
-						echo $excerpt;
+					echo $excerpt;
 						?>
 							
 						</p>
@@ -85,4 +86,4 @@
 
 	</div><!-- row -->
 
-</article><!-- #post-<?php the_ID();?> -->
+</article>

@@ -30,6 +30,8 @@ function modernjournalist_display_options_page()
 	do_settings_sections( 'modernjournalist-options-page' );
 	settings_fields( 'modernjournalist_settings' );
 	submit_button();
+	// print_r($_POST);
+	// die();
 	echo '</form>';
 }
 
@@ -75,6 +77,15 @@ function modernjournalist_admin_init_section_homepage()
 		array( 'modernjournalist_csis_description' )
 	);
 
+	add_settings_field( 
+		'modernjournalist_csis_image', 
+		'CSIS Image',
+		'modernjournalist_image_callback', 
+		'modernjournalist-options-page', 
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_csis_image', 'csis-img' ) 
+	);
+
 	add_settings_field(
 		'modernjournalist_stories_description',
 		'Stories Description',
@@ -93,6 +104,29 @@ function modernjournalist_admin_init_section_homepage()
 		array( 'modernjournalist_featured_story', $post_selection['post'] )
 	);
 
+	add_settings_field( 
+		'modernjournalist_browse_image', 
+		'Browse Stories Image',
+		'modernjournalist_image_callback', 
+		'modernjournalist-options-page', 
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_browse_image', 'browse-img' ) 
+	);
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_browse_image',
+		'wp_filter_post_kses'
+	);
+
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_csis_image',
+		'wp_filter_post_kses'
+	);
+
+
 	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_program_description',
@@ -104,6 +138,14 @@ function modernjournalist_admin_init_section_homepage()
 		'modernjournalist_csis_description',
 		'wp_filter_post_kses'
 	);
+
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_featured_story',
+		'sanitize_text_field'
+	);
+
 	register_setting(
 		'modernjournalist_settings',
 		'modernjournalist_stories_description',
@@ -116,9 +158,20 @@ function modernjournalist_admin_init_section_homepage()
 		'sanitize_text_field'
 	);
 
+	
 }
 
-add_action( 'admin_init', 'modernjournalist_admin_init_section_footer' );
+
+/**
+ * Homepage section description.
+ */
+function modernjournalist_display_section_homepage_message()
+{
+	echo 'Information visible in the site\'s homepage.';
+}
+
+
+add_action( 'admin_init', 'modernjournalist_admin_init_section_homepage' );
 /**
  * Creates the "Footer" settings section.
  */
@@ -331,4 +384,35 @@ function modernjournalist_posts_callback( $args )
 		echo '<option value="' . esc_attr( $post->ID ) . '" ' . $selected . '>' . esc_attr( $post->post_title ) . '</option>';
 	}
 	echo '</select>';
+}
+
+
+/**
+ * Renders the file upload fields.
+ *
+ */
+function modernjournalist_image_callback( $args ) { 
+	global $defaults;
+	$option = get_option( $args[0] );
+	$name = $args[1];
+	
+	?>
+	<div class="media_upload ">
+	<input type='hidden' class="hidden-input" name='<?php echo esc_attr( $args[0] ); ?>' data-test="" value='<?php echo esc_attr( $option ); ?>' id='<?php echo esc_attr( $args[0] ); ?>'>
+
+    <div class='image_container' data-id="<?php echo esc_attr( $args[0] ); ?>">
+    	<?php
+    		if( esc_attr( $option ) ) {
+                    echo "<img src='".esc_attr( $option )."' style='width:200px;height:auto;cursor:pointer;' name='".esc_attr( $args[0] )."'  class='choose-meta-image-button' title='Change Image' /><br />";
+                    echo '<input type="button" class="remove-meta-image-button button"  data-id="'.esc_attr( $args[0] ).'" value="Remove Image" />';
+                }
+        ?>
+    </div>
+    <div class='button_container' name='<?php echo esc_attr( $args[0] ); ?>' >
+    	<input type="button" id="meta-image-button" name='<?php echo esc_attr( $args[0] ); ?>' class="button choose-meta-image-button" value="<?php _e( 'Choose or Upload an Image', 'text_domain' )?>" />
+		<p class="description">If there is no featured image, this image will be used instead.</p>
+</div>
+</div>
+	<?php
+
 }

@@ -155,7 +155,9 @@
             }
         }
     }
-    .entry-title, .entry-meta, .entry-excerpt {
+    .entry-title,
+    .entry-meta,
+    .entry-excerpt {
         @include breakpoint("medium") {
             padding-right: 2rem;
         }
@@ -191,4 +193,12 @@
         height: auto;
         @include transition(width .3s ease-in-out);
     }
+}
+
+.doc-img {
+    max-width: 100px;
+    display: block;
+    position: relative;
+    padding-right: .5rem;
+    
 }

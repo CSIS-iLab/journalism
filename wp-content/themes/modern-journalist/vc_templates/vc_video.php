@@ -78,6 +78,8 @@ if ( $includesource == 'true' ) {
 
     }
 }
+if ( !empty( $caption )){
 $output .= ' </div>';
+}
 
 echo $output;

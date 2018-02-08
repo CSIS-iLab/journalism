@@ -40,7 +40,13 @@
 										if (is_object($r)) {
 											if ($r->post_status != 'trash') {
 												$a++;
+
+												if ($a == count($rel)) {
+													echo '<span class="lowerc">and </span>';
+												}
+
 												setup_postdata($r);
+
 												echo get_the_title($r->ID);
 
 												if ($a < count($rel)) {

@@ -18,7 +18,7 @@
 			<div class=" col-md-4 footer-image">
 				<div class="home-footer-photo">
 					<div class="img-container fit-height">
-						<img id="" src="<?php echo get_template_directory_uri(); ?>/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" />
+						<img id="" src="/wp-content/themes/modern-journalist/img/center-for-strategic-and-international-studies-office.jpg" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" />
 					</div>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 			<div class="learnMore">
 				<div class="learn-header">
 					<div class="footer-csis">
-						<a href="https://www.csis.org/" alt="Center for Strategic and International Studies" title="Center for Strategic and International Studies"><img src="<?php echo get_template_directory_uri(); ?>/img/csis_logo_white.svg" alt="CSIS" title="<?php bloginfo('name');?>"></a>
+						<a href="https://www.csis.org/" alt="Center for Strategic and International Studies" title="Center for Strategic and International Studies"><img src="/wp-content/themes/modern-journalist/img/csis_logo_white.svg" alt="CSIS" title="<?php bloginfo('name');?>"></a>
 					</div>
 				</div>
 				<div class="learn-content row">

@@ -60,6 +60,16 @@ function modernjournalist_admin_init_section_homepage()
 	);
 
 	add_settings_field(
+		'modernjournalist_video',
+		'Url to Homepage Video',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_video' )
+	);
+
+
+	add_settings_field(
 		'modernjournalist_program_description',
 		'Practicum Description',
 		'modernjournalist_texteditor_callback',
@@ -111,6 +121,12 @@ function modernjournalist_admin_init_section_homepage()
 		'modernjournalist-options-page', 
 		'modernjournalist_settings_section_homepage',
 		array( 'modernjournalist_browse_image', 'browse-img' ) 
+	);
+
+	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_video',
+		'sanitize_text_field'
 	);
 
 	register_setting(

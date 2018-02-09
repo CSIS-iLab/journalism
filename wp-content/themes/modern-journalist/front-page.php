@@ -12,7 +12,12 @@ get_header();?>
 	<div id="vid-block">
 		<video playsinline autoplay muted poster="#" id="bgvid">
 		    <source src="#" type="video/webm">
-		    <source src="http://csisjournalism.staging.wpengine.com/wp-content/uploads/2017/12/press_sec_podium.mp4" type="video/mp4">
+		    	
+		    	<?php
+	                	$home_video = get_option('modernjournalist_video');
+	                	?>
+		    	
+		    <source src="<?php echo esc_html($home_video);  ?>" type="video/mp4">
 		</video>
 	</div><!--vid-block -->
 
@@ -28,8 +33,8 @@ get_header();?>
 	 			</div>
 	 		</div><!-- title-header -->
 	 		<picture id="homepage-title">
-				<source media="(min-width: 650px)" srcset="<?php echo get_template_directory_uri() ?>/img/homepage_title_lg.svg">
-				<img src="<?php echo get_template_directory_uri() ?>/img/homepage_title_sm.svg" alt="Flowers" style="width:auto;">
+				<source media="(min-width: 650px)" srcset="/wp-content/themes/modern-journalist/img/homepage_title_lg.svg">
+				<img src="/wp-content/themes/modern-journalist/img/homepage_title_sm.svg" alt="Flowers" style="width:auto;">
 			</picture>
 
 	 		<div class="home-tagline">

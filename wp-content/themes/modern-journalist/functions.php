@@ -131,7 +131,7 @@ function modern_journalist_scripts()
 
     wp_enqueue_script( 'modern-journalist-audiovideo', get_template_directory_uri() . '/js/audio-video-player.js', array( 'jquery' ), '20151215', true );
 
-    wp_enqueue_script( 'modern-journalist-fluidscriptcdn', 'http:///cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js', array( 'jquery' ), '20151215', true );
+    wp_enqueue_script( 'modern-journalist-fluidscriptcdn', 'https:///cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js', array( 'jquery' ), '20151215', true );
 
     wp_enqueue_script( 'modern-journalist-picturefill', get_template_directory_uri() . '/js/picturefill.min.js#asyncload', array( 'jquery' ), '20151215', true );
 

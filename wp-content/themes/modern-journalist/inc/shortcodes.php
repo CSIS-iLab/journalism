@@ -122,8 +122,9 @@ function character_shortcode( $atts, $content = null )
 	$alt        = get_post_meta( $imgID, '_wp_attachment_image_alt', true );
 	$title      = $attachment->post_title;
 
+
 	$output = '<div class="character-detail">';
-	$output .= '<div class="img-container fit-width"><img src=" ' . $attachment . '" alt="' . $alt . '" title="' . $title . '"></div>';
+	$output .= '<div class="img-container fit-width"><img src="' . esc_url($imgSrc) . '" alt="' . $alt . '" title="' . esc_attr($title) . '"></div>';
 	$output .= '<div class="character-info"><div class="character-name">' . $values['name'] . '</div><div class="character-desc">' . $values['description'] . '</div></div>';
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
@@ -134,6 +135,9 @@ function character_shortcode( $atts, $content = null )
 		}
 	}
 	$output .= '</div>';
+
+
+
 	return $output;
 
 }
@@ -326,16 +330,16 @@ function singleimg_shortcode( $atts )
 	} else {
 		$positionClass = "img-right";
 	}
-	;
+	
 
 	$img             = wp_get_attachment_image_src( $values['image'], "thumbnail" );
 	$imgSrc          = $img[0];
 	$imgID           = get_attachment_id( $imgSrc );
 	$attachment      = wp_get_attachment_url( $imgID );
-	$attachmentThumb = wp_get_attachment_image_src( $imgID, 'large' );
+	$attachmentThumb = wp_get_attachment_image_src( $values['image'], 'large' );
 	$alt             = get_the_title($imgID);
 
-	$output .= '<div class="' . $positionClass . '"><a href="' . $attachment . '" rel="lightbox"><img src="' . $attachmentThumb[0] . ' " alt="' . $alt . '"></a>';
+	$output = '<div class="' . $positionClass . '"><a href="' . esc_url($imgSrc) . '" rel="lightbox"><img src="' . $attachmentThumb[0] . '" alt="' . $alt . '"></a>';
 
 	$output .= '<div class="img-desc">'. wp_get_attachment_caption( $imgID );
 	if ( $values['includesource'] == 'true' ) {
@@ -499,11 +503,8 @@ function textimg_shortcode( $atts, $content = null )
 	} else {
 		$backgroundclass = "darkbg";
 	}
-	;
 
-
-
-	$img = wp_get_attachment_image_src( $values['image'], "thumbnail" );
+	$img = wp_get_attachment_image_src( $values['image'], "large" );
 
 	$imgSrc     = $img[0];
 	$imgID      = get_attachment_id( $imgSrc );
@@ -517,13 +518,13 @@ function textimg_shortcode( $atts, $content = null )
 		$creditclass = "lightcredit";
 	} 
 
-	$output .= '<div class="textimg-container" style="background-image: url(\' ' . $attachment . ' \')">';
+	$output .= '<div class="textimg-container" style="background-image: url(\'' . esc_url($imgSrc) . '\')">';
 	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '" style="background-color:rgba(' .$r . ', ' .$g . ', ' .$b . ', .9)"> ' . $content;
 
 	if ( !empty( wp_get_attachment_caption( $imgID ) ) ) {
 		$output .= '<div class="img-desc ' . $creditclass . '">' . wp_get_attachment_caption( $imgID ) . '</div>';
 	} else {
-		$output .= '<div>';
+		$output .= '';
 	}
 
 	if ( $values['includesource'] == 'true' ) {

@@ -54,15 +54,16 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     justify-content: center;
     @include breakpoint("medium") {
         position: relative;
         margin: 0 auto;
-        width: 70%;
+        width: 80%;
     }
     @include breakpoint("large") {
-        width: 80%;
+        max-width: 1000px;
+        width: 100%;
     }
 }
 

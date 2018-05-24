@@ -93,7 +93,7 @@
         font-width: 300;
     }
     li {
-        display: block;
+        display: none;
         width: 90%;
         visibility: visible;
         opacity: 1;
@@ -102,6 +102,9 @@
             width: 50%;
             max-width: 800px;
         }
+    }
+    li:nth-child(1), li:nth-child(2), li:nth-child(3) {
+        display: block;
     }
     li:nth-child(2) {
         z-index: 1;

@@ -81,6 +81,7 @@
         position: relative;
         padding-right: 2rem;
         width: unset;
+        display:flex;
     }
     &:after {
         @include breakpoint("medium") {
@@ -118,7 +119,7 @@
 
 .site-branding {
     display: flex;
-    padding: .5rem $margin__sides-mobile;
+    padding: .5rem 1rem;
     height: 100%;
     float: left;
     align-items: center;
@@ -166,9 +167,13 @@
     }
     img {
         display: none;
+        @include breakpoint("medium") {
+        height: 30px;
+
+    }
         @include breakpoint("large") {
             display: flex;
-            height: 40px;
+            height: 30px;
             margin-right: $margin__sides;
         }
     }

@@ -14,7 +14,7 @@
 				viewFunc();
 				$('#testimonial-list').fadeIn('fast');
 			});
-		}, 800000);
+		}, 8000);
 
 		var $txtcarousel = $('#testimonial-list');
 		var txtcount = $txtcarousel.children().length;

@@ -30,7 +30,7 @@
 
 .large-logo {
     @include breakpoint("medium") {
-        width: 220px;
+        width: 200px;
     }
     @include breakpoint("large") {
         min-width: 200px;
@@ -137,10 +137,12 @@
         height: 100%;
         float: left;
         align-items: center;
-        margin-right: 3rem;
+        margin-right: 0rem;
     }
     @include breakpoint("large") {
+    margin-right: 2rem;
         margin-right: unset;
+
     }
     .site-title {
         color: black;
@@ -152,6 +154,12 @@
         @include breakpoint("medium") {
             font-size: 1.3rem;
             line-height: 1.2;
+            width: 200px;
+        }
+        @include breakpoint("large") {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            width: 220px;
         }
 
         &:hover, &:visited {

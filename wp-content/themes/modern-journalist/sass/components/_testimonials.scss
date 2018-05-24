@@ -100,7 +100,7 @@
         @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
         @include breakpoint("medium") {
             width: 50%;
-            max-width: 800px;
+            max-width: 700px;
         }
     }
     li:nth-child(1), li:nth-child(2), li:nth-child(3) {
@@ -109,14 +109,18 @@
     li:nth-child(2) {
         z-index: 1;
         position: relative;
+    
+
         .testimonial-quote {
             position: relative;
+   
             &:before {
                 content: "\e802";
                 font-family: 'mj';
                 position: absolute;
                 display: block;
                 top: -1rem;
+                left: -50px;
                 -moz-transform: scale(-1);
                 -o-transform: scale(-1);
                 -webkit-transform: scale(-1);
@@ -135,6 +139,7 @@
                 display: block;
                 bottom: -1rem;
                 color: white;
+                left: 50px;
                 font-size: 4rem;
                 line-height: 1;
                 z-index: -1;

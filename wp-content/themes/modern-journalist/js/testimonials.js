@@ -13,10 +13,8 @@
 				$('#testimonial-list li:last').after($first);
 				viewFunc();
 				$('#testimonial-list').fadeIn('fast');
-
-				//$("#testimonial-list li").fadeOut('normal');
 			});
-		}, 8000);
+		}, 800000);
 
 		var $txtcarousel = $('#testimonial-list');
 		var txtcount = $txtcarousel.children().length;

@@ -102,7 +102,7 @@
 
 	<div class="site-credit">
 		<div class="content-wrapper">
-			©<?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved.
+			©<?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved. | <a style="color: #A7B3B6;" href="https://www.csis.org/privacy-policy" target="_blank" rel="nofollow" alt="Privacy Policy" title="Privacy Policy">Privacy Policy</a>
 		</div><!-- .site-info -->
 	</div>
 </footer><!-- #colophon -->

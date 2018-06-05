@@ -148,6 +148,11 @@
     margin-right: 1rem;
 }
 
+.post-nav-toTop .icon-arrow-long-up{
+
+        margin-left: -.5rem;
+}
+
 .header-post-header .header-post-header-right .header-post-header-chapters .meta-label:hover {
     color: white;
     @include breakpoint("medium") {

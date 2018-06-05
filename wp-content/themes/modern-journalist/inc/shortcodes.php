@@ -338,10 +338,11 @@ function singleimg_shortcode( $atts )
 	$attachment      = wp_get_attachment_url( $imgID );
 	$attachmentThumb = wp_get_attachment_image_src( $values['image'], 'large' );
 	$alt             = get_the_title($imgID);
+	$image_caption = get_the_excerpt($imgID);
 
 	$output = '<div class="' . $positionClass . '"><a href="' . esc_url($imgSrc) . '" rel="lightbox"><img src="' . $attachmentThumb[0] . '" alt="' . $alt . '"></a>';
 
-	$output .= '<div class="img-desc">'. wp_get_attachment_caption( $imgID );
+	$output .= '<div class="img-desc">'. $image_caption;
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
 			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';

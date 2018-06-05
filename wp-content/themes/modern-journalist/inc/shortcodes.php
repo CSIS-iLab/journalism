@@ -345,7 +345,7 @@ function singleimg_shortcode( $atts )
 	$output .= '<div class="img-desc">'. $image_caption;
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
-			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
+			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . esc_html($image_caption) . '<i class="icon-external-open"></i></a></div>';
 		} else {
 			$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 

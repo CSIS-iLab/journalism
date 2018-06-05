@@ -480,8 +480,9 @@ function textimg_shortcode( $atts, $content = null )
 			'image'   => '',
 			'backgroundcolor'  => '',
 			'lightcredit' => '',
+			'includesource' => '',
 			'sourcedesc'    => '',
-			'sourceurl'     => ''
+			'sourceurl'     => '',
 
 		),
 		$atts
@@ -512,7 +513,7 @@ function textimg_shortcode( $atts, $content = null )
 	$attachment = wp_get_attachment_url( $imgID );
 	$alt        = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
 	$title      = $attachment->post_title;
-
+	$image_caption = get_the_excerpt($imgID);
 
 
 	if ( $values['lightcredit'] == 'true' ) {
@@ -522,13 +523,14 @@ function textimg_shortcode( $atts, $content = null )
 	$output .= '<div class="textimg-container" style="background-image: url(\'' . esc_url($imgSrc) . '\')">';
 	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '" style="background-color:rgba(' .$r . ', ' .$g . ', ' .$b . ', .9)"> ' . $content;
 
-	if ( !empty( wp_get_attachment_caption( $imgID ) ) ) {
-		$output .= '<div class="img-desc ' . $creditclass . '">' . wp_get_attachment_caption( $imgID ) . '</div>';
+	if ( !empty($image_caption ) ) {
+		$output .= '<div class="img-desc ' . $creditclass . '">' . esc_html($image_caption);
 	} else {
-		$output .= '';
+		$output .= '<div class="img-desc ' . $creditclass . '">';
 	}
 
 	if ( $values['includesource'] == 'true' ) {
+		
 		if ( $values['sourceurl'] != '' ) {
 			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 		} else {
@@ -536,8 +538,7 @@ function textimg_shortcode( $atts, $content = null )
 
 		}
 	}
-
-	$output .= '</div></div>';
+	$output .= '</div></div></div>';
 	$output .= '</div>';
 	return $output;
 }

@@ -310,14 +310,8 @@ p {
             color: black;
         }
     }
-    .lightcredit.img-desc {
-        color: $color-text-gray;
-        @include breakpoint("medium") {
-            color: $color-ltgray;
-        }
-    }
-    .img-desc {
-
+       .img-desc {
+        color: black;
         right: 0;
         bottom: 1rem;
         border-left: 0;
@@ -330,6 +324,14 @@ p {
             padding: 1rem;
         }
     }
+    .lightcredit.img-desc, .lightcredit .content-source, .lightcredit .content-source a.source-link, .content-source a i {
+        color: $color-text-gray !important;
+        @include breakpoint("medium") {
+            color: $color-ltgray !important;
+        }
+    }
+
+ 
 }
 
 .wpb_wrapper .textimg-text:p:last-of-type {
@@ -720,7 +722,7 @@ hr.quoteline {
     margin-bottom: 2rem;
     .img-desc {
         @include breakpoint("medium") {
-            margin-bottom: 0;
+            margin-bottom: .5rem;
         }
     }
 }

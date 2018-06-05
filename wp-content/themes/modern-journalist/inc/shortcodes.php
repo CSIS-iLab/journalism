@@ -342,10 +342,10 @@ function singleimg_shortcode( $atts )
 
 	$output = '<div class="' . $positionClass . '"><a href="' . esc_url($imgSrc) . '" rel="lightbox"><img src="' . $attachmentThumb[0] . '" alt="' . $alt . '"></a>';
 
-	$output .= '<div class="img-desc">'. $image_caption;
+	$output .= '<div class="img-desc">'. wp_get_attachment_caption( $imgID );
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {
-			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . esc_html($image_caption) . '<i class="icon-external-open"></i></a></div>';
+			$output .= '<div class="source-inline content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
 		} else {
 			$output .= ' <div class="source-inline content-source">' . $values['sourcedesc'] . '</div>';
 
@@ -524,7 +524,7 @@ function textimg_shortcode( $atts, $content = null )
 	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '" style="background-color:rgba(' .$r . ', ' .$g . ', ' .$b . ', .9)"> ' . $content;
 
 	if ( !empty($image_caption ) ) {
-		$output .= '<div class="img-desc ' . $creditclass . '">' . esc_html($image_caption);
+		$output .= '<div class="img-desc ' . $creditclass . '">' . wp_get_attachment_caption( $imgID );
 	} else {
 		$output .= '<div class="img-desc ' . $creditclass . '">';
 	}

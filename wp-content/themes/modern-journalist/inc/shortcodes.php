@@ -334,11 +334,9 @@ function singleimg_shortcode( $atts )
 
 	$img             = wp_get_attachment_image_src( $values['image'], "thumbnail" );
 	$imgSrc          = $img[0];
-	$imgID           = get_attachment_id( $imgSrc );
-	$attachment      = wp_get_attachment_url( $imgID );
+	$imgID           = $values['image'];
 	$attachmentThumb = wp_get_attachment_image_src( $values['image'], 'large' );
 	$alt             = get_the_title($imgID);
-	$image_caption = get_the_excerpt($imgID);
 
 	$output = '<div class="' . $positionClass . '"><a href="' . esc_url($imgSrc) . '" rel="lightbox"><img src="' . $attachmentThumb[0] . '" alt="' . $alt . '"></a>';
 
@@ -509,10 +507,10 @@ function textimg_shortcode( $atts, $content = null )
 	$img = wp_get_attachment_image_src( $values['image'], "large" );
 
 	$imgSrc     = $img[0];
-	$imgID      = get_attachment_id( $imgSrc );
+	$imgID      = $values['image'];
 	$attachment = wp_get_attachment_url( $imgID );
 	$alt        = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
-	$title      = $attachment->post_title;
+	$title      = get_the_title($imgID);
 	$image_caption = get_the_excerpt($imgID);
 
 

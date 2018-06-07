@@ -377,7 +377,7 @@ function singleimg_shortcode( $atts )
 	}
 	
 
-	$img             = wp_get_attachment_image_src( $values['image'], "thumbnail" );
+	$img             = wp_get_attachment_image_src( $values['image'], "medium_large" );
 	$imgSrc          = $img[0];
 	$imgID           = $values['image'];
 	$attachmentThumb = wp_get_attachment_image_src( $values['image'], 'large' );

@@ -15,8 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @var $this WPBakeryShortCode_VC_Raw_html
  */
 $el_class = $el_id = $css = '';
+$full_width = '';
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 extract( $atts );
+
 
 $content = rawurldecode( base64_decode( strip_tags( $content ) ) );
 $content = wpb_js_remove_wpautop( apply_filters( 'vc_raw_html_module_content', $content ) );
@@ -26,7 +28,7 @@ if ( ! isset( $css ) ) {
 	$css = '';
 }
 $fullwidth3;
-if ( isset( $fullwidth ) ) {
+if ( $fullwidth  ) {
 	$fullwidth3 = 'fullwidth';
 }
 
@@ -40,7 +42,7 @@ if ( ! empty( $el_id ) ) {
 $output = '
 	<div class="' . esc_attr( $css_class ) . '" ' . implode( ' ', $wrapper_attributes ) . '>
 		<div class="wpb_wrapper">
-		<div class=" '. $fullwidth3. '">
+		<div class=" '. $fullwidth3 . '">
 			' . $content . '
 		</div>
 		</div>

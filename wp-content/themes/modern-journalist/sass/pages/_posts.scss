@@ -241,11 +241,11 @@ p {
     #header-quote-bg {
         width: 100%;
         height: 100%;
-        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 100%);
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 100%);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
         /* IE6-9 */
@@ -331,6 +331,7 @@ line-height: 1.5;
                 font-size: 3rem;
                 color: white;
                 opacity: .5;
+                text-align: right;
                 @include breakpoint("medium") {
  font-size: 2.5rem;
             }
@@ -393,6 +394,7 @@ line-height: 1.5;
         .post-date {
             font-family: $font__roboto;
             padding-bottom: 2rem;
+            color: $color-text-gray;
         }
         .post-authors {
             font-family: $font__roboto;
@@ -468,12 +470,12 @@ line-height: 1.5;
     .textimg-text {
         font-size: 105%;
         width: 100%;
-        padding: 1rem $margin__sides-mobile;
+        padding: 3rem $margin__sides-mobile;
         z-index: 3;
         display: block;
         position: relative;
         @include breakpoint("medium") {
-            padding: 3rem;
+            padding: 3rem 3rem;
             position: unset;
             width: 40%; //margin-left: calc(50% - 16em);
         }
@@ -511,7 +513,7 @@ line-height: 1.5;
         }
     }
     .img-desc {
-        color: black;
+        color: black !important;
         right: 0;
         bottom: 1rem;
         border-left: 0;
@@ -522,13 +524,22 @@ line-height: 1.5;
             position: absolute;
             width: 40%;
             padding: 1rem;
+            color: black;
         }
     }
+
+    .lightbg .img-desc {
+        color: black;
+    }
+
+    .darkbg .img-desc {
+        color: white !important;
+    }
+
     .lightcredit.img-desc,
     .lightcredit .content-source,
     .lightcredit .content-source a.source-link,
     .content-source a i {
-        color: $color-text-gray !important;
         @include breakpoint("medium") {
             color: $color-ltgray !important;
         }
@@ -567,7 +578,10 @@ line-height: 1.5;
 } */
 
 .wpb_wrapper>.textimg-container:only-child .textimg-text {
-    padding: 3rem;
+    padding: 1rem $margin__sides-mobile;
+    @include breakpoint("large") {
+padding: 3rem;
+}
 }
 
 //Audio
@@ -1168,7 +1182,7 @@ h2.heading.underline {
 }
 
 .img-right {
-    width: 90%;
+    width: 100%;
     margin: 0 auto 2rem;
     @include breakpoint("medium") {
         width: 40%;
@@ -1208,8 +1222,9 @@ h2.post-section {
     padding-left: 10px;
 } ///Section Heading
 h2.post-section {
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: block;
+    line-height: 1.3;
     @include breakpoint("medium") {
         font-size: 3rem;
         line-height: 1.3;

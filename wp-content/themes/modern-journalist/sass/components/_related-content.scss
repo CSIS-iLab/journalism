@@ -7,9 +7,10 @@
     background-color: $color-ltgray;
     margin-top: 0;
     margin-bottom: 0;
-    margin-top: 3rem;
+    
     @include breakpoint("medium") {
-        margin-top: 0;
+        
+
         .vertical-left {
             padding: 1.5rem 1rem 0rem 1rem;
         }
@@ -20,7 +21,7 @@
     position: relative;
     padding: 0 .75rem 1rem;
     @include breakpoint("medium") {
-        margin-left: 3rem !important;
+        margin-left: 3.5rem !important;
         padding: unset;
         &:after {
             display: block;
@@ -30,6 +31,7 @@
             height: 2rem;
             border-left: 2px solid $color-medgray;
             bottom: -2rem;
+            left: -.5rem;
         }
         &.home-related {
             .related-post-title {
@@ -55,6 +57,16 @@
         display: flex;
         flex-direction: row;
         width: 100%;
+        overflow: hidden;
+
+        &.col-xs-12 {
+            padding-right: 0rem;
+    padding-left: 0rem;
+        }
+
+        .entry-excerpt p {
+                margin-bottom: 1rem;
+        }
     }
     .related-post-img {
         padding: 0;

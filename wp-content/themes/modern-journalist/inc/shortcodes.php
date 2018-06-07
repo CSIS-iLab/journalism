@@ -19,7 +19,7 @@ function pdf_shortcode( $atts )
 		'updated' => 'updated',
 	), $atts );
 
-	$output = '<div class="row"><div class="pdf-icon"><a href="' . esc_attr( $values['url'] ) . '"  target="" class=""><div class="doc-img"><img  src="' . esc_attr( $values['img-url'] ) . '"></div></a></div><div class="pdf-info"><p><a href="' . esc_attr( $values['url'] ) . '"  target="" class="">' . esc_attr( $values['title'] ) . '</a><br><span class="meta-label">' . esc_attr( $values['updated'] ) . '</span></div></div>';
+	$output = '<div class="pdf-row"><div class="pdf-icon"><a href="' . esc_attr( $values['url'] ) . '"  target="" class=""><div class="doc-img"><img  src="' . esc_attr( $values['img-url'] ) . '"></div></a></div><div class="pdf-info"><p><a href="' . esc_attr( $values['url'] ) . '"  target="" class="">' . esc_attr( $values['title'] ) . '</a><br><span class="meta-label">' . esc_attr( $values['updated'] ) . '</span></div></div>';
 	return $output;
 }
 

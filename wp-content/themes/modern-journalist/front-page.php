@@ -103,14 +103,8 @@ get_header();?>
 
 <div id="home-topics">
 	<div class="content-wrapper">
-		<div class="col-wide row">
+		<div class="col-wide">
 			<h2 class="heading underline">Featured Story</h2>
-			<div class="col-xs-12 col-md-10">
-			<?php
-                $story_desc = get_option('modernjournalist_stories_description');
-                echo '<p>' . $story_desc . '</p>';
-            ?>
-			</div>
 		</div>
 		<div class="col-wide">
 			<?php
@@ -138,15 +132,16 @@ get_header();?>
 	                	echo '<a href="' . get_permalink($post) . '" class=""><h4 class="subheading">';
 	                		the_title();
 	                	echo '</h4></a>';
+	                	
+	                	echo '<div class="entry-excerpt">';
+	                		the_excerpt();
+	                	echo '</div>';
 	                	echo '<div class="entry-meta ">';
 	                		echo '<p class="meta-line"><span class="meta-label">By: </span>';
 	                			$authors = related_authors($post);
 	                			echo $authors;
 	                		echo '</p>';
 	                		echo '<p class="posted-on meta-line">' . $time_string . '</p>'; // WPCS: XSS OK.
-	                	echo '</div>';
-	                	echo '<div class="entry-excerpt">';
-	                		the_excerpt();
 	                	echo '</div>';
 	                echo '</div></div>';
 	               

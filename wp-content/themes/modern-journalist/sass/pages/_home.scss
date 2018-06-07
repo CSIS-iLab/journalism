@@ -283,14 +283,19 @@
         }
     }
     .browseReports {
+        padding: 2rem 1rem;
+        @include breakpoint("medium") {
         padding: 2rem;
+}
         h4 {
-            line-height: 1;
+            line-height: 1.4;
         }
         p {
             font-family: $font__roboto;
             color: $color-medgray;
             margin-bottom: 0;
+            font-size: 1em;
+            line-height: 1.4;
         }
     }
     .vertical-left {

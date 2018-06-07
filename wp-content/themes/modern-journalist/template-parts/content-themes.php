@@ -124,9 +124,9 @@
 					  if (is_object($r)) {
 						  if ($r->post_status != 'trash') {
 							  setup_postdata($r);
-							  echo '<div class="related-post ">';
+							  echo '<div class="related-post row">';
 
-							  echo '<div class="related-post-img col-md-4">
+							  echo '<div class="related-post-img col-xs-12 col-md-4">
 
 							  		<a href="' . esc_url(get_permalink($r->ID)) . '"><div class="img-container fit-width">' . get_the_post_thumbnail($r->ID) . '	  </div></a>
 						</div>';

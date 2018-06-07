@@ -59,7 +59,11 @@ embed, iframe, object {
     display: flex;
     flex-direction: row;
     align-content: stretch;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    @include breakpoint("medium") {
+    margin-bottom: 3em;
+    }
     .photo-entry {
         display: flex;
         height: 10rem;

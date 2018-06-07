@@ -158,6 +158,10 @@ function header_shortcode( $atts )
 		array(
 			'intro'         => '',
 			'style'         => '',
+			'quote_text' => '',
+			'quote_source' => '',
+			'quote_desc' => '',
+			'quote_space' => '',
 			'highlight'     => '',
 			'font'          => '',
 			'imgverpos'		=> '',
@@ -172,6 +176,11 @@ function header_shortcode( $atts )
 	global $post;
 	$postID = $post->ID;
 	$title  = get_the_title();
+
+	$quoteText =  esc_html($values['quote_text']);
+	$quoteSource = esc_html($values['quote_source']);
+	$quoteDesc = esc_html($values['quote_desc']);
+	$quoteSpace = esc_attr($values['quote_space']);
 
 	$highlight = $values['highlight'];
 
@@ -246,8 +255,44 @@ function header_shortcode( $atts )
 		$output .= '</div>';
 
 	}
+	if ( $values['style'] == 'quote' ) {
+		if ( has_post_thumbnail( $postID ) ):
+			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'full' );
+		endif;
+		$output .= '<div id="quote-header"><div class="post-header row full-width fade-in one"';
+		$output .= '<div id="header-bg" style="background-image: url(\' ' . $image . ' \')">';
+		$output .= '<div id="header-quote-bg">';
+		$output .= '<div id="header-quote-container" style="padding-top: ' . $quoteSpace . '">';
+		$output .= '<div id="header-quote-title" class="fade-in two">' . $quoteText . '</div>';
+		$output .= '<div id="header-quote-meta" class="fade-in three">';
+		$output .= '<div id="header-quote-source">&ndash; ' . $quoteSource . '</div>';
+		$output .= '<div id="header-quote-desc">' . $quoteDesc . '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
 
-	$output .= '</div>';
+		$output .= '<div id="header-text">';
+
+		$output .= '<div class="post-meta">';
+		$output .= '<div class="post-date">Published <span class="post-date">' . get_the_date() . '</div>';
+		$output .=	'<h1 class="post-title">' . $title . '</h1>';
+		$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
+		$output .= '<div class="post-authors">By ' . $authors . '</div>';
+		$output .= '<div class="img-desc">' . wp_get_attachment_caption( get_post_thumbnail_id( $postID ) );
+		if ( $values['includesource'] == 'true' ) {
+			if ( $values['sourceurl'] != '' ) {
+				$output .= '<div class="content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';
+			} else {
+				$output .= ' <div class="content-source">' . $values['sourcedesc'] . '</div>';
+
+			}
+		}
+		$output .= '</div>';
+		$output .= '</div>';
+	}
+	
+	
 	return $output;
 }
 

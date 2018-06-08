@@ -606,9 +606,13 @@ function audiowidget_shortcode( $atts )
 			'includesource' => '',
 			'sourcedesc'    => '',
 			'sourceurl'     => '',
+			'speakers' => '',
 		),
 		$atts
 	);
+
+	$img = wp_get_attachment_image_src( $values['speakers'], "thumbnail" );
+
 
 	$output .= '<div class="audio-container">
 		<div class="audio-info">
@@ -635,6 +639,25 @@ function audiowidget_shortcode( $atts )
 		  		</div>
 		  	</div>
 		</div>';
+
+	$image_ids = explode( ',', $values['speakers'] );
+	$count     = count( $image_ids );
+
+
+	
+	foreach ( $image_ids as $key => $image_id ) {
+
+	$attachment = wp_get_attachment_thumb_url( $image_id);
+	$alt        = get_post_meta( $imgID, '_wp_attachment_image_alt', true );
+	$title      = get_the_title($image_id);
+
+		$images      = wp_get_attachment_image_src( $image_id );
+
+
+		$output .= '<div class="audio-character-detail"><img src="' . $attachment . '" alt="' . $title . ' ">';
+		
+		$output .= '<div class="audio-img-desc"><div class="audio-img-title">' . $title . '</div><div class="audio-img-caption">' .wp_get_attachment_caption( $image_id ) . '</div></div></div>';
+	}
 
 	if ( $values['includesource'] == 'true' ) {
 		if ( $values['sourceurl'] != '' ) {

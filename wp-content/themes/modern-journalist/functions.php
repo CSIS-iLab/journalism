@@ -1019,6 +1019,15 @@ vc_map( array(
 
             ),
         ),
+        array(
+            "type"        => "attach_images",
+            "class"       => "",
+            "heading"     => __( "Speaker Info" ),
+            "param_name"  => "speakers",
+            "value"       => "",
+            "description" => __( "" ),
+            'save_always' => true,
+        ),
     ),
 ) );
 

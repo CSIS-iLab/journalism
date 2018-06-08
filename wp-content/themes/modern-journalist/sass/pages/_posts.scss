@@ -749,6 +749,40 @@ button.pButton {
     }
 }
 
+.audio-character-detail{
+    width: 100%;
+    display: flex;
+    padding: .5rem 0;
+    img {
+        width: 75px;
+            height: 75px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 auto;
+            float: left;
+
+            @include breakpoint("medium") {
+                margin: unset;
+            }
+    }
+
+}
+.audio-img-desc {
+    float: left;
+    padding-left: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     font-size: .9rem;
+    font-family: $font__roboto;
+    color: $color-text-gray;
+    .audio-img-title {
+        font-size: 1rem;
+        color: black;
+    }
+}
+
 .audioplayer {
     width: 100%;
     display: block;

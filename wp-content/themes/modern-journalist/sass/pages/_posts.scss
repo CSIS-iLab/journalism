@@ -763,6 +763,7 @@ button.pButton {
             margin: 0 auto;
             float: left;
 
+
             @include breakpoint("medium") {
                 margin: unset;
             }
@@ -778,9 +779,11 @@ button.pButton {
      font-size: .9rem;
     font-family: $font__roboto;
     color: $color-text-gray;
+    text-align: left;
     .audio-img-title {
         font-size: 1rem;
         color: black;
+        text-align: left;
     }
 }
 

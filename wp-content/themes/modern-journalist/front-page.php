@@ -9,45 +9,45 @@
 get_header();?>
 
 <div id="home-header">
-	<div id="vid-block">
-		<video playsinline autoplay muted poster="#" id="bgvid">
-		    <source src="#" type="video/webm">
-		    	
-		    	<?php
-	                	$home_video = get_option('modernjournalist_video');
-	                	?>
-		    	
-		    <source src="<?php echo esc_html($home_video);  ?>" type="video/mp4">
-		</video>
-	</div><!--vid-block -->
 
-	<div id="home-intro">
-
-		<div id="vid-overlay">
-			<div id="title-header">
-
-	 			<div class="button-container">
-	 				<div id="home-pause">
-	 					<i class="icon-pause"></i>
-	 				</div>
-	 			</div>
-	 		</div><!-- title-header -->
-	 		<picture id="homepage-title">
-				<source media="(min-width: 650px)" srcset="/wp-content/themes/modern-journalist/img/homepage_title_lg.svg">
-				<img src="/wp-content/themes/modern-journalist/img/homepage_title_sm.svg" alt="Flowers" style="width:auto;">
-			</picture>
-
+<div class="fullsize-video-bg">
+	<div class="inner">
+		
+			
+	 		<h1 class="home-title">Reporting on <br>International Affairs</h1>
+ <div id="title-header">
+		 		
 	 		<div class="home-tagline">
 	 		<?php
              $description = get_bloginfo('description', 'display');
          		if ($description || is_customize_preview()): ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+				<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
 				<?php
                 endif;
                 ?>
+          
+               	<div class="button-container">
+		 				<div id="home-pause">
+		 					<i class="icon-pause"></i>
+		 				</div>
+		 			</div>
+	 			</div>
+	 		
 			</div><!-- home-tagline-->
-		</div><!-- vid-overlay-->
-	</div><!-- home-intro-->
+		</div><!-- title-header -->
+	
+	<div id="video-viewport">
+		<?php
+	    //$home_video_webm = get_option('modernjournalist_video_webm');
+	    $home_video_mp4 = get_option('modernjournalist_video_mp4');
+	    ?>
+		<video width="1920" height="1280" playsinline autoplay muted id="bgvid">
+			 <source src="<?php echo esc_html($home_video_mp4);  ?>" type="video/mp4">
+			Sorry, your browser does not support this video.
+		</video>
+	</div>
+</div>
+
 </div><!-- home-header-->
 
 

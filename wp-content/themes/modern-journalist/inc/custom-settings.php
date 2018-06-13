@@ -60,14 +60,22 @@ function modernjournalist_admin_init_section_homepage()
 	);
 
 	add_settings_field(
-		'modernjournalist_video',
-		'Url to Homepage Video',
+		'modernjournalist_video_mp4',
+		'Url to Homepage Video MP4',
 		'modernjournalist_text_callback',
 		'modernjournalist-options-page',
 		'modernjournalist_settings_section_homepage',
-		array( 'modernjournalist_video' )
+		array( 'modernjournalist_video_mp4' )
 	);
 
+/*	add_settings_field(
+		'modernjournalist_video_webm',
+		'Url to Homepage Video WebM',
+		'modernjournalist_text_callback',
+		'modernjournalist-options-page',
+		'modernjournalist_settings_section_homepage',
+		array( 'modernjournalist_video_webm' )
+	);*/
 
 	add_settings_field(
 		'modernjournalist_program_description',
@@ -125,9 +133,15 @@ function modernjournalist_admin_init_section_homepage()
 
 	register_setting(
 		'modernjournalist_settings',
-		'modernjournalist_video',
+		'modernjournalist_video_mp4',
 		'sanitize_text_field'
 	);
+
+/*	register_setting(
+		'modernjournalist_settings',
+		'modernjournalist_video_webm',
+		'sanitize_text_field'
+	);*/
 
 	register_setting(
 		'modernjournalist_settings',

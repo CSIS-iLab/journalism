@@ -26,11 +26,7 @@ get_header();?>
                 endif;
                 ?>
           
-               	<div class="button-container">
-		 				<div id="home-pause">
-		 					<i class="icon-pause"></i>
-		 				</div>
-		 			</div>
+               
 	 			</div>
 	 		
 			</div><!-- home-tagline-->
@@ -41,7 +37,7 @@ get_header();?>
 	    //$home_video_webm = get_option('modernjournalist_video_webm');
 	    $home_video_mp4 = get_option('modernjournalist_video_mp4');
 	    ?>
-		<video width="1920" height="1280" playsinline autoplay muted id="bgvid">
+		<video width="1920" height="1280" playsinline loop autoplay muted id="bgvid">
 			 <source src="<?php echo esc_html($home_video_mp4);  ?>" type="video/mp4">
 			Sorry, your browser does not support this video.
 		</video>

@@ -776,7 +776,7 @@ vc_map( array(
             "type"        => "colorpicker",
             "holder"      => "div",
             "class"       => "",
-            "heading"     => __( "Highlight Color" ),
+            "heading"     => __( "Background Color" ),
             "param_name"  => "highlight",
             "value"       => __( "" ),
             "description" => __( "" ),

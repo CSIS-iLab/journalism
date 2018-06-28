@@ -713,6 +713,24 @@ vc_map( array(
                 'value'   => array( 'quote' ),
             ),
         ),
+    /*    array(
+            "type"        => "dropdown",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Quote Position" ),
+            "param_name"  => "quotepos",
+            'value'       => array(
+                __( 'Right' )  => 'qright',
+                __( 'Center' ) => 'qcenter',
+                __( 'Left' )   => 'qleft',
+            ),
+            'save_always' => true,
+            "description" => __( "" ),
+            'dependency'  => array(
+                'element' => 'style',
+                'value'   => array( 'quote' ),
+            )
+        ),*/
         array(
             "type"        => "textfield",
             "holder"      => "div",

@@ -43,7 +43,6 @@
                 display: inline-block;
                 img {
                     padding-left: 2rem;
-                    height: 4rem;
                 }
                 &:before {
                     content: " ";
@@ -99,7 +98,8 @@
     }
 }
 
-.footer-info, .footer-image {
+.footer-info,
+.footer-image {
     padding: 0!important;
 }
 
@@ -172,15 +172,21 @@
 
 .footer-csis {
     img {
-        @include breakpoint("xsmall") {
-            max-width: 100%;
-        }
+        max-width: 100%;
+       height: 2.5rem;
+       margin-bottom: 1rem;
         @include breakpoint("small") {
-            max-width: 80%;
+            height: 2.5rem;
+            
         }
-        max-width: 70%;
         @include breakpoint("medium") {
             max-width: 100%;
+            height: 3rem;
+            margin-bottom: unset;
+        }
+        @include breakpoint("large") {
+            max-width: 100%;
+            height: 4rem;
         }
     }
 }

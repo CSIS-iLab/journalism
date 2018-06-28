@@ -31,15 +31,15 @@
 					</div>
 				</div>
 				<div class="learn-content row">
-					<div class="col-xs-12 col-md-8">
+					<div class="col-xs-12 col-md-12 col-lg-8">
 
 				<?php
                     $learn_more = get_option('modernjournalist_footer_description');
-                    echo '<p class="learn-more-text">' . $learn_more . '</p>';
+                    echo '<div class="learn-more-text">' . $learn_more . '</div>';
                 ?>
 
 					</div>
-					<div class="col-xs-12 col-md-4">
+					<div class="col-xs-12 col-md-12 col-lg-4">
 						<div class="contact-info">
 							<div><span class="meta-label"><i class="icon-mail"></i></span>
 							</div>

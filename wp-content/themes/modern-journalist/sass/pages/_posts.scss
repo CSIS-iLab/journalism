@@ -382,13 +382,13 @@
             color: white;
         }
         #header-quote-desc {
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-family: $font__roboto;
             color: #ddd;
             display: block;
             padding-left: 1.1rem;
             @include breakpoint("medium") {
-                padding-left: 1.3rem;
+                padding-left: 1rem;
             }
         }
         #header-quote-meta {
@@ -1200,6 +1200,7 @@ hr.quoteline {
     h4.subheading {
         text-align: center;
         padding: 1rem 0 0;
+        margin-bottom: 0;
         @include breakpoint("medium") {
             text-align: left;
             padding: 0;
@@ -1242,7 +1243,7 @@ h2.heading.underline {
     font-size: .9rem;
     font-family: $font__roboto;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     @include breakpoint("medium") {
         text-align: left;

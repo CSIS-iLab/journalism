@@ -237,18 +237,26 @@
             background-size: cover; //height: 100vw;
             background-position: center;
             background-attachment: fixed;
+            min-height: calc(100vh);
+             @include breakpoint("medium") {
+          
+             width: 100%;
+         }
         }
         #header-quote-bg {
             width: 100%;
             height: 100%;
-            background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
             /* IE6-9 */
+            @include breakpoint("medium") {
+                height: 100%;
+            }
         }
 
         @-webkit-keyframes fadeIn {
@@ -309,11 +317,11 @@
         }
 
         #header-quote-fade {
-            background: -moz-linear-gradient(top, rgba(0, 0, 0, .5) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, .5) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(0, 0, 0, .5) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, .5) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 75%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 1) 95%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
             /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#fff', GradientType=0);
             display: block;
@@ -322,28 +330,29 @@
         }
 
         #header-quote-container {
-            margin: 0rem $margin__sides-mobile;
+            margin: 0rem $margin__sides-mobile 15%;
             padding-top: 3rem;
-            min-height: 100vh;
+            height: 75%;
             color: white;
+            overflow: auto;
             @include breakpoint("medium") {
-                margin: 0rem auto;
+                margin: 0rem auto 5rem;
                 padding-top: 8rem;
                 max-width: 700px;
+                height: unset;
             }
         }
         #header-quote-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-family: $font__magneta;
             text-align: center;
             color: white;
-            line-height: 200%;
+            line-height: 1.5;
             @include breakpoint("medium") {
                 font-size: 2rem;
                 line-height: 200%;
             }
             &::before {
-
                 content: "\e802";
                 font-family: 'mj';
                 -moz-transform: scale(-1);
@@ -363,23 +372,28 @@
             }
             &:before,
             &:after {
-                display: inline-block;
-                //width: 100%;
+                display: block;
+                width: 100%;
                 text-align: center;
-                font-size: 3rem;
+                font-size: 2rem;
                 color: white;
                 opacity: .5;
-                text-align: right;
                 @include breakpoint("medium") {
                     font-size: 2.5rem;
+                    display: inline-block;
+                    width: unset;
+                    text-align: right;
                 }
             }
         }
 
         #header-quote-source {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-family: $font__magneta;
             color: white;
+            @include breakpoint("medium") {
+font-size: 1.5rem;
+        }
         }
         #header-quote-desc {
             font-size: 1rem;
@@ -392,8 +406,10 @@
             }
         }
         #header-quote-meta {
-            margin-top: 2rem;
+            margin: 2rem auto 0;
+            display: block;
             line-height: 1.3;
+            width: 75%;
             @include breakpoint("medium") {
                 width: 75%;
                 float: right;
@@ -402,6 +418,9 @@
             @include breakpoint("large") {
                 width: 50%;
             }
+        }
+        #header-text {
+            width:100%;
         }
         .post-meta {
             max-width: $size__container-max-width;
@@ -1374,7 +1393,8 @@ section.vc_section {
 }
 
 section.vc_section #full-header,
-section.vc_section #block-header {
+section.vc_section #block-header,
+section.vc_section #quote-header {
     margin: 0 calc(50% - 50vw);
     width: 100vw;
     .col-xs-12,

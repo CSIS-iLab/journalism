@@ -65,10 +65,17 @@ embed, iframe, object {
     margin-bottom: 3em;
     }
     .photo-entry {
-        display: flex;
-        height: 10rem;
-        width: 10rem;
-        padding: 15px;
+     display: flex;
+    height: calc(50% - 2rem);
+    width: 25%;
+    padding-right: 9px;
+    justify-content: center;
+    /* padding: 15px; */
+    @include breakpoint("medium") {
+        width: unset;
+        justify-content: unset;
+    }
+
     }
     .gallery-photo {
         display: flex;
@@ -94,3 +101,4 @@ embed, iframe, object {
         display: none;
     }
 }
+

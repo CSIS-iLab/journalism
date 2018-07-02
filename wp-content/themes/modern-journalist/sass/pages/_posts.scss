@@ -332,9 +332,10 @@
         #header-quote-container {
             margin: 0rem $margin__sides-mobile 15%;
             padding: 5rem 5px 6rem !important;
-            height: 75%;
+            height: 100%;
             color: white;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
             @include breakpoint("medium") {
                 margin: 0rem auto 5rem;
                 padding-top: 8rem;
@@ -718,13 +719,13 @@ font-size: 1.5rem;
 
 
 .audio-container {
-    width: 75%;
+    width: 85%;
     display: block;
     position: relative;
     line-height: 1.4;
-    margin: 0 auto 1rem;
+    margin: 0 auto 2rem;
     text-align: center;
-    padding: 1rem 0 1rem 0;
+    padding: 0rem 0 1rem 0;
     @include breakpoint("medium") {
         width: 20rem;
         float: right;

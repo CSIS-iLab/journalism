@@ -622,6 +622,11 @@ function audiowidget_shortcode( $atts )
 
 	$img = wp_get_attachment_image_src( $values['speakers'], "thumbnail" );
 
+$attachment_id = attachment_url_to_postid( esc_html( $values['url'] ) );
+
+
+
+
 
 	$output .= '<div class="audio-container">
 		<div class="audio-info">
@@ -644,10 +649,12 @@ function audiowidget_shortcode( $atts )
 				<div class="timeline">
 		  			<div class="playhead"></div>
 		  		</div>
-		  		<div class="time"><span class="currenttime"></span><span class="duration"></span>
+		  		<div class="time"><span class="currenttime">- - / </span><span class="duration"></span>
 		  		</div>
 		  	</div>
 		</div>';
+
+
 
 	$image_ids = explode( ',', $values['speakers'] );
 	$count     = count( $image_ids );

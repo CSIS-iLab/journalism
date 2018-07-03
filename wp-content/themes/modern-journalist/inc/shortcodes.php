@@ -266,12 +266,12 @@ function header_shortcode( $atts )
 		if ( has_post_thumbnail( $postID ) ):
 			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'full' );
 		endif;
-		$output .= '<div id="quote-header"><div class="post-header row full-width fade-in one">';
-		$output .= '<div id="header-bg" style="background:  url(\' ' . $image . ' \') center / cover no-repeat fixed;">';
-		$output .= '<div id="header-quote-bg">';
+		$output .= '<div id="quote-header"><div class="post-header row full-width">';
+		$output .= '<div id="header-quote-bg"><div id="header-bg" class="test" style="background-image:  url(\' ' . $image . ' \');">';
+		$output .= '';
 		$output .= '<div id="header-quote-fade" class="fade-in two '.$quotepos.'">';
 		$output .= '<div id="header-quote-container">';
-		$output .= '<div id="header-quote-title" style="padding-top: ' . $quoteSpace . '" >' . $quoteText . '</div>';
+		$output .= '<div id="header-quote-title" >' . $quoteText . '</div>';
 		$output .= '<div id="header-quote-meta" class="fade-in three">';
 		$output .= '<div id="header-quote-source">&ndash; ' . $quoteSource . '</div>';
 		$output .= '<div id="header-quote-desc">' . $quoteDesc . '</div>';

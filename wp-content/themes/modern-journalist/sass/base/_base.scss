@@ -1,11 +1,12 @@
 
 html, body {
-    height: 100%;
+    min-height: 100%;
 }
 
 html {
     box-sizing: border-box;
     overflow-x: hidden;
+    margin-top: 0 !important;
 }
 
 *, *:before, *:after {
@@ -17,6 +18,7 @@ body {
     position: relative;
     background: white;
     overflow-x: hidden;
+    height: 100%;
     /* Fallback for when there is no custom background color defined. */
     --breakpoint: "xsmall";
     @include breakpoint("small") {

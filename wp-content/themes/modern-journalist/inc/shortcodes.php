@@ -572,7 +572,7 @@ function textimg_shortcode( $atts, $content = null )
 		$creditclass = "lightcredit";
 	} 
 
-	$output .= '<div class="textimg-container" style="background-image: url(\'' . esc_url($imgSrc) . '\')">';
+	$output .= '<div class="textimg-container ' . $creditclass . '" style="background-image: url(\'' . esc_url($imgSrc) . '\')">';
 	$output .= '<div class="textimg-spacing"><div class="textimg-text ' . $backgroundclass . '" style="background-color:rgba(' .$r . ', ' .$g . ', ' .$b . ', .9)"> ' . $content;
 
 	if ( !empty($image_caption ) ) {

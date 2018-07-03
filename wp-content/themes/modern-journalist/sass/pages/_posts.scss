@@ -490,6 +490,7 @@ font-size: 1.5rem;
     .textimg-container {
         background-repeat: no-repeat;
         position: relative;
+        background-color: #f1f1f1;
         background-position: top, bottom;
         background-size: 100%; //background-attachment: fixed;
         margin: 0 -100%;
@@ -499,6 +500,9 @@ font-size: 1.5rem;
             background-size: cover; //height: 100vw;
             background-position: center;
             background-attachment: fixed;
+        }
+        &.lightcredit {
+            background-color: #333333;
         }
         .textimg-spacing {
             margin: 0 auto; //overflow: scroll;
@@ -1304,7 +1308,7 @@ h2.heading.underline {
     .story-info {
         font-size: .9;
         line-height: 1.4;
-        color: $color-medbluegray;
+        color: #333333;
         font-family: $font__roboto;
     }
 

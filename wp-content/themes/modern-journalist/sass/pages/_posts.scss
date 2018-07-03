@@ -239,7 +239,7 @@
             background-attachment: scroll;
             min-height: calc(100vh);
              @include breakpoint("medium") {
-          background-attachment: fixed;
+          //background-attachment: fixed;
              width: 100%;
          }
         }

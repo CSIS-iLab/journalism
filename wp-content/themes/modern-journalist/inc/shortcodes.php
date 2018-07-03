@@ -267,7 +267,7 @@ function header_shortcode( $atts )
 			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'full' );
 		endif;
 		$output .= '<div id="quote-header"><div class="post-header row full-width fade-in one">';
-		$output .= '<div id="header-bg" style="background: url(\' ' . $image . ' \'); background-size: cover;">';
+		$output .= '<div id="header-bg" style="background: url(\' ' . $image . ' \');">';
 		$output .= '<div id="header-quote-bg">';
 		$output .= '<div id="header-quote-fade" class="fade-in two '.$quotepos.'">';
 		$output .= '<div id="header-quote-container">';
@@ -288,7 +288,7 @@ function header_shortcode( $atts )
 		$output .=	'<h1 class="post-title">' . $title . '</h1>';
 		$output .= '<div class="post-intro">' . $values['intro'] . '</div>';
 		$output .= '<div class="post-authors">By ' . $authors . '</div>';
-		$output .= '<div class="img-desc">' . wp_get_attachment_caption( get_post_thumbnail_id( $postID ) );
+		$output .= '<div class="img-desc"><span class="img-locator">ABOVE: </span>' . wp_get_attachment_caption( get_post_thumbnail_id( $postID ) );
 		if ( $values['includesource'] == 'true' ) {
 			if ( $values['sourceurl'] != '' ) {
 				$output .= '<div class="content-source"><a class="source-link" href="' . $values['sourceurl'] . '">' . $values['sourcedesc'] . '<i class="icon-external-open"></i></a></div>';

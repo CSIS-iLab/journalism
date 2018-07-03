@@ -270,8 +270,8 @@ function header_shortcode( $atts )
 		$output .= '<div id="header-bg" style="background-image: url(\' ' . $image . ' \')">';
 		$output .= '<div id="header-quote-bg">';
 		$output .= '<div id="header-quote-fade" class="fade-in two">';
-		$output .= '<div id="header-quote-container" style="padding: ' . $quoteSpace . 'rem 0 ">';
-		$output .= '<div id="header-quote-title" class="">' . $quoteText . '</div>';
+		$output .= '<div id="header-quote-container">';
+		$output .= '<div id="header-quote-title" style="padding-top: ' . $quoteSpace . '" >' . $quoteText . '</div>';
 		$output .= '<div id="header-quote-meta" class="fade-in three">';
 		$output .= '<div id="header-quote-source">&ndash; ' . $quoteSource . '</div>';
 		$output .= '<div id="header-quote-desc">' . $quoteDesc . '</div>';

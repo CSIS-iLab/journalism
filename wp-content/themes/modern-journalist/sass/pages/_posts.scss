@@ -233,6 +233,11 @@
     //Quote Header
     #quote-header {
         width: 100%;
+
+        &> .row {
+            margin: -8px;
+        }
+
         #header-bg {
             background-size: cover; //height: 100vw;
             background-position: top left;

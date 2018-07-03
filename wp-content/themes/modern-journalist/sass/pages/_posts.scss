@@ -237,9 +237,16 @@
             background-size: cover; //height: 100vw;
             background-position: center;
             background-attachment: scroll;
-            min-height: calc(100vh);
+            
+              top: 0; 
+  left: 0; 
+
+  /* Preserve aspect ratio */
+  min-width: 100%;
+  min-height: 100%;
+  min-height: calc(100vh);
              @include breakpoint("medium") {
-          //background-attachment: fixed;
+          background-attachment: fixed;
              width: 100%;
          }
         }

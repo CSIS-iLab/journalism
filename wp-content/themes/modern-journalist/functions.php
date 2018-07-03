@@ -738,7 +738,7 @@ vc_map( array(
             "heading"     => __( "Space from Top" ),
             "param_name"  => "quote_space",
             "value"       => __( "" ),
-            "description" => __( "" ),
+            "description" => __( "Please use percentages (%)" ),
             'dependency'  => array(
                 'element' => 'style',
                 'value'   => array( 'quote' ),

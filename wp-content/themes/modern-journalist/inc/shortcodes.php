@@ -267,7 +267,7 @@ function header_shortcode( $atts )
 			$image = wp_get_attachment_url( get_post_thumbnail_id( $postID ), 'full' );
 		endif;
 		$output .= '<div id="quote-header"><div class="post-header row full-width fade-in one">';
-		$output .= '<div id="header-bg" style="background-image: url(\' ' . $image . ' \'); background-size: cover;">';
+		$output .= '<div id="header-bg" style="background: url(\' ' . $image . ' \'); background-size: cover;">';
 		$output .= '<div id="header-quote-bg">';
 		$output .= '<div id="header-quote-fade" class="fade-in two '.$quotepos.'">';
 		$output .= '<div id="header-quote-container">';

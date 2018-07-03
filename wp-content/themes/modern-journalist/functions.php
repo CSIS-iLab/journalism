@@ -732,13 +732,18 @@ vc_map( array(
             )
         ),*/
         array(
-            "type"        => "textfield",
+            "type"        => "dropdown",
             "holder"      => "div",
             "class"       => "",
-            "heading"     => __( "Space from Top" ),
-            "param_name"  => "quote_space",
-            "value"       => __( "" ),
-            "description" => __( "Please use percentages (%)" ),
+            "heading"     => __( "Quote Vertical Position" ),
+            "param_name"  => "quote_pos",
+            'value'       => array(
+                __( 'Top' )    => 'quoteOnTop',
+                __( 'Middle' ) => 'quoteInCenter',
+                __( 'Bottom' ) => 'quoteOnBottom',
+            ),
+            'save_always' => true,
+            "description" => __( "" ),
             'dependency'  => array(
                 'element' => 'style',
                 'value'   => array( 'quote' ),

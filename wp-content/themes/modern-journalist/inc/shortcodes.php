@@ -161,7 +161,7 @@ function header_shortcode( $atts )
 			'quote_text' => '',
 			'quote_source' => '',
 			'quote_desc' => '',
-			'quote_space' => '',
+			'quote_pos' => '',
 			'highlight'     => '',
 			'font'          => '',
 			'quotepos' => '',
@@ -182,10 +182,10 @@ function header_shortcode( $atts )
 	$quoteSource = esc_html($values['quote_source']);
 	$quoteDesc = esc_html($values['quote_desc']);
 	$quoteSpace = esc_attr($values['quote_space']);
-	$quotepos = esc_attr($values['quotepos']);
-	$posclass =  esc_attr($values['quotepos']);
-	
+	$quotepos = esc_attr($values['quote_pos']);
 
+	
+	$quoteposClass= $quotepos . "-position";
 
 	$highlight = $values['highlight'];
 
@@ -269,7 +269,7 @@ function header_shortcode( $atts )
 		$output .= '<div id="quote-header"><div class="post-header row full-width fade-in one">';
 		$output .= '<div id="header-bg" style="background-image: url(\' ' . $image . ' \')">';
 		$output .= '<div id="header-quote-bg">';
-		$output .= '<div id="header-quote-fade" class="fade-in two">';
+		$output .= '<div id="header-quote-fade" class="fade-in two '.$quotepos.'">';
 		$output .= '<div id="header-quote-container">';
 		$output .= '<div id="header-quote-title" style="padding-top: ' . $quoteSpace . '" >' . $quoteText . '</div>';
 		$output .= '<div id="header-quote-meta" class="fade-in three">';

@@ -243,7 +243,7 @@ p {
 
     #header-bg {
         //height: 100vw;
-        background-position: top left;
+        background-position: center;
         background-attachment: scroll; //background-color: red;
         top: 0;
         left: 0;
@@ -259,8 +259,8 @@ p {
         height: 100%;
 
         @include breakpoint("medium") {
-            background-attachment: fixed;
 
+            background-attachment: fixed;
         }
     }
 
@@ -369,13 +369,13 @@ p {
 
     #header-quote-container {
         margin: 0rem $margin__sides-mobile;
-padding: 8rem 5px 10rem;
+        padding: 8rem 5px 10rem;
         color: white;
 
         @include breakpoint("medium") {
             margin: 0rem auto 8rem;
             padding: 8rem 5px 6rem;
-        
+
             max-width: 700px;
             height: unset;
         }
@@ -647,6 +647,7 @@ padding: 8rem 5px 10rem;
 
 
 
+
 /* .wpb_wrapper {
     @include breakpoint("medium") {
 
@@ -874,8 +875,7 @@ button.pButton {
     padding: .5rem 0;
     border-bottom: 1px solid $color-medgray;
     margin-bottom: .5rem;
-    display: flex;
-    //height: 6.5rem;
+    display: flex; //height: 6.5rem;
     @include breakpoint("medium") {
         height: 4rem;
     }
@@ -900,8 +900,7 @@ button.pButton {
 .time {
     font-size: .9rem;
     font-family: $font__roboto;
-    @include breakpoint("large") {
-    }
+    @include breakpoint("large") {}
 }
 
 .playhead {

@@ -252,14 +252,15 @@ p {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        //position: relative;
-
+        position: relative;
+        position: relative;
         /* Preserve aspect ratio */
         width: 100%;
         height: 100%;
 
         @include breakpoint("medium") {
             background-attachment: fixed;
+
         }
     }
 
@@ -268,7 +269,7 @@ p {
         min-height: 110vh;
     }
 
-    #header-bg.test:after {
+    #header-bg.quote-trans:after {
         content: "";
         height: 100%;
         width: 100%;
@@ -368,13 +369,13 @@ p {
 
     #header-quote-container {
         margin: 0rem $margin__sides-mobile;
-        padding: 5rem 5px 6rem !important;
-
+padding: 8rem 5px 10rem;
         color: white;
 
         @include breakpoint("medium") {
             margin: 0rem auto 8rem;
-            padding-top: 8rem;
+            padding: 8rem 5px 6rem;
+        
             max-width: 700px;
             height: unset;
         }

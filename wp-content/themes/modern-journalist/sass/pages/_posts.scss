@@ -238,34 +238,29 @@ p {
     }
 
     .post-header {
-        position:relative;
- 
-
+        position: relative;
     }
 
     #header-bg {
         //height: 100vw;
         background-position: top left;
-        background-attachment: scroll;
-        background-attachment: fixed;
-        //background-color: red;
+        background-attachment: scroll; //background-color: red;
         top: 0;
         left: 0;
         background-size: cover;
-         -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-position:relative;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        //position: relative;
 
         /* Preserve aspect ratio */
         width: 100%;
-   height: 100%;
+        height: 100%;
 
         @include breakpoint("medium") {
-           
+            background-attachment: fixed;
         }
-     
     }
 
     #header-quote-bg {
@@ -273,14 +268,14 @@ position:relative;
         min-height: 110vh;
     }
 
-     #header-bg.test:after {
-        content:"";
-                height: 100%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-            display: block;
+    #header-bg.test:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
         background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
         /* FF3.6-15 */
         background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 1) 98%);
@@ -289,7 +284,6 @@ position:relative;
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
         /* IE6-9 */
-       
     }
 
     @-webkit-keyframes fadeIn {
@@ -375,9 +369,9 @@ position:relative;
     #header-quote-container {
         margin: 0rem $margin__sides-mobile;
         padding: 5rem 5px 6rem !important;
-        
+
         color: white;
-     
+
         @include breakpoint("medium") {
             margin: 0rem auto 8rem;
             padding-top: 8rem;
@@ -651,6 +645,7 @@ position:relative;
 }
 
 
+
 /* .wpb_wrapper {
     @include breakpoint("medium") {
 
@@ -802,8 +797,7 @@ position:relative;
 }
 
 button.pButton {
-    height: 2.5rem;
-    width: 2.5rem;
+
     display: block;
     background-repeat: no-repeat;
     background-position: center;
@@ -820,8 +814,8 @@ button.pButton {
     }
 
     @include breakpoint("medium") {
+
         margin: unset;
-        margin-right: 1rem;
         float: left;
     }
 }
@@ -857,6 +851,7 @@ button.pButton {
     font-family: $font__roboto;
     color: $color-text-gray;
     text-align: left;
+    flex-grow: 1;
     .audio-img-title {
         font-size: 1rem;
         color: black;
@@ -878,8 +873,8 @@ button.pButton {
     padding: .5rem 0;
     border-bottom: 1px solid $color-medgray;
     margin-bottom: .5rem;
-    display: block;
-    height: 6.5rem;
+    display: flex;
+    //height: 6.5rem;
     @include breakpoint("medium") {
         height: 4rem;
     }
@@ -903,10 +898,8 @@ button.pButton {
 
 .time {
     font-size: .9rem;
-    margin-bottom: 2rem;
     font-family: $font__roboto;
     @include breakpoint("large") {
-        margin-bottom: 0;
     }
 }
 

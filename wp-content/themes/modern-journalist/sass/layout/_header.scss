@@ -67,7 +67,9 @@
     }
 }
 
-.header-top, .header-bottom, #masthead {
+.header-top,
+.header-bottom,
+#masthead {
     height: $size__header-height-mobile;
     @include breakpoint("medium") {
         height: $size__header-height;
@@ -84,7 +86,7 @@
         position: relative;
         padding-right: 2rem;
         width: unset;
-        display:flex;
+        display: flex;
     }
     &:after {
         @include breakpoint("medium") {
@@ -140,9 +142,8 @@
         margin-right: 0rem;
     }
     @include breakpoint("large") {
-    margin-right: 2rem;
+        margin-right: 2rem;
         margin-right: unset;
-
     }
     .site-title {
         color: black;
@@ -162,14 +163,15 @@
             width: 220px;
         }
 
-        &:hover, &:visited {
+        &:hover,
+        &:visited {
             color: black;
         }
     }
 }
 
 .single-post .site-title {
-width: unset;
+    width: unset;
 }
 
 .header-bottom {
@@ -184,9 +186,8 @@ width: unset;
     img {
         display: none;
         @include breakpoint("medium") {
-        height: 30px;
-
-    }
+            height: 30px;
+        }
         @include breakpoint("large") {
             display: flex;
             height: 30px;
@@ -243,7 +244,7 @@ width: unset;
             font-size: 1.5rem;
         }
         &:after {
-              content: '';
+            content: '';
             text-align: right;
             display: block;
             pointer-events: none;
@@ -252,22 +253,19 @@ width: unset;
             right: 0%;
             width: 40px;
             height: 100%;
-            background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
-            background: -webkit-gradient(linear, 0% 0%, 0% 65%, from(rgba(242, 194, 97, 0)), to($color-dkblue));
-            background: -webkit-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
-            background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
-            background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-dkblue 65%);
-            background: linear-gradient(to right, rgba(242, 194, 97, 0), $color-dkblue 65%);
+            background: rgb(0, 65, 101);
+            background: -moz-linear-gradient(90deg, rgba(0, 65, 101, 0) 0%, $color-dkblue 65%);
+            background: -webkit-linear-gradient(90deg, rgba(0, 65, 101, 0) 0%, $color-dkblue 65%);
+            background: linear-gradient(90deg, rgba(0, 65, 101, 0) 0%, $color-dkblue 65%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#004165", endColorstr="#004165", GradientType=1);
+
             @include breakpoint("medium") {
-                background: -moz-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-ltgray 65%);
-                background: -webkit-gradient(linear, 0% 0%, 0% 65%, from(rgba(242, 194, 97, 0)), to($color-dkblue));
-                background: -webkit-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-ltgray 65%);
-                background: -o-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-ltgray 65%);
-                background: -ms-linear-gradient(left, rgba(242, 194, 97, 0) 0%, $color-ltgray 65%);
-                background: linear-gradient(to right, rgba(242, 194, 97, 0), $color-ltgray  65%);
-
+                background: rgb(243, 243, 243);
+                background: -moz-linear-gradient(90deg, rgba(243, 243, 243, 1) 0%, $color-ltgray 65%);
+                background: -webkit-linear-gradient(90deg, rgba(243, 243, 243, 1) 0%, $color-ltgray 65%);
+                background: linear-gradient(90deg, rgba(243, 243, 243, 1) 0%, $color-ltgray 65%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3f3f3", endColorstr="#f3f3f3", GradientType=1);
             }
-
         }
     }
     .header-post-header-right {
@@ -291,7 +289,8 @@ width: unset;
             line-height: 40px;
             display: block;
         }
-        .header-post-header-share, .header-post-header-chapters {
+        .header-post-header-share,
+        .header-post-header-chapters {
             display: inline-block;
             .meta-label {
                 letter-spacing: 1px;
@@ -332,7 +331,8 @@ width: unset;
     top: 100%;
     width: 100%;
     bottom: 100%;
-    .post-links, .post-share {
+    .post-links,
+    .post-share {
         height: 0px;
         font-size: 1.2rem;
         display: block;
@@ -395,8 +395,8 @@ width: unset;
                     width: 0px;
                     height: .5rem;
                     @include breakpoint("medium") {
-                    margin-right: 5px;
-                }
+                        margin-right: 5px;
+                    }
                     border-top: 3px solid $color-medbluegray;
                     @include transition(width .2s ease-in-out);
                 }

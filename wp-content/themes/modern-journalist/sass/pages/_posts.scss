@@ -1116,6 +1116,7 @@ hr.quoteline {
     }
 }
 
+
 .group-full {
     margin: 3rem 0;
 }
@@ -1146,7 +1147,9 @@ hr.quoteline {
     font-weight: bolder;
 }
 
-.group-right {
+
+.image-group:not(.show-desc) {
+&.group-right {
     &.group2 {
         .img-desc:nth-of-type(1) span.img-locator:after {
             content: "Top: ";
@@ -1174,7 +1177,7 @@ hr.quoteline {
     }
 }
 
-.group-full {
+&.group-full {
     &.group2 {
         .img-desc:nth-of-type(1) span.img-locator:after {
             content: "Top: ";
@@ -1215,6 +1218,7 @@ hr.quoteline {
             }
         }
     }
+}
 } //Dialog
 .dialog-container {
     display: block;
@@ -1382,7 +1386,7 @@ h2.heading.underline {
     }
 
     @include breakpoint("xlarge") {
-        width: 60%;
+        width: 50%;
         margin: 1rem 0 1.5rem 2.8rem;
     }
 } //Sections

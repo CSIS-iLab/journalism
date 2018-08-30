@@ -576,6 +576,30 @@ vc_map( array(
             "description" => __( "" ),
             'save_always' => true,
         ),
+                array(
+            "type"        => "checkbox",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Write single description" ),
+            "param_name"  => "includedesc",
+            'value'       => " ",
+            "description" => __( "Do not pull description automatically from media library" ),
+
+        ),
+        array(
+            "type"        => "textfield",
+            "holder"      => "div",
+            "class"       => "",
+            "heading"     => __( "Image Group Description" ),
+            "param_name"  => "groupdesc",
+            "value"       => __( "" ),
+            "description" => __( "" ),
+            'dependency'  => array(
+                'element' => 'includedesc',
+                'value'   => array( 'true' ),
+
+            ),
+        ),
 
     ),
 ) );

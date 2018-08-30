@@ -425,6 +425,8 @@ function imgGroup_shortcode( $atts, $content = null )
 			'fullwidth' => '',
 			'images'   => '',
 			'captionloc'   => '',
+			'includedesc' =>	'',
+			'groupdesc' => ''
 		),
 		$atts
 	);
@@ -434,6 +436,12 @@ function imgGroup_shortcode( $atts, $content = null )
 	$image_ids = explode( ',', $gallery['images'] );
 	$count     = count( $image_ids );
 
+	$includedesc = $gallery['includedesc'];
+	if ( $includedesc == 'true' ) {
+		$includedescClass = "show-desc";
+	} else {
+		$includedescClass = "";
+	}
 
 
 	switch ( $count ) {
@@ -471,9 +479,9 @@ function imgGroup_shortcode( $atts, $content = null )
 
 
 	if ( ($gallery['fullwidth'] == 'true')) {
-		$output .= '<div class="image-group row group-full ' . $colClass . '">';
+		$output .= '<div class="image-group row group-full ' . $includedescClass . ' ' . $colClass . '">';
 	} else {
-		$output .= '<div class="image-group  group-right ' . $colClass . '">';
+		$output .= '<div class="image-group  group-right ' . $includedescClass . ' ' . $colClass . '">';
 	}
 
 
@@ -502,11 +510,15 @@ function imgGroup_shortcode( $atts, $content = null )
 	} else {
 		$output .= '<div class="images col-xs-12">';
 	}
+	if ( $includedesc != 'true' ) {
+		foreach ( $image_ids as $image_id ) {
 
-	foreach ( $image_ids as $image_id ) {
+			$output .= '<div class="img-desc"><span class="img-locator"></span>' . wp_get_attachment_caption( $image_id ) . '</div>';
 
-		$output .= '<div class="img-desc"><span class="img-locator"></span>' . wp_get_attachment_caption( $image_id ) . '</div>';
-
+		}
+	} else {
+		$output .= '<div class="img-desc"><span class="img-locator"></span>' . esc_html( $gallery['groupdesc'] ) . '</div>';
+	
 	}
 
 	$output .= '</div></div>';

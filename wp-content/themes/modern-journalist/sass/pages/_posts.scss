@@ -648,6 +648,7 @@ p {
 
 
 
+
 /* .wpb_wrapper {
     @include breakpoint("medium") {
 
@@ -1149,76 +1150,76 @@ hr.quoteline {
 
 
 .image-group:not(.show-desc) {
-&.group-right {
-    &.group2 {
-        .img-desc:nth-of-type(1) span.img-locator:after {
-            content: "Top: ";
-            display: inline;
-        }
-        .img-desc:nth-of-type(2) span.img-locator:after {
-            content: "Bottom: ";
-            display: inline;
-        }
-    }
-
-    &.group3 {
-        .img-desc:nth-of-type(1) span.img-locator:after {
-            content: "Top: ";
-            display: inline;
-        }
-        .img-desc:nth-of-type(2) span.img-locator:after {
-            content: "Middle: ";
-            display: inline;
-        }
-        .img-desc:nth-of-type(3) span.img-locator:after {
-            content: "Bottom: ";
-            display: inline;
-        }
-    }
-}
-
-&.group-full {
-    &.group2 {
-        .img-desc:nth-of-type(1) span.img-locator:after {
-            content: "Top: ";
-            display: inline;
-            @include breakpoint("medium") {
-                content: "Left: ";
+    &.group-right {
+        &.group2 {
+            .img-desc:nth-of-type(1) span.img-locator:after {
+                content: "Top: ";
+                display: inline;
+            }
+            .img-desc:nth-of-type(2) span.img-locator:after {
+                content: "Bottom: ";
+                display: inline;
             }
         }
-        .img-desc:nth-of-type(2) span.img-locator:after {
-            content: "Bottom: ";
-            display: inline;
-            @include breakpoint("medium") {
-                content: "Right: ";
+
+        &.group3 {
+            .img-desc:nth-of-type(1) span.img-locator:after {
+                content: "Top: ";
+                display: inline;
+            }
+            .img-desc:nth-of-type(2) span.img-locator:after {
+                content: "Middle: ";
+                display: inline;
+            }
+            .img-desc:nth-of-type(3) span.img-locator:after {
+                content: "Bottom: ";
+                display: inline;
             }
         }
     }
 
-    &.group3 {
-        .img-desc:nth-of-type(1) span.img-locator:after {
-            content: "Top: ";
-            display: inline;
-            @include breakpoint("medium") {
-                content: "Left: ";
+    &.group-full {
+        &.group2 {
+            .img-desc:nth-of-type(1) span.img-locator:after {
+                content: "Top: ";
+                display: inline;
+                @include breakpoint("medium") {
+                    content: "Left: ";
+                }
+            }
+            .img-desc:nth-of-type(2) span.img-locator:after {
+                content: "Bottom: ";
+                display: inline;
+                @include breakpoint("medium") {
+                    content: "Right: ";
+                }
             }
         }
-        .img-desc:nth-of-type(2) span.img-locator:after {
-            content: "Middle: ";
-            display: inline;
-            @include breakpoint("medium") {
-                content: "Center: ";
+
+        &.group3 {
+            .img-desc:nth-of-type(1) span.img-locator:after {
+                content: "Top: ";
+                display: inline;
+                @include breakpoint("medium") {
+                    content: "Left: ";
+                }
             }
-        }
-        .img-desc:nth-of-type(3) span.img-locator:after {
-            content: "Bottom: ";
-            display: inline;
-            @include breakpoint("medium") {
-                content: "Right: ";
+            .img-desc:nth-of-type(2) span.img-locator:after {
+                content: "Middle: ";
+                display: inline;
+                @include breakpoint("medium") {
+                    content: "Center: ";
+                }
+            }
+            .img-desc:nth-of-type(3) span.img-locator:after {
+                content: "Bottom: ";
+                display: inline;
+                @include breakpoint("medium") {
+                    content: "Right: ";
+                }
             }
         }
     }
-}
 } //Dialog
 .dialog-container {
     display: block;
@@ -1381,7 +1382,7 @@ h2.heading.underline {
     }
 
     @include breakpoint("large") {
-        width: 60%;
+        width: 50%;
         margin: 1rem 0 1.5rem 2.3rem;
     }
 
@@ -1417,7 +1418,7 @@ h2.post-section {
     display: block;
     line-height: 1.3;
     @include breakpoint("medium") {
-        font-size: 3rem;
+        font-size: 2.7rem;
         line-height: 1.3;
     }
 }

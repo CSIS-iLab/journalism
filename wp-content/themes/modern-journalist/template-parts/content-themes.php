@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="col-xs-12 entry-header">
 				<?php
-				  the_title('<h3 class="entry-title"><span>' . $num_padded . '</span> ', '</h3>');
+				  the_title('<h3 class="entry-title">', '</h3>');
 				?>
 			</div>
 		</div>
@@ -133,7 +133,7 @@
 
 							  echo '<div class="related-post-content col-xs-12 col-md-8">';
 							  echo '<h3 class="entry-title"><a href="' . esc_url(get_permalink($r->ID)) . '"> ' . get_the_title($r->ID) . '<i class="icon-arrow-long-right"></i></a></h3>';
-							  
+
 							  $post    = get_post($r->ID);
 							  $excerpt = get_the_excerpt();
 							  echo $excerpt;
@@ -145,7 +145,7 @@
 	  			}
 
   				?>
-		
+
 		</div>
 			<div class="vertical-left">FINAL PROJECT</div>
 	</footer><!-- .entry-footer -->

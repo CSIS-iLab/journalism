@@ -24,6 +24,9 @@ get_header(); ?>
 
 			<?php
 			/* Start the Loop */
+			$args = array('order' => 'ASC');
+			$query = new WP_Query($args);
+			$query = new WP_Query($args);
 			while ( have_posts() ) : the_post();
 
 				/*
@@ -31,9 +34,12 @@ get_header(); ?>
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				
+
 				if(get_post_type() == 'themes' || is_post_type_archive('themes')) {
+// echo out the title, excerpt
 					get_template_part( 'template-parts/content-themes' );
+
+					
 				}
 				else {
 ?>
@@ -43,7 +49,7 @@ get_header(); ?>
 			    if ( has_post_thumbnail() ) {
 			        echo '<div class="col-xs-12 col-md-' . $thumbnail_size . ' entry-thumbnail"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
 			        the_post_thumbnail( 'medium_large' );
-			        
+
 			    }
 			    ?>
 				<?php

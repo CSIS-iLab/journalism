@@ -24,9 +24,7 @@ get_header(); ?>
 
 			<?php
 			/* Start the Loop */
-			$args = array('order' => 'ASC');
-			$query = new WP_Query($args);
-			$query = new WP_Query($args);
+
 			while ( have_posts() ) : the_post();
 
 				/*
@@ -36,10 +34,10 @@ get_header(); ?>
 				 */
 
 				if(get_post_type() == 'themes' || is_post_type_archive('themes')) {
-// echo out the title, excerpt
+
 					get_template_part( 'template-parts/content-themes' );
 
-					
+
 				}
 				else {
 ?>

@@ -57,15 +57,14 @@ class J_Testimonials
             'menu_icon'           => 'dashicons-format-quote',
             'template' => array(
                 array( 'jourblocks/testimonial-meta' ),
-            array( 'core/paragraph', array(
-                'placeholder' => 'Add Description...',
-            ) ),
-        ),
+                array( 'core/paragraph', array(
+                    'placeholder' => 'Add Description...',
+                ) ),
+            ),
             'template_lock'      => 'all',
         );
         register_post_type('testimonial', $args);
     }
-
 
     /**
      * Set testimonial title

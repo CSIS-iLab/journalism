@@ -8,29 +8,61 @@
  */
 
 get_header();
+
+$site_title = get_bloginfo( 'name' );
+$site_url = network_site_url( '/' );
+$site_tagline = get_bloginfo( 'description' );
+
+$modern_journalist_hero = get_option('modern_journalist_homepage_hero');
+$modern_journalist_testimonialimage = get_option('modern_journalist_homepage_testimonialimg');
+
+$modern_journalist_intro = get_option('modern_journalist_homepage_intro');
+$csis_desc = get_option('modern_journalist_homepage_csis');
+$feature_post1 = get_option('modern_journalist_homepage_featured_post_1');
+$feature_post2 = get_option('modern_journalist_homepage_featured_post_2');
+$feature_post3 = get_option('modern_journalist_homepage_featured_post_3');
+
+$testimonial1 = get_option('modern_journalist_homepage_testimonal_1');
+$testimonial2 = get_option('modern_journalist_homepage_testimonal_2');
+$testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main content-wrapper" role="main">
+<div id="primary" class="site-content">
+<div id="content" role="main">
 
-		<section class="home-hero">
-		<?php
-		$modern_journalist_intro = get_option('modern_journalist_homepage_intro');
-		   echo '<p>' . $modern_journalist_intro . '</p>';
-		?>
+		<header class="home-hero">
+			<div id="home-hero__vid-container">
+				<video class="home-hero__vid" autoplay="" loop="" muted="">
+					<source src="<?php echo esc_attr($modern_journalist_hero) ?>" type="video/mp4">
+				</video>
+			</div>
+			<div class="home-hero__site-info">
+				<h1 class="home-hero__title">
+					Reporting on <br/>International Affairs
+				</h1>
+				<div class="home-hero__tagline">
+					<?php echo esc_attr($site_tagline) ?>
+				</div>
+			</div>
+		</header>
+
+		<section class="home-about">
+			<div class="home-about_program">
+				<?php echo '<p>' . esc_html($modern_journalist_intro) . '</p>'; ?>
+			</div>
+			<div class="home-about_csis">
+				<h3>About CSIS</h3>
+				<?php echo '<p>' . $csis_desc . '</p>'; ?>
+			</div>
 		</section><!-- about the program-->
 
-		<section class="home-csis">
-			<?php
-			$csis_desc = get_option('modern_journalist_homepage_csis');
-			  echo '<p>' . $csis_desc . '</p>';
-			?>
-		</section><!-- about csis section-->
-
 		<section class="home-feature">
-			<?php
+			<h2>Featured Projects</h2>
+			<div class="home-feature_container">
+				<div class="home-feature_main">
+					<article>
+						<?php
             // Featured Item
-            $feature_post1 = get_option('modern_journalist_homepage_featured_post_1');
             if ($feature_post1) {
                 $featuredPostArgs = array(
                     'post__in' => array(
@@ -47,39 +79,109 @@ get_header();
                 endforeach;
                 wp_reset_postdata();
             }
-        ?>
+        		?>
+					</article>
+				</div><!-- featured post main -->
+				<div class="home-feature_sidebar">
+					<article>
+						<?php
+						// Featured Item
+						if ($feature_post2) {
+								$featuredPostArgs = array(
+								    'post__in' => array(
+								        $feature_post2
+								    ),
+								    'orderby' => 'post__in',
+								    'posts_per_page' => 1
+								);
+								$featured_post = get_posts($featuredPostArgs);
+
+								foreach ($featured_post as $post) : setup_postdata($post);
+								$post->isFeaturedMain = 1;
+								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+								$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_date', true);
+								if ($meta_date) {
+										echo '<div class="post__date">' . esc_attr($meta_date) . '</div>';
+								}
+								endforeach;
+								wp_reset_postdata();
+						}
+					?>
+					</article>
+
+					<article>
+						<?php
+						// Featured Item
+						if ($feature_post3) {
+								$featuredPostArgs = array(
+								    'post__in' => array(
+								        $feature_post3
+								    ),
+								    'orderby' => 'post__in',
+								    'posts_per_page' => 1
+								);
+								$featured_post = get_posts($featuredPostArgs);
+
+								foreach ($featured_post as $post) : setup_postdata($post);
+								$post->isFeaturedMain = 1;
+								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+								$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_date', true);
+								if ($meta_date) {
+										echo '<div class="post__date">' . esc_attr($meta_date) . '</div>';
+								}
+								endforeach;
+								wp_reset_postdata();
+						}
+						?>
+					</article>
+				</div><!-- featured post sidebar -->
+			</div><!-- featured post container -->
 		</section><!-- featured post section -->
 
     <section class="home-testimonials">
-			<?php
-			$args = array(
-			    'post_type'      => 'testimonial',
-			    'posts_per_page' => -1,
-			    'post_status'    => 'publish',
-			    'meta_key'     => 'jourblocks_meta_testimonial_show',
-			);
-			$the_query = new WP_Query($args);
-			?>
-			<?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-			<div class="testimonial-container">
-				<div class="testimonial-content"><?php the_content() ;?></div>
-					<div class="testimonial-meta">
-					<?php
-					$meta_name = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_name', true);
-					$meta_institution = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_institution', true);
-					$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_date', true);
-					echo '<p>' . $meta_name . '</p>';
-					echo '<p>' . $meta_institution . '</p>';
-					echo '<p>' . $meta_date . '</p>';
+			<h2>What are they saying?</h2>
 
+				<?php
+						$featuredTestimonialArgs = array(
+						    'post_type' => 'testimonial',
+						    'post__in' => array(
+						        $testimonial1, $testimonial2, $testimonial3
+						    ),
+						    'orderby' => 'post__in',
+						    'posts_per_page' => 3
+						);
+						$featured_testimonial = get_posts($featuredTestimonialArgs);
+						foreach($featured_testimonial as $post) : setup_postdata($post);
+						$meta_name = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_name', true);
+		        $meta_institution = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_institution', true);
+						$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_date', true);
+
+							echo '<article class="home-testimonials__single">';
+							
+							the_content();
+							if ($meta_name) {
+			            echo'<span>' . esc_attr($meta_name) . '</span>';
+			        }
+			        if ($meta_institution) {
+			            echo ', ' . esc_attr($meta_institution);
+			        }
+							if ($meta_date) {
+			            echo ', ' . esc_attr($meta_date);
+			        }
+							echo '</article>';
+						endforeach;
+						wp_reset_postdata();
 					?>
-				</div>
-				</div>
-			<?php endwhile; else: ?> <p>Sorry, there are no testimonials to display.</p> <?php endif; ?>
-			<?php wp_reset_query(); ?>
 
+
+<div class="test">
+			<img  class="home-testimonial-image" src="<?php echo esc_attr($modern_journalist_testimonialimage) ?>" >
+				<?php
+				$imgid = attachment_url_to_postid( $modern_journalist_testimonialimage );
+				echo '<div class="home-testimonial-caption caption"><figcaption>' . wp_get_attachment_caption( $imgid ) . '</figcaption></div>';
+				 ?>
+</div>
 		</section><!-- testimonial section -->
-
 	</main><!-- #main -->
 </div><!-- #primary -->
 

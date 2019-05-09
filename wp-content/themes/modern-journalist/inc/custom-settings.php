@@ -184,7 +184,7 @@ add_action('admin_init', 'modern_journalist_admin_init_section_homepage');
  */
 function modern_journalist_admin_init_section_homepage()
 {
-    $post_types = array( 'post' );
+    $post_types = array( 'post', 'testimonial' );
     $post_selection = array();
     foreach ($post_types as $type) {
         $post_selection[$type] = get_posts(
@@ -237,12 +237,61 @@ function modern_journalist_admin_init_section_homepage()
                 'modern_journalist_settings_section_homepage',
                 array( 'modern_journalist_homepage_featured_post_1', $post_selection['post'] )
         );
+    add_settings_field(
+                'modern_journalist_homepage_featured_post_2',
+                'Featured Post #2',
+                'modern_journalist_posts_callback',
+                'modern_journalist-options-page',
+                'modern_journalist_settings_section_homepage',
+                array( 'modern_journalist_homepage_featured_post_2', $post_selection['post'] )
+      );
+      add_settings_field(
+                  'modern_journalist_homepage_featured_post_3',
+                  'Featured Post #3',
+                  'modern_journalist_posts_callback',
+                  'modern_journalist-options-page',
+                  'modern_journalist_settings_section_homepage',
+                  array( 'modern_journalist_homepage_featured_post_3', $post_selection['post'] )
+          );
+      add_settings_field(
+          'modern_journalist_homepage_testimonialimg',
+          'Testimonial Image',
+          'modern_journalist_text_callback',
+          'modern_journalist-options-page',
+          'modern_journalist_settings_section_homepage',
+          array( 'modern_journalist_homepage_testimonialimg' )
+      );
 
-				register_setting(
-		        'modern_journalist_settings',
-		        'modern_journalist_homepage_hero',
-		        'sanitize_text_field'
-		    );
+      add_settings_field(
+                  'modern_journalist_homepage_testimonal_1',
+                  'Testimonial #1',
+                  'modern_journalist_posts_callback',
+                  'modern_journalist-options-page',
+                  'modern_journalist_settings_section_homepage',
+                  array( 'modern_journalist_homepage_testimonal_1', $post_selection['testimonial'] )
+          );
+      add_settings_field(
+                  'modern_journalist_homepage_testimonal_2',
+                  'Testimonial #2',
+                  'modern_journalist_posts_callback',
+                  'modern_journalist-options-page',
+                  'modern_journalist_settings_section_homepage',
+                  array( 'modern_journalist_homepage_testimonal_2', $post_selection['testimonial'] )
+        );
+        add_settings_field(
+                    'modern_journalist_homepage_testimonal_3',
+                    'Testimonial #3',
+                    'modern_journalist_posts_callback',
+                    'modern_journalist-options-page',
+                    'modern_journalist_settings_section_homepage',
+                    array( 'modern_journalist_homepage_testimonal_3', $post_selection['testimonial'] )
+            );
+
+		register_setting(
+        'modern_journalist_settings',
+        'modern_journalist_homepage_hero',
+        'sanitize_text_field'
+    );
 
     register_setting(
         'modern_journalist_settings',
@@ -260,7 +309,38 @@ function modern_journalist_admin_init_section_homepage()
                 'modern_journalist_settings',
                 'modern_journalist_homepage_featured_post_1',
                 'sanitize_text_field'
+      );
+    register_setting(
+                'modern_journalist_settings',
+                'modern_journalist_homepage_featured_post_2',
+                'sanitize_text_field'
         );
+    register_setting(
+                'modern_journalist_settings',
+                'modern_journalist_homepage_featured_post_3',
+                'sanitize_text_field'
+    );
+    register_setting(
+            'modern_journalist_settings',
+            'modern_journalist_homepage_testimonialimg',
+            'sanitize_text_field'
+    );
+
+    register_setting(
+                'modern_journalist_settings',
+                'modern_journalist_homepage_testimonal_1',
+                'sanitize_text_field'
+      );
+    register_setting(
+                'modern_journalist_settings',
+                'modern_journalist_homepage_testimonal_2',
+                'sanitize_text_field'
+        );
+    register_setting(
+                'modern_journalist_settings',
+                'modern_journalist_homepage_testimonal_3',
+                'sanitize_text_field'
+    );
 }
 
 /**

@@ -4,25 +4,14 @@ Template Name: Featured Stories
 */
 get_header(); ?>
 
-<div id="main-content" class="main-content">
+<div id="primary" class="site-content">
+<div id="content" role="main">
 
+<?php while ( have_posts() ) : the_post(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+<h1 class="entry-title"><?php the_title(); ?></h1>
 
-	<?php
-    // Start the Loop.
-    while (have_posts()) : the_post();
-
-    ?>
-
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-        // Page thumbnail and title.
-        the_title('<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->');
-    ?>
-
-	<div class="entry-content">
+<div class="entry-content">
 		<?php the_content(); ?>
 
     <?php
@@ -45,22 +34,15 @@ $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish
 <?php endif; ?>
 
 	</div><!-- .entry-content -->
-</article><!-- #post-## -->
 
 <?php
-                    // If comments are open or we have at least one comment, load up the comment template.
-                    if (comments_open() || get_comments_number()) {
-                        comments_template();
-                    }
                 endwhile;
             ?>
 
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	<?php get_sidebar('content'); ?>
-</div><!-- #main-content -->
+
 
 <?php
-get_sidebar();
 get_footer();

@@ -9,6 +9,7 @@ p,
   font-size: $font__size-body_mobile;
   line-height: $font__line-height-body_mobile;
   margin-bottom: 1em;
+  margin-top: 0;
   color: $color__text-main;
 
   @include breakpoint("large") {
@@ -70,10 +71,18 @@ cite {
   color: $color__text-caption;
 }
 
-.small-title {
+.small-title,
+.component__title {
   font-family: $font__sans;
   font-size: 18px;
   line-height: 20px;
+}
+
+.meta {
+  font-family: $font__sans;
+  font-size: $font__size-caption;
+  line-height: $font__line-height-caption;
+  opacity: 0.6;
 }
 
 dfn,

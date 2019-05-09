@@ -249,12 +249,6 @@ function jourblocks_register_testimonial_meta()
         'type' => 'string',
 
     ));
-    register_meta('post', 'jourblocks_meta_testimonial_show', array(
-        'show_in_rest' => true,
-        'single' => true,
-        'type' => 'boolean',
-
-    ));
 }
 add_action('init', 'jourblocks_register_testimonial_meta');
 

@@ -1,0 +1,615 @@
+//Common
+.entry-header {
+  margin-left: calc(-100vw / 2 + 100% / 2);
+  margin-right: calc(-100vw / 2 + 100% / 2);
+  max-width: 100vw;
+  margin-top: 40px;
+}
+
+.entry-header {
+  //background-color: var(--post-color);
+}
+
+.post__authors,
+.post__date {
+  font-family: $font__sans;
+  line-height: $font__line-height-caption;
+  color: $color__text-gray;
+}
+
+.entry-title {
+  margin-top: 0;
+  font-size: $font__size-posttitle_mobile;
+  line-height: $font__line-height-posttitle_mobile;
+  @include breakpoint("medium") {
+    font-size: $font__size-posttitle;
+    line-height: $font__line-height-posttitle;
+  }
+}
+
+.entry-header__image {
+  background-position: center center;
+  background-size: cover;
+  grid-area: imagearea;
+}
+
+.entry-header__text {
+  position: relative;
+  grid-area: textarea;
+}
+
+.post__date {
+  grid-area: date;
+  font-size: $font__size-small;
+}
+
+.entry-title {
+  grid-area: title;
+}
+
+.post__intro {
+  grid-area: intro;
+}
+
+.post__image {
+  grid-area: image;
+}
+
+.post__authors {
+  grid-area: authors;
+}
+
+.entry-header__caption {
+  grid-area: caption;
+}
+
+//Color block
+.color-block {
+  display: grid;
+
+  grid-template-columns: 100% 100%;
+  grid-template-rows: auto auto;
+  grid-template-areas: "imagearea" "textarea";
+  @include breakpoint("small") {
+    grid-template-areas: "imagearea" "textarea";
+  }
+  @include breakpoint("medium") {
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "textarea imagearea";
+  }
+
+  .entry-header__image {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 24px;
+    grid-template-rows: 24px auto auto;
+    grid-template-areas: "colorblock ." "image image" "caption .";
+    line-height: 0;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    @include breakpoint("small") {
+      grid-template-columns: 1fr 48px 30%;
+      grid-template-rows: 24px auto;
+      grid-template-areas: "colorblock . ." "image image caption";
+    }
+    @include breakpoint("medium") {
+      grid-template-columns: 48px auto;
+      grid-template-rows: 24px auto;
+      grid-template-areas: " . colorblock" "image image" ". caption ";
+      padding-left: 5vw;
+    }
+    @include breakpoint("large") {
+      padding-left: 40px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      grid-area: colorblock;
+      background-color: var(--post-color);
+      grid-row-start: 1;
+      grid-row-end: span 3;
+      z-index: 0;
+      transform-origin: top;
+      @include animation("grow 1s forwards");
+
+      @include breakpoint("medium") {
+        background-color: var(--post-color);
+        grid-row-start: 1;
+        grid-row-end: span 3;
+      }
+    }
+
+    @include keyframes(grow) {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(100%);
+      }
+    }
+
+    .post__image {
+      -webkit-box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
+      box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
+      display: absolute;
+    }
+
+    .post__image-wrapper {
+      grid-column-start: 1;
+      grid-column-end: span 2;
+      grid-row-start: 2;
+      grid-row-end: span 1;
+      align-self: end;
+      z-index: 2;
+
+      @include breakpoint("small") {
+        margin-bottom: 40px;
+      }
+      @include breakpoint("medium") {
+        margin-bottom: 0px;
+        padding-right: 2vw;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+        width: calc(100% - 5vw);
+      }
+      @include breakpoint("large") {
+        padding-right: 5vw;
+      }
+
+      @include breakpoint("xlarge") {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .entry-header__caption {
+    z-index: 2;
+    padding: 0 20px 24px 20px;
+    figcaption {
+      color: white !important;
+      opacity: 80%;
+
+      @include breakpoint("small") {
+        color: $color__text-caption !important;
+        opacity: unset;
+      }
+    }
+    @include breakpoint("medium") {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      align-self: stretch;
+      margin-left: 5vw;
+      width: calc(100% - 5vw);
+      figcaption {
+        color: white !important;
+        opacity: 80%;
+        padding-left: 20px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+  .entry-header__text {
+    padding: 40px 20px 0px;
+    @include breakpoint("small") {
+      padding-left: 5vw;
+      padding-right: 16px;
+      max-width: 700px;
+      justify-self: center;
+      align-self: center;
+      padding-bottom: 40px;
+    }
+    @include breakpoint("medium") {
+      grid-row-start: 1;
+      grid-row-end: span 3;
+    }
+  }
+  .entry-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--post-color);
+    opacity: 50%;
+  }
+}
+
+//
+//
+//Dark background Images
+//
+//
+.background-img {
+  max-width: 1400;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "textarea" "caption";
+
+  &::before {
+    display: block;
+    z-index: 2;
+    content: "";
+    top: 0;
+    left: 0;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    @include animation("appear 2s 1.5s forwards");
+    background: -moz-radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  }
+
+  @include keyframes(appear) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .entry-header__text {
+    padding: 30vh 20px 0px 20px;
+    align-self: stretch;
+    display: grid;
+    grid-template-rows: 20vh auto auto auto auto auto;
+    grid-template-areas: "." "date" "title" "intro" "authors";
+    align-items: end;
+    background-position: center center;
+    background-size: cover;
+
+    @include breakpoint("medium") {
+      grid-template-columns: 3px 80% 20%;
+      grid-template-areas: "border . ." "border date ." "border title ." "border intro ." "border authors .";
+      justify-content: center;
+    }
+    @include breakpoint("large") {
+      grid-template-columns: 3px 700px 400px;
+    }
+  }
+
+  .entry-header__text::after {
+    display: block;
+    content: "";
+    border-left: 2px solid #d3d3d3;
+    grid-area: border;
+    width: 3px;
+    z-index: 2;
+    grid-column-start: 1;
+    grid-row-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 5;
+    height: 0px;
+
+    @include animation("bordergrow 2s 1s forwards");
+    transform-origin: top;
+  }
+
+  @include keyframes(bordergrow) {
+    from {
+      height: 0%;
+    }
+    to {
+      height: 100%;
+    }
+  }
+
+  .entry-header__text div,
+  .entry-header__text h1,
+  .entry-header__text p {
+    opacity: 0;
+    @include animation("textblur 2s 2s forwards");
+  }
+  @include keyframes(textblur) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .entry-header__caption {
+    display: grid;
+    grid-template-rows: auto;
+    margin: 0 20px;
+
+    figcaption {
+      padding: 20px;
+      margin-top: 0;
+      grid-area: figcaption;
+    }
+    grid-template-areas: "figcaption";
+    justify-content: start;
+
+    @include breakpoint("medium") {
+      grid-template-columns: 80% 20%;
+      grid-template-areas: "figcaption .";
+      justify-content: center;
+    }
+    @include breakpoint("large") {
+      grid-template-columns: 700px 400px;
+    }
+  }
+
+  .entry-title {
+    margin-bottom: 0;
+    font-family: $font__sans;
+    font-weight: bold;
+    @include breakpoint("medium") {
+      font-size: 50px;
+      line-height: 54px;
+    }
+  }
+  .post__authors {
+    padding-bottom: 30px;
+  }
+  .entry-title,
+  .post__intro,
+  .post__authors,
+  .post__date {
+    z-index: 3;
+
+    padding-left: 20px;
+    color: white !important;
+    margin: 0;
+  }
+
+  .post__intro {
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
+
+  .post__date,
+  .post__authors {
+    opacity: 0.8;
+  }
+}
+//
+//
+//Half Page
+//
+.half-page {
+  display: grid;
+  grid-template-rows: auto 300px auto;
+  grid-template-columns: 100%;
+  grid-template-areas: "textarea" "imagearea" "caption";
+
+  @include breakpoint("medium") {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "textarea imagearea" "textarea caption";
+    height: calc(90vh - 64px);
+    min-height: 700px;
+  }
+
+  .entry-header__image {
+    @include breakpoint("medium") {
+      grid-column-start: 2;
+      grid-row-end: span 2;
+      grid-row-start: 1;
+      grid-column-end: 2;
+    }
+
+    .post__image {
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .entry-header__text {
+    text-align: center;
+    padding: 0 20px;
+    display: grid;
+    grid-template-rows: 100px auto auto auto auto 100px;
+    grid-template-columns: auto;
+    grid-template-areas: "." "date" "title" "intro" "authors" ".";
+    @include breakpoint("small") {
+      padding: 0 7vw;
+    }
+    @include breakpoint("medium") {
+      grid-template-rows: 1fr auto auto auto auto 1fr;
+      align-items: center;
+    }
+  }
+
+  .entry-header__text::before,
+  .entry-header__text::after {
+    display: block;
+    content: "";
+    width: 50%;
+    height: 80px;
+    border-right: 2px solid #d8d8d8;
+    left: 0;
+    top: 0;
+    margin: 2rem 0;
+    align-self: center;
+    @include breakpoint("medium") {
+      height: 100%;
+    }
+  }
+
+  .post__date {
+    @include breakpoint("medium") {
+      padding-top: 24px;
+    }
+  }
+
+  .entry-title {
+    margin-bottom: 0px;
+  }
+
+  .entry-title::after {
+    display: block;
+    content: "";
+    width: 120px;
+    height: 2px;
+    border-bottom: 2px solid #d8d8d8;
+    opacity: 0.5;
+    margin: 12px auto 0;
+  }
+
+  .post__authors {
+    @include breakpoint("medium") {
+      padding-bottom: 24px;
+    }
+  }
+
+  .post__intro {
+    margin-bottom: 12px;
+  }
+  .entry-header__caption {
+    padding: 0 20px 2rem;
+    @include breakpoint("medium") {
+      width: 80%;
+      max-width: 400px;
+      justify-self: end;
+
+      opacity: 80% !important;
+      align-self: end;
+    }
+
+    figcaption {
+      @include breakpoint("medium") {
+        text-align: right !important;
+        color: white !important;
+        opacity: 0.8 !important;
+      }
+    }
+  }
+}
+//
+//
+//Cut Out
+//
+.cut-out {
+  display: grid;
+  grid-template-rows: 300px 32px auto auto;
+  grid-template-columns: auto 20px;
+  grid-template-areas: "imagearea ." ". ." "textarea ." "caption .";
+  @include breakpoint("small") {
+    grid-template-columns: 90% auto;
+    grid-template-rows: 400px 40px auto auto;
+  }
+  @include breakpoint("medium") {
+    grid-template-columns: 80% auto;
+    grid-template-rows: 60vh 80px auto auto;
+  }
+  @include breakpoint("large") {
+    grid-template-columns: 800px auto;
+    grid-template-rows: 60vh 80px auto auto;
+  }
+
+  .entry-title,
+  .post__intro,
+  .post__date {
+    align-self: stretch;
+    padding: 20px 20px;
+    @include breakpoint("small") {
+      padding: 32px 7vw;
+    }
+    @include breakpoint("medium") {
+      padding: 40px 10vw;
+    }
+    @include breakpoint("large") {
+      padding: 40px 72px;
+    }
+  }
+  .post__authors,
+  .entry-header__caption {
+    margin: 0px 20px 20px;
+    @include breakpoint("small") {
+      margin: 0px 7vw 32px;
+      width: 80%;
+    }
+    @include breakpoint("medium") {
+      margin: 0px 10vw 32px;
+      width: 70%;
+    }
+    @include breakpoint("large") {
+      margin: 0px 72px 32px;
+      max-width: 800px;
+    }
+  }
+  .entry-title,
+  .post__intro,
+  .post__date {
+    background-color: white;
+    background-color: var(--post-color);
+    color: var(--post-text);
+  }
+
+  .post__date {
+    padding-bottom: 0.5rem;
+  }
+
+  .entry-title {
+    margin-bottom: 0;
+    padding-bottom: 12px;
+    padding-top: 0;
+  }
+
+  .post__intro {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+  .entry-header__caption {
+    margin-top: 0;
+  }
+  .post__authors {
+    padding-top: 24px;
+    margin-bottom: 12px;
+    border-top: 1px solid var(--post-border);
+  }
+  .post__intro {
+    @include breakpoint("large") {
+      padding-right: 200px;
+      width: auto;
+    }
+  }
+
+  .post__authors,
+  .entry-header__caption {
+    @include breakpoint("large") {
+      margin-right: 200px;
+      width: auto;
+    }
+  }
+
+  .entry-header__image {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+    grid-row-start: 1;
+    z-index: 0;
+  }
+  .entry-header__text {
+    grid-row-end: span 2;
+    grid-row-start: 2;
+    //background-color: var(--post-color);
+    z-index: 1;
+  }
+}

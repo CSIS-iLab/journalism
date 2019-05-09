@@ -1,0 +1,14 @@
+@import "audio";
+@import "authors";
+@import "dialog";
+@import "groupimg";
+@import "layout";
+@import "postheader";
+@import "profile";
+@import "textoverlay";
+@import "themeinfo";
+
+.component__caption p,
+.group__caption-container p {
+  @extend figcaption;
+}

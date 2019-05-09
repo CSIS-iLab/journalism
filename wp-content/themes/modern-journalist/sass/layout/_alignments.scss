@@ -1,0 +1,6 @@
+.single-post .site-content {
+  padding-top: 24px;
+  @include breakpoint("large") {
+    padding-top: 48px;
+  }
+}

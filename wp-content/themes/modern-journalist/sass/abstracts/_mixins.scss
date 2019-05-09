@@ -1,44 +1,43 @@
 // Rem output with px fallback
 $browser-context: 12px;
 @function calculateRem($size) {
-    $remSize: $size / $browser-context;
-    @return #{$remSize}rem;
+  $remSize: $size / $browser-context;
+  @return #{$remSize}rem;
 }
-
 
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 16) * 1px;
-	font-size: $sizeValue * 1rem;
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
 }
 
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Clearfix
 @mixin clearfix() {
-	content: "";
-	display: table;
-	table-layout: fixed;
+  content: "";
+  display: table;
+  table-layout: fixed;
 }
 
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
-	clear: both;
+  clear: both;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+  width: map-get($columns, $numberColumns) -
+    (($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
-
 // Breakpoints
-$breakpoint-xlarge: 90em;
+$breakpoint-xlarge: 80em;
 $breakpoint-large: 62em;
 $breakpoint-medium: 48em;
 $breakpoint-small: 36em;
@@ -46,70 +45,98 @@ $breakpoint-small: 36em;
 $breakpoint-xsmall: 36em;
 
 @mixin breakpoint($break) {
-    @if $break==xlarge {
-        @media screen and (min-width: $breakpoint-xlarge) {
-            @content;
-        }
+  @if $break==xlarge {
+    @media screen and (min-width: $breakpoint-xlarge) {
+      @content;
     }
-    @else if $break==large {
-        @media screen and (min-width: $breakpoint-large) {
-            @content;
-        }
+  } @else if $break==large {
+    @media screen and (min-width: $breakpoint-large) {
+      @content;
     }
-    @else if $break==medium {
-        @media screen and (min-width: $breakpoint-medium) {
-            @content;
-        }
+  } @else if $break==medium {
+    @media screen and (min-width: $breakpoint-medium) {
+      @content;
     }
-    @else if $break==small {
-        @media screen and (min-width: $breakpoint-small) {
-            @content;
-        }
+  } @else if $break==small {
+    @media screen and (min-width: $breakpoint-small) {
+      @content;
     }
-    @else if $break==xsmall {
-        @media screen and (max-width: $breakpoint-xsmall) {
-            @content;
-        }
+  } @else if $break==xsmall {
+    @media screen and (max-width: $breakpoint-xsmall) {
+      @content;
     }
-    @else if $break==maxsmall {
-        @media screen and (max-width: $breakpoint-medium) {
-            @content;
-        }
+  } @else if $break==maxsmall {
+    @media screen and (max-width: $breakpoint-medium) {
+      @content;
     }
-    @else {
-        @media screen and (min-width: $break) {
-            @content;
-        }
+  } @else {
+    @media screen and (min-width: $break) {
+      @content;
     }
+  }
 }
 
 // Transitions
 @mixin transition($args...) {
-    -webkit-transition: $args;
-    -moz-transition: $args;
-    -ms-transition: $args;
-    -o-transition: $args;
-    transition: $args;
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
 }
 
 // Extend Background to full width of window
-@mixin fullWidthBackground( $background ) {
-    &::before,
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        width: 100vw;
-        height: 100%;
-        background-color: $background;
-    }
+@mixin fullWidthBackground($background) {
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: $background;
+  }
 
-    &::before {
-        right: calc(100% - 1px);
-    }
+  &::before {
+    right: calc(100% - 1px);
+  }
 
-    &::after {
-        left: calc(100% - 1px);
-    }
+  &::after {
+    left: calc(100% - 1px);
+  }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
 }

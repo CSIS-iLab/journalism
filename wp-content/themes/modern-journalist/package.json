@@ -1,11 +1,11 @@
 {
-  "name": "your-project",
-  "description": "A WPGulp based project.",
+  "name": "Modern-Journalist",
+  "description": "This is the CSIS Journalism Bootcamp, an initiative that connects rising journalists with policy experts and multimedia producers to tell pressing stories from around the globe.",
   "version": "1.0.0",
-  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
+  "author": "iDeas Lab",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadawais/WPGulp"
+    "url": "https://github.com/CSIS-iLab/journalism"
   },
   "license": "MIT",
   "devDependencies": {

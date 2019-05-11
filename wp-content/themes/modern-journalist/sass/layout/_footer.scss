@@ -1,0 +1,135 @@
+footer.site-footer {
+  padding: 0 24px;
+  background-color: $color__main;
+  overflow: hidden;
+}
+.site-footer-container {
+  color: rgba(#fff, $opacity__light);
+  width: 100%;
+  display: block;
+
+  position: relative;
+  margin: 0 auto;
+  max-width: 1080px;
+  @include breakpoint("small") {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "fimage finfo" "fimage fcontact" "fimage fcopyright";
+  }
+  @include breakpoint("large") {
+    display: grid;
+
+    grid-template-columns: 0.5fr 1.5fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "fimage finfo fcontact" "fimage fcopyright fcontact";
+  }
+
+  .footer__info {
+    margin-top: 32px;
+    grid-area: finfo;
+    padding: 3% 0;
+    @include breakpoint("small") {
+      padding-left: 2rem;
+    }
+    @include breakpoint("large") {
+      padding-right: calc(3% + 32px);
+    }
+    p {
+      font-size: 16px;
+      color: rgba(#fff, $opacity__light);
+    }
+    .footer__csis-logo {
+      max-width: 300px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .footer__contact {
+    font-family: $font__sans;
+    grid-area: fcontact;
+    @include breakpoint("small") {
+      padding-left: 2rem;
+    }
+    @include breakpoint("large") {
+      padding-top: 32px;
+      background-color: $color__main-light;
+    }
+
+    > div {
+      @include breakpoint("large") {
+        padding: 3%;
+      }
+    }
+    .footer__contact-info div {
+      padding: 4px 0;
+    }
+
+    .footer__contact-address span {
+      display: inline-block;
+    }
+
+    &::after {
+      @include breakpoint("large") {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100%;
+        background-color: $color__main-light;
+        left: calc(100% - 1px);
+      }
+    }
+  }
+
+  .footer__image {
+    margin-top: 32px;
+    grid-area: fimage;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.6;
+  }
+
+  .footer__copyright {
+    grid-area: fcopyright;
+    grid-column-end: span 2;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    @include breakpoint("small") {
+      padding-left: 2rem;
+    }
+    p {
+      font-family: $font__sans;
+      font-size: 12px;
+      margin-bottom: 0;
+      padding: 12px 0;
+      color: rgba(#fff, $opacity__lightest);
+    }
+    a {
+      color: rgba(#fff, $opacity__lightest);
+      &:hover {
+        color: rgba(#fff, $opacity__lighter);
+      }
+    }
+  }
+
+  .footer__follow-icon {
+    display: inline;
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
+    display: relative;
+    display: inline-block;
+
+    @include breakpoint("medium") {
+      width: 24px;
+      height: 24px;
+    }
+    img {
+      height: 100%;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

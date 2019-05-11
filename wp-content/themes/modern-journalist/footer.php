@@ -9,6 +9,7 @@
  * @package Modern_Journalist
  */
  $meta_description = get_option('modern_journalist_description');
+  $meta_image = get_option('modern_journalist_footer_image');
  $meta_email = get_option('modern_journalist_email');
  $meta_facebook = get_option('modern_journalist_facebook');
  $meta_twitter = get_option('modern_journalist_twitter');
@@ -20,19 +21,67 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'modern-journalist' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'modern-journalist' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'modern-journalist' ), 'modern-journalist', '<a href="http://underscores.me/">Tucker Harris</a>' );
-				?>
-		</div><!-- .site-info -->
+    <div class="site-footer-container">
+		<div class="footer__info">
+      <div class="footer__csis-logo">
+  			<a href="<?php echo esc_url( __( 'https://csis.org/', 'modern-journalist' ) ); ?>">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/csis_logo_white.svg" /></a>
+  			</a>
+      </div>
+      <div class="footer__csis-about">
+  			<p><?php echo esc_attr($meta_description) ?></p>
+      </div>
+	  </div><!-- .footer__info -->
+    <div class="footer__contact">
+      <div>
+      <div class="footer__follow">
+        Follow Us
+        <div class="footer__follow-icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-facebook.svg" /></a>
+        </div>
+        <div class="footer__follow-icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-twitter.svg" /></a>
+        </div>
+        <div class="footer__follow-icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-linkedin.svg" /></a>
+        </div>
+        <div class="footer__follow-icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-youtube.svg" /></a>
+        </div>
+        <div class="footer__follow-icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-instagram.svg" /></a>
+        </div>
+      </div>
+      <div class="footer__contact-info">
+        <div class="footer__contact-email">
+          <div class="footer__follow-icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-mail.svg" /></a>
+          </div>
+          <span>
+          <?php echo esc_attr($meta_email) ?>
+        </span>
+
+        </div>
+        <div class="footer__contact-address">
+          <div class="footer__follow-icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-pin.svg" /></a>
+          </div>
+          <span>
+          1616 Rhode Island Ave., NW <br/>
+          Washington, DC 20036
+        </span>
+        </div>
+      </div>
+      </div>
+    </div>
+<div class="footer__image objfit">
+      <img src="<?php echo esc_url($meta_image) ?>" /></a>
+
+</div>
+    <div class="footer__copyright">
+      <p>&copy; <?php echo esc_html( date( 'Y' ) ); ?> by the Center for Strategic and International Studies. All rights reserved. | <a href="https://www.csis.org/privacy-policy" target="_blank" rel="nofollow">Privacy Policy</a></p>
+    </div>
+  </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

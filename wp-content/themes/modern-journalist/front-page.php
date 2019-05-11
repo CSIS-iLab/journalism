@@ -57,7 +57,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 		</section><!-- about the program-->
 
 		<section class="home-feature">
-			<h2>Featured Projects</h2>
+			<h2 class="home-heading">Featured Projects</h2>
 			<div class="home-feature_container">
 				<div class="home-feature_main">
 					<article>
@@ -83,63 +83,40 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 					</article>
 				</div><!-- featured post main -->
 				<div class="home-feature_sidebar">
-					<article>
+<h3 class="home-subheading">Previous Projects</h3>
 						<?php
 						// Featured Item
-						if ($feature_post2) {
+						if ($feature_post2 || $feature_post3) {
 								$featuredPostArgs = array(
 								    'post__in' => array(
-								        $feature_post2
+								        $feature_post2, $feature_post3
 								    ),
 								    'orderby' => 'post__in',
-								    'posts_per_page' => 1
+								    'posts_per_page' => 2
 								);
 								$featured_post = get_posts($featuredPostArgs);
 
 								foreach ($featured_post as $post) : setup_postdata($post);
 								$post->isFeaturedMain = 1;
-								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+								echo '<article>';
 								$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_date', true);
 								if ($meta_date) {
 										echo '<div class="post__date">' . esc_attr($meta_date) . '</div>';
 								}
+								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+								echo '</article>';
 								endforeach;
 								wp_reset_postdata();
 						}
 					?>
-					</article>
-
-					<article>
-						<?php
-						// Featured Item
-						if ($feature_post3) {
-								$featuredPostArgs = array(
-								    'post__in' => array(
-								        $feature_post3
-								    ),
-								    'orderby' => 'post__in',
-								    'posts_per_page' => 1
-								);
-								$featured_post = get_posts($featuredPostArgs);
-
-								foreach ($featured_post as $post) : setup_postdata($post);
-								$post->isFeaturedMain = 1;
-								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-								$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_date', true);
-								if ($meta_date) {
-										echo '<div class="post__date">' . esc_attr($meta_date) . '</div>';
-								}
-								endforeach;
-								wp_reset_postdata();
-						}
-						?>
-					</article>
+					<div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Browse all stories</a></div>
 				</div><!-- featured post sidebar -->
 			</div><!-- featured post container -->
 		</section><!-- featured post section -->
 
     <section class="home-testimonials">
-			<h2>What are they saying?</h2>
+<div class="home-testimonial__container">
+			<h2 class="home-heading">What are they saying?</h2>
 
 				<?php
 						$featuredTestimonialArgs = array(
@@ -157,8 +134,9 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 						$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_date', true);
 
 							echo '<article class="home-testimonials__single">';
-							
+
 							the_content();
+							echo '<div class="home-testimonials__info"';
 							if ($meta_name) {
 			            echo'<span>' . esc_attr($meta_name) . '</span>';
 			        }
@@ -168,19 +146,20 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 							if ($meta_date) {
 			            echo ', ' . esc_attr($meta_date);
 			        }
+							echo '</div>';
 							echo '</article>';
 						endforeach;
 						wp_reset_postdata();
 					?>
+</div>
 
-
-<div class="test">
-			<img  class="home-testimonial-image" src="<?php echo esc_attr($modern_journalist_testimonialimage) ?>" >
+<div class="testimonial-img">
+			<img  class="home-testimonial-image" src="<?php echo esc_attr($modern_journalist_testimonialimage) ?>" ></div>
 				<?php
 				$imgid = attachment_url_to_postid( $modern_journalist_testimonialimage );
 				echo '<div class="home-testimonial-caption caption"><figcaption>' . wp_get_attachment_caption( $imgid ) . '</figcaption></div>';
 				 ?>
-</div>
+
 		</section><!-- testimonial section -->
 	</main><!-- #main -->
 </div><!-- #primary -->

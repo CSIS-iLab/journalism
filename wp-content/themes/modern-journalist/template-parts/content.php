@@ -42,7 +42,7 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<header class="entry-header <?php echo esc_attr( $meta_header )?>"
     <?php
     echo 'style=" --post-color: ' . esc_attr($meta_color) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';
@@ -98,7 +98,9 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 
 
 
-	<div class="entry-content">
+	<div class="entry-content" <?php
+  echo 'style=" --post-color: ' . esc_attr($meta_color) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';
+  ?>>
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -113,14 +115,7 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 			get_the_title()
 		) );
 
-		wp_link_pages( array(
-		    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'modern-journalist' ),
-		    'after'  => '</div>',
-		) );
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php modern_journalist_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

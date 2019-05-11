@@ -1,6 +1,6 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
     <div class="post-block">
-      <div class="post-entry-thumb">
+      <div class="post-entry-thumb objfit">
         <?php if ( has_post_thumbnail() ) {
 	the_post_thumbnail('medium');
 } ?>
@@ -20,17 +20,16 @@
               ?>
           </header><!-- .entry-header -->
         <?php the_excerpt(); ?>
-        </div><!-- .entry-content -->
+
         <?php
 
         $meta_authors = get_post_meta(get_the_ID(), 'jourblocks_meta_authors', true);
 
         if ($meta_authors) {
-            echo '<div class="post__authors">' . esc_attr($meta_authors) . '</div>';
+            echo '<div class="post__authors">By ' . esc_attr($meta_authors) . '</div>';
         }
 
         ?>
-        <footer class="entry-footer">
-        </footer><!-- .entry-footer -->
+
     </div>
-</article
+</div>

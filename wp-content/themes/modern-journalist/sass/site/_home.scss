@@ -22,9 +22,19 @@
   }
   @include breakpoint("large") {
   }
-  @include breakpoint("xlarge") {
-  }
 
+  &:after {
+    @include breakpoint("small") {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: $color__ltblue;
+      left: calc(100%);
+      width: 100vw;
+    }
+  }
   #home-hero__vid-container {
     position: absolute;
     top: 0;
@@ -42,6 +52,9 @@
     @include breakpoint("medium") {
       width: calc(100% - 8vw);
     }
+    @include breakpoint("xlarge") {
+      max-width: 1400px;
+    }
   }
 
   .home-hero__vid {
@@ -52,7 +65,7 @@
 
   #home-hero__vid-container:before {
     content: "";
-    background: rgba(114, 45, 0, 0.35);
+    background: rgba($color__main, 0.35);
     position: absolute;
     top: 0;
     left: 0;
@@ -165,7 +178,7 @@
       width: 6vw;
     }
     @include breakpoint("medium") {
-      width: 8vw;
+      width: 100vw;
     }
   }
 
@@ -177,10 +190,16 @@
 
     h3 {
       margin: 0 0 8px;
+      font-size: 20px;
+      @include breakpoint("medium") {
+        font-size: 24px;
+      }
     }
   }
 }
-
+.home-feature {
+  margin-bottom: 2rem;
+}
 .home-feature_container {
   display: grid;
   grid-template-columns: 100%;
@@ -195,7 +214,7 @@
 
   @include breakpoint("large") {
     grid-template-columns: 2fr 1fr;
-    grid-column-gap: 8%;
+    grid-column-gap: 3vw;
     grid-template-areas: "featuremain featureside";
   }
 
@@ -204,13 +223,7 @@
 
     article {
       grid-area: feature1;
-
-      .post-entry-thumb {
-        grid-area: posthumb;
-      }
-      .post-entry-content {
-        grid-area: postcontent;
-      }
+      margin-bottom: 1rem;
     }
   }
 
@@ -219,6 +232,7 @@
 
     article:first-of-type {
       grid-area: feature2;
+      margin-bottom: 1rem;
     }
     article:last-of-type {
       grid-area: feature3;
@@ -229,26 +243,90 @@
 .home-testimonials {
   @include breakpoint("small") {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100%;
     grid-column-gap: 8%;
     grid-template-rows: auto;
-    grid-template-areas: "testimonialheading testimonialheading" "testimonial1 testimonial2" "testimonial1 testimonial3" "test test";
+    grid-template-areas: "testimonials" "test" "testimonialcaption";
   }
   @include breakpoint("medium") {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 8% 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "testimonialheading testimonialheading test" "testimonial1 testimonial1 test" "testimonial2 testimonial3 test";
+    grid-column-gap: 0%;
+    grid-template-areas: "testimonials test test" "testimonials testimonialspacer testimonialcaption";
+  }
+
+  .home-testimonial-caption {
+    grid-area: testimonialimgcap;
   }
 
   h2 {
     grid-area: testimonialheading;
   }
 
-  .home-testimonials__single {
+  .home-testimonial__container {
+    grid-area: testimonials;
+    position: relative;
+    background-color: rgba($color__ltblue, 0.8);
+    padding-bottom: 2rem;
+    grid-row-start: 1;
+
+    grid-row-end: span2;
+    @include breakpoint("medium") {
+      padding-right: 8%;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      height: 100%;
+      background-color: rgba($color__ltblue, 0.8);
+      right: calc(100% - 1px);
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      height: 100%;
+      background-color: rgba($color__ltblue, 0.8);
+      left: calc(100% - 1px);
+      z-index: -1;
+      @include breakpoint("medium") {
+        width: 11%;
+        height: 100%;
+        grid-area: testimonialspacer;
+      }
+    }
+    @include breakpoint("small") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-column-gap: 24px;
+
+      grid-template-areas: "testimonialheading testimonialheading" "testimonial1 testimonial2" "testimonial1 testimonial3";
+    }
+    @include breakpoint("medium") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: "testimonialheading testimonialheading" "testimonial1 testimonial1" "testimonial2 testimonial3";
+    }
+  }
+
+  .home-testimonial__container .home-testimonials__single {
+    margin-bottom: 1rem;
     &:first-of-type {
       grid-area: testimonial1;
-      grid-row-start: 1 / 2;
+      @include breakpoint("medium") {
+        border-bottom: 1px solid #d6d6d6;
+      }
     }
     &:nth-of-type(2n) {
       grid-area: testimonial2;
@@ -256,9 +334,17 @@
     &:nth-of-type(3n) {
       grid-area: testimonial3;
     }
+
+    .home-testimonials__info span {
+      font-weight: 500 !important;
+    }
   }
-  .test {
+  .testimonial-img {
     grid-area: test;
+  }
+
+  .home-testimonials__info {
+    font-size: $font__size-small;
   }
   .home-testimonial-image img {
     grid-area: testimonialimg;
@@ -266,4 +352,41 @@
   .home-testimonial-caption {
     grid-area: testimonialcaption;
   }
+}
+
+.home-subheading {
+  font-family: $font__sans;
+  font-size: $font__size-small;
+  font-weight: 500;
+  color: $color__main;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.blue-btn {
+  a {
+    display: inline-block;
+    color: rgba(#fff, $opacity__slight);
+    background-color: $color__main;
+    @include transition(background-color 1s, color 1s);
+    font-family: $font__sans;
+    text-transform: uppercase;
+    font-size: $font__size-small;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin-top: 1.5rem;
+    &:hover,
+    &:focus {
+      color: rgba(#fff, 1);
+      background-color: rgba($color__main-light, 0.8);
+      @include transition(background-color 1s, color 1s);
+    }
+  }
+}
+
+section h2.home-heading {
+  font-family: $font__sans;
+  padding-top: 2rem;
 }

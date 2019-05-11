@@ -4,12 +4,16 @@
   float: left;
   width: 100%;
   margin: auto 0;
+  height: 100%;
+  font-family: $font__sans;
+  font-weight: 300;
 
   ul {
     display: none;
     list-style: none;
     margin: 0;
     padding-left: 0;
+
     ul {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       float: left;
@@ -32,6 +36,7 @@
 
       a {
         width: 200px;
+        color: $color__text-caption;
       }
 
       :hover > a,
@@ -61,6 +66,11 @@
   a {
     display: block;
     text-decoration: none;
+    color: $color__text-caption;
+  }
+  a:hover,
+  a.focus {
+    color: #333;
   }
 
   .current_page_item > a,
@@ -74,6 +84,11 @@
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
+  height: 48px;
+  width: 48px;
+  left: 16px;
+  background-color: white;
+  border: none;
 }
 
 @include breakpoint("medium") {
@@ -106,5 +121,132 @@
     float: right;
     text-align: right;
     width: 50%;
+  }
+}
+
+$light-gray: #00395a;
+$teal: #333;
+$dark-gray: #333;
+$white: #ffffff;
+
+.menu-toggle {
+  position: relative;
+}
+
+.menu-button {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  width: 18px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.menu-button:hover .bar {
+  background: $dark-gray;
+}
+
+.bar {
+  transition: all 0.25s ease;
+  height: 2px;
+  background: $teal;
+  position: absolute;
+}
+
+.top {
+  top: 0;
+  width: 50%;
+}
+
+.middle {
+  width: 100%;
+  top: 6px;
+}
+
+.bottom {
+  width: 50%;
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.top.bar.left {
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+
+.top.bar.right {
+  -webkit-transform-origin: 100% 0%;
+  -moz-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  -o-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+}
+
+.bottom.bar.left {
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -o-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+}
+
+.bottom.bar.right {
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+.toggled {
+  .menu-button .top.bar.left {
+    -webkit-transform: translate(2px, -1px) rotate(45deg) scaleX(1.25);
+    -moz-transform: translate(2px, -1px) rotate(45deg) scaleX(1.25);
+    -ms-transform: translate(2px, -1px) rotate(45deg) scaleX(1.25);
+    -o-transform: translate(2px, -1px) rotate(45deg) scaleX(1.25);
+    transform: translate(2px, -1px) rotate(45deg) scaleX(1.25);
+  }
+
+  .menu-button .top.bar.right {
+    -webkit-transform: translate(-2px, -1px) rotate(-45deg) scaleX(1.25);
+    -moz-transform: translate(-2px, -1px) rotate(-45deg) scaleX(1.25);
+    -ms-transform: translate(-2px, -1px) rotate(-45deg) scaleX(1.25);
+    -o-transform: translate(-2px, -1px) rotate(-45deg) scaleX(1.25);
+    transform: translate(-2px, -1px) rotate(-45deg) scaleX(1.25);
+  }
+
+  .menu-button .bottom.bar.left {
+    -webkit-transform: translate(2px, 2px) rotate(-45deg) scaleX(1.25);
+    -moz-transform: translate(2px, 2px) rotate(-45deg) scaleX(1.25);
+    -ms-transform: translate(2px, 2px) rotate(-45deg) scaleX(1.25);
+    -o-transform: translate(2px, 2px) rotate(-45deg) scaleX(1.25);
+    transform: translate(2px, 2px) rotate(-45deg) scaleX(1.25);
+  }
+
+  .menu-button .bottom.bar.right {
+    -webkit-transform: translate(-2px, 2px) rotate(45deg) scaleX(1.25);
+    -moz-transform: translate(-2px, 2px) rotate(45deg) scaleX(1.25);
+    -ms-transform: translate(-2px, 2px) rotate(45deg) scaleX(1.25);
+    -o-transform: translate(-2px, 2px) rotate(45deg) scaleX(1.25);
+    transform: translate(-2px, 2px) rotate(45deg) scaleX(1.25);
+  }
+
+  .menu-button .middle.bar {
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
   }
 }

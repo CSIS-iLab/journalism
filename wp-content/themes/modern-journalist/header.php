@@ -60,7 +60,12 @@
 
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'modern-journalist' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"> <div class="menu-button"> <div class="top bar left"></div>
+  <div class="top bar right"></div>
+  <div class="middle bar"></div>
+  <div class="bottom bar left"></div>
+  <div class="bottom bar right"></div></div>
+</button>
 			<?php
 			wp_nav_menu( array(
 			    'theme_location' => 'menu-1',

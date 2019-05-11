@@ -55,10 +55,24 @@ function modern_journalist_admin_init_section_footer()
         array( 'modern_journalist_description' )
     );
 
+    add_settings_field(
+        'modern_journalist_footer_image',
+        'Footer Image',
+        'modern_journalist_text_callback',
+        'modern_journalist-options-page',
+        'modern_journalist_settings_section_footer',
+        array( 'modern_journalist_footer_image' )
+    );
+
     register_setting(
         'modern_journalist_settings',
         'modern_journalist_description',
         'wp_filter_post_kses'
+    );
+    register_setting(
+        'modern_journalist_settings',
+        'modern_journalist_footer_image',
+        'sanitize_text_field'
     );
 }
 

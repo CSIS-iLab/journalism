@@ -19,8 +19,6 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
-
 			// If comments are open or we have at least one comment, load up the comment template.
 
 		endwhile; // End of the loop.
@@ -30,5 +28,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

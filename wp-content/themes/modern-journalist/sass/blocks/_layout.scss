@@ -47,7 +47,6 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    text-align: center;
   }
   .alignmedium {
     @include breakpoint("medium") {

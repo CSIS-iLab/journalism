@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="20px" viewBox="0 0 14 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Icon Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-hd" transform="translate(-868.000000, -2685.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M875,2685 C871.13,2685 868,2688.13 868,2692 C868,2697.25 875,2705 875,2705 C875,2705 882,2697.25 882,2692 C882,2688.13 878.87,2685 875,2685 Z M875,2694.5 C873.619288,2694.5 872.5,2693.38071 872.5,2692 C872.5,2690.61929 873.619288,2689.5 875,2689.5 C876.380712,2689.5 877.5,2690.61929 877.5,2692 C877.5,2693.38071 876.380712,2694.5 875,2694.5 L875,2694.5 Z" id="Icon-Shape"></path>
+        </g>
+    </g>
+</svg>

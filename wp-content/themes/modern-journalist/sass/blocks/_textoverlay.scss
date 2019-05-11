@@ -17,3 +17,32 @@
     color: white;
   }
 }
+
+.text-overlay__content {
+  margin: 20px;
+  @include breakpoint("small") {
+    margin: 24px;
+  }
+}
+
+.text-overlay__text {
+  width: 100%;
+  @include breakpoint("small") {
+    width: 50%;
+  }
+  @include breakpoint("medium") {
+    width: 30%;
+  }
+  @include breakpoint("large") {
+    width: 500px;
+  }
+}
+
+.text-overlay__text.text-align__right {
+  @include breakpoint("medium") {
+    left: calc(70%);
+  }
+  @include breakpoint("large") {
+    left: calc(100% - 500px);
+  }
+}

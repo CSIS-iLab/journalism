@@ -1,252 +1,168 @@
 <?php
-    /**
-     * Home Page
-     *
-     * @link https://codex.wordpress.org/Template_Hierarchy
-     *
-     * @package Modern_Journalist
-     */
-get_header();?>
+/**
+ * Home Page
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Modern Journalist
+ */
 
-<div id="home-header">
+get_header();
 
-<div class="fullsize-video-bg">
-	<div class="inner">
-		
-			
-	 		<h1 class="home-title">Reporting on <br>International Affairs</h1>
- <div id="title-header">
-		 		
-	 		<div class="home-tagline">
-	 		<?php
-             $description = get_bloginfo('description', 'display');
-         		if ($description || is_customize_preview()): ?>
-				<div class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></div>
+$site_title = get_bloginfo( 'name' );
+$site_url = network_site_url( '/' );
+$site_tagline = get_bloginfo( 'description' );
+
+$modern_journalist_hero = get_option('modern_journalist_homepage_hero');
+$modern_journalist_testimonialimage = get_option('modern_journalist_homepage_testimonialimg');
+
+$modern_journalist_intro = get_option('modern_journalist_homepage_intro');
+$csis_desc = get_option('modern_journalist_homepage_csis');
+$feature_post1 = get_option('modern_journalist_homepage_featured_post_1');
+$feature_post2 = get_option('modern_journalist_homepage_featured_post_2');
+$feature_post3 = get_option('modern_journalist_homepage_featured_post_3');
+
+$testimonial1 = get_option('modern_journalist_homepage_testimonal_1');
+$testimonial2 = get_option('modern_journalist_homepage_testimonal_2');
+$testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
+?>
+
+<div id="primary" class="site-content">
+<div id="content" role="main">
+
+		<header class="home-hero">
+			<div id="home-hero__vid-container">
+				<video class="home-hero__vid" autoplay="" loop="" muted="">
+					<source src="<?php echo esc_attr($modern_journalist_hero) ?>" type="video/mp4">
+				</video>
+			</div>
+			<div class="home-hero__site-info">
+				<h1 class="home-hero__title">
+					Reporting on <br/>International Affairs
+				</h1>
+				<div class="home-hero__tagline">
+					<?php echo esc_attr($site_tagline) ?>
+				</div>
+			</div>
+		</header>
+
+		<section class="home-about">
+			<div class="home-about_program">
+				<?php echo '<p>' . esc_html($modern_journalist_intro) . '</p>'; ?>
+			</div>
+			<div class="home-about_csis">
+				<h3>About CSIS</h3>
+				<?php echo '<p>' . $csis_desc . '</p>'; ?>
+			</div>
+		</section><!-- about the program-->
+
+		<section class="home-feature">
+			<h2 class="home-heading">Featured Projects</h2>
+			<div class="home-feature_container">
+				<div class="home-feature_main">
+					<article>
+						<?php
+            // Featured Item
+            if ($feature_post1) {
+                $featuredPostArgs = array(
+                    'post__in' => array(
+                        $feature_post1
+                    ),
+                    'orderby' => 'post__in',
+                    'posts_per_page' => 1
+                );
+                $featured_post = get_posts($featuredPostArgs);
+
+                foreach ($featured_post as $post) : setup_postdata($post);
+                $post->isFeaturedMain = 1;
+                get_template_part('template-parts/content-postblock');
+                endforeach;
+                wp_reset_postdata();
+            }
+        		?>
+					</article>
+				</div><!-- featured post main -->
+				<div class="home-feature_sidebar">
+<h3 class="home-subheading">Previous Projects</h3>
+						<?php
+						// Featured Item
+						if ($feature_post2 || $feature_post3) {
+								$featuredPostArgs = array(
+								    'post__in' => array(
+								        $feature_post2, $feature_post3
+								    ),
+								    'orderby' => 'post__in',
+								    'posts_per_page' => 2
+								);
+								$featured_post = get_posts($featuredPostArgs);
+
+								foreach ($featured_post as $post) : setup_postdata($post);
+								$post->isFeaturedMain = 1;
+								echo '<article>';
+								$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_date', true);
+								if ($meta_date) {
+										echo '<div class="post__date">' . esc_attr($meta_date) . '</div>';
+								}
+								the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+								echo '</article>';
+								endforeach;
+								wp_reset_postdata();
+						}
+					?>
+					<div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Browse all stories</a></div>
+				</div><!-- featured post sidebar -->
+			</div><!-- featured post container -->
+		</section><!-- featured post section -->
+
+    <section class="home-testimonials">
+<div class="home-testimonial__container">
+			<h2 class="home-heading">What are they saying?</h2>
+
 				<?php
-                endif;
-                ?>
-          
-               
-	 			</div>
-	 		
-			</div><!-- home-tagline-->
-		</div><!-- title-header -->
-	
-	<div id="video-viewport">
-		<?php
-	    //$home_video_webm = get_option('modernjournalist_video_webm');
-	    $home_video_mp4 = get_option('modernjournalist_video_mp4');
-	    ?>
-		<video width="1920" height="1280" playsinline loop autoplay muted id="bgvid">
-			 <source src="<?php echo esc_html($home_video_mp4);  ?>" type="video/mp4">
-			Sorry, your browser does not support this video.
-		</video>
-	</div>
+						$featuredTestimonialArgs = array(
+						    'post_type' => 'testimonial',
+						    'post__in' => array(
+						        $testimonial1, $testimonial2, $testimonial3
+						    ),
+						    'orderby' => 'post__in',
+						    'posts_per_page' => 3
+						);
+						$featured_testimonial = get_posts($featuredTestimonialArgs);
+						foreach($featured_testimonial as $post) : setup_postdata($post);
+						$meta_name = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_name', true);
+		        $meta_institution = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_institution', true);
+						$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_date', true);
+
+							echo '<article class="home-testimonials__single">';
+
+							the_content();
+							echo '<div class="home-testimonials__info"';
+							if ($meta_name) {
+			            echo'<span>' . esc_attr($meta_name) . '</span>';
+			        }
+			        if ($meta_institution) {
+			            echo ', ' . esc_attr($meta_institution);
+			        }
+							if ($meta_date) {
+			            echo ', ' . esc_attr($meta_date);
+			        }
+							echo '</div>';
+							echo '</article>';
+						endforeach;
+						wp_reset_postdata();
+					?>
 </div>
 
-</div><!-- home-header-->
-
-
-<div id="home-aboutProgram">
-	<div class="content-wrapper row">
-		<div class="aboutBox col-med">
-			<div class="col-xs-12">
+<div class="testimonial-img">
+			<img  class="home-testimonial-image" src="<?php echo esc_attr($modern_journalist_testimonialimage) ?>" ></div>
 				<?php
-                    $program_desc = get_option('modernjournalist_program_description');
+				$imgid = attachment_url_to_postid( $modern_journalist_testimonialimage );
+				echo '<div class="home-testimonial-caption caption"><figcaption>' . wp_get_attachment_caption( $imgid ) . '</figcaption></div>';
+				 ?>
 
-                    echo  stripslashes_deep($program_desc) ;
-                ?>
-			</div>
-		</div><!-- about-box -->
-		<div class="vertical-right">
-			CSIS <span>&#8212</span>  EXECUTIVE EDUCATION
-		</div>
-	</div><!-- content-wrapper-->
-</div><!-- home-aboutProgram-->
+		</section><!-- testimonial section -->
+	</main><!-- #main -->
+</div><!-- #primary -->
 
-
-
-
-<div id="home-aboutCSIS">
-	<div class="content-wrapper">
-		<div class="col-med aboutCsis ">
-			<div class="row">
-				<div class="col-xs-12 col-md-8 ">
-					<h4 class="subheading">About CSIS</h4>
-					<?php
-	                	$csis_desc = get_option('modernjournalist_csis_description');
-	                	echo '<p>' . stripslashes_deep($csis_desc) . '</p>';
-	            	?>
-				</div>
-				<div class="full-col col-md-4">
-					<div class="csis-photo">
-						<div class="img-container fit-width">
-
-						<?php
-                    $csis_img = get_option('modernjournalist_csis_image');
-
-                   
-                ?>	
-							<img id="" src="<?php  echo  stripslashes_deep($csis_img) ; ?>" alt="GSF event at CSIS" title="GSF event at CSIS" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!-- aboutCsis -->
-	</div><!-- content-wrapper-->
-</div><!-- home-aboutCSIS-->
-
-
-<div id="home-topics">
-	<div class="content-wrapper">
-		<div class="col-wide">
-			<h2 class="heading underline">Featured Story</h2>
-		</div>
-		<div class="col-wide">
-			<?php
-	            $feature_post = get_option('modernjournalist_featured_story');
-	            if ($feature_post) {
-	                global $post;
-	                setup_postdata($post);
-	                $post   = $feature_post;
-	                $postID = $post->ID;
-
-	                $time_string = '<span class="meta-label">Published: </span><time class="entry-date published" datetime="%1$s">%2$s</time>';
-	                $time_string = sprintf($time_string,
-	                    esc_attr(get_the_date('c')),
-	                    esc_html(get_the_date())
-	                );
-
-	                echo '<div class="related-posts home-related row">';
-	                	echo '<div class="related-post col-xs-12 col-md-4 no-padding">';
-	                			echo '<div class="related-post-img"><a href="' . get_permalink($post) . '">';
-	                				the_post_thumbnail('medium-large');
-	                			echo '</a></div>';
-
-	                	echo '</div>';
-	                echo '<div class="related-post related-info col-xs-12 col-md-8">';
-	                	echo '<a href="' . get_permalink($post) . '" class=""><h4 class="subheading">';
-	                		the_title();
-	                	echo '</h4></a>';
-	                	
-	                	echo '<div class="entry-excerpt">';
-	                		the_excerpt();
-	                	echo '</div>';
-	                	echo '<div class="entry-meta ">';
-	                		echo '<p class="meta-line"><span class="meta-label">By: </span>';
-	                			$authors = related_authors($post);
-	                			echo $authors;
-	                		echo '</p>';
-	                		echo '<p class="posted-on meta-line">' . $time_string . '</p>'; // WPCS: XSS OK.
-	                	echo '</div>';
-	                echo '</div></div>';
-	               
-
-	            }
-	            //modernjournalism_related_content();
-
-	        ?>
-			<?php wp_reset_query();?>
-		</div><!--col-wide -->
-	</div><!-- content-wrapper-->
-</div><!-- home-topicsS-->
-
-
-<div id="home-reports" class="content-wrapper">
-	<div class="col-med">
-		<div class="blueblock row">
-			<div class="col-xs-8 col-md-10">
-				<div class="browseReports">
-					<h3 class="subheading darkbg">
-						<a href="/feature-stories">Browse Stories<i class="icon-arrow-long-right"></i></a>
-					</h3>
-					<p>Explore the completed multimedia stories.</p>
-				</div><!-- browse-reports -->
-			</div>
-			<div class="col-xs-4 col-md-2 no-padding">
-				<div class="img-container fit-height">
-
-					<?php
-                    $browse_img = get_option('modernjournalist_browse_image');
-                ?>	
-
-					<?php
-		                $imgSrc = stripslashes_deep($browse_img); 
-		                //$imgID = 'pippin_get_image_id($imgSrc)';
-		                $output = '<img src="' . $imgSrc . '" alt="International Globe">';
-		                echo $output;
-		            ?>
-				</div>
-			</div>
-		</div><!-- blueblock -->
-	</div><!-- col-med-->
-	<div class="vertical-left">INTERACTIVE <span>/</span> LONGFORM</div>
-</div><!--home-reports -->
-
-<div id="home-testimonials">
-	<div class="content-wrapper testimonials-header">
-		<h2 class="heading">What they're saying</h2>
-		<div class="row">
-			<div class="testimonial-button-container">
-				<div class="testimonial-button button-prev">
-					<i class="icon-arrow-long-left"></i>
-				</div>
-				<div class="testimonial-button button-next">
-					<i class="icon-arrow-long-right"></i>
-				</div>
-			</div><!--testimonial-button-container -->
-		</div><!--row -->
-	</div><!-- testimonials-header -->
-	<div class="row">
-		<div class="carousel-wrap">
-			<ul id="testimonial-list" class="clearfix">
-			<?php
-                $count = 0;
-                $args  = array(
-                    'post_type'  => 'testimonials',
-                    'meta_query' => array(
-                        array(
-                            'key'     => '_testimonial_is_featured',
-                            'value'   => '1',
-                            'compare' => '==',
-                        ),
-                    ),
-
-                );
-                $the_query = new WP_Query($args);
-
-                $postcount = $the_query->post_count;
-
-                if ($the_query->have_posts()): while ($the_query->have_posts()): $the_query->the_post();
-                    ?>
-
-					<li data-count="<?php echo $count++; ?>">
-						<div class="testimonial">
-							<?php
-                                $date = get_post_meta($post->ID, '_testimonials_date', true
-                                );
-                                $institution = get_post_meta($post->ID, '_testimonials_institution', true
-                                );
-                                $role = get_post_meta($post->ID, '_testimonials_role', true
-                                );
-                            ?>
-							<div class="testimonial-quote"><?php the_content()?></div>
-
-							<div class="testimonial-name"><?php the_title();?></div>
-							<div class="testimonial-info"><?php echo $role?>, <?php echo $institution ?></div>
-							<div class="testimonial-date"><?php echo $date ?></div>
-						</div>
-					</li>
-						<?php endwhile;endif;?>
-					<?php wp_reset_query();?>
-			</ul>
-		</div><!-- carousel-wrap -->
-	</div><!-- row -->
-</div><!-- home-testimonials-->
-
-
-</main><!-- #content -->
-<?php get_footer();?>
-</div><!-- #page -->
-</body>
-</html>
+<?php
+get_footer();

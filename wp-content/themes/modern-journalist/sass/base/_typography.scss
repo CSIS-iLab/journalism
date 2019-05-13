@@ -1,365 +1,224 @@
-body,
-button,
-input,
-select,
-optgroup,
-textarea {
-    color: $color__text-main;
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+.body-text {
+  font-family: $font__main;
+  font-size: $font__size-body_mobile;
+  line-height: $font__line-height-body_mobile;
+  margin-bottom: 1em;
+  margin-top: 0;
+  color: $color__text-main;
+  max-width: 750px;
+
+  @include breakpoint("large") {
+    font-size: $font__size-body;
+    line-height: $font__line-height-body;
+  }
+}
+
+.single-post {
+  p {
+    font-size: $font__size-post_mobile;
+    line-height: $font__line-height-post_mobile;
     font-family: $font__main;
-    @include font-size(1.1);
-    line-height: $font__line-height-body;
-}
+    margin-bottom: 20px;
+    color: #444;
 
-.vertical-right,
-.vertical-left {
-    display: none;
-    font-family: $font__roboto;
-    font-size: .8rem;
-    color: $color-text-gray;
-    letter-spacing: 1px;
-    opacity: .7;
-    z-index: 4;
-    @include breakpoint("medium") {
-        display: block
+    @include breakpoint("large") {
+      font-size: $font__size-post;
+      line-height: $font__line-height-post;
+      margin-bottom: 24px;
     }
-    span {
-        color: $color-blue;
-    }
+  }
+  .author__bio p {
+    @extend .body-text;
+  }
 }
 
-.vertical-right {
-    transform: rotate(90deg);
-    transform-origin: left top 0;
-    position: absolute;
-    right: -9rem;
-    top: 70%;
+.component__caption,
+figcaption,
+cite,
+.wp-block-image figcaption,
+.home-testimonials__info {
+  display: block !important;
+  font-family: $font__sans;
+  font-size: $font__size-caption;
+  line-height: $font__line-height-caption;
+  text-align: left !important;
+  color: $color__text-caption;
+  margin-top: 0.5rem !important;
+  padding-bottom: 12px;
+
+  //border-bottom: 1px solid rgba(162, 173, 175, 0.25);
+  .caption__source {
+    color: $color__text-source;
+  }
 }
 
-.vertical-left {
-    transform: rotate(-90deg);
-    transform-origin: left top 0;
-    position: absolute;
+.wp-block-image figcaption {
+  max-width: 1150px;
+  margin: 0 auto;
 }
 
-
-
-/*================================
-=            Headings            =
-================================*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    clear: both;
-    font-family: $font__magneta;
-    font-weight: 200;
-    margin-bottom: 0px;
+.large-text {
+  font-size: $font__size-large_mobile;
+  line-height: $font__line-height-large_mobile;
+  color: $color__text-main;
+  @include breakpoint("large") {
+    font-size: $font__size-large;
+    line-height: $font__line-height-large_mobile;
+  }
 }
 
-h1 {
-    &.underline {
-        line-height: 1;
-        border-bottom: 4px solid $color-ltgray;
-        margin-bottom: 1rem;
-        @include breakpoint("medium") {
-            line-height: 70%;
-        }
-    }
-    &.home-title {
-        font-size: 3em;
-        color: white;
-        line-height: 1.2;
-        margin-top: 0px;
-         @include breakpoint("medium") {
-font-size: 4.5em;
-     line-height: 1.2;
-     }
-       @include breakpoint("large") {
-font-size: 5em;
-     line-height: 1.2;
-     }
-    }
+.tiny-text {
+  font-family: $font__sans;
+  font-size: $font__size-small;
+  line-height: 1.2;
+  color: $color__text-caption;
 }
 
-h2 {
-    line-height: 1.4;
-    margin-bottom: .75rem;
-    &.heading {
-        font-size: 2.5rem !important;
-        margin-top: 2rem;
-        border-bottom: 4px solid $color-ltgray;
-        @include breakpoint("medium") {
-            font-size: 3rem;
-        }
-        &.underline {
-            line-height: 70%;
-            border-bottom: 4px solid $color-ltgray;
-            margin-bottom: 1rem;
-        }
-    }
+.component__title {
+  font-family: $font__sans;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: bold;
 }
 
-h3.subheading,
-h3.entry-title {
-    font-size: 1.8rem;
-    margin-top: 0;
-    line-height: 1.7;
-    @include breakpoint("medium") {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
+.small-title {
+  font-family: $font__sans;
+  font-size: 18px;
+  line-height: 20px;
 }
 
-h4.subheading {
-    font-size: 1.5rem;
-    margin-top: 0;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-    @include breakpoint("medium") {
-        font-size: 1.8rem;
-        line-height: 1.5;
-    }
-}
-
-.large-title,
-.page-title {
-    font-family: $font__magneta;
-    font-weight: 200;
-    margin: 0;
-    font-size: 3.5rem;
-    line-height: 1;
-    @include breakpoint("medium") {
-        font-size: 5rem;
-    }
-}
-
-
-
-/*=============================
-=            Lists          =
-=============================*/
-
-ul,
-ol {
-    margin: 0 0 1.5em 3em;
-}
-
-ul {
-    list-style: disc;
-}
-
-ol {
-    list-style: decimal;
-}
-
-li>ul,
-li>ol {
-    margin-bottom: 0;
-    margin-left: 1.5em;
-}
-
-dt {
-    font-weight: bold;
-}
-
-dd {
-    margin: 0 1.5em 1.5em;
-}
-
-
-
-/*============================
-=            Copy            =
-============================*/
-
-p {
-    margin: 0 0 1rem;
-    line-height: $font__line-height-body;
-}
-
-p+h2,
-p+h3,
-p+h4,
-p+h5,
-p+h6 {
-    margin-top: 2rem;
-}
-
-hr {
-    background-color: $color__background-hr;
-    border: 0;
-    height: 1px;
-    margin: 2rem 0;
-}
-
-b,
-strong {
-    font-weight: 600;
+.meta {
+  font-family: $font__sans;
+  font-size: $font__size-caption;
+  line-height: $font__line-height-caption;
+  opacity: 0.6;
 }
 
 dfn,
 cite,
 em,
 i {
-    font-style: italic;
+  font-style: italic;
 }
 
-blockquote {
-    margin: 0 1.5em;
+.wp-block-pullquote blockquote p {
+  font-family: $font__magneta;
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0 1.5em;
+  width: 100%;
+  max-width: 100% !important;
+  @include breakpoint("large") {
+    font-size: 26px;
+  }
 }
 
 address {
-    margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 pre {
-    background: $color__background-pre;
-    font-family: $font__pre;
-    @include font-size(0.9375);
-    line-height: $font__line-height-pre;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1.6em;
+  background: $color__background-pre;
+  font-family: $font__pre;
+  @include font-size(0.9375);
+  line-height: $font__line-height-pre;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
 }
 
 code,
 kbd,
 tt,
 var {
-    font-family: $font__code;
-    @include font-size(0.9375);
+  font-family: $font__code;
+  @include font-size(0.9375);
 }
 
 abbr,
 acronym {
-    border-bottom: 1px dotted $color__border-abbr;
-    cursor: help;
+  border-bottom: 1px dotted $color__border-abbr;
+  cursor: help;
 }
 
 mark,
 ins {
-    background: $color__background-ins;
-    text-decoration: none;
+  background: $color__background-ins;
+  text-decoration: none;
 }
 
 big {
-    font-size: 125%;
+  font-size: 125%;
 }
 
-.meta-label {
-    text-decoration: none;
-    font-family: $font__roboto;
-    letter-spacing: .5px;
-    font-size: .9rem;
-    color: $color-medbluegray; //text-transform: uppercase;
-    @include transition(color .3s ease-in-out);
-    @include breakpoint("medium") {
-        font-size: .9rem;
-    }
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+  color: $color__text-main;
+  font-family: $font__main;
+  @include font-size(1);
+  line-height: $font__line-height-body;
 }
 
-
-
-/*=============================
-=            Links            =
-=============================*/
-
-a {
-    color: $color__link; //text-decoration: none;
-    &:visited {
-        color: $color__link-visited;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        color: $color__link-hover;
-    }
-    &:focus {
-        outline: thin dotted;
-    }
-    &:hover,
-    &:active {
-        outline: 0;
-    }
+//Lists
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
 }
 
-.wpb_text_column a,
-.textimg-text p a {
-    text-decoration: none !important;
-    -webkit-box-shadow: inset 0 -2px 0 $color__link-underline;
-    box-shadow: inset 0 -2px 0 $color__link-underline;
-    -webkit-transition: color 0.1s ease-out;
-    transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
-    &:hover {
-        text-decoration: none;
-        color: $color__link-underline;
-    }
+ul {
+  list-style: disc;
 }
 
-.textimg-text.darkbg p a {
-    text-decoration: none;
-    color: white;
-    -webkit-box-shadow: inset 0 -2px 0 $color-medgray;
-    box-shadow: inset 0 -2px 0 $color-medgray;
-    -webkit-transition: color 0.1s ease-out;
-    transition: color 0.1s ease-out, box-shadow 0.1s ease-out;
-    &:hover {
-        text-decoration: none;
-        color: $color-ltbluegray;
-    }
+ol {
+  list-style: decimal;
 }
 
-h3.entry-title a,
-.entry-title a {
-    text-decoration: none;
-    color: black;
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
 }
 
-.entry-header h3.entry-title {
-    border-bottom: 2px solid #D5D5D5;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-    @include breakpoint("medium") {
-        border-bottom: unset;
-        margin-bottom: unset;
-    }
+dt {
+  font-weight: bold;
 }
 
-.entry-footer h3.entry-title {
-
-    margin-bottom: 1rem;
-    line-height: 1.3;
-    @include breakpoint("medium") {
-        border-bottom: unset;
-        margin-bottom: unset;
-    }
-    }
-
-h3.subheading.darkbg a {
-    text-decoration: none;
-    color: white;
+dd {
+  margin: 0 1.5em 1.5em;
 }
 
-a .icon-arrow-long-right:before {
-    margin-left: 0;
-    @include transition(margin-left .3s ease-in-out);
-}
+//links
 
-a:hover .icon-arrow-long-right:before {
-    margin-left: 5px;
-    @include transition(margin-left .3s ease-in-out);
-}
+p a {
+  color: #222;
+  box-shadow: 0 1px 0 rgba(0, 0, 13, 0.4);
+  text-decoration: none;
+  transition: color 0.2s, box-shadow 0.2s, border-color 0.2s;
 
-a .icon-arrow-long-left:before {
-    margin-right: 0;
-    @include transition(margin-right .3s ease-in-out);
-}
-
-a:hover .icon-arrow-long-left:before {
-    margin-right: 5px;
-    @include transition(margin-right .3s ease-in-out);
+  &:visited {
+    color: #666666;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 1px 0 rgba(0, 0, 13, 1);
+  }
+  &:focus {
+    outline: thin dotted;
+  }
+  &:hover,
+  &:active {
+    outline: 0;
+  }
 }

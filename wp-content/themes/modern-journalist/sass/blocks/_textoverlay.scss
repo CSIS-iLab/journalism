@@ -1,0 +1,60 @@
+.text-color__light .text-overlay__content {
+  p,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: black;
+  }
+}
+
+.text-color__light .text-overlay__content {
+  p,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: white;
+  }
+}
+
+.text-overlay__content {
+  margin: 20px;
+  @include breakpoint("small") {
+    margin: 24px;
+  }
+}
+
+.text-overlay__text {
+  width: 100%;
+
+  @include breakpoint("medium") {
+    width: 40%;
+  }
+  @include breakpoint("large") {
+    width: 500px;
+  }
+}
+
+.text-overlay__text.text-align__right {
+  left: 0;
+  @include breakpoint("medium") {
+    left: calc(60%);
+  }
+  @include breakpoint("large") {
+    left: calc(100% - 500px);
+  }
+}
+
+.wp-block-jourblocks-text-overlay figcaption {
+  padding: 0 20px 12px;
+  @include breakpoint("medium") {
+    padding: 0 7vw 7vw;
+  }
+  @include breakpoint("large") {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}

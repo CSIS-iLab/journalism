@@ -1,0 +1,22 @@
+.wp-block-jourblocks-audio {
+  figure {
+    width: 100%;
+    margin: 4px 0 12px;
+  }
+}
+
+.wp-block-jourblocks-audio-profile {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto;
+  grid-column-gap: 1rem;
+  grid-template-areas: "audioimg audioprofile";
+  margin: 8px 0;
+  .component__imgcircle {
+    grid-area: audioimg;
+  }
+  .audio__content {
+    grid-area: audioprofile;
+    align-self: center;
+  }
+}

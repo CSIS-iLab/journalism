@@ -1,7 +1,7 @@
 /*!
 Theme Name: Modern Journalist
 Theme URI: http://underscores.me/
-Author: Tucker
+Author: Tucker Harris
 Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
@@ -20,58 +20,12 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
-/*----------  Abstracts: Configuration and Helpers  ----------*/
-@import
-  'abstracts/variables',
-  'abstracts/mixins';
-
-/*----------  Base  ----------*/
-@import
-  'base/normalize',
-  'base/base',
-  'base/typography';
-
-/*----------  Elements  ----------*/
-@import
-  'elements/elements';
-
-/*----------  Modules  ----------*/
-@import
-  'modules/accessibility',
-  'modules/alignments',
-  'modules/clearings',
-  'modules/infinite-scroll';
-
-/*----------  Components  ----------*/
-@import
-  'components/404',
-  'components/pagination',
-  'components/testimonials',
-    'components/social_share',
-  'components/related-content';
-
-/*----------  Layout  ----------*/
-@import
-  'layout/header',
-  'layout/footer',
-  'layout/navigation',
-  'layout/widgets';
-
-/*----------  Pages  ----------*/
-@import
-  'pages/home',
-  'pages/posts',
-  'pages/archives',
-  'pages/404',
-  'pages/search';
-
-/*----------  Vendors  ----------*/
-@import
-  'vendors/flexbox/flexbox-main',
-  'vendors/flexbox/flexbox-helpers',
-  //'vendors/fluidbox/fluidbox',
-  'vendors/fontello/fontello';
-  //
-
-
-/*----------  Related Posts  ----------*/
+@import "abstracts/abstracts";
+@import "base/base";
+@import "blocks/blocks";
+@import "forms/forms";
+@import "layout/layout";
+@import "media/media";
+@import "navigation/navigation";
+@import "site/site";
+@import "vendors/vendors";

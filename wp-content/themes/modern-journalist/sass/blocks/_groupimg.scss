@@ -1,0 +1,30 @@
+.group__img-container {
+  @include breakpoint("medium") {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-column-gap: 24px;
+    grid-template-areas: "fig1img fig2img";
+  }
+  figure figcaption {
+    margin-top: 0.5rem;
+  }
+  img,
+  .wp-block-image.alignwide img {
+    margin-bottom: 0.5rem;
+  }
+
+  figure:first-of-type {
+    grid-area: fig1img;
+  }
+  figure:first-of-type figcaption {
+    grid-area: fig1cap;
+  }
+
+  figure:last-of-type {
+    grid-area: fig2img;
+  }
+  figure:last-of-type figcaption {
+    grid-area: fig2cap;
+  }
+}

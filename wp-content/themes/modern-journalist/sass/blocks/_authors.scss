@@ -1,0 +1,26 @@
+.author__container {
+  margin: 4rem 0;
+}
+
+.author__block {
+  margin-top: 3rem;
+  max-width: 700px;
+  @include breakpoint("small") {
+    display: grid;
+    grid-template-columns: 75px;
+    grid-column-gap: 1rem;
+    grid-template-areas: "authorimg authortext";
+  }
+
+  grid-template-areas: img {
+    grid-area: authorimg;
+  }
+
+  .author__content {
+    grid-area: authortext;
+    h4 {
+      margin: 0;
+      font-size: 25px;
+    }
+  }
+}

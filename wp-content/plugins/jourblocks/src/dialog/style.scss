@@ -1,0 +1,32 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.dialog__container {
+  background-color: #f2f2f2;
+  padding: 24px 0;
+  max-width: 700px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.dialog__content,
+.dialog__caption {
+  width: calc(100% - 48px);
+  margin: 0 auto;
+}
+.dialog__caption:empty {
+  display: none;
+}
+
+.dialog__caption p:last-of-type {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.dialog__content {
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}

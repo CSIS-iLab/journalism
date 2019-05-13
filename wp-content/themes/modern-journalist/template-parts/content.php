@@ -73,29 +73,36 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 
     		if ( 'post' === get_post_type() ) :
     			?>
-    			<p class="post__intro large-text"><?php echo esc_attr( $meta_intro )?></p>
+    			<div class="post__intro large-text"><?php echo esc_attr( $meta_intro )?></div>
     			<div class="post__authors">By <?php echo esc_attr( $meta_authors )?></div>
     		<?php endif; ?>
-    </div>
+        <div id="header-share">
+          <?php echo modern_journalist_share(  $post->ID ); ?>
+        </div>
 
 
-  <?php if ($meta_header == 'half-page' || $meta_header == 'cut-out'): ?>
-  <div class="entry-header__image">
-    <div class="post__image" style="background-image: url(' <?php echo esc_attr($meta_media) ?>'">
-    </div>
-  </div>
-
-<?php endif?>
-
-
-<?php if ($meta_header == 'background-img' || $meta_header == 'half-page') : ?>
-  <div class="entry-header__caption"><figcaption><?php echo wp_get_attachment_caption($mediaid) ?></figcaption></div>
 
 </div>
+<?php if ($meta_header == 'half-page'): ?>
+<div class="entry-header__image">
+  <div class="post__image" style="background-image: url(' <?php echo esc_attr($meta_media) ?>'">
+  </div>
+</div>
+<?php endif?>
+
+<?php if ($meta_header == 'cut-out'): ?>
+<div class="entry-header__image" style="background-image: url(' <?php echo esc_attr($meta_media) ?>'">
+
+</div>
+<?php endif?>
+
+<?php if ($meta_header == 'background-img' || $meta_header == 'half-page' || $meta_header == 'cut-out') : ?>
+  <div class="entry-header__caption"><figcaption><?php echo wp_get_attachment_caption($mediaid) ?></figcaption></div>
+
 
 <?php endif?>
-	</header><!-- .entry-header -->
 
+	</header><!-- .entry-header -->
 
 
 	<div class="entry-content" <?php
@@ -116,6 +123,15 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 		) );
 
 		?>
+
+
+      <?php echo modern_journalist_share(  $post->ID ); ?>
+
+  <div class="post__footer">
+<p>This story was writen by students participating in Reporting on International Affairs, a CSIS Practicum in Journalism.</p>
+<div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Read another story</a></div>
+  </div>
+
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

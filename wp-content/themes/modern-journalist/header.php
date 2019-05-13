@@ -49,10 +49,6 @@
 					<?php
 					echo get_the_title(); ?>
 				</div>
-				<div id="page-navigation">Sections
-					<nav>
-					</nav>
-				</div>
 		</div>
 			<?php
 		endif;

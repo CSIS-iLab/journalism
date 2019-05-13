@@ -8,6 +8,24 @@
   font-family: $font__sans;
   font-weight: 300;
 
+  #primary-menu {
+    position: absolute;
+    /* width: 340px !important; */
+    left: 0;
+    right: 0;
+    margin-right: 3px;
+    background-color: white;
+    @include breakpoint("medium") {
+      position: relative;
+      margin-right: unset;
+      left: unset;
+      right: unset;
+      display: grid;
+      align-content: center;
+      height: 100%;
+    }
+  }
+
   ul {
     display: none;
     list-style: none;
@@ -83,12 +101,37 @@
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-  display: block;
-  height: 48px;
-  width: 48px;
-  left: 16px;
-  background-color: white;
-  border: none;
+  @include breakpoint("maxsmall") {
+    display: block;
+    height: 48px;
+    width: 48px;
+    left: 16px;
+    background-color: white;
+    border: none;
+    padding: 20px;
+  }
+}
+
+.main-navigation.toggled ul {
+  width: 100vw !important;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
+  height: auto;
+  @include breakpoint("medium") {
+    width: auto !important;
+    box-shadow: unset;
+    height: unset;
+  }
+  li {
+    padding: 8px 0;
+    float: none;
+    background-color: white;
+    font-size: 18px;
+    @include breakpoint("medium") {
+      padding: unset;
+      background-color: unset;
+      font-size: unset;
+    }
+  }
 }
 
 @include breakpoint("medium") {

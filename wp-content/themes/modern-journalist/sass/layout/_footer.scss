@@ -61,8 +61,13 @@ footer.site-footer {
         padding: 3%;
       }
     }
+
+    .footer__contact-info {
+      margin-top: 1rem;
+    }
     .footer__contact-info div {
       padding: 4px 0;
+      display: flex;
     }
 
     .footer__contact-address span {
@@ -113,23 +118,47 @@ footer.site-footer {
     }
   }
 
+  .footer__follow span {
+    padding-right: 1rem;
+  }
+
   .footer__follow-icon {
+    a {
+      opacity: 0.8;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+
     display: inline;
-    width: 32px;
+    width: auto;
     height: 32px;
     margin-right: 1rem;
     display: relative;
     display: inline-block;
 
     @include breakpoint("medium") {
-      width: 24px;
-      height: 24px;
+      width: auto;
+      height: 16px;
     }
+
     img {
       height: 100%;
       width: auto;
       display: block;
       margin: 0 auto;
+    }
+  }
+  .footer__contact-info .footer__follow-icon {
+    width: 16px;
+    height: auto;
+    opacity: 0.8;
+    img {
+      width: 100%;
     }
   }
 }

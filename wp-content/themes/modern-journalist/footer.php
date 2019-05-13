@@ -35,21 +35,21 @@
     <div class="footer__contact">
       <div>
       <div class="footer__follow">
-        Follow Us
+        <span>Follow Us</span>
         <div class="footer__follow-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-facebook.svg" /></a>
+          <a href="<?php echo esc_url( $meta_facebook); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-facebook.svg" /></a>
         </div>
         <div class="footer__follow-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-twitter.svg" /></a>
+          <a href="<?php echo esc_url( $meta_twitter); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-twitter.svg" /></a>
         </div>
         <div class="footer__follow-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-linkedin.svg" /></a>
+          <a href="<?php echo esc_url( $meta_linkedin); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-linkedin.svg" /></a>
         </div>
         <div class="footer__follow-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-youtube.svg" /></a>
+          <a href="<?php echo esc_url( $meta_youtube); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-youtube.svg" /></a>
         </div>
         <div class="footer__follow-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icon-instagram.svg" /></a>
+          <a href="<?php echo esc_url( $meta_instagram); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-instagram.svg" /></a>
         </div>
       </div>
       <div class="footer__contact-info">

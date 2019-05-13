@@ -5,7 +5,7 @@ Template Name: Featured Stories
 get_header(); ?>
 
 <div id="primary" class="site-content">
-<div id="content" role="main">
+<main id="content" role="main">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -40,7 +40,7 @@ $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish
             ?>
 
 
-		</div><!-- #content -->
+		</main><!-- #content -->
 	</div><!-- #primary -->
 
 

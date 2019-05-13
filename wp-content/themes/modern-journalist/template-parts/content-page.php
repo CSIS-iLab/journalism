@@ -9,20 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="page-content">
+
 
 	<?php modern_journalist_post_thumbnail(); ?>
 
 	<div class="entry-content">
+		<div class="">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</div><!-- .entry-header -->
+
 		<?php
 		the_content();
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'modern-journalist' ),
-			'after'  => '</div>',
+		    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'modern-journalist' ),
+		    'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->
@@ -36,9 +38,9 @@
 						/* translators: %s: Name of current post. Only visible to screen readers */
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'modern-journalist' ),
 						array(
-							'span' => array(
-								'class' => array(),
-							),
+						    'span' => array(
+						        'class' => array(),
+						    ),
 						)
 					),
 					get_the_title()

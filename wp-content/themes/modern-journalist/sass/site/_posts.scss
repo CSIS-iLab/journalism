@@ -4,3 +4,20 @@
     padding-top: 48px;
   }
 }
+
+.post__share-buttons {
+  display: flex;
+}
+
+.post__share-icon {
+  opacity: 0.8;
+  display: inline-block;
+  margin-right: 8px;
+  &:hover {
+    opacity: 1;
+  }
+  img {
+    height: 24px;
+    width: auto;
+  }
+}

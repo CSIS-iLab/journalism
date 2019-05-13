@@ -27,11 +27,9 @@
 
 .text-overlay__text {
   width: 100%;
-  @include breakpoint("small") {
-    width: 50%;
-  }
+
   @include breakpoint("medium") {
-    width: 30%;
+    width: 40%;
   }
   @include breakpoint("large") {
     width: 500px;
@@ -39,10 +37,24 @@
 }
 
 .text-overlay__text.text-align__right {
+  left: 0;
   @include breakpoint("medium") {
-    left: calc(70%);
+    left: calc(60%);
   }
   @include breakpoint("large") {
     left: calc(100% - 500px);
+  }
+}
+
+.wp-block-jourblocks-text-overlay figcaption {
+  padding: 0 20px 12px;
+  @include breakpoint("medium") {
+    padding: 0 7vw 7vw;
+  }
+  @include breakpoint("large") {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0;
   }
 }

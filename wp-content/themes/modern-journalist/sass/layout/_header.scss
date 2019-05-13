@@ -4,15 +4,24 @@
 
 #masthead {
   width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 48px;
   z-index: 5;
   position: fixed;
+  right: 0;
   left: 0;
+  margin-right: auto;
+  margin-left: auto;
   top: 0;
   padding: 0.5rem 0px;
   background-color: white;
   column-gap: 0.5rem;
-  @include breakpoint("large") {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
+  border-radius: 3px;
+  transition: all 0.2s ease-in 0s;
+  @include breakpoint("medium") {
+    top: 8px;
     height: 54px;
     column-gap: 0.8rem;
   }
@@ -32,7 +41,7 @@
   display: grid;
   grid-template-columns: min-content auto min-content;
   grid-template-rows: auto auto;
-  grid-template-areas: "site-logo site-title main-navigation" "header__post-info header__post-info header__post-info";
+  grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
 
   @include breakpoint("large") {
     grid-template-columns: min-content auto min-content;
@@ -92,6 +101,7 @@
   }
 }
 .is-single-post #header__csis-logo {
+  padding-right: 8px;
   @include breakpoint("large") {
     padding-bottom: 0.2rem;
   }
@@ -103,12 +113,7 @@
   grid-template-rows: 100%;
   grid-template-areas: "header__page-name page-navigation";
   grid-area: header__post-info;
-  padding: 0.3rem 1rem;
-  background-color: gray;
-  @include breakpoint("large") {
-    background-color: unset;
-    padding: 0.3rem 0;
-  }
+  padding: 0 0 0.3rem;
 }
 
 #page-navigation {
@@ -127,6 +132,8 @@
 .is-single-post #header__site-name {
   grid-area: header__site-name;
   align-self: center;
+  opacity: 0.7;
+
   @include breakpoint("large") {
     align-self: end;
   }
@@ -134,6 +141,47 @@
 
 #header__page-name {
   grid-area: header__page-name;
+  span {
+    font-family: $font__sans;
+    text-transform: uppercase;
+    color: rgba(#000, $opacity__lighter);
+    font-size: $font__size-small;
+  }
+}
+
+#header__site-name,
+#header__page-name {
+  position: relative;
+  float: left;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-grow: 1;
+  white-space: nowrap;
+  &:after {
+    content: "";
+    text-align: right;
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 40px;
+    height: 100%;
+    background: #004165;
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      #004165 65%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      #004165 65%
+    );
+    background: linear-gradient(90deg, rgba(0, 65, 101, 0) 0%, #fff 65%);
+  }
 }
 
 .main-navigation {

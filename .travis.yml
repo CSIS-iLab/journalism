@@ -8,9 +8,9 @@ branches:
 addons:
   ssh_known_hosts: git.wpengine.com
 before_script:
+  - cd wp-content/themes/modern-journalist
   - npm ci
 script:
-  - cd wp-content/themes/modern-journalist
   - npm run build
 before_install:
   - openssl aes-256-cbc -K $encrypted_850ea7257488_key -iv $encrypted_850ea7257488_iv -in journalism_rsa.enc -out /tmp/journalism_rsa -d

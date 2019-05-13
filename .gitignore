@@ -92,7 +92,7 @@ Thumbs.db
 !composer.json
 !.travis.yml
 !deploy.sh
-!journalist_travis.enc
+!journalism_rsa.enc
 
 # track favicon files, if they exist
 !android-chrome-*.png

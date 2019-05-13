@@ -21,7 +21,6 @@ $csis_desc = get_option('modern_journalist_homepage_csis');
 $feature_post1 = get_option('modern_journalist_homepage_featured_post_1');
 $feature_post2 = get_option('modern_journalist_homepage_featured_post_2');
 $feature_post3 = get_option('modern_journalist_homepage_featured_post_3');
-
 $testimonial1 = get_option('modern_journalist_homepage_testimonal_1');
 $testimonial2 = get_option('modern_journalist_homepage_testimonal_2');
 $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
@@ -48,11 +47,11 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 
 		<section class="home-about">
 			<div class="home-about_program">
-				<?php echo '<p>' . esc_html($modern_journalist_intro) . '</p>'; ?>
+				<?php echo '<p>' . stripslashes_deep($modern_journalist_intro) . '</p>'; ?>
 			</div>
 			<div class="home-about_csis">
 				<h3>About CSIS</h3>
-				<?php echo '<p>' . $csis_desc . '</p>'; ?>
+				<?php echo '<p>' . stripslashes_deep($csis_desc) . '</p>'; ?>
 			</div>
 		</section><!-- about the program-->
 

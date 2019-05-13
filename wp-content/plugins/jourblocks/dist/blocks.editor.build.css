@@ -1,0 +1,842 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.text-color__dark {
+  color: black; }
+
+.text-color__light .text-overlay__content p,
+.text-color__light .text-overlay__content h2,
+.text-color__light .text-overlay__content h3,
+.text-color__light .text-overlay__content h4,
+.text-color__light .text-overlay__content h5 {
+  color: white; }
+
+.text-overlay__text {
+  padding: 24px 24px 0; }
+
+.component__caption,
+figcaption {
+  font-size: 1rem;
+  font-family: sans-serif;
+  text-align: left; }
+
+.component__caption,
+figcaption,
+cite {
+  display: block !important;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  text-align: left !important;
+  color: #666666;
+  margin-top: 0.5rem;
+  padding-bottom: 12px; }
+  .component__caption .caption__source,
+  figcaption .caption__source,
+  cite .caption__source {
+    color: #8f8f8f; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.theme-block__container {
+  border: 1px solid #d3d3d3;
+  padding: 8px 24px; }
+  .theme-block__container .theme-block__students ul li {
+    margin-left: 2rem !important; }
+  .theme-block__container .theme-block__title {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: black; }
+  .theme-block__container .theme-block__agenda img,
+  .theme-block__container .theme-block__article img {
+    max-width: 200px; }
+  .theme-block__container .block-label {
+    font-size: 13px;
+    padding-bottom: 0;
+    margin-top: 1rem;
+    text-transform: uppercase; }
+    .theme-block__container .block-label span {
+      text-transform: none; }
+  .theme-block__container .theme-block__article-excerpt, .theme-block__container .theme-block__article-img {
+    display: none; }
+
+.is-style-profile-large .component__imgcircle {
+  height: 200px;
+  width: auto;
+  border-radius: 0; }
+
+.alignlife,
+.alignright {
+  clear: both; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.dialog__container {
+  background-color: #f2f2f2;
+  padding: 24px; }
+  .dialog__container .component__caption {
+    margin: 0 24px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.group__img-container .block-editor-block-list__layout {
+  display: grid;
+  -ms-flex-align: start;
+      align-items: start;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-template-areas: "groupimg1 groupimg2"; }
+  .group__img-container .block-editor-block-list__layout .editor-block-list__block:first-of-type {
+    grid-area: groupimg1; }
+  .group__img-container .block-editor-block-list__layout .editor-block-list__block:last-of-type {
+    grid-area: groupimg2; }
+  .group__img-container .block-editor-block-list__layout .block-list-appender {
+    display: none; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+.component__caption,
+figcaption,
+cite {
+  display: block !important;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  text-align: left !important;
+  color: #666666;
+  margin-top: 0.5rem; }
+  .component__caption .caption__source,
+  figcaption .caption__source,
+  cite .caption__source {
+    color: #8f8f8f; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/image"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/video"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align right"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/cover"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align left"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Align center"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Wide width"] {
+  display: none; }
+
+div[data-type="core/audio"] .components-toolbar button[aria-label="Full width"] {
+  display: none; }
+
+.components-panel__body.blocks-font-size {
+  display: none; }
+
+.editor-block-list__block-edit .small-title,
+.editor-block-list__block-edit .tiny-text,
+.editor-block-list__block-edit .component__caption {
+  font-family: sans-serif !important;
+  text-align: left; }
+
+.editor-block-list__block-edit .small-title {
+  font-weight: bold; }
+
+img {
+  width: 100%; }
+
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%; }
+
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="right"]
+> .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+.block-editor-block-list__block[data-align="left"]
+> .block-editor-block-list__block-edit {
+  max-width: 50%; }
+
+.wp-block {
+  max-width: 750px; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */

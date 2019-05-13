@@ -1,0 +1,59 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+@import "removed";
+// Colors.
+$black: rgb(41, 41, 41);
+$white: #f4f4f4;
+$gray: #dedede;
+$green: #bada55;
+$red: orangered;
+
+.entry-content {
+  max-width: {
+  }
+}
+
+.components-panel__body.blocks-font-size {
+  display: none;
+}
+
+.editor-block-list__block-edit {
+  .small-title,
+  .tiny-text,
+  .component__caption {
+    font-family: sans-serif !important;
+    text-align: left;
+  }
+
+  .small-title {
+    font-weight: bold;
+  }
+}
+
+img {
+  width: 100%;
+}
+.component__imgcircle {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+//Block Layouts
+
+.block-editor-block-list__layout
+  .block-editor-block-list__block[data-align="right"]
+  > .block-editor-block-list__block-edit,
+.block-editor-block-list__layout
+  .block-editor-block-list__block[data-align="left"]
+  > .block-editor-block-list__block-edit {
+  max-width: 50%;
+}
+
+.wp-block {
+  max-width: 750px;
+}

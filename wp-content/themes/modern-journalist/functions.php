@@ -124,7 +124,7 @@ add_action('widgets_init', 'modern_journalist_widgets_init');
  */
 function modern_journalist_scripts()
 {
-    wp_enqueue_style('modern-journalist-style', get_stylesheet_uri());
+    wp_enqueue_style('modern-journalist-style', get_template_directory_uri() . '/style.min.css');
 
     wp_enqueue_script('modern-journalist-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
 

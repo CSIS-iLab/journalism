@@ -36,6 +36,10 @@
   }
 }
 
+.wp-block-jourblocks-text-overlay {
+  margin-bottom: 2rem;
+}
+
 .text-overlay__text.text-align__right {
   left: 0;
   @include breakpoint("medium") {

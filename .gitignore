@@ -92,6 +92,9 @@ Thumbs.db
 !README.md
 !CHANGELOG.md
 !composer.json
+!.travis.yml
+!deploy.sh
+!aerospace_travis.enc
 
 # track favicon files, if they exist
 !android-chrome-*.png
@@ -106,6 +109,8 @@ Thumbs.db
 # track these mu-plugins, plugins, and themes
 # add your own entries here
 !wp-content/themes/modern-journalist
+!wp-content/plugins/jourblocks.php
+
 
 wp-content/themes/modern-journalist/.sass-cache
 **/.DS_Store

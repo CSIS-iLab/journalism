@@ -9,15 +9,20 @@
     margin: 0 auto;
     padding: 0;
   }
-  p {
+  p,
+  .aligncenter {
     max-width: 700px;
+  }
+
+  .aligncenter {
+    margin: 0;
   }
 
   .alignright,
   .alignleft {
     margin: 0 20px;
     @include breakpoint("medium") {
-      width: 30%;
+      width: 40%;
       clear: both;
     }
   }
@@ -38,8 +43,6 @@
   }
 
   .aligncenter {
-    clear: both;
-    @include center-block;
   }
   .alignfull {
     width: 100vw;
@@ -64,4 +67,13 @@
   }
   .alignwide {
   }
+}
+
+.block-editor-block-list__block[data-type="core/embed"][data-align="left"]
+  .block-editor-block-list__block-edit,
+.block-editor-block-list__block[data-type="core/embed"][data-align="right"]
+  .block-editor-block-list__block-edit,
+.wp-block-embed.alignleft,
+.wp-block-embed.alignright {
+  max-width: 500px;
 }

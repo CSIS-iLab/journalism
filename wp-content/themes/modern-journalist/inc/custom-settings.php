@@ -396,10 +396,11 @@ function modernjournalist_texteditor_callback( $args )
 	$option = get_option( $args[0] );
 	$settings = array(
 	    'media_buttons' => false,
-	    'teeny'         => false,
-	    'wpautop'         => true,
-	    'tinymce' => false,
-	    'textarea_rows' => get_option( 'default_post_edit_rows', 7 )
+	    'teeny'         => true,
+	    'wpautop'         => false,
+	    'tinymce' => true,
+	    'textarea_rows' => get_option( 'default_post_edit_rows', 7 ),
+	    'editor_class' => 'settings_texteditor_admin'
 	);
 
 wp_editor(esc_textarea( __(get_option($args[0] ))), esc_attr( $args[0] ), $settings);
@@ -425,7 +426,7 @@ function modern_journalist_textarea_callback($args)
 function modern_journalist_posts_callback($args)
 {
     $option = get_option($args[0]);
-    echo '<select name="' . esc_attr($args[0]) . '" id="' . esc_attr($args[0]) . '" name="' . esc_attr($args[0]) . '">';
+    echo '<select name="' . esc_attr($args[0]) . '" id="' . esc_attr($args[0]) . '" style="width: 500px;" name="' . esc_attr($args[0]) . '">';
     foreach ($args[1] as $post) {
         if ($post->ID == esc_attr($option)) {
             $selected = "selected";

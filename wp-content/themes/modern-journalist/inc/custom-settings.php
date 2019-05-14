@@ -49,7 +49,7 @@ function modern_journalist_admin_init_section_footer()
     add_settings_field(
         'modern_journalist_description',
         'Program Description',
-        'modern_journalist_textarea_callback',
+        'modernjournalist_texteditor_callback',
         'modern_journalist-options-page',
         'modern_journalist_settings_section_footer',
         array( 'modern_journalist_description' )
@@ -58,10 +58,10 @@ function modern_journalist_admin_init_section_footer()
     add_settings_field(
         'modern_journalist_footer_image',
         'Footer Image',
-        'modern_journalist_text_callback',
+        'modernjournalist_image_callback',
         'modern_journalist-options-page',
         'modern_journalist_settings_section_footer',
-        array( 'modern_journalist_footer_image' )
+        array( 'modern_journalist_footer_image', 'browse-img' )
     );
 
     register_setting(
@@ -72,7 +72,7 @@ function modern_journalist_admin_init_section_footer()
     register_setting(
         'modern_journalist_settings',
         'modern_journalist_footer_image',
-        'sanitize_text_field'
+        'wp_filter_post_kses'
     );
 }
 
@@ -218,7 +218,7 @@ function modern_journalist_admin_init_section_homepage()
 
 		add_settings_field(
         'modern_journalist_homepage_hero',
-        'Logo',
+        'Hero Video',
         'modern_journalist_text_callback',
         'modern_journalist-options-page',
         'modern_journalist_settings_section_homepage',
@@ -228,7 +228,7 @@ function modern_journalist_admin_init_section_homepage()
     add_settings_field(
         'modern_journalist_homepage_intro',
         'Introduction',
-        'modern_journalist_textarea_callback',
+        'modernjournalist_texteditor_callback',
         'modern_journalist-options-page',
         'modern_journalist_settings_section_homepage',
         array( 'modern_journalist_homepage_intro' )
@@ -237,7 +237,7 @@ function modern_journalist_admin_init_section_homepage()
     add_settings_field(
         'modern_journalist_homepage_csis',
         'About CSIS',
-        'modern_journalist_textarea_callback',
+        'modernjournalist_texteditor_callback',
         'modern_journalist-options-page',
         'modern_journalist_settings_section_homepage',
         array( 'modern_journalist_homepage_csis' )
@@ -270,10 +270,10 @@ function modern_journalist_admin_init_section_homepage()
       add_settings_field(
           'modern_journalist_homepage_testimonialimg',
           'Testimonial Image',
-          'modern_journalist_text_callback',
+          'modernjournalist_image_callback',
           'modern_journalist-options-page',
           'modern_journalist_settings_section_homepage',
-          array( 'modern_journalist_homepage_testimonialimg' )
+          array( 'modern_journalist_homepage_testimonialimg', 'browse-img' )
       );
 
       add_settings_field(
@@ -337,7 +337,7 @@ function modern_journalist_admin_init_section_homepage()
     register_setting(
             'modern_journalist_settings',
             'modern_journalist_homepage_testimonialimg',
-            'sanitize_text_field'
+            'wp_filter_post_kses'
     );
 
     register_setting(
@@ -391,6 +391,27 @@ function modern_journalist_text_callback($args)
  *
  * @param  Array $args Array of arguments passed by callback function.
  */
+function modernjournalist_texteditor_callback( $args )
+{
+	$option = get_option( $args[0] );
+	$settings = array(
+	    'media_buttons' => false,
+	    'teeny'         => true,
+	    'wpautop'         => false,
+	    'tinymce' => true,
+	    'textarea_rows' => get_option( 'default_post_edit_rows', 7 ),
+	    'editor_class' => 'settings_texteditor_admin'
+	);
+
+wp_editor(esc_textarea( __(get_option($args[0] ))), esc_attr( $args[0] ), $settings);
+
+}
+
+/**
+ * Renders the textareafields.
+ *
+ * @param  Array $args Array of arguments passed by callback function.
+ */
 function modern_journalist_textarea_callback($args)
 {
     $option = get_option($args[0]);
@@ -405,7 +426,7 @@ function modern_journalist_textarea_callback($args)
 function modern_journalist_posts_callback($args)
 {
     $option = get_option($args[0]);
-    echo '<select name="' . esc_attr($args[0]) . '" id="' . esc_attr($args[0]) . '" name="' . esc_attr($args[0]) . '">';
+    echo '<select name="' . esc_attr($args[0]) . '" id="' . esc_attr($args[0]) . '" style="width: 500px;" name="' . esc_attr($args[0]) . '">';
     foreach ($args[1] as $post) {
         if ($post->ID == esc_attr($option)) {
             $selected = "selected";
@@ -416,4 +437,34 @@ function modern_journalist_posts_callback($args)
         echo '<option value="' . esc_attr($post->ID) . '" ' . $selected . '>' . esc_attr($post->post_title) . '</option>';
     }
     echo '</select>';
+}
+
+/**
+ * Renders the file upload fields.
+ *
+ */
+function modernjournalist_image_callback( $args ) {
+	global $defaults;
+	$option = get_option( $args[0] );
+	$name = $args[1];
+
+	?>
+	<div class="media_upload ">
+	<input type='hidden' class="hidden-input" name='<?php echo esc_attr( $args[0] ); ?>' data-test="" value='<?php echo esc_attr( $option ); ?>' id='<?php echo esc_attr( $args[0] ); ?>'>
+
+    <div class='image_container' data-id="<?php echo esc_attr( $args[0] ); ?>">
+    	<?php
+    		if( esc_attr( $option ) ) {
+                    echo "<img src='".esc_attr( $option )."' style='width:200px;height:auto;cursor:pointer;' name='".esc_attr( $args[0] )."'  class='choose-meta-image-button' title='Change Image' /><br />";
+                    echo '<input type="button" class="remove-meta-image-button button"  data-id="'.esc_attr( $args[0] ).'" value="Remove Image" />';
+                }
+        ?>
+    </div>
+    <div class='button_container' name='<?php echo esc_attr( $args[0] ); ?>' >
+    	<input type="button" id="meta-image-button" name='<?php echo esc_attr( $args[0] ); ?>' class="button choose-meta-image-button" value="<?php _e( 'Choose or Upload an Image', 'text_domain' )?>" />
+		<p class="description">If there is no featured image, this image will be used instead.</p>
+</div>
+</div>
+	<?php
+
 }

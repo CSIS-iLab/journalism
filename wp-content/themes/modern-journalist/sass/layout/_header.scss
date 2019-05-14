@@ -29,34 +29,39 @@
 
 #masthead.not-a-post {
   display: grid;
-  grid-template-columns: min-content auto min-content;
-  grid-template-rows: 1min-content;
+  grid-template-columns: 48px auto 48px;
+  grid-template-rows: 100%;
   grid-template-areas: "site-logo site-title main-navigation";
-  @include breakpoint("large") {
+
+  @include breakpoint("medium") {
     grid-template-columns: min-content auto min-content;
   }
 }
 
 #masthead.is-single-post {
   display: grid;
-  grid-template-columns: min-content auto min-content;
-  grid-template-rows: auto auto;
+  grid-template-columns: 48px auto 48px;
   grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
 
-  @include breakpoint("large") {
+  @include breakpoint("medium") {
     grid-template-columns: min-content auto min-content;
+  }
+  @include breakpoint("large") {
     grid-template-rows: 50% 50%;
     grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
   }
 }
 #site-logo {
   grid-area: site-logo;
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 48px;
   margin-left: 0.5rem;
+  align-self: center;
+
+  @include breakpoint("medium") {
+    padding-left: 12px;
+  }
   img {
-    height: 48px;
-    width: auto;
     display: block;
     position: relative;
     @include breakpoint("large") {
@@ -122,8 +127,11 @@
 
 .not-a-post #header__site-name {
   grid-area: header__site-name;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.1;
+  @include breakpoint("small") {
+    font-size: 20px;
+  }
   @include breakpoint("large") {
     align-self: start;
   }
@@ -169,18 +177,25 @@
     right: 0%;
     width: 40px;
     height: 100%;
-    background: #004165;
     background: -moz-linear-gradient(
-      90deg,
+      left,
       rgba(255, 255, 255, 0) 0%,
-      #004165 65%
+      white 65%
+    );
+    background: -webkit-gradient(
+      left top,
+      right top,
+      color-stop(0%, rgba(255, 255, 255, 0)),
+      color-stop(65%, white)
     );
     background: -webkit-linear-gradient(
-      90deg,
+      left,
       rgba(255, 255, 255, 0) 0%,
-      #004165 65%
+      white 65%
     );
-    background: linear-gradient(90deg, rgba(0, 65, 101, 0) 0%, #fff 65%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 65%);
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 65%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 65%);
   }
 }
 

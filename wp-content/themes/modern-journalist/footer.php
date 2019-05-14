@@ -29,7 +29,7 @@
   			</a>
       </div>
       <div class="footer__csis-about">
-  			<p><?php echo esc_attr($meta_description) ?></p>
+  			<p><?php echo stripslashes_deep($meta_description) ?></p>
       </div>
 	  </div><!-- .footer__info -->
     <div class="footer__contact">

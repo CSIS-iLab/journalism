@@ -1,7 +1,8 @@
 .page .site-content {
   padding: 32px 20px;
   margin: 0 auto;
-  max-width: 1080px;
+  display: block;
+  max-width: 1200px;
 
   @include breakpoint("small") {
     padding: 48px 6vw 0;
@@ -10,6 +11,7 @@
     padding: 72px 8vw 0;
   }
   @include breakpoint("large") {
+    padding: 72px 72px 0;
   }
   @include breakpoint("xlarge") {
     padding-top: 80px;
@@ -28,6 +30,8 @@
 }
 .home .site-content {
   padding: 0px 20px !important;
+  margin: 0 auto;
+  max-width: 1200px;
 
   @include breakpoint("small") {
     padding: 0px 6vw 0 !important;
@@ -36,6 +40,7 @@
     padding: 0px 8vw 0 !important;
   }
   @include breakpoint("large") {
+    padding: 72px 72px 0 !important;
   }
   @include breakpoint("xlarge") {
     padding-top: 0px !important;
@@ -74,6 +79,7 @@
 .post-entry-header,
 .home-feature_sidebar h2 {
   margin-bottom: 0;
+  margin-top: 0;
   h2 {
     margin-bottom: 0px;
   }
@@ -101,13 +107,6 @@
       font-size: 24px;
       line-height: 1.1;
     }
-  }
-}
-
-.home-feature_sidebar {
-  @include breakpoint("medium") {
-    border-left: 1px solid $color__hr;
-    padding-left: 2vw;
   }
 }
 

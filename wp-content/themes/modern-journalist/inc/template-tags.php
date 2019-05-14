@@ -85,7 +85,7 @@ if (! function_exists('modern_journalist_share')) :
     /**
      * Prints HTML with published date..
      */
-    function modern_journalist_share($id)
+    function modern_journalist_share($id, $color)
     {
 
 	global $post;
@@ -101,15 +101,16 @@ if (! function_exists('modern_journalist_share')) :
 	$twitter_link     = sprintf( 'https://twitter.com/intent/tweet?text=%2$s&url=%1$s', $post_url, $post_title );
 	$google_plus_link = sprintf( 'https://plus.google.com/share?url=%1$s', $post_url );
 $mailto_link = sprintf( 'mailto:' );
+
 	// Wrap the buttons
 	$output = '<div class="post__share-buttons">';
 
 			// Add the links inside the wrapper
 
-			$output .= '<a target="_blank" class="post__share-icon" href="' . $facebook_link . '" alt="Share on Facebook" class="share-button "><img src=' . get_template_directory_uri() . '/img/icon-facebook-blue.svg" /></a>';
-			$output .= '<a target="_blank" class="post__share-icon" href="' . $twitter_link . '" alt="Share on Twitter" class="share-button "><img src=' . get_template_directory_uri() . '/img/icon-twitter-blue.svg" /></a>';
-			$output .= '<div class="post__share-icon" alt="Share on Facebook" class="share-button " onclick="window.print()"><img src=' . get_template_directory_uri() . '/img/icon-print-blue.svg" /></div>';
-			$output .= '<a target="_blank" class="post__share-icon" href="' . $mailto_link . '" alt="Share on Facebook" class="share-button"><img src=' . get_template_directory_uri() . '/img/icon-mail-blue.svg" /></a>';
+			$output .= '<a target="_blank" class="post__share-icon" href="' . $facebook_link . '" alt="Share on Facebook" class="share-button "><img src=' . get_template_directory_uri() . '/img/icon-facebook' .  $color . '" /></a>';
+			$output .= '<a target="_blank" class="post__share-icon" href="' . $twitter_link . '" alt="Share on Twitter" class="share-button "><img src=' . get_template_directory_uri() . '/img/icon-twitter' .  $color . '" /></a>';
+			$output .= '<div class="post__share-icon" alt="Share on Facebook" class="share-button " onclick="window.print()"><img src=' . get_template_directory_uri() . '/img/icon-print' .  $color . '" /></div>';
+			$output .= '<a target="_blank" class="post__share-icon" href="' . $mailto_link . '" alt="Share on Facebook" class="share-button"><img src=' . get_template_directory_uri() . '/img/icon-mail' .  $color . '" /></a>';
 
 	$output .= '</div>';
 

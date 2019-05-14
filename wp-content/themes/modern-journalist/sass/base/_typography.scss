@@ -42,11 +42,12 @@ p,
 figcaption,
 cite,
 .wp-block-image figcaption,
-.home-testimonials__info {
+.home-testimonials__info,
+.single-post figcaption p {
   display: block !important;
   font-family: $font__sans;
-  font-size: $font__size-caption;
-  line-height: $font__line-height-caption;
+  font-size: $font__size-caption !important;
+  line-height: $font__line-height-caption !important;
   text-align: left !important;
   color: $color__text-caption;
   margin-top: 0.5rem !important;
@@ -84,7 +85,8 @@ cite,
   font-family: $font__sans;
   font-size: 18px;
   line-height: 20px;
-  font-weight: bold;
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .small-title {

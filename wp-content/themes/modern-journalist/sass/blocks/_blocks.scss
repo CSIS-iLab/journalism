@@ -3,6 +3,7 @@
 @import "dialog";
 @import "groupimg";
 @import "layout";
+@import "focus";
 @import "postheader";
 @import "profile";
 @import "textoverlay";
@@ -16,10 +17,9 @@
 .component__title {
 }
 
-.wp-block-pullquote {
+figure.wp-block-pullquote {
   margin: 0 0 24px 0;
   width: 100%;
-  padding: 1rem 0;
   border-left: 3px solid var(--post-color);
   font-family: var(--post-text);
   text-align: left;
@@ -30,14 +30,15 @@
     max-width: 100%;
     width: 100%;
   }
-}
 
-.wp-block-pullquote blockquote {
-  margin: 0;
-  max-width: 700px !important;
-  p {
-    width: 100%;
-    margin: 0 0;
+  blockquote {
+    margin: 0;
+    max-width: 700px !important;
+
+    p {
+      width: 100%;
+      margin: 0 0;
+    }
   }
 }
 

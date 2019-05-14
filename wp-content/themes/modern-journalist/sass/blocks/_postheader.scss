@@ -31,6 +31,7 @@
 }
 #header-share {
   grid-area: postshare;
+  margin-top: 0.5rem;
 }
 
 .entry-header__image {
@@ -76,19 +77,19 @@
   grid-template-columns: 100% 100%;
   grid-template-rows: auto auto;
   grid-template-areas: "imagearea" "textarea";
-  @include breakpoint("small") {
-    grid-template-areas: "imagearea" "textarea";
-  }
   @include breakpoint("medium") {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
     grid-template-areas: "textarea imagearea";
+  }
+  @include breakpoint("large") {
+    grid-template-columns: 50% 50%;
   }
 
   .entry-header__image {
     position: relative;
     display: grid;
     grid-template-columns: auto 24px;
-    grid-template-rows: 48px auto auto;
+    grid-template-rows: 72px auto auto;
     grid-template-areas: "colorblock ." "image image" "caption .";
     line-height: 0;
     grid-row-start: 1;
@@ -100,11 +101,12 @@
     }
     @include breakpoint("medium") {
       grid-template-columns: 48px auto;
-      grid-template-rows: 72px auto;
+      grid-template-rows: 100px auto;
       grid-template-areas: " . colorblock" "image image" ". caption ";
       padding-left: 5vw;
     }
     @include breakpoint("large") {
+      grid-template-columns: 72px auto;
       padding-left: 40px;
     }
 
@@ -134,6 +136,14 @@
         transform: scaleY(100%);
       }
     }
+    @include keyframes(line) {
+      from {
+        width: 0px;
+      }
+      to {
+        width: 180px;
+      }
+    }
 
     .post__image {
       -webkit-box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
@@ -161,6 +171,7 @@
         grid-row-start: 2;
         grid-row-end: span 1;
         width: calc(100% - 5vw);
+        max-width: 700px;
       }
       @include breakpoint("large") {
         padding-right: 5vw;
@@ -178,7 +189,6 @@
       max-width: 300px;
       color: white !important;
       opacity: 80%;
-
       @include breakpoint("small") {
         color: $color__text-caption !important;
         opacity: unset;
@@ -189,7 +199,7 @@
       margin: 0;
       width: 100%;
       align-self: stretch;
-      margin-left: 5vw;
+      margin-left: 1vw;
       width: calc(100% - 5vw);
       figcaption {
         color: white !important;
@@ -204,23 +214,26 @@
     @include breakpoint("small") {
       padding-left: 5vw;
       padding-right: 16px;
+      width: 100%;
       max-width: 700px;
-      justify-self: center;
+      justify-self: end;
       align-self: center;
-      padding-bottom: 40px;
     }
     @include breakpoint("medium") {
       grid-row-start: 1;
       grid-row-end: span 3;
     }
   }
+
   .entry-title::after {
     content: "";
     display: block;
-    width: 100px;
+    width: 0;
     height: 3px;
-    background-color: var(--post-color);
+    margin-top: 0.5rem;
+    border-top: 3px solid var(--post-color);
     opacity: 50%;
+    @include animation("line 1s .5s forwards");
   }
 }
 
@@ -375,10 +388,8 @@
   .post__date,
   #header-share {
     z-index: 3;
-
     padding-left: 20px;
     color: white !important;
-    margin: 0;
   }
 
   .post__intro {
@@ -482,6 +493,8 @@
   }
 
   #header-share {
+    margin: 0 auto;
+    margin-top: 0.5rem;
     @include breakpoint("medium") {
       padding-bottom: 24px;
     }
@@ -497,7 +510,6 @@
       width: 80%;
       max-width: 400px;
       justify-self: end;
-
       opacity: 80% !important;
       align-self: end;
     }
@@ -507,6 +519,7 @@
         text-align: right !important;
         color: white !important;
         opacity: 0.8 !important;
+        text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
       }
     }
   }
@@ -537,15 +550,19 @@
   .post__intro,
   .post__date {
     align-self: stretch;
-    padding: 20px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     @include breakpoint("small") {
-      padding: 32px 7vw;
+      padding-left: 7vw;
+      padding-right: 7vw;
     }
     @include breakpoint("medium") {
-      padding: 40px 10vw;
+      padding-left: 10vw;
+      padding-right: 10vw;
     }
     @include breakpoint("large") {
-      padding: 40px 72px;
+      padding-left: 72px;
+      padding-right: 72px;
     }
   }
   .post__authors,
@@ -574,7 +591,8 @@
   }
 
   .post__date {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    padding-top: 2rem;
   }
 
   .entry-title {
@@ -586,7 +604,7 @@
   .post__intro {
     margin-top: 0;
     padding-top: 0;
-    margin-bottom: 0;
+    padding-bottom: 2rem;
   }
   .entry-header__caption {
     margin-top: 0;

@@ -12,7 +12,14 @@
  $meta_intro = get_post_meta( get_the_ID(), 'jourblocks_meta_intro', true );
  $meta_color = get_post_meta( get_the_ID(), 'jourblocks_meta_color', true );
  $meta_media = get_post_meta( get_the_ID(), 'jourblocks_meta_media', true );
- $meta_header = get_post_meta( get_the_ID(), 'jourblocks_meta_header', true );
+
+ $checkheader= get_post_meta( get_the_ID(), 'jourblocks_meta_header', true );
+
+ if ($checkheader == ''):
+   $meta_header = 'background-img';
+   else :
+     $meta_header = $checkheader;
+endif;
 $mediaid = attachment_url_to_postid( $meta_media );
 
 function readableColour($bg){
@@ -77,7 +84,13 @@ if($meta_color == '' || $meta_color == '#ffffff'){
     			<div class="post__authors">By <?php echo esc_attr( $meta_authors )?></div>
     		<?php endif; ?>
         <div id="header-share">
-          <?php echo modern_journalist_share(  $post->ID ); ?>
+
+          <?php if ($meta_header == 'background-img') :
+           echo modern_journalist_share(  $post->ID, '.svg' );
+
+         else :
+          echo modern_journalist_share(  $post->ID, '-blue.svg' );
+        endif?>
         </div>
 
 

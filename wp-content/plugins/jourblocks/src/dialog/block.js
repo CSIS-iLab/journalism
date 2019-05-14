@@ -62,7 +62,7 @@ registerBlockType("jourblocks/dialog", {
         </div>
         <div className="component__caption">
           <RichText.Content
-            tagName="div"
+            tagName="figcaption"
             value={attributes.caption}
             className="dialog__caption"
           />

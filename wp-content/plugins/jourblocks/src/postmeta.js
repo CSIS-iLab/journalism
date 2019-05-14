@@ -64,7 +64,8 @@ registerBlockType("jourblocks/meta-block", {
     metaHeader: {
       type: "string",
       source: "meta",
-      meta: "jourblocks_meta_header"
+      meta: "jourblocks_meta_header",
+      default: "background-img"
     }
   },
 
@@ -81,10 +82,6 @@ registerBlockType("jourblocks/meta-block", {
 
     function setColor(metaColor) {
       setAttributes({ metaColor });
-    }
-
-    function updateMetaHeader(metaHeader) {
-      setAttributes({ metaHeader });
     }
 
     const getImageButton = openEvent => {
@@ -116,12 +113,12 @@ registerBlockType("jourblocks/meta-block", {
         options={[
           // Mark style as default.
           {
-            value: "color-block",
-            label: "Color Block"
-          },
-          {
             value: "background-img",
             label: "Dark Background Image"
+          },
+          {
+            value: "color-block",
+            label: "Color Block"
           },
           {
             value: "half-page",

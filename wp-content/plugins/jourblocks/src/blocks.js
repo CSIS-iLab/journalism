@@ -169,7 +169,8 @@ wp.domReady(function(allowedBlocks) {
       var allowedThemeBlocks = [
         "core/paragraph",
         "core/gallery",
-        "core/file",
+        "core/heading",
+        "core-embed/youtube",
         "jourblocks/themeinfo"
       ];
 

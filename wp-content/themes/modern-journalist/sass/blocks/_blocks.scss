@@ -93,7 +93,8 @@ figure.wp-block-embed {
   margin-left: 0;
 }
 
-.entry-content > div[class^="wp-block-"] {
+.entry-content > div[class^="wp-block-"],
+.entry-content > figure[class^="wp-block-"] {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
 }

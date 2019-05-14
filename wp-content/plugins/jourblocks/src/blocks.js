@@ -20,6 +20,7 @@ import "./dialog/block.js";
 import "./authors/block-authorprofile.js";
 import "./authors/block.js";
 import "./group-img/block.js";
+import "./infocus/block.js";
 //import "./header/block.js";
 import "./audio/block.js";
 import "./dataviz/block.js";
@@ -153,6 +154,7 @@ wp.domReady(function(allowedBlocks) {
       "jourblocks/authors",
       "jourblocks/dataviz",
       "jourblocks/dialog",
+      "jourblocks/focus",
       "jourblocks/group-img",
       "jourblocks/profile",
       "jourblocks/text-overlay",

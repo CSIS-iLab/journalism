@@ -1,16 +1,26 @@
 footer.site-footer {
-  padding: 0 24px;
   background-color: $color__main;
   overflow: hidden;
+  width: 100vw;
 }
 .site-footer-container {
   color: rgba(#fff, $opacity__light);
-  width: 100%;
-  display: block;
 
-  position: relative;
+  padding: 32px 20px;
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1200px;
+  width: auto;
+
+  @include breakpoint("small") {
+    padding: 0 6vw 0;
+  }
+  @include breakpoint("medium") {
+    padding: 0 8vw 0;
+  }
+  @include breakpoint("large") {
+    padding: 0 72px 0;
+  }
+
   @include breakpoint("small") {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -48,8 +58,10 @@ footer.site-footer {
   .footer__contact {
     font-family: $font__sans;
     grid-area: fcontact;
+    position: relative;
     @include breakpoint("small") {
       padding-left: 2rem;
+      padding-right: 2rem;
     }
     @include breakpoint("large") {
       padding-top: 32px;
@@ -123,6 +135,12 @@ footer.site-footer {
   }
 
   .footer__follow-icon {
+    display: inline;
+    height: 16px;
+    padding: 8px;
+    margin-right: 1rem;
+    display: relative;
+    display: inline-block;
     a {
       opacity: 0.8;
       display: inline-block;
@@ -133,13 +151,6 @@ footer.site-footer {
         opacity: 1;
       }
     }
-
-    display: inline;
-    width: auto;
-    height: 32px;
-    margin-right: 1rem;
-    display: relative;
-    display: inline-block;
 
     @include breakpoint("medium") {
       width: auto;

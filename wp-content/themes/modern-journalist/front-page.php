@@ -83,6 +83,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 				</div><!-- featured post main -->
 				<div class="home-feature_sidebar">
 <h3 class="home-subheading">Previous Projects</h3>
+<div class="featured-sidebar-articles">
 						<?php
 						// Featured Item
 						if ($feature_post2 || $feature_post3) {
@@ -108,6 +109,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 								wp_reset_postdata();
 						}
 					?>
+				</div>
 					<div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Browse all stories</a></div>
 				</div><!-- featured post sidebar -->
 			</div><!-- featured post container -->
@@ -135,7 +137,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 							echo '<article class="home-testimonials__single">';
 
 							the_content();
-							echo '<div class="home-testimonials__info"';
+							echo '<div class="home-testimonials__info">';
 							if ($meta_name) {
 			            echo'<span>' . esc_attr($meta_name) . '</span>';
 			        }

@@ -54,6 +54,7 @@
 
       a {
         width: 200px;
+        transition: all 0.25s ease;
         color: $color__text-caption;
       }
 
@@ -74,6 +75,7 @@
 
   li {
     float: left;
+    padding: 12px;
     position: relative;
 
     &:hover > a,
@@ -82,12 +84,14 @@
   }
 
   a {
+    transition: all 0.25s ease;
     display: block;
     text-decoration: none;
     color: $color__text-caption;
   }
   a:hover,
   a.focus {
+    transition: all 0.25s ease;
     color: #333;
   }
 
@@ -105,7 +109,7 @@
     display: block;
     height: 48px;
     width: 48px;
-    left: 16px;
+
     background-color: white;
     border: none;
     padding: 20px;
@@ -127,7 +131,7 @@
     background-color: white;
     font-size: 18px;
     @include breakpoint("medium") {
-      padding: unset;
+      padding: 12px;
       background-color: unset;
       font-size: unset;
     }

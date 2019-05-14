@@ -358,24 +358,6 @@ function modern_journalist_admin_init_section_homepage()
 }
 
 /**
- * Contact section description.
- */
-function modern_journalist_display_section_homepage_message()
-{
-    echo 'The featured posts shown on the home page.';
-}
-
-add_action('admin_init', 'modern_journalist_admin_init_section_archives');
-
-/**
- * Archives section description.
- */
-function modern_journalist_display_section_archives_message()
-{
-    echo 'Information visible in the site\'s archives.';
-}
-
-/**
  * Renders the text input fields.
  *
  * @param  Array $args Array of arguments passed by callback function.

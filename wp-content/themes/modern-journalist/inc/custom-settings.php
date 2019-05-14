@@ -358,6 +358,16 @@ function modern_journalist_admin_init_section_homepage()
 }
 
 /**
+ * Contact section description.
+ */
+function modern_journalist_display_section_homepage_message()
+{
+    echo 'The featured posts shown on the home page.';
+}
+
+add_action('admin_init', 'modern_journalist_display_section_homepage_message');
+
+/**
  * Renders the text input fields.
  *
  * @param  Array $args Array of arguments passed by callback function.
@@ -379,7 +389,7 @@ function modernjournalist_texteditor_callback( $args )
 	$settings = array(
 	    'media_buttons' => false,
 	    'teeny'         => true,
-	    'wpautop'         => false,
+	    'wpautop'         => true,
 	    'tinymce' => true,
 	    'textarea_rows' => get_option( 'default_post_edit_rows', 7 ),
 	    'editor_class' => 'settings_texteditor_admin'

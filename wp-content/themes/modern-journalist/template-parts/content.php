@@ -138,7 +138,7 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 		?>
 
 
-      <?php echo modern_journalist_share(  $post->ID ); ?>
+      <?php echo modern_journalist_share(  $post->ID , '-blue.svg' ); ?>
 
   <div class="post__footer">
 <p>This story was writen by students participating in Reporting on International Affairs, a CSIS Practicum in Journalism.</p>

@@ -138,6 +138,7 @@ footer.site-footer {
     display: inline;
     height: 16px;
     padding: 8px;
+
     display: relative;
     display: inline-block;
     a {
@@ -166,6 +167,7 @@ footer.site-footer {
   .footer__contact-info .footer__follow-icon {
     width: 16px;
     height: auto;
+    margin-right: 1rem;
     opacity: 0.8;
     img {
       width: 100%;

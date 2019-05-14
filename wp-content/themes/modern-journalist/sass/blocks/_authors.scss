@@ -1,9 +1,12 @@
 .author__container {
   margin: 4rem 0;
+  border-top: 1px solid $color__hr;
+  border-bottom: 1px solid $color__hr;
+  padding-top: 1rem;
 }
 
 .author__block {
-  margin-top: 3rem;
+  margin-bottom: 2rem;
   max-width: 700px;
   @include breakpoint("small") {
     display: grid;
@@ -22,5 +25,9 @@
       margin: 0;
       font-size: 25px;
     }
+  }
+
+  .tiny-text {
+    margin-top: 0.5rem;
   }
 }

@@ -21,7 +21,6 @@
 
   .alignright,
   .alignleft {
-    margin: 0 20px;
     @include breakpoint("medium") {
       width: 40%;
       clear: both;

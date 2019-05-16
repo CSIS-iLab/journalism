@@ -8,6 +8,7 @@
 .author__block {
   margin-bottom: 2rem;
   max-width: 700px;
+
   @include breakpoint("small") {
     display: grid;
     grid-template-columns: 75px;
@@ -28,6 +29,21 @@
   }
 
   .tiny-text {
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .tiny-text,
+  .author__name {
+    text-align: center;
+    @include breakpoint("small") {
+      text-align: left;
+    }
+  }
+  img.component__imgcircle {
+    display: block;
+    margin: 0 auto;
+    @include breakpoint("small") {
+      margin: unset;
+    }
   }
 }

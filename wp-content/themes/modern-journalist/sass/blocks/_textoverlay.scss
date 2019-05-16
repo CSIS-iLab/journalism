@@ -30,15 +30,24 @@
 
 .text-overlay__content {
   margin: 20px;
-  padding: 3rem 0;
+  padding: 432px 0 32px;
   @include breakpoint("small") {
     margin: 24px;
+    padding: 3rem 0 3rem;
   }
   @include breakpoint("large") {
     margin: 2.5rem;
   }
 }
 
+.text-overlay__overlay {
+  margin-top: 400px;
+  height: calc(100% - 400px);
+  @include breakpoint("small") {
+    margin-top: 0;
+    height: 100%;
+  }
+}
 .text-overlay__text {
   width: 100%;
 
@@ -64,7 +73,8 @@
   }
 }
 
-.wp-block-jourblocks-text-overlay figcaption {
+.wp-block-jourblocks-text-overlay figcaption,
+.wp-block-video figcaption {
   padding: 0 20px 12px;
   @include breakpoint("medium") {
     padding: 0 7vw 1rem;

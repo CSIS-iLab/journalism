@@ -14,6 +14,7 @@
 .dialog__caption {
   width: calc(100% - 48px);
   margin: 0 auto;
+  padding-bottom: 0;
 }
 .dialog__caption:empty {
   display: none;
@@ -21,17 +22,15 @@
 
 .dialog__caption p:last-of-type {
   margin-bottom: 0;
-  margin-top: 1rem;
+  padding-bottom: 0;
 }
-
-.dialog__content {
-  p:last-of-type {
-    margin-bottom: 0;
-  }
+.dialog__caption {
+  padding-top: 1rem;
 }
 
 .dialog__content {
   p {
     font-size: $font__size-body !important;
+    margin-bottom: 0.75rem;
   }
 }

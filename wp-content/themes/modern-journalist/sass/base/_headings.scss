@@ -40,9 +40,9 @@ h3 {
 }
 
 .single-post h2 {
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-weight: 500;
   @include breakpoint("large") {
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
 }

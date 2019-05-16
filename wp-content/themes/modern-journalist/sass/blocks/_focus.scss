@@ -1,15 +1,22 @@
 .focus__container.aligncenter {
   background-color: #f2f2f2;
-
   max-width: 700px;
   margin-bottom: 32px;
   position: relative;
 
   .focus__content {
     padding: 24px;
-
     @include breakpoint("medium") {
       padding: 32px;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-family: $font__sans;
+    }
+
+    .wp-block-jourblocks-dataviz {
+      margin-bottom: 0 !important;
     }
   }
 }
@@ -18,7 +25,11 @@
   border-top: 3px solid var(--post-color);
   padding: 12px 0;
   width: 100%;
+  border-bottom: 1px solid $color__hr;
 
+  @include breakpoint("medium") {
+    border-bottom: none;
+  }
   p {
     font-family: $font__sans;
     font-size: $font__size-body_mobile;
@@ -27,8 +38,8 @@
       font-size: $font__size-body;
       line-height: $font__line-height-body;
     }
-  }
-  &:last-of-type {
-    margin-bottom: 0;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }

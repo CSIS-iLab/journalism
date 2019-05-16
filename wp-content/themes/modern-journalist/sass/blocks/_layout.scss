@@ -27,6 +27,8 @@
     }
   }
   .alignleft {
+    margin-bottom: 2rem;
+
     @include breakpoint("medium") {
       display: inline;
       float: left;
@@ -35,15 +37,16 @@
   }
 
   .alignright {
+    margin-bottom: 2rem;
+    @include breakpoint("small") {
+      margin: 0 0 1rem 4vw;
+    }
     @include breakpoint("medium") {
       display: inline;
       float: right;
-      margin: 0 0 1rem 4vw;
     }
   }
 
-  .aligncenter {
-  }
   .alignfull {
     width: 100vw;
     position: relative;
@@ -51,21 +54,9 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-  }
-  .alignmedium {
-    @include breakpoint("medium") {
-      width: 75%;
+    &.wp-block-image img {
+      width: 100vw !important;
     }
-  }
-  .alignshort {
-    margin: 20px;
-    @include breakpoint("medium") {
-      width: 90%;
-      max-width: 700px;
-      margin: 0 6vw;
-    }
-  }
-  .alignwide {
   }
 }
 

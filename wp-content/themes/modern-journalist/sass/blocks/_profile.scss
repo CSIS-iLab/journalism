@@ -1,7 +1,26 @@
-.profile__content {
-  .component__caption,
-  .component__caption p {
-    margin-top: 0.2rem !important;
-    margin-bottom: 0;
+.wp-block-jourblocks-profile {
+  .profile__content {
+    text-align: center;
+    @include breakpoint("small") {
+      text-align: left;
+    }
+    .component__caption,
+    .component__caption p {
+      margin-top: 0.2rem !important;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      text-align: center !important;
+      @include breakpoint("small") {
+        text-align: left !important;
+      }
+    }
+  }
+
+  .component__imgcircle {
+    display: block;
+    margin: 0 auto;
+    @include breakpoint("small") {
+      margin: unset;
+    }
   }
 }

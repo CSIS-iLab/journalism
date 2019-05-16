@@ -32,9 +32,12 @@ figure.wp-block-pullquote {
   }
 
   blockquote {
+    padding-right: 2rem;
     margin: 0;
     max-width: 700px !important;
-
+    @include breakpoint("small") {
+      padding-right: unset;
+    }
     p {
       width: 100%;
       margin: 0 0;
@@ -50,6 +53,9 @@ figure.wp-block-pullquote {
 .wp-block-pullquote.is-style-fancy-quote {
   padding: 0;
   border-left: none;
+  &.alignright {
+    padding: 0;
+  }
   blockquote {
     p {
       font-family: $font__magneta;
@@ -74,7 +80,8 @@ figure.wp-block-pullquote {
       background-repeat: no-repeat;
     }
   }
-  &:not(.alignright) blockquote p {
+  &:not(.alignright) blockquote p,
+  &:not(.alignright) blockquote cite {
     text-align: center;
   }
   &:not(.alignright) {
@@ -89,12 +96,14 @@ figure.wp-block-pullquote {
   }
 }
 
-figure.wp-block-embed {
+figure.wp-block-embed,
+.wp-block-image figure.alignright {
   margin-left: 0;
+  margin-top: 0;
 }
 
-.entry-content > div[class^="wp-block-"],
-.entry-content > figure[class^="wp-block-"] {
+.entry-content > div[class^="wp-block-"]:not(.alignright),
+.entry-content > figure[class^="wp-block-"]:not(.alignright) {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
 }

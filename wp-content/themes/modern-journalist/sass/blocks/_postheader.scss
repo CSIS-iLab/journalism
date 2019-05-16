@@ -24,7 +24,7 @@
 }
 
 .post .entry-title {
-  margin-top: 0;
+  margin-top: 0.5rem;
   font-size: $font__size-posttitle_mobile;
   line-height: $font__line-height-posttitle_mobile;
   @include breakpoint("medium") {
@@ -608,6 +608,7 @@
     margin-bottom: 0;
     padding-bottom: 12px;
     padding-top: 0;
+    margin-top: 0;
   }
 
   .post__intro {

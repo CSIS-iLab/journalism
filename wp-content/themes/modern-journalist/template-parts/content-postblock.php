@@ -1,5 +1,6 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
-    <div class="post-block">
+    <a class="post-block" href="<?php echo esc_url(get_permalink()) ?>" alt="<?php the_title() ?>">
+
       <div class="post-entry-thumb objfit">
         <?php if ( has_post_thumbnail() ) {
 	the_post_thumbnail('medium');
@@ -16,7 +17,7 @@
           ?>
           <header class="post-entry-header">
               <?php
-              the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+              the_title('<h2 class="entry-title">', '</h2>');
               ?>
           </header><!-- .entry-header -->
         <?php the_excerpt(); ?>
@@ -30,6 +31,7 @@
         }
 
         ?>
+</div>
 
-    </div>
+  </a>
 </div>

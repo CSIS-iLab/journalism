@@ -38,6 +38,7 @@
     height: 200px;
     @include breakpoint("medium") {
       height: unset;
+      top: unset;
     }
 
     @include transition(height 1s ease-in-out);

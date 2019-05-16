@@ -32,7 +32,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 		<header class="home-hero">
 			<div id="home-hero__vid-container">
 				<video class="home-hero__vid" autoplay="" loop="" muted="">
-					<source src="<?php echo esc_attr($modern_journalist_hero) ?>" type="video/mp4">
+					<source src="<?php echo esc_attr($modern_journalist_hero) ?>" type="video/mp4" alt="CSIS Journalism Bootcamp Video Roll">
 				</video>
 			</div>
 			<div class="home-hero__site-info">
@@ -110,7 +110,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 						}
 					?>
 				</div>
-					<div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Browse all stories</a></div>
+					<div class="blue-btn"><a href="/feature-stories" title="Feature Stories">Browse all stories</a></div>
 				</div><!-- featured post sidebar -->
 			</div><!-- featured post container -->
 		</section><!-- featured post section -->

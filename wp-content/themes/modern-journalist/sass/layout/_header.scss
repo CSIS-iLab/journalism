@@ -80,10 +80,12 @@
   grid-area: site-title;
   align-items: center;
   line-height: 1.2;
+
   align-self: center;
   @include breakpoint("large") {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 40% 60%;
+    padding-top: 4px;
     grid-template-areas: "header__csis-logo header__csis-logo header__csis-logo" "header__site-name header__site-name header__site-name";
   }
 }

@@ -4,7 +4,7 @@
   max-height: 800px;
   margin-left: -20px;
   margin-right: -20px;
-  overflow: hidden;
+  //overflow: hidden;
   position: relative;
   background-color: $color__ltblue;
   display: grid;
@@ -251,7 +251,7 @@
   }
   .featured-sidebar-articles {
     display: flex;
-
+    flex-direction: column;
     article {
       flex: 1;
     }

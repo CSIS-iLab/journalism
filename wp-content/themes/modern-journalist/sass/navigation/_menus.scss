@@ -13,27 +13,56 @@
     /* width: 340px !important; */
     left: 0;
     right: 0;
+    top: auto;
     margin-right: 3px;
-    background-color: white;
+    height: 0;
+    overflow: hidden;
+    @include transition(height 1s ease-in-out);
+    z-index: 4;
+
     @include breakpoint("medium") {
       position: relative;
       margin-right: unset;
       left: unset;
+      top: unset;
       right: unset;
       display: grid;
+      overflow: unset;
       align-content: center;
       height: 100%;
+      z-index: 5;
+    }
+  }
+  &.toggled #primary-menu {
+    top: 56px;
+    height: 200px;
+    @include breakpoint("medium") {
+      height: unset;
+    }
+
+    @include transition(height 1s ease-in-out);
+    ul {
+      top: 0px;
+      margin-bottom: 5px;
+      @include transition(top 1s ease-in-out);
     }
   }
 
   ul {
-    display: none;
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    background: white;
+    position: relative;
+    top: -400px;
+    padding: 12px 20px 20px;
+    @include transition(top 1s ease-in-out);
+    @include breakpoint("medium") {
+      padding: unset;
+      top: auto;
+    }
 
     ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       float: left;
       position: absolute;
       top: 100%;
@@ -74,9 +103,10 @@
   }
 
   li {
-    float: left;
-    padding: 12px;
     position: relative;
+    @include breakpoint("medium") {
+      float: left;
+    }
 
     &:hover > a,
     &.focus > a {
@@ -103,27 +133,27 @@
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.menu-toggle {
   @include breakpoint("maxsmall") {
     display: block;
-    height: 48px;
+    height: 40px;
     width: 48px;
-
     background-color: white;
     border: none;
     padding: 20px;
   }
+  @include breakpoint("medium") {
+    display: none;
+  }
 }
 
-.main-navigation.toggled ul {
+.main-navigation ul {
   width: 100vw !important;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
-  height: auto;
+
   @include breakpoint("medium") {
     width: auto !important;
     box-shadow: unset;
-    height: unset;
   }
   li {
     padding: 8px 0;
@@ -131,7 +161,7 @@
     background-color: white;
     font-size: 18px;
     @include breakpoint("medium") {
-      padding: 12px;
+      padding: 8px 12px;
       background-color: unset;
       font-size: unset;
     }
@@ -139,9 +169,6 @@
 }
 
 @include breakpoint("medium") {
-  .menu-toggle {
-    display: none;
-  }
   .main-navigation ul {
     display: block;
     display: grid;

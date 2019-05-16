@@ -6,7 +6,7 @@
   width: 100vw;
   max-width: 1200px;
   margin: 0 auto;
-  height: 48px;
+  height: auto;
   z-index: 5;
   position: fixed;
   right: 0;
@@ -22,7 +22,7 @@
   transition: all 0.2s ease-in 0s;
   @include breakpoint("medium") {
     top: 8px;
-    height: 54px;
+    height: auto;
     column-gap: 0.8rem;
   }
 }
@@ -47,17 +47,18 @@
     grid-template-columns: min-content auto min-content;
   }
   @include breakpoint("large") {
-    grid-template-rows: 50% 50%;
+    grid-template-rows: min-content auto;
     grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
   }
 }
 #site-logo {
   grid-area: site-logo;
   height: auto;
-  width: 48px;
+  width: 40px;
   margin-left: 0.5rem;
   align-self: center;
-
+  line-height: 1.2;
+  align-self: center;
   @include breakpoint("medium") {
     padding-left: 12px;
   }
@@ -78,7 +79,8 @@
   grid-template-areas: "header__site-name";
   grid-area: site-title;
   align-items: center;
-
+  line-height: 1.2;
+  align-self: center;
   @include breakpoint("large") {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 40% 60%;
@@ -102,13 +104,12 @@
     height: 20px;
     width: auto;
     opacity: 0.5;
-    align-self: end;
   }
 }
 .is-single-post #header__csis-logo {
   padding-right: 8px;
+  height: 16px;
   @include breakpoint("large") {
-    padding-bottom: 0.2rem;
   }
 }
 
@@ -118,7 +119,7 @@
   grid-template-rows: 100%;
   grid-template-areas: "header__page-name page-navigation";
   grid-area: header__post-info;
-  padding: 0 0 0.3rem;
+  padding: 0;
 }
 
 #page-navigation {
@@ -141,20 +142,16 @@
   grid-area: header__site-name;
   align-self: center;
   opacity: 0.7;
-
-  @include breakpoint("large") {
-    align-self: end;
-  }
+  font-size: 14px;
+  line-height: 1.1;
 }
 
 #header__page-name {
   grid-area: header__page-name;
-  span {
-    font-family: $font__sans;
-    text-transform: uppercase;
-    color: rgba(#000, $opacity__lighter);
-    font-size: $font__size-small;
-  }
+  font-family: $font__sans;
+  font-size: 18px;
+  line-height: 1.1;
+  padding-top: 4px;
 }
 
 #header__site-name,

@@ -1,5 +1,8 @@
 .single-post .entry-content {
   padding: 20px;
+  @include breakpoint("small") {
+    padding: 0 6vw 7vw;
+  }
   @include breakpoint("medium") {
     padding: 0 7vw 7vw;
   }
@@ -38,10 +41,9 @@
 
   .alignright {
     margin-bottom: 2rem;
-    @include breakpoint("small") {
-      margin: 0 0 1rem 4vw;
-    }
+
     @include breakpoint("medium") {
+      margin: 0 0 1rem 4vw;
       display: inline;
       float: right;
     }

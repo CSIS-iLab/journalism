@@ -32,12 +32,8 @@ figure.wp-block-pullquote {
   }
 
   blockquote {
-    padding-right: 2rem;
     margin: 0;
     max-width: 700px !important;
-    @include breakpoint("small") {
-      padding-right: unset;
-    }
     p {
       width: 100%;
       margin: 0 0;
@@ -64,6 +60,10 @@ figure.wp-block-pullquote {
       margin: 0;
       width: 100%;
       max-width: 100% !important;
+      text-align: center;
+      @include breakpoint("medium") {
+        text-align: left;
+      }
       @include breakpoint("large") {
         font-size: 26px;
       }
@@ -78,16 +78,22 @@ figure.wp-block-pullquote {
       background-color: var(--post-color);
       background-size: contain;
       background-repeat: no-repeat;
+      margin: 0 auto;
+      @include breakpoint("medium") {
+        margin: unset;
+      }
     }
   }
   &:not(.alignright) blockquote p,
   &:not(.alignright) blockquote cite {
     text-align: center;
   }
+
   &:not(.alignright) {
     max-width: 700px;
     margin-left: 0;
     margin-right: 0;
+
     blockquote {
       &:before {
         margin: 0 auto;

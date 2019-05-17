@@ -11,7 +11,7 @@ p,
   margin-bottom: 1em;
   margin-top: 0;
   color: $color__text-main;
-  max-width: 750px;
+  max-width: $post__content-width;
 
   @include breakpoint("large") {
     font-size: $font__size-body;
@@ -52,6 +52,7 @@ cite,
   color: $color__text-caption;
   margin-top: 0.5rem !important;
   padding-bottom: 12px;
+  max-width: $post__content-width;
 
   a {
     color: inherit;

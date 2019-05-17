@@ -74,13 +74,13 @@
 }
 
 .wp-block-jourblocks-text-overlay figcaption,
-.wp-block-video figcaption {
+.alignfull.wp-block-video figcaption {
   padding: 0 20px 12px;
   @include breakpoint("medium") {
     padding: 0 7vw 1rem;
   }
   @include breakpoint("large") {
-    width: 90%;
+    width: $post__content-wide-width-large;
     max-width: 1150px;
     margin: 0 auto;
     padding: 0;

@@ -108,7 +108,7 @@
     margin: 0;
     padding: 0;
   }
-  .theme-block__agenda {
+  .theme-block__agenda a {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
@@ -116,6 +116,8 @@
     justify-items: center;
     grid-column-gap: 1rem;
     grid-row-gap: 0.5rem;
+    text-decoration: none;
+
     grid-template-areas: "agendaimg" "agendadesc";
     @include breakpoint("small") {
       justify-items: left;
@@ -124,6 +126,8 @@
       grid-template-rows: auto;
       grid-column-gap: 1rem;
       grid-template-areas: "agendaimg agendadesc";
+    }
+    &:hover {
     }
   }
   .theme-block__agenda-img {
@@ -137,8 +141,25 @@
     grid-area: agendadesc;
     text-align: center;
     margin-bottom: 0;
+    font-family: $font__sans;
+    display: inline-block;
+    font-size: $font__size-caption !important;
+    line-height: 1.1;
+    font-weight: normal !important;
     @include breakpoint("small") {
       text-align: left;
+    }
+
+    &::before {
+      display: inline-block;
+      position: relative;
+      content: " ";
+      height: 12px;
+      width: 12px;
+      background-image: url("img/icon-search.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding-right: 4px;
     }
   }
 }

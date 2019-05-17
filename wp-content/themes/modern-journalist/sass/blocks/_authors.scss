@@ -7,7 +7,7 @@
 
 .author__block {
   margin-bottom: 2rem;
-  max-width: 700px;
+  max-width: $post__content-width;
 
   @include breakpoint("small") {
     display: grid;

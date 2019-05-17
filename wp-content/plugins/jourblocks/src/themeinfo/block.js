@@ -339,10 +339,18 @@ registerBlockType("jourblocks/themeinfo", {
         </div>
         <div class="theme-block__right">
           <div class="theme-block__agenda">
-            <img class="theme-block__agenda-img" src={attributes.agendaFile} />
-            <p class="theme-block__agenda-desc component__title">
-              {attributes.agendaDesc}
-            </p>
+            <a
+              href={attributes.agendaFile}
+              target="_blank"
+              alt={attributes.agendaDesc}
+            >
+              <img
+                class="theme-block__agenda-img"
+                src={attributes.agendaFile}
+              />
+
+              <p class="theme-block__agenda-desc">{attributes.agendaDesc}</p>
+            </a>
           </div>
           <div class="theme-block__dates">
             <div class="theme-block__meta">

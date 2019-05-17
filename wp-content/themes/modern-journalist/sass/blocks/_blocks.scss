@@ -33,7 +33,7 @@ figure.wp-block-pullquote {
 
   blockquote {
     margin: 0;
-    max-width: 700px !important;
+    max-width: $post__content-width !important;
     p {
       width: 100%;
       margin: 0 0;
@@ -90,7 +90,7 @@ figure.wp-block-pullquote {
   }
 
   &:not(.alignright) {
-    max-width: 700px;
+    max-width: $post__content-width;
     margin-left: 0;
     margin-right: 0;
 

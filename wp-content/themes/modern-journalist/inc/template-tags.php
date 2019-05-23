@@ -155,6 +155,23 @@ if ( ! function_exists( 'modern_journalist_post_thumbnail' ) ) :
 	}
 endif;
 
+// function breezer_addDivToImage( $content ) {
+//
+//    // A regular expression of what to look for.
+//    $pattern = '/(<img([^>]*)src="([^"]*)([^>]*)>)/i';
+//
+//    // What to replace it with. $1 refers to the content in the first 'capture group', in parentheses above
+//    $replacement = '<a href="$3" rel="lightbox">$1</a>';
+//
+//    // run preg_replace() on the $content
+//    $content = preg_replace( $pattern, $replacement, $content );
+//
+//    // return the processed content
+//    return $content;
+// }
+//
+// add_filter( 'the_content', 'breezer_addDivToImage' );
+
 function picturefill($alt, $postID)
 {
 

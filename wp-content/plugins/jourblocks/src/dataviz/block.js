@@ -74,6 +74,7 @@ registerBlockType("jourblocks/dataviz", {
             placeholder="Data Viz Caption"
             isSelected={attributes.isSelected}
             className="component__caption"
+            tagName="figcaption"
           />
         </div>
       </Fragment>

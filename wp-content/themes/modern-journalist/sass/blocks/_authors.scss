@@ -32,16 +32,17 @@
     margin-top: 0.25rem;
   }
 
-  .tiny-text,
-  .author__name {
+  figcaption.tiny-text {
     text-align: center;
+    padding: 0 !important;
     @include breakpoint("small") {
       text-align: left;
     }
   }
-  img.component__imgcircle {
+  img {
     display: block;
     margin: 0 auto;
+    border-radius: 50%;
     @include breakpoint("small") {
       margin: unset;
     }

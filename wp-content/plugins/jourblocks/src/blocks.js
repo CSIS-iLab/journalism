@@ -19,7 +19,7 @@ import "./profile/block.js";
 import "./dialog/block.js";
 import "./authors/block-authorprofile.js";
 import "./authors/block.js";
-import "./group-img/block.js";
+//import "./group-img/block.js";
 import "./infocus/block.js";
 //import "./header/block.js";
 import "./audio/block.js";
@@ -150,6 +150,11 @@ wp.blocks.registerBlockStyle("core/pullquote", {
   label: "Fancy Quote"
 });
 
+wp.blocks.registerBlockStyle("core/pullquote", {
+  name: "bold-serif",
+  label: "Bold Serif"
+});
+
 //removing block style
 wp.domReady(function(allowedBlocks) {
   wp.domReady(function() {
@@ -173,7 +178,6 @@ wp.domReady(function(allowedBlocks) {
       "jourblocks/dataviz",
       "jourblocks/dialog",
       "jourblocks/focus",
-      "jourblocks/group-img",
       "jourblocks/profile",
       "jourblocks/text-overlay",
       "jourblocks/audio",

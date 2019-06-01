@@ -20,7 +20,7 @@
 .post__date {
   font-family: $font__sans;
   line-height: $font__line-height-caption;
-  color: $color__text-gray;
+  color: $color__text-gray3;
 }
 
 .post .entry-title {
@@ -31,10 +31,6 @@
     font-size: $font__size-posttitle;
     line-height: $font__line-height-posttitle;
   }
-}
-#header-share {
-  grid-area: postshare;
-  margin-top: 0.5rem;
 }
 
 .entry-header__image {
@@ -199,7 +195,7 @@
       color: white !important;
       opacity: 80%;
       @include breakpoint("small") {
-        color: $color__text-caption !important;
+        color: $color__text-gray2 !important;
         opacity: unset;
       }
     }
@@ -303,14 +299,14 @@
     align-self: stretch;
     display: grid;
     grid-template-rows: 20vh auto auto auto auto auto;
-    grid-template-areas: "." "date" "title" "intro" "authors" "postshare";
+    grid-template-areas: "." "date" "title" "intro" "authors";
     align-items: end;
     background-position: center center;
     background-size: cover;
 
     @include breakpoint("medium") {
       grid-template-columns: 3px 80% 20%;
-      grid-template-areas: "border . ." "border date ." "border title ." "border intro ." "border authors ." "border postshare .";
+      grid-template-areas: "border . ." "border date ." "border title ." "border intro ." "border authors .";
       justify-content: center;
     }
     @include breakpoint("large") {
@@ -360,22 +356,35 @@
   }
 
   .entry-header__caption {
-    padding: 20px;
+    padding: 0 20px 0px 20px;
+    align-self: stretch;
+    display: grid;
+    grid-template-areas: "capborder figcaption";
+
     @include breakpoint("medium") {
-      padding: 0 7vw 7vw;
+      grid-template-columns: 3px 80% 20%;
+      grid-template-areas: "capborder figcaption .";
+      justify-content: center;
     }
     @include breakpoint("large") {
-      width: $post__content-wide-width-large;
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 0;
+      grid-template-columns: 3px 700px 400px;
     }
 
+    &::after {
+      display: block;
+      content: "";
+      border-left: 2px solid #ccc;
+      grid-area: capborder;
+      width: 3px;
+      z-index: 2;
+      //height: 0px;
+    }
     figcaption {
       max-width: $post__content-width;
       //margin-bottom: 4rem;
-      margin-top: 0;
+      margin-top: 8px !important;
       grid-area: figcaption;
+      padding-left: 20px;
     }
   }
 
@@ -384,18 +393,21 @@
     font-family: $font__sans;
     font-weight: bold;
     @include breakpoint("medium") {
-      font-size: 50px;
-      line-height: 54px;
+      @include font-size(50px);
+      line-height: 1.1;
+    }
+    @include breakpoint("large") {
+      @include font-size(58px);
+    }
+    @include breakpoint("xlarge") {
+      @include font-size(62px);
     }
   }
-  #header-share {
-    padding-bottom: 30px;
-  }
+
   .entry-title,
   .post__intro,
   .post__authors,
-  .post__date,
-  #header-share {
+  .post__date {
     z-index: 3;
     padding-left: 20px;
     color: white !important;
@@ -409,6 +421,10 @@
   .post__date,
   .post__authors {
     opacity: 0.8;
+  }
+
+  .post__authors {
+    padding-bottom: 2rem;
   }
 }
 //
@@ -448,14 +464,14 @@
     text-align: center;
     padding: 0 20px;
     display: grid;
-    grid-template-rows: 100px auto auto auto auto auto 100px;
+    grid-template-rows: 100px auto auto auto auto 100px;
     grid-template-columns: auto;
-    grid-template-areas: "halftop" "date" "title" "intro" "authors" "postshare" "halfbottom";
+    grid-template-areas: "halftop" "date" "title" "intro" "authors" "halfbottom";
     @include breakpoint("small") {
       padding: 0 7vw;
     }
     @include breakpoint("medium") {
-      grid-template-rows: 1fr auto auto auto auto auto 1fr;
+      grid-template-rows: 1fr auto auto auto auto 1fr;
       align-items: center;
     }
   }
@@ -499,14 +515,6 @@
     border-bottom: 2px solid #d8d8d8;
     opacity: 0.5;
     margin: 12px auto 0;
-  }
-
-  #header-share {
-    margin: 0 auto;
-    margin-top: 0.5rem;
-    @include breakpoint("medium") {
-      padding-bottom: 24px;
-    }
   }
 
   .post__intro {
@@ -575,8 +583,7 @@
     }
   }
   .post__authors,
-  .entry-header__caption,
-  #header-share {
+  .entry-header__caption {
     margin: 0px 20px 12px;
     @include breakpoint("small") {
       margin: 0px 7vw 12px;
@@ -632,8 +639,7 @@
   }
 
   .post__authors,
-  .entry-header__caption,
-  #header-share {
+  .entry-header__caption {
     @include breakpoint("large") {
       margin-right: 200px;
       width: auto;
@@ -652,5 +658,63 @@
     grid-row-start: 2;
     //background-color: var(--post-color);
     z-index: 1;
+  }
+}
+
+#sharefont {
+  display: block;
+  width: 100%;
+
+  margin-bottom: 3rem;
+}
+#sharefont .sharefont-container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $color__hr;
+  padding-bottom: 0.6rem;
+  #font-size,
+  #header-share {
+    width: 100%;
+    display: flex;
+  }
+  #header-share {
+    align-items: flex-end;
+  }
+  #font-size {
+    justify-content: flex-end;
+
+    > div {
+      padding: 0.5rem;
+
+      align-self: center;
+      @include font-size(1.3em);
+      > span {
+        @include font-size(80%);
+      }
+    }
+
+    button#font-increment,
+    button#font-decrement {
+      padding: 8px;
+      min-height: 40px;
+      min-width: 40px;
+      background-color: #f2f2f2;
+      border: none;
+
+      @include font-size(100%);
+      @include breakpoint("large") {
+        min-height: 32px;
+        min-width: 32px;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+      }
+    }
+
+    button#font-increment {
+    }
+    button#font-decrement {
+    }
   }
 }

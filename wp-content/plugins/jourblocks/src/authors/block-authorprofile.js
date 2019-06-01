@@ -60,7 +60,8 @@ registerBlockType("jourblocks/author-profile", {
           placeholder="Author Name"
           className="author__name"
         />
-        <PlainText
+        <RichText
+          tagName="figcaption"
           onChange={content => setAttributes({ institution: content })}
           value={attributes.institution}
           placeholder="Institution"
@@ -101,9 +102,11 @@ registerBlockType("jourblocks/author-profile", {
         {cardImage(attributes.imageUrl)}
         <div className="author__content">
           <h4 className="author__name">{attributes.name}</h4>
-          <div className={("author__institution", "tiny-text")}>
-            {attributes.institution}
-          </div>
+          <RichText.Content
+            tagName="figcaption"
+            className={("author__institution", "tiny-text")}
+            value={attributes.institution}
+          />
           <div className="author__bio">
             <RichText.Content tagName="p" value={attributes.body} />
           </div>

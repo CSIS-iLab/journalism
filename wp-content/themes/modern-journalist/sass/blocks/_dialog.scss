@@ -5,32 +5,10 @@
  */
 .dialog__container {
   border-left: 0.5rem solid #f2f2f2;
-  max-width: $post__content-width;
-  margin-bottom: 32px;
-  position: relative;
-}
-
-.dialog__content,
-.dialog__caption {
-  width: calc(100% - 48px);
-  margin: 0 auto;
-  padding-bottom: 0;
-}
-.dialog__caption:empty {
-  display: none;
-}
-
-.dialog__caption p:last-of-type {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-.dialog__caption {
-  padding-top: 1rem;
-}
-
-.dialog__content {
-  p {
-    font-size: $font__size-body !important;
-    margin-bottom: 0.75rem;
+  & > * {
+    margin-left: calc(20px - 0.5rem);
+    @include breakpoint("small") {
+      margin-left: 20px;
+    }
   }
 }

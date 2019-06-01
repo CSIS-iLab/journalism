@@ -3,7 +3,7 @@
 }
 
 #masthead {
-  width: 100vw;
+  width: 98vw;
   max-width: 1200px;
   margin: 0 auto;
   height: auto;
@@ -24,6 +24,11 @@
     top: 8px;
     height: auto;
     column-gap: 0.8rem;
+  }
+  &.totop {
+    @include breakpoint("medium") {
+      top: 0;
+    }
   }
 }
 

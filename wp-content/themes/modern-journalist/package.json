@@ -47,5 +47,8 @@
     "images": "gulp images",
     "clearCache": "gulp clearCache",
     "translate": "gulp translate"
+  },
+  "dependencies": {
+    "rfs": "^8.0.4"
   }
 }

@@ -1,5 +1,3 @@
-console.log("hey");
-
 // anime({
 //   targets: ".entry-header__text *",
 //   translateX: [{ value: -50, easing: "easeOutSine", duration: 500 }],
@@ -53,3 +51,71 @@ window.addEventListener("scroll", function(e) {
   }
   //}
 });
+
+const header = document.querySelector(".site-header");
+const header_height = header.offsetHeight + 8;
+//console.log(header_height);
+const hidden_class = "totop";
+let scrollPos = window.pageYOffset;
+let lastScrollPos = 0;
+let offsetScroll = true;
+
+window.addEventListener("scroll", function() {
+  scrollPos = window.pageYOffset;
+
+  if (!offsetScroll) {
+    scrollPos += header_height;
+  }
+
+  if (scrollPos > header_height) {
+    offsetScroll = false;
+
+    header.classList.add(hidden_class);
+  } else {
+    offsetScroll = true;
+    header.classList.remove(hidden_class);
+  }
+
+  lastScrollPos = scrollPos;
+});
+
+let addBtn = document.querySelector("#font-increment");
+let subBtn = document.querySelector("#font-decrement");
+const postcontent = document.querySelector(".entry-content");
+const postpara = document.querySelectorAll("p");
+//let el = document.querySelector(".num");
+let num = 2;
+
+let increment = () => {
+  num += 1;
+  subBtn.disabled = false;
+  if (num > 5) {
+    num = 5;
+    addBtn.disabled = true;
+  } else {
+    //el.innerHTML = num;
+  }
+  postcontent.setAttribute("data-fontzoom", "font" + num);
+};
+
+let decrement = () => {
+  num -= 1;
+  addBtn.disabled = false;
+  if (num < 0) {
+    num = 0;
+    //alert("Decrement button has been disabled.");
+    subBtn.disabled = true;
+  } else {
+    //el.innerHTML = num;
+  }
+  postcontent.setAttribute("data-fontzoom", "font" + num);
+};
+
+function changefont() {
+  postpara.forEach(function(userItem) {
+    deleteUser(userItem);
+  });
+}
+
+addBtn.addEventListener("click", increment);
+subBtn.addEventListener("click", decrement);

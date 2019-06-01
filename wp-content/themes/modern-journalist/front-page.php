@@ -46,7 +46,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 		</header>
 
 		<section class="home-about">
-			<div class="home-about_program">
+			<div class="home-about_program bigp">
 				<?php echo '<p>' . stripslashes_deep($modern_journalist_intro) . '</p>'; ?>
 			</div>
 			<div class="home-about_csis">

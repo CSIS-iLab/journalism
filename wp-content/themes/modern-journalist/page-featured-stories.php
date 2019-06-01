@@ -11,7 +11,7 @@ get_header(); ?>
 
 <h1 class="entry-title"><?php the_title(); ?></h1>
 
-<div class="entry-content featured-stories">
+<div class="featured-stories">
 		<?php the_content(); ?>
 
     <?php

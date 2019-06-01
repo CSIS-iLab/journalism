@@ -1,29 +1,43 @@
-.wp-block-jourblocks-profile {
-  .profile__content {
-    text-align: center;
-    @include breakpoint("medium") {
-      text-align: left;
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.profile__container {
+  display: flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint("small") {
+    width: 100%;
+    display: block;
+  }
+  .component__imgcircle {
+    padding-right: 1rem;
+    img {
+      max-width: 75px;
+      max-height: 75px;
+      border-radius: 50%;
     }
-    .component__caption,
-    .component__caption p {
-      margin-top: 0.2rem !important;
-      margin-bottom: 0;
-      padding-bottom: 0;
-      text-align: center !important;
-      @include breakpoint("medium") {
-        text-align: left !important;
-      }
+
+    @include breakpoint("medium") {
+      padding-right: unset;
     }
   }
 
-  .component__imgcircle {
-    display: block;
-    margin: 0 auto;
-    @include breakpoint("medium") {
-      margin: unset;
+  &.is-style-profile-large {
+    .component__imgcircle {
+      border-radius: unset;
+      width: 50%;
+      img {
+        border-radius: unset;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        max-height: 300px;
+      }
     }
-  }
-  .small-title {
-    padding-top: 0.5rem;
   }
 }

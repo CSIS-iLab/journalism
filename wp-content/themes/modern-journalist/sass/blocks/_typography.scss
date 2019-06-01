@@ -1,0 +1,98 @@
+.single-post .entry-content p {
+  @include font-size(1em);
+  line-height: 1.5;
+}
+
+.single-post .entry-content > p,
+.single-post .entry-content .text-overlay__content > p {
+  font-size: inherit;
+  line-height: 1.6;
+  font-family: $font__main;
+  color: $color__text-main;
+  margin-bottom: 20px;
+  @include breakpoint("medium") {
+    //font-size: $font__size-post;
+    margin-bottom: 24px;
+    @include font-size(1.1em);
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.small-title {
+  @include font-size(1em);
+}
+
+.single-post .entry-content {
+  &[data-fontzoom="font0"] {
+    @include font-size(0.9em);
+  }
+  &[data-fontzoom="font1"] {
+    @include font-size(1em);
+  }
+  &[data-fontzoom="font2"] {
+    @include font-size(1.15em);
+  }
+  &[data-fontzoom="font3"] {
+    @include font-size(1.2em);
+  }
+  &[data-fontzoom="font4"] {
+    @include font-size(1.3em);
+  }
+  &[data-fontzoom="font5"] {
+    @include font-size(1.4em);
+  }
+}
+
+.entry-content > p + div[class^="wp-block-"],
+.entry-content > p + figure[class^="wp-block-"] {
+  margin-top: 30px !important;
+  margin-bottom: 32px !important;
+  @include breakpoint("medium") {
+    margin-top: 40px !important;
+    margin-bottom: 48px !important;
+  }
+  & .component__caption,
+  & figcaption,
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.entry-content > div[class^="wp-block-"],
+.entry-content > figure[class^="wp-block-"] {
+  &.alignright,
+  &.alignleft {
+    margin-bottom: 32px !important;
+
+    @include breakpoint("small") {
+      margin-top: 0px !important;
+    }
+    @include breakpoint("medium") {
+      margin-top: 0px !important;
+      margin-bottom: 48px !important;
+    }
+  }
+}
+
+.single-post .entry-content {
+  h2 {
+    @include font-size(40px);
+    margin-top: 54px !important;
+    margin-bottom: 8px !important;
+    @include breakpoint("medium") {
+      margin-top: 72px !important;
+    }
+  }
+  .author__container > h2 {
+    margin-bottom: 2rem !important;
+  }
+}
+
+figcaption,
+cite {
+  //@include font-size(0.9em);
+}

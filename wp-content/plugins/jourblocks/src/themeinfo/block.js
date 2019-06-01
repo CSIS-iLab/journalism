@@ -375,16 +375,12 @@ registerBlockType("jourblocks/themeinfo", {
           </div>
         </div>
         <div class="theme-block__article">
-          <div>
+          <a href={attributes.selectedPostUrl}>
             <div class="post-entry-header">
-              <div class="section-subtitle">Read the results</div>
-              <a
-                class="theme-block__article-title"
-                href={attributes.selectedPostUrl}
-              >
-                {" "}
+              <div class="section-subtitle">Read the results</div>{" "}
+              <div class="theme-block__article-title">
                 {attributes.selectedPost}
-              </a>
+              </div>
             </div>
             <div class="theme-block__article-excerpt">
               <RichText.Content value={attributes.selectedPostExcerpt} />
@@ -394,8 +390,9 @@ registerBlockType("jourblocks/themeinfo", {
                 class="theme-block__article-img"
                 src={attributes.selectedPostImage}
               />
+              {attributes.selectedPostImage}
             </div>
-          </div>
+          </a>
         </div>
       </div>
     );

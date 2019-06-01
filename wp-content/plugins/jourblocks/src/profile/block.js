@@ -76,9 +76,9 @@ registerBlockType("jourblocks/profile", {
         </div>
         <div className="component__caption">
           <RichText
+            tagName="figcaption"
             onChange={content => setAttributes({ body: content })}
             value={attributes.body}
-            multiline="p"
             placeholder="Your card text"
             formattingControls={["bold", "italic", "underline"]}
             isSelected={attributes.isSelected}
@@ -95,26 +95,28 @@ registerBlockType("jourblocks/profile", {
 
       // No alt set, so let's hide it from screen readers
       return (
-        <img
-          className="component__imgcircle"
-          src={src}
-          alt=""
-          aria-hidden="true"
-        />
+        <div className="component__imgcircle">
+          <img src={src} alt={title} aria-hidden="true" />
+        </div>
       );
     };
 
     return (
-      <div className={"profile__container"}>
-        {cardImage(attributes.imageUrl)}
-        <div className="profile__content">
-          <div
-            className={("profile__title", "component__title", "small-title")}
-          >
-            {attributes.title}
-          </div>
-          <div className="component__caption">
-            <RichText.Content tagName="div" value={attributes.body} />
+      <div className={"small"}>
+        <div className={"profile__container"}>
+          {cardImage(attributes.imageUrl)}
+          <div className="profile__content">
+            <div
+              className={("profile__title", "component__title", "small-title")}
+            >
+              {attributes.title}
+            </div>
+
+            <RichText.Content
+              tagName="figcaption"
+              className="component__caption"
+              value={attributes.body}
+            />
           </div>
         </div>
       </div>

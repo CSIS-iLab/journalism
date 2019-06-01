@@ -10,19 +10,18 @@
 
   #primary-menu {
     position: absolute;
-    /* width: 340px !important; */
-    left: 0;
-    right: 0;
-    top: auto;
-    margin-right: 3px;
-    //transform: scaleY(0);
-    overflow: hidden;
-    @include transition(height 1s ease-in-out);
-    z-index: 4;
+    display: none;
+    opacity: 0;
+    transform: translateX(calc(-100% + 48px));
+    width: 100vw;
+    @include transition(opacity 0.5s ease-in-out);
 
     @include breakpoint("medium") {
       position: relative;
+      width: auto;
+      transform: unset;
       margin-right: unset;
+      opacity: 1;
       left: unset;
       top: unset;
       right: unset;
@@ -34,18 +33,12 @@
     }
   }
   &.toggled #primary-menu {
-    top: 56px;
-    //transform: scaleY(1);
+    display: block;
+    opacity: 1;
+    @include transition(opacity 0.5s ease-in-out);
     @include breakpoint("medium") {
       height: unset;
       top: unset;
-    }
-
-    @include transition(height 1s ease-in-out);
-    ul {
-      top: 0px;
-      margin-bottom: 5px;
-      @include transition(top 1s ease-in-out);
     }
   }
 
@@ -55,37 +48,27 @@
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     background: white;
     position: relative;
-    top: -400px;
+
     padding: 12px 20px 20px;
-    @include transition(top 1s ease-in-out);
+
     @include breakpoint("medium") {
       padding: unset;
       top: auto;
+      box-shadow: none;
     }
-
-    ul {
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999;
-
-      ul {
-        left: -999em;
-        top: 0;
-      }
-
-      li {
-        &:hover > ul,
-        &.focus > ul {
-          left: 100%;
-        }
+    li {
+      &:hover > ul,
+      &.focus > ul {
+        left: 100%;
       }
 
       a {
         width: 200px;
         transition: all 0.25s ease;
-        color: $color__text-caption;
+        color: $color__text-gray2;
+        @include breakpoint("medium") {
+          width: auto;
+        }
       }
 
       :hover > a,
@@ -118,7 +101,7 @@
     transition: all 0.25s ease;
     display: block;
     text-decoration: none;
-    color: $color__text-caption;
+    color: $color__text-gray2;
   }
   a:hover,
   a.focus {

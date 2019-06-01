@@ -1,115 +1,13 @@
+@import "reset";
+@import "layout";
+@import "typography";
 @import "audio";
 @import "authors";
 @import "dialog";
 @import "groupimg";
-@import "layout";
 @import "focus";
 @import "postheader";
 @import "profile";
+@import "pullquote";
 @import "textoverlay";
 @import "themeinfo";
-
-.component__caption p,
-.group__caption-container p {
-  @extend figcaption;
-}
-
-.component__title {
-}
-
-figure.wp-block-pullquote {
-  margin: 0 0 24px 0;
-  width: 100%;
-  border-left: 3px solid var(--post-color);
-  font-family: var(--post-text);
-  text-align: left;
-  padding-left: 24px;
-
-  &.alignright {
-    padding: 4px 0 0 16px;
-    max-width: 100%;
-    width: 100%;
-  }
-
-  blockquote {
-    margin: 0;
-    max-width: $post__content-width !important;
-    p {
-      width: 100%;
-      margin: 0 0;
-    }
-  }
-}
-
-.profile__content .component__caption,
-.profile__content .component__caption p {
-  margin-top: 0px;
-}
-
-.wp-block-pullquote.is-style-fancy-quote {
-  padding: 0;
-  border-left: none;
-  &.alignright {
-    padding: 0;
-  }
-  blockquote {
-    p {
-      font-family: $font__magneta;
-      font-size: 24px;
-      line-height: 1.3;
-      margin: 0;
-      width: 100%;
-      max-width: 100% !important;
-      text-align: center;
-      @include breakpoint("medium") {
-        text-align: left;
-      }
-      @include breakpoint("large") {
-        font-size: 26px;
-      }
-    }
-    &:before {
-      display: block;
-      content: "";
-      position: relative;
-      width: 50px;
-      height: 50px;
-      background-image: url("img/icon-quotes-outline.svg");
-      background-color: var(--post-color);
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin: 0 auto;
-      @include breakpoint("medium") {
-        margin: unset;
-      }
-    }
-  }
-  &:not(.alignright) blockquote p,
-  &:not(.alignright) blockquote cite {
-    text-align: center;
-  }
-
-  &:not(.alignright) {
-    max-width: $post__content-width;
-    margin-left: 0;
-    margin-right: 0;
-
-    blockquote {
-      &:before {
-        margin: 0 auto;
-      }
-    }
-  }
-}
-
-figure.wp-block-embed,
-.wp-block-image figure.alignright {
-  margin-left: 0;
-  margin-top: 0;
-}
-
-.entry-content > div[class^="wp-block-"]:not(.alignright),
-.entry-content > figure[class^="wp-block-"]:not(.alignright) {
-  margin-top: 2rem !important;
-  margin-bottom: 2rem !important;
-}

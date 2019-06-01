@@ -9,20 +9,33 @@ $color__main: #00395a;
 $color__main-light: #0b4262;
 
 $color__hr: #d8d8d8;
+$color__text-main: #333;
 
-$color__text-gray: #666;
-$color__text-ltgray: #8f8f8f;
+//Text opacity
+$opacity__slight: 0.8;
+$opacity__light: 0.75;
+$opacity__lighter: 0.55;
+$opacity__lightest: 0.4;
+
+// black
+$color__text-gray0: rgba(#000, 1);
+// slight, links
+$color__text-gray1: rgba($color__text-main, $opacity__slight);
+// caption
+$color__text-gray2: rgba($color__text-main, $opacity__light);
+// source
+$color__text-gray3: rgba($color__text-main, $opacity__lighter);
+// lightest
+$color__text-gray4: rgba($color__text-main, $opacity__lightest);
 
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__text-main: #333;
-
-$color__text-caption: #666666;
-$color__text-source: #8f8f8f;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+//rgba(#fff, $opacity__slight)

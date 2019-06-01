@@ -57,7 +57,8 @@ registerBlockType("jourblocks/audio-profile", {
             placeholder="Name"
             className={("audio__name", "small-title")}
           />
-          <PlainText
+          <RichText
+            tagName="figcaption"
             onChange={title => setAttributes({ title: title })}
             value={attributes.title}
             placeholder="Title"
@@ -90,9 +91,11 @@ registerBlockType("jourblocks/audio-profile", {
           <div className={("audio__name", "small-title")}>
             {attributes.name}
           </div>
-          <div className={("audio__title", "tiny-text")}>
-            {attributes.title}
-          </div>
+          <RichText.Content
+            tagName="figcaption"
+            className={("audio__title", "tiny-text")}
+            value={attributes.title}
+          />
         </div>
       </div>
     );

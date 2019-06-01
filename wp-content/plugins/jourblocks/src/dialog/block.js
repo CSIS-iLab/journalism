@@ -40,16 +40,15 @@ registerBlockType("jourblocks/dialog", {
         <div class="dialog__content">
           <InnerBlocks allowedBlocks={["core/paragraph"]} />
         </div>
-        <div className="component__caption">
-          <RichText
-            onChange={caption => setAttributes({ caption: caption })}
-            value={attributes.caption}
-            multiline="p"
-            placeholder="Dialog Caption"
-            formattingControls={["bold", "italic", "underline"]}
-            isSelected={attributes.isSelected}
-          />
-        </div>
+
+        <RichText
+          tagName="figcaption"
+          onChange={caption => setAttributes({ caption: caption })}
+          value={attributes.caption}
+          placeholder="Dialog Caption"
+          formattingControls={["bold", "italic", "underline"]}
+          isSelected={attributes.isSelected}
+        />
       </div>
     );
   },

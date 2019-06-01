@@ -17,7 +17,7 @@
           ?>
           <header class="post-entry-header">
               <?php
-              the_title('<h2 class="entry-title">', '</h2>');
+              the_title('<h2 class="article-title">', '</h2>');
               ?>
           </header><!-- .entry-header -->
         <?php the_excerpt(); ?>

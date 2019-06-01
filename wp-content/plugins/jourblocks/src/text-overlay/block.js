@@ -227,13 +227,13 @@ registerBlockType("jourblocks/text-overlay", {
               <InnerBlocks allowedBlocks={["core/paragraph", "core/heading"]} />
             </div>
           </div>
-          <figcaption>
-            <RichText
-              placeholder={__("Caption", "jourblocks")}
-              onChange={onChangeCaption}
-              value={caption}
-            />
-          </figcaption>
+
+          <RichText
+            tagName="figcaption"
+            placeholder={__("Caption", "jourblocks")}
+            onChange={onChangeCaption}
+            value={caption}
+          />
         </div>
       </Fragment>
     ];
@@ -306,9 +306,8 @@ registerBlockType("jourblocks/text-overlay", {
             </div>
           </div>
         </div>
-        <figcaption>
-          <RichText.Content value={attributes.caption} />
-        </figcaption>
+
+        <RichText.Content tagName="figcaption" value={attributes.caption} />
       </div>
     );
   }

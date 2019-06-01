@@ -20,21 +20,8 @@ div[data-type="core/paragraph"].is-selected {
   //background-color: red;
 }
 
-div[data-type="core/image"] .components-toolbar {
-  button[aria-label="Align left"] {
-    display: none;
-  }
-  button[aria-label="Align center"] {
-    display: none;
-  }
-  //background-color: red;
-}
-
 div[data-type="core/video"] .components-toolbar {
   button[aria-label="Align left"] {
-    display: none;
-  }
-  button[aria-label="Align center"] {
     display: none;
   }
   //background-color: red;

@@ -1,16 +1,52 @@
 .wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
-
-	img[class*="wp-image-"] {
-		@include center-block;
-	}
-
-	.wp-caption-text {
-		margin: 0.8075em 0;
-	}
+  img[class*="wp-image-"] {
+    @include center-block;
+  }
 }
 
-.wp-caption-text {
-	text-align: center;
+figcaption,
+cite,
+.wp-block-embed figcaption,
+.wp-block-image figcaption,
+.wp-block-video figcaption,
+.wp-block-pullquote cite {
+  display: block !important;
+  font-family: $font__sans;
+  @include font-size(0.85em);
+  line-height: $font__line-height-caption !important;
+  text-align: left !important;
+  color: $color__text-gray2;
+  max-width: $post__content-width;
+  font-style: unset;
+
+  a {
+    color: inherit;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  //border-bottom: 1px solid rgba(162, 173, 175, 0.25);
+  .caption__source {
+    color: $color__text-gray3;
+    a {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.entry-content > div[class^="wp-block-"],
+.entry-content > figure[class^="wp-block-"] {
+  .component__caption,
+  figcaption,
+  cite,
+  .small-title {
+    padding-top: 8px;
+  }
+  .small-title + .component__caption {
+    padding-top: 0px;
+  }
 }

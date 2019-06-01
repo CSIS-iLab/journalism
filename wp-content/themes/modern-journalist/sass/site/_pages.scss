@@ -52,6 +52,9 @@
   overflow: hidden;
 }
 
+.theme-block__article {
+}
+
 .post-block {
   text-decoration: none;
   filter: grayscale(60%);
@@ -65,8 +68,9 @@
     grid-template-areas: "postthumb postcontent";
   }
   h2 {
-    @include transition(color 0.5s ease-in-out);
+    @include transition(color 400ms ease-in-out);
     margin-bottom: 0.5rem;
+    margin-top: 0;
     line-height: 1.1;
   }
   img {
@@ -74,15 +78,15 @@
   }
   &:hover {
     filter: grayscale(0%);
-    @include transition(filter 0.5s ease-in-out);
+    @include transition(filter 400ms ease-in-out);
 
     h2 {
       color: $color__main-light;
-      @include transition(color 0.5s ease-in-out);
+      @include transition(color 400ms ease-in-out);
     }
     img {
       height: 110%;
-      @include transition(height 0.7s ease-in-out);
+      @include transition(height 600ms ease-in-out);
     }
   }
 
@@ -166,4 +170,8 @@
   &:last-of-type {
     border-bottom: none;
   }
+}
+
+.page .entry-content {
+  padding-bottom: 3rem;
 }

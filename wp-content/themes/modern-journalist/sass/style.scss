@@ -20,6 +20,7 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
+@import "vendors/vendors";
 @import "abstracts/abstracts";
 @import "base/base";
 @import "blocks/blocks";
@@ -28,4 +29,3 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "media/media";
 @import "navigation/navigation";
 @import "site/site";
-@import "vendors/vendors";

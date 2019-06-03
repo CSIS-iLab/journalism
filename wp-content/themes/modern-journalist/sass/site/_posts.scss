@@ -29,3 +29,61 @@
 .entry-content > .post__footer {
   margin-bottom: 4rem !important;
 }
+
+#sharefont {
+  display: block;
+  width: 100%;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+#sharefont .sharefont-container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $color__hr;
+  padding-bottom: 0.6rem;
+  #font-size,
+  #header-share {
+    width: 100%;
+    display: flex;
+  }
+  #header-share {
+    align-items: flex-end;
+  }
+  #font-size {
+    justify-content: flex-end;
+
+    > div {
+      padding: 0.5rem;
+
+      align-self: center;
+      @include font-size(1.3em);
+      > span {
+        @include font-size(80%);
+      }
+    }
+
+    button#font-increment,
+    button#font-decrement {
+      padding: 8px;
+      min-height: 40px;
+      min-width: 40px;
+      background-color: #f2f2f2;
+      border: none;
+
+      @include font-size(100%);
+      @include breakpoint("large") {
+        min-height: 32px;
+        min-width: 32px;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+      }
+    }
+
+    button#font-increment {
+    }
+    button#font-decrement {
+    }
+  }
+}

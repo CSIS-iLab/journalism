@@ -25,11 +25,10 @@
 
 .post .entry-title {
   margin-top: 0.5rem;
-  font-size: $font__size-posttitle_mobile;
-  line-height: $font__line-height-posttitle_mobile;
-  @include breakpoint("medium") {
-    font-size: $font__size-posttitle;
-    line-height: $font__line-height-posttitle;
+  @include font-size(40px);
+  line-height: 1.2;
+  @include breakpoint("xlarge") {
+    @include font-size(2.8rem);
   }
 }
 
@@ -155,6 +154,7 @@
       -moz-box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
       box-shadow: 3px -1px 9px -1px rgba(0, 0, 0, 0.4);
       display: absolute;
+      width: 100%;
     }
 
     .post__image-wrapper {
@@ -189,7 +189,7 @@
   }
   .entry-header__caption {
     z-index: 2;
-    padding: 0 20px 24px 20px;
+    padding: 12px 20px 24px 20px;
     figcaption {
       max-width: 300px;
       color: white !important;
@@ -200,7 +200,7 @@
       }
     }
     @include breakpoint("medium") {
-      padding: 0;
+      padding: 12px 0;
       margin: 0;
       width: 100%;
       align-self: stretch;
@@ -441,7 +441,7 @@
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "textarea imagearea" "textarea caption";
-    height: calc(90vh - 64px);
+    height: calc(90vh);
     min-height: $post__content-width;
   }
 
@@ -521,6 +521,12 @@
     margin-bottom: 12px;
     margin-top: 1rem;
   }
+
+  .post__authors {
+    @include breakpoint("medium") {
+      padding-bottom: 24px;
+    }
+  }
   .entry-header__caption {
     padding: 0 20px 2rem;
     @include breakpoint("medium") {
@@ -550,6 +556,7 @@
   grid-template-rows: 300px 32px auto auto;
   grid-template-columns: auto 20px;
   grid-template-areas: "imagearea ." ". ." "textarea ." "caption .";
+
   @include breakpoint("small") {
     grid-template-columns: 90% auto;
     grid-template-rows: 400px 40px auto auto;
@@ -557,6 +564,7 @@
   @include breakpoint("medium") {
     grid-template-columns: 80% auto;
     grid-template-rows: 60vh 80px auto auto;
+    grid-template-areas: "imagearea . ." ". . ." "textarea . caption";
   }
   @include breakpoint("large") {
     grid-template-columns: 800px auto;
@@ -624,7 +632,10 @@
     padding-bottom: 2rem;
   }
   .entry-header__caption {
-    margin-top: 0;
+    @include breakpoint("medium") {
+      margin: 0 !important;
+      margin-top: 12px !important;
+    }
   }
   .post__authors {
     padding-top: 24px;
@@ -638,9 +649,8 @@
     }
   }
 
-  .post__authors,
-  .entry-header__caption {
-    @include breakpoint("large") {
+  .post__authors {
+    @include breakpoint("medium") {
       margin-right: 200px;
       width: auto;
     }
@@ -648,7 +658,7 @@
 
   .entry-header__image {
     grid-column-start: 1;
-    grid-column-end: span 2;
+    grid-column-end: span 3;
     grid-row-end: span 2;
     grid-row-start: 1;
     z-index: 0;
@@ -658,63 +668,5 @@
     grid-row-start: 2;
     //background-color: var(--post-color);
     z-index: 1;
-  }
-}
-
-#sharefont {
-  display: block;
-  width: 100%;
-
-  margin-bottom: 3rem;
-}
-#sharefont .sharefont-container {
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid $color__hr;
-  padding-bottom: 0.6rem;
-  #font-size,
-  #header-share {
-    width: 100%;
-    display: flex;
-  }
-  #header-share {
-    align-items: flex-end;
-  }
-  #font-size {
-    justify-content: flex-end;
-
-    > div {
-      padding: 0.5rem;
-
-      align-self: center;
-      @include font-size(1.3em);
-      > span {
-        @include font-size(80%);
-      }
-    }
-
-    button#font-increment,
-    button#font-decrement {
-      padding: 8px;
-      min-height: 40px;
-      min-width: 40px;
-      background-color: #f2f2f2;
-      border: none;
-
-      @include font-size(100%);
-      @include breakpoint("large") {
-        min-height: 32px;
-        min-width: 32px;
-      }
-
-      &:disabled {
-        opacity: 0.4;
-      }
-    }
-
-    button#font-increment {
-    }
-    button#font-decrement {
-    }
   }
 }

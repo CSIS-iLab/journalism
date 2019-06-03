@@ -13,10 +13,10 @@ figure.wp-block-pullquote {
     font-family: var(--post-text);
     font-family: $font__magneta;
     blockquote {
-      margin-left: 20px;
+      margin-left: 12px;
     }
     p {
-      @include font-size(24px, true);
+      @include font-size(28px, true);
     }
   }
 }
@@ -27,7 +27,7 @@ figure.wp-block-pullquote {
     text-align: center !important;
   }
   p {
-    @include font-size(24px, true);
+    @include font-size(28px, true);
   }
   &:before {
     display: block;

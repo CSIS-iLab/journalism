@@ -105,25 +105,25 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 
 
 <?php endif?>
-<div id="sharefont">
 
-<div class="sharefont-container">
-<div id="header-share">
-  <?php
-  echo modern_journalist_share(  $post->ID, '-blue.svg' );
-?>
-</div>
-<div id="font-size">
-<button id="font-increment">+</button>
-<div>
-A<span>A</span></div>
-<button id="font-decrement">-</button>
-</div>
-</div>
-</div>
 	</header><!-- .entry-header -->
 
+  <div id="sharefont">
 
+  <div class="sharefont-container">
+  <div id="header-share">
+    <?php
+    echo modern_journalist_share(  $post->ID, '-blue.svg' );
+  ?>
+  </div>
+  <div id="font-size">
+  <button id="font-increment">+</button>
+  <div>
+  A<span>A</span></div>
+  <button id="font-decrement">-</button>
+  </div>
+  </div>
+  </div>
 
 	<div class="entry-content" data-fontzoom="font2" <?php
   echo 'style=" --post-color: ' . esc_attr($meta_color) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';

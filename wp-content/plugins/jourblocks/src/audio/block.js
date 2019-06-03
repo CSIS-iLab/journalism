@@ -92,6 +92,7 @@ registerBlockType("jourblocks/audio", {
     );
   },
   save({ attributes }) {
+    const { title, color, align } = attributes;
     return (
       <div>
         <div class="component__title">{attributes.title}</div>

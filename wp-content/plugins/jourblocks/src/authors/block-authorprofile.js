@@ -82,7 +82,7 @@ registerBlockType("jourblocks/author-profile", {
   },
 
   save: ({ attributes }) => {
-    const { imageUrl, body, title, institution } = attributes;
+    const { imageUrl, name, body, institution } = attributes;
     const cardImage = src => {
       if (!src) return null;
 

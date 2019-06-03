@@ -409,7 +409,7 @@
     display: inline-block;
     color: rgba(#fff, $opacity__slight);
     background-color: $color__main;
-    @include transition(background-color 1s, color 1s);
+    @include transition(background-color 400ms, color 400ms);
     font-family: $font__sans;
     text-transform: uppercase;
     font-size: $font__size-small;
@@ -420,7 +420,7 @@
     &:focus {
       color: rgba(#fff, 1);
       background-color: rgba($color__main-light, 0.8);
-      @include transition(background-color 1s, color 1s);
+      @include transition(background-color 400ms, color 400ms);
     }
   }
 }

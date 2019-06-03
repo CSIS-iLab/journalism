@@ -31,15 +31,15 @@
 								echo "not-a-post";
 						endif;
 						?> ">
-						
+
 		<div id="site-logo">
-			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home" alt="Homepage">
 			<img src="<?php echo get_template_directory_uri(); ?>/img/small-logo.svg" /></a>
 		</div>
 
 			<div id="site-title" class="site-branding">
 					<img id="header__csis-logo" src="<?php echo get_template_directory_uri(); ?>/img/csis_logo_bw.svg" />
-					<div id="header__site-name">Reporting on International Affairs</div>
+					<a href="<?php echo esc_url(home_url('/')); ?>" rel="home" alt="Homepage" id="header__site-name">Reporting on International Affairs</a>
 			</div><!-- .site-branding -->
 
 		<?php

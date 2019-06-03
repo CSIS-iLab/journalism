@@ -4,7 +4,9 @@
 }
 
 .single-post .entry-content > p,
-.single-post .entry-content .text-overlay__content > p {
+.single-post .entry-content .text-overlay__content > p,
+.entry-content > p,
+.theme-block__left p {
   font-size: inherit;
   line-height: 1.6;
   font-family: $font__main;
@@ -14,9 +16,6 @@
     //font-size: $font__size-post;
     margin-bottom: 24px;
     @include font-size(1.1em);
-  }
-  &:last-of-type {
-    margin-bottom: 0;
   }
 }
 

@@ -1,7 +1,7 @@
 .theme-block__container {
   .theme-block__article {
     background-color: $color__ltblue;
-    margin-top: 1rem;
+    margin-top: 0rem;
 
     @include transition(all 400ms ease-in-out);
     &:hover {
@@ -43,7 +43,7 @@
         }
         .theme-block__article-title {
           @include transition(color 400ms ease-in-out);
-          @include font-size(28px);
+          @include font-size(26px);
           color: $color__main;
           padding-bottom: 0.3rem;
         }
@@ -89,7 +89,9 @@
     text-transform: uppercase;
     font-weight: 500;
     font-size: $font__size-small;
-    color: rgba(#000, $opacity__lighter);
+    color: rgba(#000, $opacity__lightest);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05rem;
   }
 }
 .theme-block__left {

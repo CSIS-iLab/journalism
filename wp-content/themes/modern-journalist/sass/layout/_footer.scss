@@ -112,6 +112,7 @@ footer.site-footer {
     grid-area: fcopyright;
     grid-column-end: span 2;
     border-top: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 4;
     @include breakpoint("small") {
       padding-left: 2rem;
     }

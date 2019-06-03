@@ -133,10 +133,17 @@
   grid-area: page-navigation;
 }
 
+#header__site-name {
+  color: $color__main;
+  text-decoration: none;
+}
+
 .not-a-post #header__site-name {
   grid-area: header__site-name;
   font-size: 16px;
+
   line-height: 1.1;
+
   @include breakpoint("small") {
     font-size: 20px;
   }
@@ -150,6 +157,7 @@
   align-self: center;
   opacity: 0.7;
   font-size: 14px;
+  color: inherit;
   line-height: 1.1;
 }
 

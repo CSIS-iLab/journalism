@@ -46,6 +46,7 @@
     & > .alignright,
     &.alignleft,
     & > .alignright {
+      margin-bottom: 24px !important;
       clear: both;
       @include breakpoint("small") {
         width: $block-float;
@@ -102,6 +103,7 @@
       }
     }
     &.alignfull figcaption {
+      margin: 0 20px;
       @include breakpoint("small") {
         width: $post__content-width;
       }

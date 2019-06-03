@@ -35,10 +35,12 @@
   &.toggled #primary-menu {
     display: block;
     opacity: 1;
+    width: 100vw !important;
     @include transition(opacity 0.5s ease-in-out);
     @include breakpoint("medium") {
       height: unset;
       top: unset;
+      width: unset;
     }
   }
 

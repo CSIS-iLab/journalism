@@ -635,6 +635,7 @@
     @include breakpoint("medium") {
       margin: 0 !important;
       margin-top: 12px !important;
+      padding-left: 24px;
     }
   }
   .post__authors {

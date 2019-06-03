@@ -3,7 +3,7 @@
 }
 
 #masthead {
-  width: 98vw;
+  width: 100vw;
   max-width: 1200px;
   margin: 0 auto;
   height: auto;
@@ -18,9 +18,11 @@
   background-color: white;
   column-gap: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
-  border-radius: 3px;
+
   transition: all 0.2s ease-in 0s;
   @include breakpoint("medium") {
+    width: 98vw;
+    border-radius: 3px;
     top: 8px;
     height: auto;
     column-gap: 0.8rem;

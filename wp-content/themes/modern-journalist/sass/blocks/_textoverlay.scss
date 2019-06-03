@@ -81,22 +81,30 @@
 .text-overlay__content {
   margin: 20px;
   padding: 432px 0 32px;
-  @include breakpoint("small") {
-    margin: 24px;
-    padding: 3rem 0 3rem;
-  }
+
   @include breakpoint("medium") {
     margin: 2.5rem;
+    padding: 3rem 0 3rem;
   }
   @include breakpoint("large") {
     margin: 3.5rem;
+  }
+  & > * {
+    @include breakpoint("small") {
+      width: 80%;
+      margin: 0 auto;
+    }
+    @include breakpoint("medium") {
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 }
 
 .text-overlay__overlay {
   margin-top: 400px;
   height: calc(100% - 400px);
-  @include breakpoint("small") {
+  @include breakpoint("medium") {
     margin-top: 0;
     height: 100%;
   }

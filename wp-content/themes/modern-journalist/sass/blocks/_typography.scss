@@ -81,7 +81,7 @@
   h2 {
     @include font-size(40px);
     margin-top: 54px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 12px !important;
     @include breakpoint("medium") {
       margin-top: 72px !important;
     }

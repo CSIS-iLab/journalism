@@ -16,6 +16,7 @@
         margin: 0 auto;
       }
     }
+
     @include breakpoint("small") {
       margin: 0 auto;
       width: 95%;
@@ -24,13 +25,26 @@
     @include breakpoint("medium") {
       width: $block-med;
     }
+    @include breakpoint("large") {
+      width: calc($block-med + 100px);
+    }
 
-    &.aligncenter {
+    &.wp-block-image {
+      @include breakpoint("small") {
+        max-width: $post__content-width;
+        width: 100%;
+      }
+    }
+
+    &.aligncenter,
+    & > .aligncenter {
       max-width: $post__content-width;
     }
 
     &.alignright,
-    &.alignleft {
+    & > .alignright,
+    &.alignleft,
+    & > .alignright {
       clear: both;
       @include breakpoint("small") {
         width: $block-float;
@@ -48,7 +62,8 @@
         }
       }
     }
-    &.alignleft {
+    &.alignleft,
+    & > .alignleft {
       @include breakpoint("small") {
         float: left;
         margin-right: 24px;
@@ -59,7 +74,8 @@
       }
     }
 
-    &.alignright {
+    &.alignright,
+    & > .alignright {
       @include breakpoint("small") {
         margin-left: 24px;
         float: right;

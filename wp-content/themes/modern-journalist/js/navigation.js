@@ -42,6 +42,19 @@
     }
   };
 
+  //Hide mobile nav is the user clicks outside of the toggled menu
+  document.addEventListener("click", function(event) {
+    if (-1 !== container.className.indexOf("toggled")) {
+      var isClickInside = container.contains(event.target);
+
+      if (!isClickInside) {
+        container.className = container.className.replace(" toggled", "");
+        button.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+
   // Get all the link elements within the menu.
   links = menu.getElementsByTagName("a");
 

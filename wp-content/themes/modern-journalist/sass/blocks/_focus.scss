@@ -1,4 +1,5 @@
-.focus__container.aligncenter {
+.focus__container.aligncenter,
+.focus__container.alignwide {
   background-color: #f2f2f2;
   max-width: $post__content-width;
   position: relative;
@@ -8,6 +9,9 @@
 
     @include breakpoint("medium") {
       padding: 32px;
+    }
+    @include breakpoint("large") {
+      padding: 32px 48px 48px;
     }
 
     h3 {
@@ -24,5 +28,41 @@
 
   @include breakpoint("medium") {
     border-bottom: none;
+  }
+}
+
+.focus__content {
+  .alignright,
+  .alignleft {
+    margin-bottom: 24px !important;
+    clear: both;
+    @include breakpoint("small") {
+      width: 100%;
+      max-width: $block-max-float;
+    }
+    @include breakpoint("medium") {
+      width: 50%;
+      max-width: $block-max-float;
+    }
+  }
+  .alignleft {
+    @include breakpoint("small") {
+      float: left;
+      margin-right: 24px;
+    }
+    @include breakpoint("medium") {
+      float: left;
+      margin-right: 32px;
+    }
+  }
+
+  .alignright {
+    @include breakpoint("small") {
+      margin-left: 24px;
+      float: right;
+    }
+    @include breakpoint("medium") {
+      margin-left: 32px;
+    }
   }
 }

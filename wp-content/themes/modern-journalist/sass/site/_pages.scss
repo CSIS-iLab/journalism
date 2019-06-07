@@ -70,6 +70,7 @@
     margin-top: 0;
     line-height: 1.1;
   }
+
   img {
     @include transition(height 0.7s ease-in-out);
   }
@@ -159,6 +160,7 @@
 
 .featured-stories .post {
   margin-bottom: 4rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid $color__hr;
   &:first-of-type {
     margin-top: 3rem;

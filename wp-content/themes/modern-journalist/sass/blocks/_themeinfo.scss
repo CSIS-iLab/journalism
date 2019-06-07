@@ -69,8 +69,6 @@
           @include transition(color 400ms ease-in-out);
         }
         img {
-          height: 110%;
-          @include transition(height 400ms ease-in-out);
         }
       }
     }

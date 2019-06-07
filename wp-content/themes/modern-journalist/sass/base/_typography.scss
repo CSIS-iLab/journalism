@@ -18,7 +18,8 @@ p {
   line-height: 1.5;
 }
 
-.bigp {
+.bigp,
+.featured-stories > p {
   @include font-size(1.1em);
 }
 

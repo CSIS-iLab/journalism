@@ -28,7 +28,7 @@ const {
 } = wp.components;
 
 registerBlockType("jourblocks/audio", {
-  title: "Audio J",
+  title: "Audio",
   description: __(
     "Add an audio player and mini profiles of the speakers (optional).",
     "jourblocks"

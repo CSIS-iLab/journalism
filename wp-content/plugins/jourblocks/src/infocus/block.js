@@ -31,7 +31,7 @@ registerBlockType("jourblocks/focus", {
     }
   },
   supports: {
-    align: ["right", "center"]
+    align: ["right", "center", "wide"]
   },
   edit({ attributes, className, setAttributes }) {
     return (
@@ -42,7 +42,8 @@ registerBlockType("jourblocks/focus", {
               "core/paragraph",
               "core/image",
               "core/heading",
-              "jourblocks/dataviz"
+              "jourblocks/dataviz",
+              "jourblocks/audio"
             ]}
           />
         </div>

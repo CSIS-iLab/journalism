@@ -13,6 +13,34 @@ anime({
   direction: "reverse"
 });
 
+anime({
+  targets: ".zoom-img .entry-header__image .post__image-wrapper",
+  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+  scale: [{ value: 1.2, easing: "easeOutSine", duration: 600, delay: 3000 }],
+  opacity: [{ value: 0.3, easing: "easeOutSine", duration: 600, delay: 3000 }]
+});
+
+anime({
+  targets: ".zoom-img .post__intro",
+  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+  translateY: [
+    { value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3200 }
+  ],
+  opacity: [
+    { value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3200 }
+  ]
+});
+anime({
+  targets: ".zoom-img .entry-title",
+  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+  translateY: [
+    { value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3300 }
+  ],
+  opacity: [
+    { value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3300 }
+  ]
+});
+
 /*
 document.addEventListener("DOMContentLoaded", function() {
   var input = document.querySelector(".entry-title");

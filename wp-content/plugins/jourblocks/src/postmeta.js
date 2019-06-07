@@ -114,7 +114,11 @@ registerBlockType("jourblocks/meta-block", {
           // Mark style as default.
           {
             value: "background-img",
-            label: "Dark Background Image"
+            label: "Line Background Image"
+          },
+          {
+            value: "zoom-img",
+            label: "Zoom Background Image"
           },
           {
             value: "color-block",

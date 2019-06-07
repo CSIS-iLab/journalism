@@ -1,0 +1,185 @@
+//
+//
+//Dark background Images
+//
+//
+.background-img {
+  max-width: 1400;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "textarea" "caption";
+
+  &::before {
+    display: block;
+    z-index: 2;
+    content: "";
+    top: 0;
+    left: 0;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    @include animation("appear 2s 1.5s forwards");
+    background: -moz-radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.2) 8%,
+      rgba(0, 0, 0, 0.7) 99%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  }
+
+  @include keyframes(appear) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .entry-header__text {
+    padding: 30vh 20px 0px 20px;
+    align-self: stretch;
+    display: grid;
+    grid-template-rows: 20vh auto auto auto auto auto;
+    grid-template-areas: "." "date" "title" "intro" "authors";
+    align-items: end;
+    background-position: center center;
+    background-size: cover;
+
+    @include breakpoint("medium") {
+      grid-template-columns: 3px 80% 20%;
+      grid-template-areas: "border . ." "border date ." "border title ." "border intro ." "border authors .";
+      justify-content: center;
+    }
+    @include breakpoint("large") {
+      grid-template-columns: 3px 700px 400px;
+    }
+  }
+
+  .entry-header__text::after {
+    display: block;
+    content: "";
+    border-left: 2px solid #d3d3d3;
+    grid-area: border;
+    width: 3px;
+    z-index: 2;
+    grid-column-start: 1;
+    grid-row-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 6;
+    height: 0px;
+
+    @include animation("bordergrow 2s 1s forwards");
+    transform-origin: top;
+  }
+
+  @include keyframes(bordergrow) {
+    from {
+      height: 0%;
+    }
+    to {
+      height: 100%;
+    }
+  }
+
+  .entry-header__text div,
+  .entry-header__text h1,
+  .entry-header__text p {
+    opacity: 0;
+    @include animation("textblur 2s 2s forwards");
+  }
+  @include keyframes(textblur) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .entry-header__caption {
+    padding: 0 20px 0px 20px;
+    align-self: stretch;
+    display: grid;
+    grid-template-areas: "capborder figcaption";
+
+    @include breakpoint("medium") {
+      grid-template-columns: 3px 80% 20%;
+      grid-template-areas: "capborder figcaption .";
+      justify-content: center;
+    }
+    @include breakpoint("large") {
+      grid-template-columns: 3px 700px 400px;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      border-left: 2px solid #ccc;
+      grid-area: capborder;
+      width: 3px;
+      z-index: 2;
+      //height: 0px;
+    }
+    figcaption {
+      max-width: $post__content-width;
+      //margin-bottom: 4rem;
+      margin-top: 8px !important;
+      grid-area: figcaption;
+      padding-left: 20px;
+    }
+  }
+
+  .entry-title {
+    margin-bottom: 0;
+    font-family: $font__sans;
+    font-weight: bold;
+    @include breakpoint("medium") {
+      @include font-size(50px);
+      line-height: 1.1;
+    }
+    @include breakpoint("large") {
+      @include font-size(58px);
+    }
+    @include breakpoint("xlarge") {
+      @include font-size(62px);
+    }
+  }
+
+  .entry-title,
+  .post__intro,
+  .post__authors,
+  .post__date {
+    z-index: 3;
+    padding-left: 20px;
+    color: white !important;
+  }
+
+  .post__intro {
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
+
+  .post__date,
+  .post__authors {
+    opacity: 0.8;
+  }
+
+  .post__authors {
+    padding-bottom: 2rem;
+  }
+}

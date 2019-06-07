@@ -65,6 +65,41 @@ if($meta_color == '' || $meta_color == '#ffffff'){
     </div>
 
   <?php endif?>
+<?php   if ($meta_header == 'zoom-img'):
+    ?>
+    <div class="entry-header__top">
+    <div class="entry-header__image">
+      <div class="post__image-wrapper objfit">
+      <img class="post__image" src="<?php echo esc_attr($meta_media) ?>">
+    </div>
+  </div>
+
+    <?php
+    if ( is_singular() ) :
+the_title( '<h1 id="zoom-title" class="entry-title">', '</h1>' );
+      //the_title( '<h1 id="zoom-title" class="entry-title"><span class="text-wrapper"><span class="line line1"></span><span id="letter-wrapper" class="letters">', '</span></span></h1>' );
+    else :
+      the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+    endif;
+
+    if ( 'post' === get_post_type() ) :
+      ?>
+      <div class="post__intro large-text"><?php echo esc_attr( $meta_intro )?></div>
+    <?php endif; ?>
+
+</div>
+<div class="entry-header__text">
+  <div class="entry-header__caption"><figcaption><?php echo wp_get_attachment_caption($mediaid) ?></figcaption></div>
+
+<div class="post__date"><?php echo esc_attr( $meta_date )?></div>
+<div class="post__authors">By <?php echo esc_attr( $meta_authors )?></div>
+</div>
+    <?php
+  endif;
+  ?>
+
+
+<?php   if ($meta_header != 'zoom-img'): ?>
     <div class="entry-header__text" style="<?php
     if ($meta_header == 'background-img'):
       echo 'background-image: url(\'' . esc_attr($meta_media) . '\');';
@@ -84,9 +119,8 @@ if($meta_color == '' || $meta_color == '#ffffff'){
     			<div class="post__authors">By <?php echo esc_attr( $meta_authors )?></div>
     		<?php endif; ?>
 
-
-
 </div>
+<?php endif; ?>
 <?php if ($meta_header == 'half-page'): ?>
 <div class="entry-header__image">
   <div class="post__image" style="background-image: url(' <?php echo esc_attr($meta_media) ?>'">

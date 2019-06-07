@@ -1,0 +1,129 @@
+//
+//
+//Dark background Images
+//
+//
+
+.zoom-img {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 50vw auto;
+  grid-template-areas: "headertop" "textarea";
+
+  .entry-header__top {
+    grid-area: headertop;
+    display: grid;
+    grid-template-rows: 0 1fr 1fr;
+    grid-template-areas: "imagearea" "title" "intro";
+  }
+
+  .entry-header__image {
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    z-index: -1;
+    overflow: hidden;
+    background-color: black;
+    .post__image-wrapper.objfit {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .post__intro,
+  .entry-title {
+    margin: 0 20px;
+    text-align: center;
+    @include breakpoint("small") {
+      margin: 0 auto;
+      width: 95vw;
+      max-width: 900px;
+    }
+  }
+  .post__intro {
+    align-self: start;
+    color: rgba(#fff, $opacity__slight);
+    opacity: 0;
+    @include font-size(20px);
+    max-width: 750px !important;
+  }
+  .entry-title {
+    align-self: end;
+    color: var(--post-color);
+    opacity: 1;
+    font-family: $font__sans;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    @include font-size(60px);
+    @include breakpoint("xlarge") {
+      font-size: 65px;
+    }
+  }
+
+  @include keyframes(appear) {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .entry-header__text {
+    margin: 0.5rem auto 0;
+    width: $block-wide;
+    max-width: 1200px;
+
+    > * {
+      @include breakpoint("small") {
+        margin: 0 auto;
+        width: 95vw;
+      }
+      @include breakpoint("medium") {
+        max-width: $post__content-width;
+      }
+    }
+    .post__date {
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .post__date,
+    .post__authors {
+      font-size: 1rem;
+      color: $color__text-gray2;
+    }
+  }
+
+  .entry-title {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+
+  .entry-title .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+  }
+
+  .entry-title .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+  }
+
+  .entry-title .line1 {
+    top: 0;
+    left: 0;
+  }
+
+  .entry-title .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+}

@@ -166,6 +166,7 @@ wp.domReady(function(allowedBlocks) {
       "core/heading",
       "core/audio",
       "core/columns",
+      "core/gallery",
       "core/video",
       "core/freeform",
       "core/html",

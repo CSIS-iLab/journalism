@@ -1,0 +1,120 @@
+//
+//
+//Half Page
+//
+.half-page {
+  display: grid;
+  grid-template-rows: auto 300px auto;
+  grid-template-columns: 100%;
+  grid-template-areas: "textarea" "imagearea" "caption";
+
+  @include breakpoint("medium") {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "textarea imagearea" "textarea caption";
+    height: calc(90vh);
+    min-height: $post__content-width;
+  }
+
+  .entry-header__image {
+    @include breakpoint("medium") {
+      grid-column-start: 2;
+      grid-row-end: span 2;
+      grid-row-start: 1;
+      grid-column-end: 2;
+    }
+
+    .post__image {
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .entry-header__text {
+    text-align: center;
+    padding: 0 20px;
+    display: grid;
+    grid-template-rows: 100px auto auto auto auto 100px;
+    grid-template-columns: auto;
+    grid-template-areas: "halftop" "date" "title" "intro" "authors" "halfbottom";
+    @include breakpoint("small") {
+      padding: 0 7vw;
+    }
+    @include breakpoint("medium") {
+      grid-template-rows: 1fr auto auto auto auto 1fr;
+      align-items: center;
+    }
+  }
+  .entry-header__text::after {
+    grid-area: halfbottom;
+  }
+  .entry-header__text::before {
+    grid-area: halftop;
+  }
+  .entry-header__text::before,
+  .entry-header__text::after {
+    display: block;
+    content: "";
+    width: 50%;
+    height: 80px;
+    border-right: 2px solid #d8d8d8;
+    left: 0;
+    top: 0;
+    margin: 2rem 0;
+    align-self: center;
+    @include breakpoint("medium") {
+      height: 100%;
+    }
+  }
+
+  .post__date {
+    @include breakpoint("medium") {
+      padding-top: 24px;
+    }
+  }
+
+  .entry-title {
+    margin-bottom: 0px;
+  }
+
+  .entry-title::after {
+    display: block;
+    content: "";
+    width: 120px;
+    height: 2px;
+    border-bottom: 2px solid #d8d8d8;
+    opacity: 0.5;
+    margin: 12px auto 0;
+  }
+
+  .post__intro {
+    margin-bottom: 12px;
+    margin-top: 1rem;
+  }
+
+  .post__authors {
+    @include breakpoint("medium") {
+      padding-bottom: 24px;
+    }
+  }
+  .entry-header__caption {
+    padding: 0 20px 2rem;
+    @include breakpoint("medium") {
+      width: 80%;
+      max-width: 400px;
+      justify-self: end;
+      opacity: 80% !important;
+      align-self: end;
+    }
+
+    figcaption {
+      @include breakpoint("medium") {
+        text-align: right !important;
+        color: white !important;
+        opacity: 0.8 !important;
+        text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+      }
+    }
+  }
+}

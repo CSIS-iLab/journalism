@@ -83,7 +83,11 @@ registerBlockType("jourblocks/header", {
     },
     {
       name: "background-img",
-      label: __("Dark Background Image")
+      label: __("Line Background Image")
+    },
+    {
+      name: "zoom-img",
+      label: __("Zoom Background Image")
     },
     {
       name: "half-page",

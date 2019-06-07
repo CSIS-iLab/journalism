@@ -35,7 +35,7 @@
   &.toggled #primary-menu {
     display: block;
     opacity: 1;
-    width: calc(100vw) !important;
+    width: calc(100vw - 40px) !important;
     @include transition(opacity 0.5s ease-in-out);
     @include breakpoint("medium") {
       height: unset;

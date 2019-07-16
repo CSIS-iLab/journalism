@@ -76,7 +76,7 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 
     <?php
     if ( is_singular() ) :
-the_title( '<h1 id="zoom-title" class="entry-title">', '</h1>' );
+the_title( '<h1 id="zoom-title" class="entry-title"><span>', '</span></h1>' );
       //the_title( '<h1 id="zoom-title" class="entry-title"><span class="text-wrapper"><span class="line line1"></span><span id="letter-wrapper" class="letters">', '</span></span></h1>' );
     else :
       the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -182,7 +182,7 @@ the_title( '<h1 id="zoom-title" class="entry-title">', '</h1>' );
       <?php echo modern_journalist_share(  $post->ID , '-blue.svg' ); ?>
 
   <div class="post__footer">
-<p>This story was writen by students participating in Reporting on International Affairs, a CSIS Practicum in Journalism.</p>
+<p>This story was writen by students participating in the CSIS Journalism Bootcamp.</p>
 <div class="blue-btn"><a href="/feature-stories" title="Featured Stories">Read another story</a></div>
   </div>
 

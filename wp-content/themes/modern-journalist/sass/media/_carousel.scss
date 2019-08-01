@@ -1,0 +1,130 @@
+/* .carousel */
+.carousel-item {
+  display: block;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 1s;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+  transition: opacity 1s;
+}
+
+/* More like bootstrap, less accessible */
+
+.carousel .carousel-inner {
+  position: relative;
+}
+
+.carousel button.pause {
+  display: block;
+  font-size: 18px;
+  width: auto;
+  left: -300em;
+  margin-bottom: 8px;
+  height: auto;
+  position: relative;
+  top: 5px;
+  right: -20px;
+  border: thin solid outset;
+}
+
+.carousel button[aria-disabled="true"] {
+  color: #666;
+}
+
+.carousel button.pause:focus {
+  display: block;
+  position: relative;
+  font-size: 18px;
+  width: auto;
+  left: 0;
+  margin-bottom: 8px;
+  height: auto;
+  top: 5px;
+  right: -20px;
+}
+
+.carousel .carousel-items {
+  border: solid 2px transparent;
+}
+
+.carousel .carousel-items.focus {
+  border-color: white;
+  outline: solid 3px #005a9c;
+}
+
+.carousel .carousel-inner,
+.carousel .carousel-item,
+.carousel .carousel-slide {
+}
+
+.carousel .carousel-control {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  font-size: 200%;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  @include breakpoint("medium") {
+  }
+}
+
+.carousel a.carousel-control svg {
+  position: relative;
+  display: inline-block;
+  top: 20px;
+}
+
+.carousel a.carousel-control svg polygon {
+  opacity: 0.7;
+}
+
+.carousel a.carousel-control:focus {
+  border: 3px solid #fff;
+  outline: 1px solid #005a9c;
+}
+
+.carousel a.carousel-control:focus svg polygon,
+.carousel a.carousel-control:hover svg polygon {
+  opacity: 1;
+}
+
+.carousel a.carousel-control.previous {
+  bottom: 0;
+  width: 40px;
+  left: 10px;
+  transition: left 0.5s;
+
+  &:hover {
+    left: 0px;
+    transition: left 0.5s;
+  }
+}
+
+.carousel a.carousel-control.next {
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  transition: right 0.5s;
+
+  &:hover {
+    right: 0px;
+    transition: right 0.5s;
+  }
+}
+
+.carousel blockquote {
+  width: calc(100% - 120px);
+  margin: 0 auto;
+  font-size: 18px;
+}

@@ -268,14 +268,14 @@
     grid-template-columns: 100%;
     grid-column-gap: 3vw;
     grid-template-rows: auto;
-    grid-template-areas: "testimonials" "test" "testimonialcaption";
+    grid-template-areas: "testimonials" "testimg" "testimonialcaption";
   }
   @include breakpoint("medium") {
     display: grid;
     grid-template-columns: 1.8fr 0.2fr 1fr;
     grid-template-rows: auto;
     grid-column-gap: 0%;
-    grid-template-areas: "testimonials test test" "testimonials testimonialspacer testimonialcaption";
+    grid-template-areas: "testimonials testimg testimg" "testimonials testimonialspacer testimonialcaption";
   }
 
   .home-testimonial-caption {
@@ -330,51 +330,47 @@
         grid-area: testimonialspacer;
       }
     }
-    @include breakpoint("small") {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      grid-column-gap: 24px;
-
-      grid-template-areas: "testimonialheading testimonialheading" "testimonial1 testimonial2" "testimonial1 testimonial3";
-    }
+  }
+  p.testimonial-content {
+    font-size: 20px !important;
     @include breakpoint("medium") {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      grid-template-areas: "testimonialheading testimonialheading" "testimonial1 testimonial1" "testimonial2 testimonial3";
+      font-size: 20px;
     }
   }
 
-  .home-testimonial__container .home-testimonials__single {
-    margin-bottom: 1rem;
-    &:first-of-type {
-      grid-area: testimonial1;
-      padding-bottom: 1rem;
-      @include breakpoint("medium") {
-        border-bottom: 1px solid #d6d6d6;
-      }
-    }
-    &:nth-of-type(2n) {
-      grid-area: testimonial2;
-    }
-    &:nth-of-type(3n) {
-      grid-area: testimonial3;
-    }
-
-    .home-testimonials__info span {
-      font-weight: 500 !important;
-    }
-  }
   .testimonial-img {
-    grid-area: test;
+    grid-area: testimg;
     img {
       width: 100%;
     }
   }
 
   .home-testimonials__info {
+    display: block;
     @extend figcaption;
+    font-size: 16px;
+    margin-top: 0.5rem;
+    padding-left: 8px;
+
+    @include breakpoint("medium") {
+      width: 80%;
+      float: right;
+    }
+    @include breakpoint("large") {
+      width: 60%;
+    }
+
+    span {
+      font-size: $font__size-caption;
+    }
+    &:before {
+      content: "- ";
+      display: block;
+      float: left;
+      position: relative;
+      clear: both;
+      margin-left: -8px;
+    }
   }
   .home-testimonial-image img {
     grid-area: testimonialimg;
@@ -444,4 +440,8 @@
 section h2.home-heading {
   font-family: $font__sans;
   padding-top: 2rem;
+}
+
+.home-testimonial__container h2 {
+  margin-bottom: 0;
 }

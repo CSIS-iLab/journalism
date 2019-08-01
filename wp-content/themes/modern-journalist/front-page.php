@@ -124,39 +124,89 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 <div class="home-testimonial__container">
 			<h2 class="home-heading">What are they saying?</h2>
 
-				<?php
-						$featuredTestimonialArgs = array(
-						    'post_type' => 'testimonial',
-						    'post__in' => array(
-						        $testimonial1, $testimonial2, $testimonial3
-						    ),
-						    'orderby' => 'post__in',
-						    'posts_per_page' => 3
-						);
-						$featured_testimonial = get_posts($featuredTestimonialArgs);
-						foreach($featured_testimonial as $post) : setup_postdata($post);
-						$meta_name = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_name', true);
-		        $meta_institution = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_institution', true);
-						$meta_date = get_post_meta(get_the_ID(), 'jourblocks_meta_testimonial_date', true);
-
-							echo '<article class="home-testimonials__single">';
-
-							the_content();
-							echo '<div class="home-testimonials__info">';
-							if ($meta_name) {
-			            echo'<span>' . esc_attr($meta_name) . '</span>';
-			        }
-			        if ($meta_institution) {
-			            echo ', ' . esc_attr($meta_institution);
-			        }
-							if ($meta_date) {
-			            echo ', ' . esc_attr($meta_date);
-			        }
-							echo '</div>';
-							echo '</article>';
-						endforeach;
-						wp_reset_postdata();
+			<section id="myCarousel"
+			         class="carousel slide"
+			         aria-roledescription="carousel"
+			         aria-label="Highlighted television shows">
+			  <button class="pause">
+			    Stop Carousel
+			  </button>
+			  <div class="carousel-inner">
+			    <a class="previous carousel-control"
+			       role="button"
+			       tabindex="0"
+			       aria-controls="myCarousel-items"
+			       aria-label="Previous Slide">
+			      <svg width="32"
+			           height="32"
+			           version="1.1"
+			           xmlns="http://www.w3.org/2000/svg">
+			        <path xmlns="http://www.w3.org/2000/svg" d="M15.5,8l8-8,.5.5.5.5L22,3.5l-7.4,7.4c-2.7,2.8-4.9,5.1-5,5.1s3.4,3.4,7.5,7.5L24.5,31l-.5.5-.5.5-8-8-8-8Z" transform="translate(-7.5)" stroke="black"
+							fill="black"/>
+			      </svg>
+			    </a>
+			    <a class="next carousel-control"
+			       role="button"
+			       tabindex="0"
+			       aria-controls="myCarousel-items"
+			       aria-label="Next Slide">
+			      <svg width="32"
+			           height="32"
+			           version="1.1"
+			           xmlns="http://www.w3.org/2000/svg">
+								 <path xmlns="http://www.w3.org/2000/svg" d="M15.5,8l8-8,.5.5.5.5L22,3.5l-7.4,7.4c-2.7,2.8-4.9,5.1-5,5.1s3.4,3.4,7.5,7.5L24.5,31l-.5.5-.5.5-8-8-8-8Z"  transform="rotate(180), translate(-32 -32)"  stroke="black"
+	 							fill="black"/>
+			      </svg>
+			    </a>
+			    <div id="myCarousel-items"
+			         class="carousel-items"
+			         aria-live="off">
+					<?php
+					$args = array(
+					    'orderby' => 'date',
+					    'post_type' => 'testimonial',
+					    'posts_per_page' => 3
+					);
+					$the_query = new WP_Query( $args );
 					?>
+					<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+					$index = ($wp_query->current_post ++) + 1;
+
+					 	$name = get_post_meta( get_the_ID(), 'jourblocks_meta_testimonial_name', true );
+						$institution = get_post_meta( get_the_ID(), 'jourblocks_meta_testimonial_institution', true );
+						$date = get_post_meta( get_the_ID(), 'jourblocks_meta_testimonial_date', true );
+
+					?>
+						<div class="carousel-item <?php if ($index == 1){	echo 'active'; };
+						 ?>"
+			           role="group"
+			           aria-roledescription="slide"
+			           aria-label="<?php echo $index; ?> of 6">
+
+								<blockquote class="testimonials">
+									<p class="testimonial-content">
+										<?php the_content(); ?>
+									</p>
+
+									<div class="testimonial-caption home-testimonials__info">
+										<?php echo esc_attr($name); ?><br /> <span><?php echo esc_attr($institution); ?>, <?php echo esc_attr($date); ?></span>
+									</div>
+
+								</blockquote>
+
+			        <!-- .carousel-caption -->
+			      </div>
+					<?php endwhile; else: ?> <p>Sorry, there are no posts to display</p> <?php endif; ?>
+					<?php wp_reset_query(); ?>
+
+  </div>
+			  </div>
+			  <!-- carousel-inner -->
+			</section>
+			<!-- /.carousel -->
+
+
+
 </div>
 
 <div class="testimonial-img">

@@ -143,6 +143,16 @@ function modern_journalist_scripts()
       wp_enqueue_script('modern-journalist-post-animation', get_template_directory_uri() . '/js/post-animation.js', array(), '20151215', true);
 
     }
+
+    if(is_front_page()){ //Check if we are viewing a page
+
+    	   wp_enqueue_script('carousel1', get_template_directory_uri() .'/js/carousel/carousel.js');
+         wp_enqueue_script('carouselItem', get_template_directory_uri() .'/js/carousel/carouselItem.js');
+         wp_enqueue_script('carouselButtons', get_template_directory_uri() .'/js/carousel/carouselButtons.js');
+         wp_enqueue_script('carouselPause', get_template_directory_uri() .'/js/carousel/pauseButton.js');
+    	}
+
+
 }
 add_action('wp_enqueue_scripts', 'modern_journalist_scripts');
 

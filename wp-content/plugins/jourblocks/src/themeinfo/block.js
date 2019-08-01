@@ -377,7 +377,7 @@ registerBlockType("jourblocks/themeinfo", {
         <div class="theme-block__article">
           <a href={attributes.selectedPostUrl}>
             <div class="post-entry-header">
-              <div class="section-subtitle">Read the results</div>{" "}
+              <div class="section-subtitle">Read the story</div>{" "}
               <div class="theme-block__article-title">
                 {attributes.selectedPost}
               </div>

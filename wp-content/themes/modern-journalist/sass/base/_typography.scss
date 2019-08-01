@@ -152,7 +152,7 @@ dd {
 
 //links
 
-p a {
+p a, .inline-link {
   color: $color__text-gray1;
   box-shadow: 0 1px 0 rgba(0, 0, 13, 0.4);
   text-decoration: none;
@@ -173,4 +173,12 @@ p a {
   &:active {
     outline: 0;
   }
+}
+
+.inline-link {
+  font-family: $font__sans;
+    color: $color__main;
+    &:visited {
+      color: $color__main;
+    }
 }

@@ -55,7 +55,9 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 			<div class="home-about_csis">
 				<h3>About CSIS</h3>
 				<?php echo '<p>' . stripslashes_deep($csis_desc) . '</p>'; ?>
+				<a href="https://www.csis.org/" class="inline-link" alt="Visit the CSIS homepage">Visit us at CSIS.org</a>
 			</div>
+
 		</section><!-- about the program-->
 
 		<section class="home-feature">

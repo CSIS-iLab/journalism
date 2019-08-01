@@ -73,7 +73,7 @@
         </div>
         <div class="footer__contact-website">
           <div class="footer__follow-icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-cursor.svg" /></a>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-cursor.svg" />
           </div>
           <a href="https://www.csis.org/" alt="Visit the CSIS homepage"><span>
           www.csis.org

@@ -18,8 +18,8 @@
   background-color: white;
   column-gap: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
-
   transition: all 0.2s ease-in 0s;
+  display: flex;
   @include breakpoint("medium") {
     width: 98vw;
     border-radius: 3px;
@@ -35,31 +35,13 @@
 }
 
 #masthead.not-a-post {
-  display: grid;
-  grid-template-columns: 48px auto 48px;
-  grid-template-rows: 100%;
-  grid-template-areas: "site-logo site-title main-navigation";
-
-  @include breakpoint("medium") {
-    grid-template-columns: min-content auto min-content;
-  }
 }
 
 #masthead.is-single-post {
-  display: grid;
-  grid-template-columns: 48px auto 48px;
-  grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
-
-  @include breakpoint("medium") {
-    grid-template-columns: min-content auto min-content;
-  }
-  @include breakpoint("large") {
-    grid-template-rows: min-content auto;
-    grid-template-areas: "site-logo site-title main-navigation" "site-logo header__post-info main-navigation";
-  }
 }
-#site-logo {
-  grid-area: site-logo;
+
+#header-logo {
+  display: block;
   height: auto;
   width: 40px;
   margin-left: 0.5rem;
@@ -68,6 +50,7 @@
   align-self: center;
   @include breakpoint("medium") {
     padding-left: 12px;
+    width: 40px;
   }
   img {
     display: block;
@@ -78,61 +61,37 @@
     }
   }
 }
+#site-title,
+.site-branding {
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+}
 
 .not-a-post #site-title {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 48px;
-  grid-template-areas: "header__site-name";
-  grid-area: site-title;
-  align-items: center;
-  line-height: 1.2;
-
-  align-self: center;
-  @include breakpoint("large") {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40% 60%;
-    padding-top: 4px;
-    grid-template-areas: "header__csis-logo header__csis-logo header__csis-logo" "header__site-name header__site-name header__site-name";
-  }
 }
 
 .is-single-post #site-title {
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-template-rows: auto;
-  grid-template-areas: "header__csis-logo header__site-name";
-  grid-area: site-title;
-}
-
-#header__csis-logo {
-  grid-area: header__csis-logo;
-  display: none;
-  @include breakpoint("large") {
-    display: block;
-    height: 20px;
-    width: auto;
-    opacity: 0.5;
-  }
-}
-.is-single-post #header__csis-logo {
-  padding-right: 8px;
-  height: 16px;
-  @include breakpoint("large") {
+  flex-direction: column;
+  align-items: start;
+  .site-branding,
+  #header__post-info,
+  #header__page-name {
+    width: 100%;
   }
 }
 
 #header__post-info {
-  display: grid;
-  grid-template-columns: auto min-content;
-  grid-template-rows: 100%;
-  grid-template-areas: "header__page-name page-navigation";
-  grid-area: header__post-info;
-  padding: 0;
+  padding-left: 0.75rem;
 }
 
-#page-navigation {
-  grid-area: page-navigation;
+#header__csis-logo {
+  height: 18px;
+  padding: 0 0.3rem 0 0.75rem;
+  opacity: 0.7;
+  @include breakpoint("small") {
+    height: 22px;
+  }
 }
 
 #header__site-name {
@@ -141,9 +100,7 @@
 }
 
 .not-a-post #header__site-name {
-  grid-area: header__site-name;
   font-size: 16px;
-
   line-height: 1.1;
 
   @include breakpoint("small") {
@@ -154,17 +111,20 @@
   }
 }
 
-.is-single-post #header__site-name {
-  grid-area: header__site-name;
-  align-self: center;
-  opacity: 0.7;
-  font-size: 14px;
-  color: inherit;
-  line-height: 1.1;
+.is-single-post {
+  #header__site-name {
+    align-self: center;
+    opacity: 0.7;
+    font-size: 14px;
+    color: inherit;
+    line-height: 1.1;
+  }
+  #header__csis-logo {
+    height: 16px;
+  }
 }
 
 #header__page-name {
-  grid-area: header__page-name;
   font-family: $font__sans;
   font-size: 18px;
   line-height: 1.1;
@@ -174,12 +134,11 @@
 #header__site-name,
 #header__page-name {
   position: relative;
-  float: left;
   font-style: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: flex;
-  flex-grow: 1;
+  display: inline-flex;
+  flex-grow: 2;
   white-space: nowrap;
   &:after {
     content: "";
@@ -214,8 +173,11 @@
 }
 
 .main-navigation {
-  grid-area: main-navigation;
-  padding-right: 1rem;
+  //
+  @include breakpoint("medium") {
+    padding-right: 1rem;
+  }
+
   ul {
     display: block;
   }

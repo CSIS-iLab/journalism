@@ -37,11 +37,14 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 			</div>
 			<div class="home-hero__site-info">
 				<h1 class="home-hero__title">
-					Reporting on <br/>International Affairs
+					CSIS Journalism Bootcamp
 				</h1>
-				<div class="home-hero__tagline">
+				<?php
+					if ($site_tagline) {
+				?><div class="home-hero__tagline">
 					<?php echo esc_attr($site_tagline) ?>
 				</div>
+			<?php } ?>
 			</div>
 		</header>
 

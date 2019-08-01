@@ -86,6 +86,15 @@ footer.site-footer {
       display: inline-block;
     }
 
+    .footer__contact-website {
+      img {
+        width:80% !important;
+      }
+      a {
+          color: rgba(#fff, $opacity__light);
+      }
+    }
+
     &::after {
       @include breakpoint("large") {
         content: "";

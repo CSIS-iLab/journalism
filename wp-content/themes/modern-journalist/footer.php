@@ -71,6 +71,14 @@
           Washington, DC 20036
         </span>
         </div>
+        <div class="footer__contact-website">
+          <div class="footer__follow-icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/icon-cursor.svg" /></a>
+          </div>
+          <a href="https://www.csis.org/" alt="Visit the CSIS homepage"><span>
+          www.csis.org
+        </span></a>
+        </div>
       </div>
       </div>
     </div>

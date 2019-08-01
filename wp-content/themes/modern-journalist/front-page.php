@@ -61,7 +61,7 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 		</section><!-- about the program-->
 
 		<section class="home-feature">
-			<h2 class="home-heading">Featured Projects</h2>
+			<h2 class="home-heading">Featured Stories</h2>
 			<div class="home-feature_container">
 				<div class="home-feature_main">
 					<article>

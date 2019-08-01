@@ -20,7 +20,8 @@
               the_title('<h2 class="article-title">', '</h2>');
               ?>
           </header><!-- .entry-header -->
-        <?php the_excerpt(); ?>
+
+        <p class="post__excerpt"><?php echo  get_the_excerpt(); ?></p> 
 
         <?php
 

@@ -6,7 +6,7 @@
 p,
 .body-text {
   font-family: $font__main;
-  @include font-size(1em);
+  @include font-size(1.1em);
   line-height: 1.25;
   margin-bottom: 1em;
   margin-top: 0;
@@ -18,9 +18,11 @@ p {
   line-height: 1.5;
 }
 
-.bigp,
+.bigp {
+  @include font-size(1.2em);
+}
+
 .featured-stories > p {
-  @include font-size(1.1em);
 }
 
 .large-text {
@@ -152,7 +154,8 @@ dd {
 
 //links
 
-p a, .inline-link {
+p a,
+.inline-link {
   color: $color__text-gray1;
   box-shadow: 0 1px 0 rgba(0, 0, 13, 0.4);
   text-decoration: none;
@@ -177,8 +180,8 @@ p a, .inline-link {
 
 .inline-link {
   font-family: $font__sans;
+  color: $color__main;
+  &:visited {
     color: $color__main;
-    &:visited {
-      color: $color__main;
-    }
+  }
 }

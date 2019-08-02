@@ -121,7 +121,6 @@
     grid-template-rows: auto;
     grid-column-gap: 4vw;
     grid-template-areas: "themetitle themetitle" "themeleft themeright" "themearticle themearticle";
-    margin-bottom: 8rem;
   }
   @include breakpoint("medium") {
     grid-column-gap: 54px;
@@ -170,6 +169,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+  .theme-block__students ul {
+    li {
+      padding: 0 0 0.25rem;
+    }
   }
   .theme-block__agenda a {
     display: grid;

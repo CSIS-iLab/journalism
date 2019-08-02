@@ -14,7 +14,7 @@
 .post__date {
   font-family: $font__sans;
   line-height: $font__line-height-caption;
-  color: $color__text-gray3;
+  color: $color__text-gray2;
 }
 
 .post .entry-title {
@@ -39,7 +39,7 @@
 
 .post__date {
   grid-area: date;
-  font-size: $font__size-small;
+  font-size: $font__size-caption;
 }
 
 .entry-title {
@@ -56,6 +56,7 @@
 
 .post__authors {
   grid-area: authors;
+  font-size: $font__size-caption;
 }
 
 .entry-header__caption {

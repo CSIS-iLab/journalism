@@ -82,6 +82,7 @@ registerBlockType("jourblocks/meta-block", {
 
     function setColor(metaColor) {
       setAttributes({ metaColor });
+
     }
 
     const getImageButton = openEvent => {
@@ -103,7 +104,6 @@ registerBlockType("jourblocks/meta-block", {
         );
       }
     };
-
     const MySelectControl = withState({
       size: "50%"
     })(({ size, setState }) => (
@@ -166,7 +166,8 @@ registerBlockType("jourblocks/meta-block", {
           </PanelBody>
         </InspectorControls>
         <div>
-          <div className={className}>
+          <div
+          className={className}>
             <TextControl
               label="Publish Date"
               value={attributes.metaDate}

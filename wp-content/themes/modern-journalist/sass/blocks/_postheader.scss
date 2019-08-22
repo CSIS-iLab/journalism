@@ -129,7 +129,7 @@
 
     @include keyframes(grow) {
       from {
-        transform: scaleY(0);
+        transform: scaleY(50%);
       }
       to {
         transform: scaleY(100%);
@@ -209,6 +209,10 @@
       }
     }
   }
+
+  .post__intro.large-text {
+    margin-bottom:1rem;
+  }
   .entry-header__text {
     padding: 40px 20px 0px;
     @include breakpoint("small") {
@@ -222,6 +226,7 @@
     @include breakpoint("medium") {
       grid-row-start: 1;
       grid-row-end: span 3;
+
     }
   }
 

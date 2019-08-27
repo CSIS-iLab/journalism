@@ -68,23 +68,27 @@
     & > .alignleft {
       @include breakpoint("small") {
         float: left;
-        margin-right: 24px;
-      }
-      @include breakpoint("small") {
-        float: left;
         margin-right: 32px;
+      }
+      @include breakpoint("medium") {
+        float: left;
+        margin-right: 40px;
       }
     }
 
     &.alignright,
     & > .alignright {
       @include breakpoint("small") {
-        margin-left: 24px;
+        margin-left: 32px;
         float: right;
       }
-      @include breakpoint("small") {
-        margin-left: 32px;
+      @include breakpoint("medium") {
+        margin-left: 40px;
       }
+    }
+
+    &.wp-block-jourblocks-profile.alignright,  .wp-block-jourblocks-profile.alignright {
+      width: 225px;
     }
 
     &.alignwide {

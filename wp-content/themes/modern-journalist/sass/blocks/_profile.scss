@@ -17,8 +17,8 @@
   .component__imgcircle {
     padding-right: 1rem;
     img {
-      max-width: 75px;
-      max-height: 75px;
+      max-width: 100px;
+      max-height: 100px;
       border-radius: 50%;
     }
 
@@ -27,17 +27,18 @@
     }
   }
 
-  &.is-style-profile-large {
-    .component__imgcircle {
+}
+
+.wp-block-jourblocks-profile.is-style-profile-large {
+  .component__imgcircle {
+    border-radius: 0;
+    width: 100%;
+    img {
       border-radius: unset;
-      width: 50%;
-      img {
-        border-radius: unset;
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        max-height: 300px;
-      }
+      width: 100%;
+      max-width: 175px;
+      height: auto;
+      max-height: 275px;
     }
   }
 }

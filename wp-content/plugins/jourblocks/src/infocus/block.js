@@ -42,8 +42,12 @@ registerBlockType("jourblocks/focus", {
               "core/paragraph",
               "core/image",
               "core/heading",
+              "core/list",
+              "core/pullquote",
+              "core/video",
               "jourblocks/dataviz",
-              "jourblocks/audio"
+              "jourblocks/audio",
+              "jourblocks/profile"
             ]}
           />
         </div>

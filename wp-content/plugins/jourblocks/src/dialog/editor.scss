@@ -6,7 +6,8 @@
  */
 
 .dialog__container {
-  background-color: #f2f2f2;
+  background-color: transparent;
+  border-left: 0.5rem solid #f2f2f2;
   padding: 24px;
   .component__caption {
     margin: 0 24px;

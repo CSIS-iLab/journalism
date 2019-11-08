@@ -51,6 +51,9 @@ $testimonial3 = get_option('modern_journalist_homepage_testimonal_3');
 		<section class="home-about">
 			<div class="home-about_program bigp">
 				<?php echo '<p>' . stripslashes_deep($modern_journalist_intro) . '</p>'; ?>
+
+                <div class="home-about-sponsor_container"><p class="sponsor_text">This program is made possible by the generous support of the Stavros Niarchos Foundation.</p><img src="<?php echo get_template_directory_uri(); ?>/img/SNF-logo.svg" alt="SNF sponsor logo">
+                </div>
 			</div>
 			<div class="home-about_csis">
 				<h3>About CSIS</h3>

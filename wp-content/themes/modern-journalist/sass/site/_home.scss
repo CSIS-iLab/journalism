@@ -185,9 +185,45 @@
     }
   }
 
+
   .home-about_program {
     grid-area: aboutprogram;
   }
+
+
+    .home-about-sponsor_container {
+
+        margin-bottom: 32px;
+        @include breakpoint("small") {
+               display: flex;
+            align-items: center;
+        }
+
+         @include breakpoint("medium") {
+               display: block;
+             margin-bottom: 0;
+        }
+         @include breakpoint("large") {
+               display: flex;
+             align-items: center;
+        }
+
+
+
+        p {
+        @extend figcaption;
+            text-align: center !important;
+             @include breakpoint("small") {
+                 text-align: left !important;
+            }
+             @include breakpoint("medium") {
+                 text-align: center !important;
+            }
+             @include breakpoint("large") {
+                 text-align: left !important;
+            }
+        }
+    }
   .home-about_csis {
     grid-area: aboutcsis;
 

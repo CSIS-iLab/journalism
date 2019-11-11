@@ -55,6 +55,7 @@
   img {
     display: block;
     position: relative;
+    min-width: 48px;
     @include breakpoint("large") {
       height: 100%;
       width: auto;
@@ -74,6 +75,7 @@
 .is-single-post #site-title {
   flex-direction: column;
   align-items: start;
+  max-width: calc(100vw - 98px);
   .site-branding,
   #header__post-info,
   #header__page-name {

@@ -213,6 +213,7 @@
         p {
         @extend figcaption;
             text-align: center !important;
+            font-style: italic;
              @include breakpoint("small") {
                  text-align: left !important;
             }

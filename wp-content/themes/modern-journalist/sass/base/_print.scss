@@ -1,0 +1,263 @@
+@media print {
+  /* Setting content width, unsetting floats and margins */
+  /* Attention: the classes and IDs vary from theme to theme. Thus, set own classes here */
+  #content,
+  #page {
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
+
+  /** Setting margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Or: */
+  @page :left {
+    margin: 1cm;
+  }
+
+  @page :right {
+    margin: 1cm;
+  }
+
+  /* The first page of a print can be manipulated as well */
+  @page :first {
+    margin: 1cm 2cm;
+  }
+
+  *:not(.focus__content),
+  *:before,
+  *:after,
+  *:first-letter,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  #page > *:not(#content),
+  #sharefont {
+    display: none;
+  }
+  h1 {
+    font-size: 24pt;
+  }
+
+  .single-post .entry-content > p,
+  .single-post .entry-content .text-overlay__content > p,
+  .entry-content > p,
+  .theme-block__left p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    max-width: 6in !important;
+    margin: 0 auto !important;
+  }
+
+  .single-post .entry-content > p,
+  .single-post .entry-content .text-overlay__content > p,
+  .entry-content > p,
+  .theme-block__left p {
+    margin-bottom: 24px !important;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-size: 20pt;
+    margin-top: 25px;
+  }
+
+  .text-color__light .text-overlay__content {
+    p,
+    h2,
+    h3,
+    h4 {
+      color: #000 !important;
+    }
+  }
+
+  .text-overlay__content,
+  .dialog__content {
+    p,
+    h2,
+    h3,
+    h4 {
+      color: #000 !important;
+      max-width: unset;
+    }
+  }
+
+  .text-overlay__content {
+    background: none;
+    padding: 0px 0 32px !important;
+  }
+
+  .single-post .entry-content > p,
+  .single-post .entry-content .text-overlay__content > p,
+  .entry-content > p,
+  .theme-block__left p {
+    font-size: 13pt;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  a[href^="http"]:not([href*="mywebsite.com"]):after {
+    content: " (" attr(href) ")";
+  }
+
+  .small-title {
+    font-size: 13pt;
+  }
+
+  figure {
+    page-break-inside: avoid;
+  }
+
+  *[class*="wp-block-"] {
+    &.alignwide {
+      max-width: 60%;
+      margin: 32px auto !important;
+    }
+
+    &.aligncenter {
+      max-width: 6in !important;
+      margin: 32px auto !important;
+    }
+    &.alignright,
+    .alignright,
+    &.alignleft,
+    .alignleft {
+      max-width: 40%;
+    }
+    &.alignright,
+    .alignright {
+      float: right;
+      margin-left: 32px !important;
+      margin-top: 0 !important;
+      &:before {
+        display: none;
+      }
+    }
+    &.alignleft,
+    .alignleft {
+      float: left;
+      margin-right: 32px !important;
+      margin-top: 0 !important;
+    }
+  }
+
+  .wp-block-pullquote.is-style-fancy-quote:before {
+    display: none;
+  }
+
+  .author__block {
+    img {
+      max-width: 120px;
+    }
+    .author__content p {
+      font-size: 12pt;
+    }
+  }
+  .entry-header__image {
+    display: none;
+  }
+  .entry-header-print__image {
+    display: block;
+    float: right;
+    max-width: 40%;
+    img {
+      display: block;
+      width: 100%;
+      padding-left: 48px;
+    }
+  }
+
+  .entry-header {
+    display: block;
+  }
+
+  .entry-header__text > * {
+    display: block;
+  }
+
+  .entry-header__text h1 {
+    display: inline;
+  }
+
+  .entry-header {
+    clear: both;
+    margin-bottom: 50px;
+  }
+
+  .wp-block-jourblocks-authors {
+    max-width: 6in !important;
+    margin: 0 auto !important;
+
+    h2,
+    .author__name,
+    .tiny-text,
+    figcaption.tiny-text {
+      text-align: center !important;
+    }
+  }
+
+  .focus__content h2,
+  .focus__content h3 {
+    margin-left: 0;
+  }
+
+  .text-overlay__container {
+    margin: 32px auto;
+  }
+  .text-overlay__print,
+  .alignfull figcaption {
+    display: block;
+    max-width: 6in;
+    margin: 0 auto !important;
+    img {
+      width: 100%;
+    }
+  }
+
+  .component__caption,
+  figcaption {
+    font-size: 11pt;
+    color: #333 !important;
+  }
+  .post__share-buttons {
+    display: none;
+  }
+  .post__footer .blue-btn {
+    display: none;
+  }
+
+  .wp-block-jourblocks-focus.aligncenter,
+  .wp-block-jourblocks-focus.alignwide {
+    background-color: #f2f2f2 !important;
+  }
+
+  blockquote p,
+  blockquote cite {
+    margin: 0 auto !important;
+  }
+  .wp-block-pullquote.is-style-fancy-quote,
+  .wp-block-pullquote.is-style-line,
+  .wp-block-pullquote.is-style-bold-serif,
+  figure.wp-block-pullquote:not(.is-style-fancy-quote):not(.is-style-bold-serif) {
+    p {
+      font-size: 16pt !important;
+    }
+  }
+
+   .entry-content>p+figure[class^="wp-block-"] {
+     margin-top: 0 !important;
+   }
+}

@@ -55,9 +55,6 @@ if($meta_color == '' || $meta_color == '#ffffff'){
     echo 'style=" --post-color: ' . esc_attr($meta_color) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';
     ?>
     >
-    <div class="entry-header-print__image">
-      <img class="post__image" src="<?php echo esc_attr($meta_media) ?>">
-    </div>
     <?php if ($meta_header == 'color-block'): ?>
     <div class="entry-header__image">
       <div class="post__image-wrapper">

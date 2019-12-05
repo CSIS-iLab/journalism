@@ -263,7 +263,6 @@
     margin-top: 0 !important;
   }
 
-
   .color-block .entry-header__image {
     display: block;
 
@@ -283,6 +282,7 @@
 
       .entry-title {
         color: #000 !important;
+        font-size: 28pt;
       }
 
       .post__intro {
@@ -302,9 +302,42 @@
   .color-block .entry-header__caption {
     padding-bottom: 0;
   }
-  .color-block .entry-header__text {
+  .color-block {
+    .post__intro {
+      padding-bottom: 16px;
+    }
+    .entry-header__text {
     padding-top: 0 !important;
-    padding-bottom: 48px;
+    padding-bottom: 48px;}
+  }
+
+  .cut-out {
+    display: block;
+    .post-authors {
+      display: block !important;
+      padding-left: 20px !important;
+
+    }
+
+    .entry-header__caption {
+      padding-top: 16px;
+    }
+  }
+
+  .entry-header.half-page {
+    .entry-header__caption figcaption {
+      text-align: center !important;
+    }
+    .entry-header__text {
+      display: block;
+    }
+    .post__intro{
+      padding: 12px 0;
+    }
+  }
+  .half-page .entry-header__text::before, .half-page .entry-header__text::after {
+    height: 24px;
+    margin: 12px 0;
   }
 
   .entry-title,
@@ -317,8 +350,9 @@
 
   .component__caption,
   figcaption,
-  .entry-header__caption figcaption, blockquote cite {
+  .entry-header__caption figcaption,
+  blockquote cite {
     font-size: 11pt;
-    opacity: .7;
+    opacity: 0.7;
   }
 }

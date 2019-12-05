@@ -34,7 +34,8 @@
   p:first-line,
   div:first-line,
   blockquote:first-line,
-  li:first-line {
+  li:first-line,
+  h1.entry-title {
     background: transparent !important;
     color: #000 !important;
     box-shadow: none !important;
@@ -59,7 +60,6 @@
   .single-post .entry-content .text-overlay__content > p,
   .entry-content > p,
   .theme-block__left p,
-  h1,
   h2,
   h3,
   h4 {
@@ -120,8 +120,8 @@
     color: #666666 !important;
     font-size: 90%;
     overflow-wrap: break-word;
-  word-wrap: break-word;
-  text-decoration: none !important;
+    word-wrap: break-word;
+    text-decoration: none !important;
   }
 
   .small-title {
@@ -177,17 +177,17 @@
       font-size: 12pt;
     }
   }
-  .entry-header__image {
+  .entry-header__image,
+  .post__image-wrapper .post__image {
     display: none;
   }
   .entry-header-print__image {
     display: block;
-    float: right;
-    max-width: 40%;
+    max-width: 60%;
+    margin: 0 auto;
     img {
       display: block;
       width: 100%;
-      padding-left: 48px;
     }
   }
 
@@ -197,10 +197,6 @@
 
   .entry-header__text > * {
     display: block;
-  }
-
-  .entry-header__text h1 {
-    display: inline;
   }
 
   .entry-header {
@@ -238,11 +234,6 @@
     }
   }
 
-  .component__caption,
-  figcaption {
-    font-size: 11pt;
-    color: #333 !important;
-  }
   .post__share-buttons {
     display: none;
   }
@@ -268,7 +259,66 @@
     }
   }
 
-   .entry-content>p+figure[class^="wp-block-"] {
-     margin-top: 0 !important;
-   }
+  .entry-content > p + figure[class^="wp-block-"] {
+    margin-top: 0 !important;
+  }
+
+
+  .color-block .entry-header__image {
+    display: block;
+
+    .entry-header__caption figcaption {
+      text-align: center !important;
+      width: 100%;
+      max-width: unset;
+      padding-bottom: 24px;
+    }
+  }
+
+  .entry-header.background-img {
+    .entry-header__text {
+      padding: 0;
+      display: block;
+      padding-top: 32px;
+
+      .entry-title {
+        color: #000 !important;
+      }
+
+      .post__intro {
+        padding-top: 0;
+      }
+
+      .post__authors {
+        padding-bottom: 0;
+      }
+    }
+    .entry-header__caption {
+      display: block !important;
+      padding-left: 0;
+    }
+  }
+
+  .color-block .entry-header__caption {
+    padding-bottom: 0;
+  }
+  .color-block .entry-header__text {
+    padding-top: 0 !important;
+    padding-bottom: 48px;
+  }
+
+  .entry-title,
+  .post__intro.large-text,
+  .post__authors {
+    display: block !important;
+    margin: 0 auto !important;
+    color: #000 !important;
+  }
+
+  .component__caption,
+  figcaption,
+  .entry-header__caption figcaption, blockquote cite {
+    font-size: 11pt;
+    opacity: .7;
+  }
 }

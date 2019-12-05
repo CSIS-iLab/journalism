@@ -41,6 +41,12 @@
     text-shadow: none !important;
   }
 
+  a {
+    color: blue;
+    box-shadow: 0 1px 0 rgba(0, 0, 13, 0.4) !important;
+    text-decoration: underline !important;
+  }
+
   #page > *:not(#content),
   #sharefont {
     display: none;
@@ -110,7 +116,12 @@
   }
 
   a[href^="http"]:not([href*="mywebsite.com"]):after {
-    content: " (" attr(href) ")";
+    content: " (Link: " attr(href) ")";
+    color: #666666 !important;
+    font-size: 90%;
+    overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-decoration: none !important;
   }
 
   .small-title {

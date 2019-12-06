@@ -251,6 +251,7 @@
   grid-template-rows: 300px 32px auto auto;
   grid-template-columns: auto 20px;
   grid-template-areas: "imagearea ." ". ." "textarea ." "caption .";
+  margin-bottom: 1rem;
 
   @include breakpoint("small") {
     grid-template-columns: 80% 20%;
@@ -264,6 +265,9 @@
   @include breakpoint("large") {
     grid-template-columns: 400px 400px auto;
     grid-template-rows: 60vh 80px auto auto;
+  }
+  @include breakpoint("xlarge") {
+    grid-template-columns: 500px 500px auto;
   }
 
   .entry-header__text {
@@ -329,7 +333,7 @@
   .post__intro {
     margin-top: 0;
     padding-top: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
   }
   .entry-header__caption {
     @include breakpoint("medium") {
@@ -342,6 +346,7 @@
     padding-top: 24px;
     margin-bottom: 12px;
     border-top: 1px solid var(--post-border);
+
   }
   .post__intro {
     @include breakpoint("large") {

@@ -253,16 +253,16 @@
   grid-template-areas: "imagearea ." ". ." "textarea ." "caption .";
 
   @include breakpoint("small") {
-    grid-template-columns: 90% auto;
+    grid-template-columns: 80% 20%;
     grid-template-rows: 400px 40px auto auto;
   }
   @include breakpoint("medium") {
-    grid-template-columns: 80% auto;
+    grid-template-columns: 40% 40% 20%;
     grid-template-rows: 60vh 80px auto auto;
     grid-template-areas: "imagearea . ." ". . ." "textarea . caption";
   }
   @include breakpoint("large") {
-    grid-template-columns: 800px auto;
+    grid-template-columns: 400px 400px auto;
     grid-template-rows: 60vh 80px auto auto;
   }
 

@@ -7,38 +7,38 @@
 // });
 
 anime({
-  targets: ".color-block .entry-header__image .post__image",
-  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
-  opacity: [{ value: 0, easing: "easeOutSine", duration: 500 }],
-  direction: "reverse"
+	targets: ".color-block .entry-header__image .post__image",
+	//translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+	opacity: [{ value: 0, easing: "easeOutSine", duration: 500 }],
+	direction: "reverse"
 });
 
 anime({
-  targets: ".zoom-img .entry-header__image .post__image-wrapper",
-  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
-  scale: [{ value: 1.2, easing: "easeOutSine", duration: 600, delay: 3000 }],
-  opacity: [{ value: 0.3, easing: "easeOutSine", duration: 600, delay: 3000 }]
+	targets: ".zoom-img .entry-header__image .post__image-wrapper",
+	//translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+	scale: [{ value: 1.2, easing: "easeOutSine", duration: 600, delay: 3000 }],
+	opacity: [{ value: 0.3, easing: "easeOutSine", duration: 600, delay: 3000 }]
 });
 
 anime({
-  targets: ".zoom-img .post__intro",
-  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
-  translateY: [
-    { value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3200 }
-  ],
-  opacity: [
-    { value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3200 }
-  ]
+	targets: ".zoom-img .post__intro",
+	//translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+	translateY: [
+		{ value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3200 }
+	],
+	opacity: [
+		{ value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3200 }
+	]
 });
 anime({
-  targets: ".zoom-img .entry-title",
-  //translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
-  translateY: [
-    { value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3300 }
-  ],
-  opacity: [
-    { value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3300 }
-  ]
+	targets: ".zoom-img .entry-title",
+	//translateX: [{ value: 50, easing: "easeOutSine", duration: 500 }],
+	translateY: [
+		{ value: [-30, 0], easing: "easeOutSine", duration: 600, delay: 3300 }
+	],
+	opacity: [
+		{ value: [0, 1], easing: "easeOutSine", duration: 300, delay: 3300 }
+	]
 });
 
 /*
@@ -61,23 +61,23 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 */
 window.addEventListener("scroll", function(e) {
-  var scrolled = window.pageYOffset;
-  //if (scrolled <= 1200) {
+	var scrolled = window.pageYOffset;
+	//if (scrolled <= 1200) {
 
-  const imagewrap = document.querySelector(".color-block .entry-header__image");
-  if (imagewrap) {
-    imagewrap.style.top = -(scrolled * 0.1) + "px";
-  }
+	const imagewrap = document.querySelector(".color-block .entry-header__image");
+	if (imagewrap) {
+		imagewrap.style.top = -(scrolled * 0.1) + "px";
+	}
 
-  const imageobj = document.querySelector(".color-block .post__image");
-  if (imageobj) {
-    imageobj.style.marginBottom = scrolled * 0.02 + "px";
-  }
-  const textwrap = document.querySelector(".color-block .entry-header__text");
-  if (textwrap) {
-    textwrap.style.top = -(scrolled * 0.15) + "px";
-  }
-  //}
+	const imageobj = document.querySelector(".color-block .post__image");
+	if (imageobj) {
+		imageobj.style.marginBottom = scrolled * 0.02 + "px";
+	}
+	const textwrap = document.querySelector(".color-block .entry-header__text");
+	if (textwrap) {
+		textwrap.style.top = -(scrolled * 0.15) + "px";
+	}
+	//}
 });
 
 const header = document.querySelector(".site-header");
@@ -89,22 +89,22 @@ let lastScrollPos = 0;
 let offsetScroll = true;
 
 window.addEventListener("scroll", function() {
-  scrollPos = window.pageYOffset;
+	scrollPos = window.pageYOffset;
 
-  if (!offsetScroll) {
-    scrollPos += header_height;
-  }
+	if (!offsetScroll) {
+		scrollPos += header_height;
+	}
 
-  if (scrollPos > header_height) {
-    offsetScroll = false;
+	if (scrollPos > header_height) {
+		offsetScroll = false;
 
-    header.classList.add(hidden_class);
-  } else {
-    offsetScroll = true;
-    header.classList.remove(hidden_class);
-  }
+		header.classList.add(hidden_class);
+	} else {
+		offsetScroll = true;
+		header.classList.remove(hidden_class);
+	}
 
-  lastScrollPos = scrollPos;
+	lastScrollPos = scrollPos;
 });
 
 let addBtn = document.querySelector("#font-increment");
@@ -115,34 +115,34 @@ const postpara = document.querySelectorAll("p");
 let num = 2;
 
 let increment = () => {
-  num += 1;
-  subBtn.disabled = false;
-  if (num > 5) {
-    num = 5;
-    addBtn.disabled = true;
-  } else {
-    //el.innerHTML = num;
-  }
-  postcontent.setAttribute("data-fontzoom", "font" + num);
+	num += 1;
+	subBtn.disabled = false;
+	if (num > 5) {
+		num = 5;
+		addBtn.disabled = true;
+	} else {
+		//el.innerHTML = num;
+	}
+	postcontent.setAttribute("data-fontzoom", "font" + num);
 };
 
 let decrement = () => {
-  num -= 1;
-  addBtn.disabled = false;
-  if (num < 0) {
-    num = 0;
-    //alert("Decrement button has been disabled.");
-    subBtn.disabled = true;
-  } else {
-    //el.innerHTML = num;
-  }
-  postcontent.setAttribute("data-fontzoom", "font" + num);
+	num -= 1;
+	addBtn.disabled = false;
+	if (num < 0) {
+		num = 0;
+		//alert("Decrement button has been disabled.");
+		subBtn.disabled = true;
+	} else {
+		//el.innerHTML = num;
+	}
+	postcontent.setAttribute("data-fontzoom", "font" + num);
 };
 
 function changefont() {
-  postpara.forEach(function(userItem) {
-    deleteUser(userItem);
-  });
+	postpara.forEach(function(userItem) {
+		deleteUser(userItem);
+	});
 }
 
 addBtn.addEventListener("click", increment);

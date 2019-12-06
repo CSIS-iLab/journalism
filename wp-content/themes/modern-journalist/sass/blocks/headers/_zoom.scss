@@ -22,7 +22,7 @@
     grid-row-end: span 3;
     z-index: -1;
     overflow: hidden;
-    background-color: black;
+    background-color: var(--post-color);
     .post__image-wrapper.objfit {
       width: 100%;
       height: 100%;
@@ -47,8 +47,9 @@
     max-width: 750px !important;
   }
   .entry-title {
+
     align-self: end;
-    color: var(--post-color);
+    color: #fff;
     opacity: 1;
     font-family: $font__sans;
     padding-bottom: 0.5rem;

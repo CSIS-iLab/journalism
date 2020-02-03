@@ -185,7 +185,8 @@ wp.domReady(function(allowedBlocks) {
       "jourblocks/audio-profile",
       "jourblocks/author-profile",
       "jourblocks/dialog-name",
-      "jourblocks/meta-block"
+      "jourblocks/meta-block",
+      "core/shortcode"
     ];
 
     wp.domReady(function() {
@@ -194,7 +195,8 @@ wp.domReady(function(allowedBlocks) {
         "core/gallery",
         "core/heading",
         "core-embed/youtube",
-        "jourblocks/themeinfo"
+        "jourblocks/themeinfo",
+        "core/shortcode"
       ];
 
       const post_type = wp.data.select("core/editor").getCurrentPostType();
@@ -210,7 +212,7 @@ wp.domReady(function(allowedBlocks) {
         //Whitelist Theme Page
         if (post_type == "page") {
           if (allowedThemeBlocks.indexOf(blockType.name) === -1) {
-            wp.blocks.unregisterBlockType(blockType.name);
+            //wp.blocks.unregisterBlockType(blockType.name);
             //console.log(blockType.name);
           }
         }

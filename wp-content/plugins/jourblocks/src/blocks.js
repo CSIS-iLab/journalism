@@ -33,7 +33,7 @@ wp.blocks.registerBlockStyle("jourblocks/profile", {
 });
 
 var SourceStyleButton = function(props) {
-	return wp.element.createElement(wp.editor.RichTextToolbarButton, {
+	return wp.element.createElement(wp.blockEditor.RichTextToolbarButton, {
 		icon: "editor-code",
 		title: "Source Info Style",
 		onClick: function() {
@@ -201,7 +201,9 @@ wp.domReady(function(allowedBlocks) {
 				"core/file",
 				"core/html",
 				"core/spacer",
-				"core/columns"
+				"core/columns",
+				"core/text-columns",
+				"core/column"
 			];
 
 			const post_type = wp.data.select("core/editor").getCurrentPostType();
@@ -218,7 +220,7 @@ wp.domReady(function(allowedBlocks) {
 				if (post_type == "page") {
 					if (allowedThemeBlocks.indexOf(blockType.name) === -1) {
 						wp.blocks.unregisterBlockType(blockType.name);
-						//console.log(blockType.name);
+						console.log(blockType.name);
 					}
 				}
 			});

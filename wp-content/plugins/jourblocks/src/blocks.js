@@ -198,7 +198,10 @@ wp.domReady(function(allowedBlocks) {
 				"jourblocks/themeinfo",
 				"core/shortcode",
 				"core/image",
-				"core/file"
+				"core/file",
+				"core/html",
+				"core/spacer",
+				"core/columns"
 			];
 
 			const post_type = wp.data.select("core/editor").getCurrentPostType();

@@ -29,31 +29,50 @@ import "./themeinfo/block.js";
 // adding block
 wp.blocks.registerBlockStyle("jourblocks/profile", {
 	name: "profile-large",
-	label: "Large Image"
+	label: "Large Image",
 });
 
-var SourceStyleButton = function(props) {
+var SourceStyleButton = function (props) {
 	return wp.element.createElement(wp.blockEditor.RichTextToolbarButton, {
 		icon: "editor-code",
 		title: "Source Info Style",
-		onClick: function() {
+		onClick: function () {
 			props.onChange(
 				wp.richText.toggleFormat(props.value, {
-					type: "jourblocks/source-style"
+					type: "jourblocks/source-style",
 				})
 			);
 		},
-		isActive: props.isActive
+		isActive: props.isActive,
 	});
 };
 wp.richText.registerFormatType("jourblocks/source-style", {
 	title: "Sample output",
 	tagName: "span",
 	className: "caption__source",
-	edit: SourceStyleButton
+	edit: SourceStyleButton,
 });
 
-wp.hooks.addFilter("blocks.registerBlockType", "jourblocks/namespace", function(
+wp.hooks.addFilter(
+	"blocks.registerBlockType",
+	"jourblocks/namespace",
+	function (settings, name) {
+		if (name === "core/pullquote") {
+			return lodash.assign({}, settings, {
+				supports: lodash.assign({}, settings.supports, {
+					// disable the align-UI completely ...
+					align: ["center", "right"],
+					// ... or only allow specific alignments
+					// align: ['center,'full'],
+				}),
+			});
+		}
+
+		return settings;
+	}
+);
+
+wp.hooks.addFilter("blocks.registerBlockType", "core/video", function (
 	settings,
 	name
 ) {
@@ -61,77 +80,62 @@ wp.hooks.addFilter("blocks.registerBlockType", "jourblocks/namespace", function(
 		return lodash.assign({}, settings, {
 			supports: lodash.assign({}, settings.supports, {
 				// disable the align-UI completely ...
-				align: ["center", "right"]
+				align: ["center", "right", "full", "wide"],
 				// ... or only allow specific alignments
 				// align: ['center,'full'],
-			})
+			}),
 		});
 	}
 
 	return settings;
 });
 
-wp.hooks.addFilter("blocks.registerBlockType", "core/video", function(
-	settings,
-	name
-) {
-	if (name === "core/pullquote") {
-		return lodash.assign({}, settings, {
-			supports: lodash.assign({}, settings.supports, {
-				// disable the align-UI completely ...
-				align: ["center", "right", "full", "wide"]
-				// ... or only allow specific alignments
-				// align: ['center,'full'],
-			})
-		});
+wp.hooks.addFilter(
+	"blocks.registerBlockType",
+	"jourblocks/namespace",
+	function (settings, name) {
+		if (name === "core/audio") {
+			return lodash.assign({}, settings, {
+				supports: lodash.assign({}, settings.supports, {
+					// disable the align-UI completely ...
+					align: false,
+					// ... or only allow specific alignments
+					// align: ['center,'full'],
+				}),
+			});
+		}
+
+		return settings;
 	}
+);
 
-	return settings;
-});
+wp.hooks.addFilter(
+	"blocks.registerBlockType",
+	"jourblocks/namespace",
+	function (settings, name) {
+		if (name === "core/audio") {
+			return lodash.assign({}, settings, {
+				parent: ["jourblocks/audio"],
+			});
+		}
 
-wp.hooks.addFilter("blocks.registerBlockType", "jourblocks/namespace", function(
-	settings,
-	name
-) {
-	if (name === "core/audio") {
-		return lodash.assign({}, settings, {
-			supports: lodash.assign({}, settings.supports, {
-				// disable the align-UI completely ...
-				align: false
-				// ... or only allow specific alignments
-				// align: ['center,'full'],
-			})
-		});
+		return settings;
 	}
+);
 
-	return settings;
-});
+wp.hooks.addFilter(
+	"blocks.registerBlockType",
+	"jourblocks/namespace",
+	function (settings, name) {
+		if (name === "core/html") {
+			return lodash.assign({}, settings, {
+				parent: ["jourblocks/dataviz"],
+			});
+		}
 
-wp.hooks.addFilter("blocks.registerBlockType", "jourblocks/namespace", function(
-	settings,
-	name
-) {
-	if (name === "core/audio") {
-		return lodash.assign({}, settings, {
-			parent: ["jourblocks/audio"]
-		});
+		return settings;
 	}
-
-	return settings;
-});
-
-wp.hooks.addFilter("blocks.registerBlockType", "jourblocks/namespace", function(
-	settings,
-	name
-) {
-	if (name === "core/html") {
-		return lodash.assign({}, settings, {
-			parent: ["jourblocks/dataviz"]
-		});
-	}
-
-	return settings;
-});
+);
 
 wp.domReady(() => {
 	wp.blocks.unregisterBlockStyle("core/pullquote", "large");
@@ -141,22 +145,22 @@ wp.domReady(() => {
 	wp.blocks.registerBlockStyle("core/pullquote", {
 		name: "line",
 		label: "Lined Border",
-		isDefault: true
+		isDefault: true,
 	});
 });
 
 wp.blocks.registerBlockStyle("core/pullquote", {
 	name: "fancy-quote",
-	label: "Fancy Quote"
+	label: "Fancy Quote",
 });
 
 wp.blocks.registerBlockStyle("core/pullquote", {
 	name: "bold-serif",
-	label: "Bold Serif"
+	label: "Bold Serif",
 });
 
 //removing block style
-wp.domReady(function(allowedBlocks) {
+/* wp.domReady(function(allowedBlocks) {
 	wp.domReady(function() {
 		var allowedPostBlocks = [
 			"core/paragraph",
@@ -187,9 +191,9 @@ wp.domReady(function(allowedBlocks) {
 			"jourblocks/dialog-name",
 			"jourblocks/meta-block",
 			"core/shortcode"
-		];
+		]; */
 
-		wp.domReady(function() {
+/* 		wp.domReady(function() {
 			var allowedThemeBlocks = [
 				"core/paragraph",
 				"core/gallery",
@@ -199,7 +203,6 @@ wp.domReady(function(allowedBlocks) {
 				"core/shortcode",
 				"core/image",
 				"core/file",
-				"core/html",
 				"core/spacer",
 				"core/columns",
 				"core/text-columns",
@@ -226,5 +229,5 @@ wp.domReady(function(allowedBlocks) {
 			});
 		});
 	});
-});
+}); */
 // my-plugin.js

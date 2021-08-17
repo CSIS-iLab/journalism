@@ -1,0 +1,209 @@
+/*=============================
+=        Testimonials         =
+=============================*/
+
+.button-prev {
+    display: flex;
+    position: relative;
+    float: left;
+    @include breakpoint("medium") {
+        left: 0;
+    }
+}
+
+.button-next {
+    display: flex;
+    position: relative;
+    float: right;
+
+    @include breakpoint("medium") {
+        right: 0;
+
+    }
+}
+
+.button-prev, .button-next {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+    @include breakpoint("medium") {
+        position: absolute;
+        z-index: 1;
+         font-size: 5rem;
+         margin-bottom: unset;
+    }
+}
+
+#home-testimonials {
+    padding: 2rem 0 2rem;
+    background-color: $color-ltgray;
+    @include breakpoint("medium") {
+        padding-top: 8rem;
+        min-height: 40rem;
+    }
+    @include breakpoint("large") {
+        padding: 7rem 0;
+        min-height: 30rem;
+    }
+}
+
+#home-testimonials h2 {
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    @include breakpoint("medium") {
+        margin: 2rem 0;
+    }
+}
+
+.testimonial-button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+    @include breakpoint("medium") {
+        position: relative;
+        margin: 0 auto;
+        width: 80%;
+    }
+    @include breakpoint("large") {
+        max-width: 1000px;
+        width: 90%;
+    }
+}
+
+.testimonials-header {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+#home-testimonials .carousel-wrap {
+    display: block;
+    width: 100vw;
+    margin: 0 auto; //overflow: hidden;
+    padding-bottom: 3rem;
+    ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: 100vw;
+        list-style: none;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: row;
+        font-family: $font__magneta;
+        font-width: 300;
+    }
+    li {
+        display: none;
+        width: 90%;
+        visibility: visible;
+        opacity: 1;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+        @include breakpoint("medium") {
+            width: 50%;
+            max-width: 700px;
+        }
+    }
+    li:nth-child(1), li:nth-child(2), li:nth-child(3) {
+        display: block;
+    }
+    li:nth-child(2) {
+        z-index: 1;
+        position: relative;
+    
+
+        .testimonial-quote {
+            position: relative;
+   
+            &:before {
+                content: "\e802";
+                font-family: 'mj';
+                position: absolute;
+                display: block;
+                top: -1rem;
+                left: -50px;
+                -moz-transform: scale(-1);
+                -o-transform: scale(-1);
+                -webkit-transform: scale(-1);
+                transform: scale(-1);
+                filter: Flip;
+                -ms-filter: "FlipH";
+                color: white;
+                font-size: 4rem;
+                line-height: 1;
+                z-index: -1;
+            }
+            &:after {
+                content: "\e802";
+                font-family: 'mj';
+                position: absolute;
+                display: block;
+                bottom: -1rem;
+                color: white;
+                left: 50px;
+                font-size: 4rem;
+                line-height: 1;
+                z-index: -1;
+            }
+            &:before, &:after {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+    li:nth-child(1), li:nth-child(3) {
+        display: none;
+        @include breakpoint("medium") {
+            display: block;
+            position: absolute;
+        }
+    }
+    li:nth-child(1) {
+        right: 90%;
+    }
+    li:nth-child(3) {
+        left: 90%;
+    }
+    li.fade-item {
+        visibility: visible;
+        opacity: .5;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+    }
+    li.hide-item {
+        position: absolute;
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(opacity .3s ease-in-out, visibility .3s ease-in-out);
+    }
+    .testimonial-quote {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        @include breakpoint("medium") {
+            font-size: 1.5rem;
+        }
+    }
+    .testimonial-name {
+        font-size: 1.3rem;
+        color: $color-blue;
+    }
+    .testimonial-info, .testimonial-date {
+        font-family: $font__roboto;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    .testimonial-date {
+        color: $color-text-gray;
+    }
+    .smallTestimonials {
+        display: relative;
+    }
+}

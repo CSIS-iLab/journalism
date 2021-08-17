@@ -1,7 +1,8 @@
 name: WP Engine Git Deploy
 on:
   push:
-    branches: main # Branch you want this action to be triggered on
+    branches:
+      - main # Branch you want this action to be triggered on
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +21,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-			# Build theme files
+      # Build theme files
       - name: Install dependencies
         working-directory: ./wp-content/themes/modern-journalist
         run: npm ci
@@ -44,7 +45,7 @@ jobs:
       - name: Push to WP Engine
         uses: epogeedesign/github-action-wpengine-git-deploy@master
         env:
-					# The WPE_ENVIRONMENT_NAME should be set to the WPE environment you want to deploy to. This deploys to the dev environment.
+          # The WPE_ENVIRONMENT_NAME should be set to the WPE environment you want to deploy to. This deploys to the dev environment.
           WPE_ENVIRONMENT_NAME: ${{ secrets.WPE_DEV_ENV_NAME }}
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_SSH_KEY_PRIVATE }}
           WPE_SSH_KEY_PUBLIC: ${{ secrets.WPE_SSH_KEY_PUBLIC }}

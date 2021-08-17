@@ -1,0 +1,5 @@
+wp-content/themes/modern-journalist/*.css
+wp-content/themes/modern-journalist/img
+wp-content/themes/modern-journalist/js
+wp-content/themes/modern-journalist/fonts
+wp-content/plugins/jourblocks/dist

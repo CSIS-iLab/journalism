@@ -114,3 +114,5 @@ wp-content/themes/modern-journalist/.sass-cache
 wp-content/themes/modern-journalist/*.css
 wp-content/themes/modern-journalist/*.css.map
 *.mp4
+
+!.github/

@@ -2,14 +2,45 @@
 
 WordPress site for Reporting on International Affairs. Developed from the _s starter theme.
 
-### Contributing
+## Quick-start Instructions
 
-1. New features & updates should be created on individual branches. Branch from master
-2. When ready, submit pull request back into master. Rebase the feature branch first.
-3. TravisCI will automatically deploy changes on master to the staging site
-4. After reviewing your work on the staging site, use WPEngine to move from staging to live
+### If setting up the project for the first time:
 
-## Development
+1. Follow the instructions in the "Install Local" and "Connect Local to WP Engine" sections in this [blog post](https://wpengine.com/support/local/).
+2. Follow the instructions in the "pull to Local from WP Engine" section to pull the "CSIS Journalism Development" Environment to your local machine
+3. Navigate to the directory where Local created the site: eg `cd /Users/[YOUR NAME]/Local Sites/csisjournalism/app/public`
+4. Initiate git & add remote origin. This will connect your local directory to the Git Repo and create a local `main` branch synced with the remote `main` branch.
+
+```shell
+$ git init
+$ git remote add origin git@github.com:CSIS-iLab/journalism_wp.git
+$ git fetch origin
+$ git checkout origin/main -ft
+```
+
+### If project is already set up:
+
+To begin development, navigate to the theme directory and start npm.
+
+```shell
+$ cd wp-content/themes/modern-journalist
+$ npm install
+$ npm start
+```
+
+This project also includes custom Gutenberg blocks, which can be worked on at:
+
+```shell
+$ cd wp-content/plugins/jourblocks
+$ npm install
+$ npm start
+```
+
+### CI/CD
+
+GitHub Actions will automatically build & deploy the theme to the development environment on WPE based on the settings specified in the deployment workflow.
+
+- The `WPE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_DEV_ENV_NAME }}` setting will be deployed to the WP Engine Development Environment. The Development environment should be used to demo new features.
 
 #### Required Plugins
 
@@ -27,10 +58,6 @@ WordPress site for Reporting on International Affairs. Developed from the _s s
 - WPFront User Role Editor
 - Yoast SEO
 
-#### Gulp
+## Copyright / License Info
 
-This project uses Gulp to run tasks like compiling SASS & running Browsersync. To run:
-
-1. Navigate to wp-content/themes/modern-journalist folder
-2. Run `npm install`
-3. Run `npm start` to start Gulp
+Copyright © 2021 CSIS iDeas Lab under the [MIT License](https://github.com/CSIS-iLab/journalism/blob/main/LICENSE).

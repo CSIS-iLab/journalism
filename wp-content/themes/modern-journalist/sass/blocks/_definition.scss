@@ -1,0 +1,50 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+
+.definition__container {
+	border-top: 3px solid var(--post-color);
+	border-bottom: 1px solid $color__hr;
+	padding-top: 1rem;
+	margin-bottom: 24px !important;
+	clear: both;
+
+	@include breakpoint("small") {
+		width: 100%;
+		max-width: $block-max-float;
+		margin-left: 24px;
+		float: right;
+	}
+
+	@include breakpoint("medium") {
+		width: 50%;
+		max-width: $block-max-float;
+		margin-left: 32px;
+		border-bottom: none;
+	}
+
+	dl {
+		margin-top: 0;
+	}
+
+	dt {
+		font-weight: 500;
+		font-family: $font__sans;
+		@include font-size(20px, true);
+	}
+
+	dd{
+		margin-left: 0;
+
+	}
+	p {
+		line-height: 1.4;
+	}
+}
+
+
+
+

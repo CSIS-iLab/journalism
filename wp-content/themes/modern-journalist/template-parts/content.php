@@ -10,6 +10,7 @@
  $meta_authors = get_post_meta( get_the_ID(), 'jourblocks_meta_authors', true );
  $meta_date = get_post_meta( get_the_ID(), 'jourblocks_meta_date', true );
  $meta_intro = get_post_meta( get_the_ID(), 'jourblocks_meta_intro', true );
+ $meta_headercolor = get_post_meta( get_the_ID(), 'jourblocks_meta_header-color', true );
  $meta_color = get_post_meta( get_the_ID(), 'jourblocks_meta_color', true );
  $meta_media = get_post_meta( get_the_ID(), 'jourblocks_meta_media', true );
 
@@ -40,8 +41,15 @@ function readableColour($bg){
     }
 }
 
-$fontColor = readableColour($meta_color);
-if($meta_color == '' || $meta_color == '#ffffff'){
+if ($meta_headercolor == ''):
+	$headerColor = $meta_color;
+	else :
+		$headerColor = $meta_headercolor;
+endif;
+
+
+$fontColor = readableColour($headerColor);
+if(	$headerColor == '' || $headerColor == '#ffffff'){
   $borderColor = '#D3D3D3';
 }else{
   $borderColor = 'none';
@@ -52,7 +60,7 @@ if($meta_color == '' || $meta_color == '#ffffff'){
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<header class="entry-header <?php echo esc_attr( $meta_header )?>"
     <?php
-    echo 'style=" --post-color: ' . esc_attr($meta_color) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';
+    echo 'style=" --post-color: ' . esc_attr(	$headerColor) .'; --post-text: ' . esc_attr($fontColor) .'; --post-border: ' . esc_attr($borderColor) .'"';
     ?>
     >
     <?php if ($meta_header == 'color-block'): ?>

@@ -19,6 +19,7 @@ import "./profile/block.js";
 import "./dialog/block.js";
 import "./authors/block-authorprofile.js";
 import "./authors/block.js";
+import "./definitions/block.js";
 //import "./group-img/block.js";
 import "./infocus/block.js";
 //import "./header/block.js";
@@ -27,6 +28,11 @@ import "./dataviz/block.js";
 import "./audio/block-audioprofile.js";
 import "./themeinfo/block.js";
 // adding block
+
+const { registerPlugin } = wp.plugins;
+
+
+
 wp.blocks.registerBlockStyle("jourblocks/profile", {
 	name: "profile-large",
 	label: "Large Image",

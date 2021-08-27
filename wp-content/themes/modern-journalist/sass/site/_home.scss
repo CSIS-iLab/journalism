@@ -224,6 +224,10 @@
                  text-align: left !important;
             }
         }
+
+				img {
+					max-width: 400px;
+				}
     }
   .home-about_csis {
     grid-area: aboutcsis;

@@ -64,7 +64,10 @@ registerBlockType("jourblocks/header", {
     authors: {
       type: "string"
     },
-    color: {
+    header_color: {
+      type: "string"
+    },
+		accent_color: {
       type: "string"
     },
     date: {
@@ -86,10 +89,6 @@ registerBlockType("jourblocks/header", {
       label: __("Line Background Image")
     },
     {
-      name: "zoom-img",
-      label: __("Zoom Background Image")
-    },
-    {
       name: "half-page",
       label: __("Half Page")
     },
@@ -107,15 +106,19 @@ registerBlockType("jourblocks/header", {
     const {
       mediaURL,
       align,
-      color,
+      header_color,
+			accent_color,
       authors,
       date,
       title,
       excerpt
     } = props.attributes;
 
-    function setColor(newColor) {
-      props.setAttributes({ color: newColor });
+    function setHColor(hnewColor) {
+      props.setAttributes({ header_color: hnewColor });
+    }
+		function setAColor(anewColor) {
+      props.setAttributes({ accent_color: anewColor });
     }
 
     function setAuthors(newAuthors) {
@@ -175,11 +178,22 @@ registerBlockType("jourblocks/header", {
           </Tooltip>
         </BlockControls>
         <InspectorControls>
-          <PanelBody title={__("Color Settings")}>
+          <PanelBody title={__("Header Color")}>
             <PanelRow>
               <ColorPicker
-                color={color}
-                onChangeComplete={value => setColor(value.hex)}
+                color={header_color}
+                onChangeComplete={value => setHColor(value.hex)}
+                disableAlpha
+              />
+            </PanelRow>
+          </PanelBody>
+        </InspectorControls>
+				<InspectorControls>
+          <PanelBody title={__("Post Accent Color")}>
+            <PanelRow>
+              <ColorPicker
+                color={accent_color}
+                onChangeComplete={value => setAColor(value.hex)}
                 disableAlpha
               />
             </PanelRow>

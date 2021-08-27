@@ -50,7 +50,13 @@ registerBlockType("jourblocks/meta-block", {
       source: "meta",
       meta: "jourblocks_meta_intro"
     },
-    metaColor: {
+    metaHeaderColor: {
+      type: "string",
+      source: "meta",
+      meta: "jourblocks_meta_header-color",
+      default: ""
+    },
+		metaColor: {
       type: "string",
       source: "meta",
       meta: "jourblocks_meta_color",
@@ -80,9 +86,12 @@ registerBlockType("jourblocks/meta-block", {
       setAttributes({ metaIntro });
     }
 
-    function setColor(metaColor) {
-      setAttributes({ metaColor });
+    function setHeaderColor(metaHeaderColor) {
+      setAttributes({ metaHeaderColor });
+    }
 
+    function setAccentColor(metaColor) {
+      setAttributes({ metaColor });
     }
 
     const getImageButton = openEvent => {
@@ -117,10 +126,6 @@ registerBlockType("jourblocks/meta-block", {
             label: "Line Background Image"
           },
           {
-            value: "zoom-img",
-            label: "Zoom Background Image"
-          },
-          {
             value: "color-block",
             label: "Color Block"
           },
@@ -142,14 +147,15 @@ registerBlockType("jourblocks/meta-block", {
     return (
       <Fragment>
         <InspectorControls>
-          <PanelBody title="Post Settings">
+          <PanelBody title="Header Settings"
+						initialOpen={true}>
             <PanelRow>
               <MySelectControl />
             </PanelRow>
             <PanelRow>
               <ColorPicker
-                color={attributes.metaColor}
-                onChangeComplete={value => setColor(value.hex)}
+                color={attributes.metaHeaderColor}
+                onChangeComplete={value => setHeaderColor(value.hex)}
                 disableAlpha
               />
             </PanelRow>
@@ -162,8 +168,17 @@ registerBlockType("jourblocks/meta-block", {
                 value={attributes.metaMedia}
                 render={({ open }) => getImageButton(open)}
               />
-            </PanelRow>
+							</PanelRow>
           </PanelBody>
+					<PanelBody title="Post Settings">
+            <PanelRow>
+						<ColorPicker
+                color={attributes.metaColor}
+                onChangeComplete={value => setColor(value.hex)}
+                disableAlpha
+              />
+						</PanelRow>
+						</PanelBody>
         </InspectorControls>
         <div>
           <div

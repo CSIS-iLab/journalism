@@ -245,7 +245,12 @@ function jourblocks_register_post_meta()
         'single' => true,
         'type' => 'string',
     ));
-    register_meta('post', 'jourblocks_meta_color', array(
+    register_meta('post', 'jourblocks_meta_header-color', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+	register_meta('post', 'jourblocks_meta_color', array(
         'show_in_rest' => true,
         'single' => true,
         'type' => 'string',

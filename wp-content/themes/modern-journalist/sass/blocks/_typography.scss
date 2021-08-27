@@ -80,12 +80,26 @@
 .single-post .entry-content {
   h2 {
     @include font-size(40px);
-    margin-top: 54px !important;
+    margin-top: 60px !important;
     margin-bottom: 12px !important;
     @include breakpoint("medium") {
-      margin-top: 72px !important;
+      margin-top: 88px !important;
+    }
+		@include breakpoint("large") {
+      margin-top: 100px !important;
     }
   }
+
+	h3 {
+    @include font-size(32px);
+    margin-top: 32px !important;
+    margin-bottom: 12px !important;
+		font-weight: unset;
+    @include breakpoint("medium") {
+      margin-top: 48px !important;
+    }
+  }
+
   .author__container > h2 {
     margin-bottom: 2rem !important;
   }

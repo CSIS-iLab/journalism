@@ -19,7 +19,7 @@
   column-gap: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px 0px;
   transition: all 0.2s ease-in 0s;
-  display: flex;
+  display: block;
   @include breakpoint("medium") {
     width: 98vw;
     border-radius: 3px;
@@ -34,10 +34,8 @@
   }
 }
 
-#masthead.not-a-post {
-}
-
-#masthead.is-single-post {
+.header-container {
+	display: flex;
 }
 
 #header-logo {
@@ -76,6 +74,7 @@
   flex-direction: column;
   align-items: start;
   max-width: calc(100vw - 98px);
+	width: 0%;
   .site-branding,
   #header__post-info,
   #header__page-name {
@@ -183,4 +182,8 @@
   ul {
     display: block;
   }
+}
+
+.main-navigation.toggled #primary-menu {
+	left: 98vw !important;
 }

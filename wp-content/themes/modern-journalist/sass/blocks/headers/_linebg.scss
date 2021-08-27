@@ -66,7 +66,7 @@
       justify-content: center;
     }
     @include breakpoint("large") {
-      grid-template-columns: 3px 700px 400px;
+      grid-template-columns: 3px 900px 400px;
     }
   }
 
@@ -123,7 +123,7 @@
       justify-content: center;
     }
     @include breakpoint("large") {
-      grid-template-columns: 3px 700px 400px;
+      grid-template-columns: 3px 900px 400px;
     }
 
     &::after {
@@ -181,5 +181,9 @@
 
   .post__authors {
     padding-bottom: 2rem;
+  }
+	.post__intro,
+	.post__authors {
+    max-width: 700px;
   }
 }

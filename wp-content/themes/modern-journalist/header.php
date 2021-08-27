@@ -31,7 +31,7 @@
 								echo "not-a-post";
 						endif;
 						?> ">
-
+<div class="header-container">
 		<div id="header-logo">
 				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home" alt="Homepage">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/small-logo.svg" /></a>
@@ -70,6 +70,7 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+			</div>
 	</header><!-- #masthead -->
 
 	<div id="content">

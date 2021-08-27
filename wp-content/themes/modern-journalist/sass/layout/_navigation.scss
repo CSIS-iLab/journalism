@@ -3,7 +3,7 @@
 ==============================*/
 
 #site-navigation {
-   
+
     display: flex;
     float: left;
     height: 100%;
@@ -93,7 +93,9 @@
     padding: 0 1rem 0 0;
     margin: 0;
     display: flex;
+
     @include breakpoint("medium") {
+
         height: 100%; //position: absolute;
         padding: 0 0 0 2rem;
         height: 40px;
@@ -158,4 +160,9 @@
     @include breakpoint("medium") {
         color: $color-dkblue;
     }
+}
+
+
+.main-navigation.toggled #primary-menu {
+	left: 98vw !important;
 }

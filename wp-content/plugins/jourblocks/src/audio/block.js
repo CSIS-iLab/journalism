@@ -6,101 +6,105 @@ const el = wp.element.createElement;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 const {
-  RichText,
-  BlockControls,
-  BlockFormatControls,
-  AlignmentToolbar,
-  InnerBlocks,
-  InspectorControls,
-  PlainText,
-  withColors,
-  MediaUpload
+	RichText,
+	BlockControls,
+	BlockFormatControls,
+	AlignmentToolbar,
+	InnerBlocks,
+	InspectorControls,
+	PlainText,
+	withColors,
+	MediaUpload,
 } = wp.editor;
 const {
-  PanelBody,
-  PanelRow,
-  Button,
-  RangeControl,
-  Dashicon,
-  Tooltip,
-  ToggleControl,
-  ColorPicker
+	PanelBody,
+	PanelRow,
+	Button,
+	RangeControl,
+	Dashicon,
+	Tooltip,
+	ToggleControl,
+	ColorPicker,
 } = wp.components;
 
 registerBlockType("jourblocks/audio", {
-  title: "Audio",
-  description: __(
-    "Add an audio player and mini profiles of the speakers (optional).",
-    "jourblocks"
-  ),
-  category: "common",
-  icon: "controls-volumeon",
-  keywords: [
-    __("Audio", "jourblocks"),
-    __("Listen", "jourblocks"),
-    __("Player", "jourblocks")
-  ],
-  attributes: {
-    title: {
-      type: "string"
-    },
-    color: {
-      type: "string"
-    },
-    align: {
-      type: "string",
-      default: "right"
-    }
-  },
-  supports: {
-    align: ["right"]
-  },
-  edit({ attributes, className, setAttributes }) {
-    const { caption, color, title } = attributes;
+	title: "Audio",
+	description: __(
+		"Add an audio player and mini profiles of the speakers (optional).",
+		"jourblocks"
+	),
+	category: "common",
+	icon: "controls-volumeon",
+	keywords: [
+		__("Audio", "jourblocks"),
+		__("Listen", "jourblocks"),
+		__("Player", "jourblocks"),
+	],
+	attributes: {
+		title: {
+			type: "string",
+		},
+		color: {
+			type: "string",
+		},
+		align: {
+			type: "string",
+			default: "right",
+		},
+	},
+	supports: {
+		align: ["right"],
+	},
+	edit({ attributes, className, setAttributes }) {
+		const { caption, color, title } = attributes;
 
-    function setColor(newColor) {
-      setAttributes({ color: newColor });
-    }
-    return (
-      <Fragment>
-        <InspectorControls>
-          <PanelBody title={__("Color Settings")}>
-            <PanelRow>
-              <ColorPicker
-                color={attributes.color}
-                onChangeComplete={value => setColor(value.hex)}
-                disableAlpha
-              />
-            </PanelRow>
-          </PanelBody>
-        </InspectorControls>
-        <div>
-          {" "}
-          <div className="component__title">
-            <PlainText
-              onChange={title => setAttributes({ title: title })}
-              value={attributes.title}
-              placeholder="Title"
-            />
-          </div>
-          <InnerBlocks
-            allowedBlocks={["core/audio", "jourblocks/audio-profile"]}
-            template={TEMPLATEAU}
-          />
-        </div>
-      </Fragment>
-    );
-  },
-  save({ attributes }) {
-    const { title, color, align } = attributes;
-    return (
-      <div>
-        <div class="component__title">{attributes.title}</div>
-        <InnerBlocks.Content />
-      </div>
-    );
-  }
+		function setColor(newColor) {
+			setAttributes({ color: newColor });
+		}
+		return (
+			<Fragment>
+				<InspectorControls>
+					<PanelBody title={__("Color Settings")}>
+						<PanelRow>
+							<ColorPicker
+								color={attributes.color}
+								onChangeComplete={(value) => setColor(value.hex)}
+								disableAlpha
+							/>
+						</PanelRow>
+					</PanelBody>
+				</InspectorControls>
+				<div>
+					{" "}
+					<div className="component__title">
+						<PlainText
+							onChange={(title) => setAttributes({ title: title })}
+							value={attributes.title}
+							placeholder="Title"
+						/>
+					</div>
+					<InnerBlocks
+						allowedBlocks={["core/audio", "jourblocks/audio-profile"]}
+						template={TEMPLATEAU}
+					/>
+				</div>
+			</Fragment>
+		);
+	},
+	save({ attributes }) {
+		const { title, color, align } = attributes;
+		return (
+			<div>
+				<div class="component__title">{attributes.title}</div>
+				<InnerBlocks.Content />
+			</div>
+		);
+	},
 });
 
 //import "./player.js";
-const TEMPLATEAU = [["core/audio", {}], ["jourblocks/audio-profile", {}]];
+const TEMPLATEAU = [
+	["core/audio", {}],
+	["jourblocks/audio-profile", {}],
+	["core/buttons", {}],
+];

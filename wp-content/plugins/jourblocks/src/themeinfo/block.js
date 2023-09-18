@@ -7,22 +7,20 @@
 
 import "./style.scss";
 import "./editor.scss";
-//import "./block-agenda.js";
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { SelectControl, PanelBody, FormFileUpload, Button } = wp.components;
-const { Component, Fragment } = wp.element;
-const { apiFetch } = wp;
-const { withState } = wp.compose;
+const { SelectControl, Button } = wp.components;
+const { Component, Fragment, useRef } = wp.element;
+const { BlockControls } = wp.editor;
 const {
   RichText,
   PlainText,
   MediaUpload,
   InspectorControls,
-  BlockControls,
-  InnerBlocks
-} = wp.editor;
+  InnerBlocks,
+  } = wp.blockEditor;
+const { useSelect } = wp.data;
 
 /**
  * Register: aa Gutenberg Block.
@@ -124,21 +122,36 @@ registerBlockType("jourblocks/themeinfo", {
     } = props.attributes;
     const postSelections = [];
 
-    const allPosts = apiFetch({ path: "/wp/v2/posts" }).then(fps => {
-      postSelections.push({ label: "Select a Post", value: 0 });
-      $.each(fps, function(key, val) {
-        postSelections.push({
+    const { allPosts } = useSelect( ( select ) => {
+      const { getEntityRecords } = select( 'core' );
+    
+      // Query args
+      const query = {
+        status: 'publish',
+        per_page: -1
+      }
+    
+      return {
+        allPosts: getEntityRecords( 'postType', 'post', query ),
+      }
+    } )
+
+    postSelections.push({ label: "Select a Post", value: 0 });
+    if( allPosts ) {
+      allPosts.forEach( ( val ) => {
+        postSelections.push( {
           label: val.title.rendered,
           value: val.id,
           idv: val.id,
           content: val.excerpt.rendered,
           url: val.link,
           img: val.featured_image_src
-        });
-      });
-      return postSelections;
-      //console.log(postSelections);
-    });
+        })
+      })
+    } else {
+      postSelections.push( { value: 0, label: 'Loading...' } )
+    }
+
 
     function onChangeSelectPost(value, array) {
       function findObjectByKey(array, key, value) {
@@ -202,7 +215,7 @@ registerBlockType("jourblocks/themeinfo", {
       <Fragment>
         <InspectorControls>
           <SelectControl
-            label={__("Select some users:")}
+            label={__("Select a post:")}
             value={selectedPost} // e.g: value = [ 'a', 'c' ]
             onChange={post => {
               onChangeSelectPost(post, postSelections);

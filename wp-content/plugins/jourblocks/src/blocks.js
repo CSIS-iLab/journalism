@@ -12,21 +12,22 @@
 
 //import "./block/block.js";
 //import "./block/block_old.js";
-import "./postmeta.js";
-import "./testimonialmeta.js";
-import "./text-overlay/block.js";
-import "./profile/block.js";
-import "./dialog/block.js";
+import "./audio/block-audioprofile.js";
+import "./audio/block.js";
 import "./authors/block-authorprofile.js";
 import "./authors/block.js";
-import "./definitions/block.js";
-//import "./group-img/block.js";
-import "./infocus/block.js";
-//import "./header/block.js";
-import "./audio/block.js";
 import "./dataviz/block.js";
-import "./audio/block-audioprofile.js";
+import "./definitions/block.js";
+import "./dialog/block.js";
+//import "./group-img/block.js";
+//import "./header/block.js";
+import "./infocus/block.js";
+import "./profile/block.js";
+import "./student-list/block.js";
+import "./text-overlay/block.js";
 import "./themeinfo/block.js";
+import "./postmeta.js";
+import "./testimonialmeta.js";
 // adding block
 
 const { registerPlugin } = wp.plugins;

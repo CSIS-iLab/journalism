@@ -23,7 +23,6 @@ import "./dialog/block.js";
 //import "./header/block.js";
 import "./infocus/block.js";
 import "./profile/block.js";
-import "./student-list/block.js";
 import "./text-overlay/block.js";
 import "./themeinfo/block.js";
 import "./postmeta.js";

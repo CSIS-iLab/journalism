@@ -1,4 +1,4 @@
-<div id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <a class="post-block" href="<?php echo esc_url(get_permalink()) ?>" alt="<?php the_title() ?>">
 
       <div class="post-entry-thumb objfit">

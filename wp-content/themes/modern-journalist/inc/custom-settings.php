@@ -319,7 +319,7 @@ function modern_journalist_admin_init_section_homepage()
 }
 
 /**
- * Homepage section description.
+ * Homepage section description. 
  */
 function modern_journalist_display_section_homepage_message()
 {

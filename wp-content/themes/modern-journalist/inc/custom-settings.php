@@ -319,6 +319,15 @@ function modern_journalist_admin_init_section_homepage()
 }
 
 /**
+ * Homepage section description.
+ */
+function modern_journalist_display_section_homepage_message()
+{
+    echo 'Customize the Homepage settings here.';
+}
+
+
+/**
  * Renders the text input fields.
  *
  * @param  Array $args Array of arguments passed by callback function.

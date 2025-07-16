@@ -46,7 +46,7 @@ function multi_block_cgb_editor_assets() {
 	wp_enqueue_script(
 		'multi_block-cgb-block-js', // Handle.
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-compose', 'lodash', 'wp-hooks', 'wp-plugins', 'wp-edit-post', 'wp-data',  'wp-api', 'wp-api-fetch') // Dependencies, defined above.
+		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-compose', 'lodash', 'wp-hooks', 'wp-plugins', 'wp-edit-post', 'wp-data',  'wp-api', 'wp-api-fetch', 'wp-block-editor') // Dependencies, defined above.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ) // Version: File modification time.
 	);
 

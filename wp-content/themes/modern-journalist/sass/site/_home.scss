@@ -192,20 +192,20 @@
 
 
     .home-about-sponsor_container {
-
+      display: flex;
+      flex-direction: column;
         margin-bottom: 32px;
+        align-items: center;
         @include breakpoint("small") {
-               display: flex;
-            align-items: center;
+               flex-direction: row;
         }
 
          @include breakpoint("medium") {
-               display: block;
-             margin-bottom: 0;
+          flex-direction: column;
         }
          @include breakpoint("large") {
-               display: flex;
-             align-items: center;
+          flex-direction: row;
+           
         }
 
 
@@ -214,6 +214,7 @@
         @extend figcaption;
             text-align: center !important;
             font-style: italic;
+            
              @include breakpoint("small") {
                  text-align: left !important;
             }
@@ -226,7 +227,7 @@
         }
 
 				img {
-					max-width: 400px;
+					max-width: 300px;
 				}
     }
   .home-about_csis {
